@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 4.2.1">
@@ -74,12 +74,12 @@
   .use-motion .logo-line-before i { left: initial; }
   .use-motion .logo-line-after i { right: initial; }
   </style>
-</noscript>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
-  <div class="container use-motion">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
     <div class="headband"></div>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -210,12 +210,8 @@
       
         <p>欧拉筛法，一种可以在线性的时间复杂度内筛出素数的算法。</p>
 <a id="more"></a>
-
 <h4 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h4><p>对于每一个数（无论质数合数）x，筛掉所有小于x<strong>最小质因子</strong>的质数乘以x的数。比如对于77,它分解质因数是7*11，那么筛掉所有小于7的质数*77，筛掉2*77、3*77、5*77。</p>
 <h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//vis[]   记录一个数是否被访问过的数组</span></span><br><span class="line"><span class="comment">//cnt0    素数计数器</span></span><br><span class="line"><span class="comment">//prime[] 最后所有筛出来的素数都会进到这个数组里面</span></span><br><span class="line"><span class="comment">//MAXN    上限</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//准备工作</span></span><br><span class="line">vis[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">vis[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">cnt0=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=MAXN;i++)&#123;</span><br><span class="line">	<span class="keyword">if</span>(!vis[i]) prime[++cnt0]=i; <span class="comment">//若是这个数还没被访问过，则说明是素数，加入prime[]</span></span><br><span class="line">    </span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=cnt0;j++)&#123;  <span class="comment">//从已经筛出来的素数里面开始筛选，保证从小到大</span></span><br><span class="line">		<span class="keyword">if</span>(i*prime[j]&gt;MAXN) <span class="keyword">break</span>;  <span class="comment">//越过上限，而且后面的数必比他大，跳出循环</span></span><br><span class="line">		vis[i*prime[j]]=<span class="number">1</span>;  <span class="comment">//筛掉所有小于i最小质因子的质数乘以i的数</span></span><br><span class="line">		<span class="keyword">if</span>(i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;  <span class="comment">//到达最小质因数，后面的数必比他大，跳出循环</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="参考-amp-证明"><a href="#参考-amp-证明" class="headerlink" title="参考&amp;证明"></a>参考&amp;证明</h3><p><a href="https://www.cnblogs.com/jason2003/p/9761296.html" target="_blank" rel="noopener">https://www.cnblogs.com/jason2003/p/9761296.html</a></p>
 
     </div>
@@ -235,7 +231,10 @@
     <a href="/2020/07/09/P1807-%E6%9C%80%E9%95%BF%E8%B7%AF/" rel="prev" title="P1807 最长路">
       <i class="fa fa-chevron-left"></i> P1807 最长路
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/04/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A4%9A%E7%BA%BF%E7%A8%8B/" rel="next" title="Java学习笔记-多线程">
+      Java学习笔记-多线程 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -308,20 +307,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -383,7 +382,7 @@
 <script src="/js/schemes/pisces.js"></script>
 
 
-<script src="/js/next-boot.js"></script>
+<script src="/js/next-boot.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -403,6 +402,8 @@
 
 
 
+
+  
 
   
 
