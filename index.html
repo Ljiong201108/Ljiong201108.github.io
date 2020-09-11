@@ -156,6 +156,107 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/11/Python%E7%BB%83%E4%B9%A0-2020-09-11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jiong Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ljiong">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/11/Python%E7%BB%83%E4%B9%A0-2020-09-11/" class="post-title-link" itemprop="url">Python练习 2020.09.11</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-09-11 16:38:30 / 修改时间：16:42:14" itemprop="dateCreated datePublished" datetime="2020-09-11T16:38:30+02:00">2020-09-11</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="A-n阶矩阵加法"><a href="#A-n阶矩阵加法" class="headerlink" title="A. n阶矩阵加法"></a>A. n阶矩阵加法</h4><p>给两个n阶矩阵，计算它们的和并找出它们和里面出现最多的数。如果两个数出现次数都是最多的，那输出较小的那个数。</p>
+<p><strong>输入</strong></p>
+<p>第1行：一个数n，表示n阶矩阵</p>
+<p>第2~n<em>n+1行：n\</em>n个数，表示一个矩阵A。输入顺序为$a_{1,1}…a_{1,n},a_{2,1}…a_{2,n}…a_{n,n}$。</p>
+<p>第n*n+2~2*n<em>n+1行：n\</em>n个数，表示一个矩阵B。输入顺序为$b_{1,1}…b_{1,n},b_{2,1}…b_{2,n}…b_{n,n}$。</p>
+<p>所有输入的数都是正数</p>
+<p><strong>输出</strong></p>
+<p>一个列表，表示矩阵的和</p>
+<p>一个数，代表出现最多的数</p>
+<p><strong>演示样例</strong></p>
+<p>Tip：>>>开头的为输出</p>
+<p>输入可以自定义一些提示词，我懒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">4</span><br><span class="line">3</span><br><span class="line">&gt;&gt;&gt;3</span><br></pre></td></tr></table></figure>
+<h4 id="B-水仙花数"><a href="#B-水仙花数" class="headerlink" title="B. 水仙花数"></a>B. 水仙花数</h4><p><strong>这题只能用列表推导式做！！！这是规定😁</strong></p>
+<p>一个三位数，个位、十位、百位的立方之和等于这个数本身的数叫做水仙花数。</p>
+<p>比如$153$：$1^3+5^3+3^3=153$</p>
+<p><strong>输入</strong></p>
+<p>么的</p>
+<p><strong>输出</strong></p>
+<p>输出所有水仙花数。</p>
+<h4 id="C-字符串存储"><a href="#C-字符串存储" class="headerlink" title="C. 字符串存储"></a>C. 字符串存储</h4><p>你需要储存一些字符串，设计一个python程序并完成下面的关键词操作：</p>
+<p>ADD_A_ELEMENT：往列表里面指定位置添加一个字符串</p>
+<p>ADD_ELEMENTS：往列表里面指定位置添加一些字符串，顺序是输入的顺序</p>
+<p>DELETE_A_ELEMENT：删除列表中的一个指定位置的字符串</p>
+<p>DELETE_ELEMENTS：删除列表中所有指定的字符串</p>
+<p>SWAP：交换列表里面的两个字符串</p>
+<p>FIND_ALL：找到所有指定字符串的下标</p>
+<p><strong>输入</strong></p>
+<p>第1行：一个整数n，代表操作的数量</p>
+<p>后面几行：一个字符串，操作的名字，就是上面的大写字母，后面跟一些字符串和整数，详细说明如下：</p>
+<p>ADD_A_ELEMENT：再输入一个整数和一个字符串，代表指定位置和要插入的字符串。</p>
+<p>ADD_ELEMENTS：再输入两个个整数和一些字符串，代表要插入的指定位置、字符串的数量和插入的字符串们。</p>
+<p>DELETE_A_ELEMENT：再输入一个数字，代表指定位置删除。</p>
+<p>DELETE_ELEMENTS：再输入一个字符串，代表要删除的字符串。</p>
+<p>SWAP：再输入两个整数，代表要交换元素的下标。</p>
+<p>FIND_ALL：再输入一个字符串，代表要寻找的字符串。</p>
+<p><strong>输出</strong></p>
+<p>除了FIND_ALL，其他操作执行完之后输出一遍列表。</p>
+<p>FIND_ALL操作执行完后输出找到的下标。</p>
+<p><strong>演示样例</strong></p>
+<p>Tip：>>>开头的为输出</p>
+<p>输入可以自定义一些提示词，我懒</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">ADD_A_ELEMENT</span><br><span class="line">0</span><br><span class="line">xyf</span><br><span class="line">&gt;&gt;&gt;[&#39;xyf&#39;]</span><br><span class="line">ADD_ELEMENTS</span><br><span class="line">1</span><br><span class="line">6</span><br><span class="line">mq</span><br><span class="line">xsy</span><br><span class="line">xyf</span><br><span class="line">li</span><br><span class="line">lj</span><br><span class="line">xsy</span><br><span class="line">&gt;&gt;&gt;[&#39;xyf&#39;, &#39;mq&#39;, &#39;xsy&#39;, &#39;xyf&#39;, &#39;li&#39;, &#39;lj&#39;, &#39;xsy&#39;]</span><br><span class="line">ADD_ELEMENTS</span><br><span class="line">3</span><br><span class="line">6</span><br><span class="line">xyf</span><br><span class="line">mq</span><br><span class="line">xsy</span><br><span class="line">mq</span><br><span class="line">xsy</span><br><span class="line">xyf</span><br><span class="line">&gt;&gt;&gt;[&#39;xyf&#39;, &#39;mq&#39;, &#39;xsy&#39;, &#39;xyf&#39;, &#39;mq&#39;, &#39;xsy&#39;, &#39;mq&#39;, &#39;xsy&#39;, &#39;xyf&#39;, &#39;xyf&#39;, &#39;li&#39;, &#39;lj&#39;, &#39;xsy&#39;]</span><br><span class="line">DELETE_A_ELEMENT</span><br><span class="line">0</span><br><span class="line">&gt;&gt;&gt;[&#39;mq&#39;, &#39;xsy&#39;, &#39;xyf&#39;, &#39;mq&#39;, &#39;xsy&#39;, &#39;mq&#39;, &#39;xsy&#39;, &#39;xyf&#39;, &#39;xyf&#39;, &#39;li&#39;, &#39;lj&#39;, &#39;xsy&#39;]</span><br><span class="line">DELETE_ELEMENTS</span><br><span class="line">li</span><br><span class="line">&gt;&gt;&gt;[&#39;mq&#39;, &#39;xsy&#39;, &#39;xyf&#39;, &#39;mq&#39;, &#39;xsy&#39;, &#39;mq&#39;, &#39;xsy&#39;, &#39;xyf&#39;, &#39;xyf&#39;, &#39;lj&#39;, &#39;xsy&#39;]</span><br><span class="line">DELETE_ELEMENTS</span><br><span class="line">mq</span><br><span class="line">&gt;&gt;&gt;[&#39;xsy&#39;, &#39;xyf&#39;, &#39;xsy&#39;, &#39;xsy&#39;, &#39;xyf&#39;, &#39;xyf&#39;, &#39;lj&#39;, &#39;xsy&#39;]</span><br><span class="line">SWAP</span><br><span class="line">1</span><br><span class="line">6</span><br><span class="line">&gt;&gt;&gt;[&#39;xsy&#39;, &#39;lj&#39;, &#39;xsy&#39;, &#39;xsy&#39;, &#39;xyf&#39;, &#39;xyf&#39;, &#39;xyf&#39;, &#39;xsy&#39;]</span><br><span class="line">FIND_ALL</span><br><span class="line">xsy</span><br><span class="line">&gt;&gt;&gt;[0, 2, 3, 7]</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/07/Codeforces-Round-668-Div-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1266,7 +1367,7 @@ a_ib_i &(\text{if $a_i>b_i$}) \\
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-09 23:35:56" itemprop="dateModified" datetime="2020-09-09T23:35:56+02:00">2020-09-09</time>
+                <time title="修改时间：2020-09-10 17:12:41" itemprop="dateModified" datetime="2020-09-10T17:12:41+02:00">2020-09-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1396,8 +1497,8 @@ a_ib_i &(\text{if $a_i>b_i$}) \\
 <p>NORM_PRIORITY=5（默认）</p>
 <h5 id="涉及的方法"><a href="#涉及的方法" class="headerlink" title="涉及的方法"></a>涉及的方法</h5><p>int getPriority()：返回线程优先级</p>
 <p>void setPriority(int newPriority)：改变线程的优先级</p>
-<h5 id="小提示"><a href="#小提示" class="headerlink" title="小提示"></a>小提示</h5><p>线程创建时继承父线程的优先级</p>
-<p>低优先级只是获得调度的概率低，并非一定是在高优先级线程之后才被调用</p>
+<h5 id="小提示"><a href="#小提示" class="headerlink" title="小提示"></a>小提示</h5><p>线程创建时继承父线程的优先级。</p>
+<p>低优先级只是获得调度的概率低，并非一定是在高优先级线程之后才被调用。</p>
 <h4 id="补充：线程的分类"><a href="#补充：线程的分类" class="headerlink" title="补充：线程的分类"></a>补充：线程的分类</h4><p>Java的线程中分为两类：一种是<strong>用户线程</strong>，一种是<strong>守护线程</strong>。</p>
 <ul>
 <li>它们在几乎每个方面都是相同的，唯一的区别是判断JVM何时离开。</li>
@@ -1425,13 +1526,36 @@ a_ib_i &(\text{if $a_i>b_i$}) \\
 <li><strong>死亡</strong>：线程完成了它的全部工作或线程被提前强制性地中止或出现异常导致结束。</li>
 </ul>
 <p><img src="/2020/08/04/Java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E5%A4%9A%E7%BA%BF%E7%A8%8B/线程的生命周期.png" alt="线程的生命周期"></p>
-<h3 id="线程的同步"><a href="#线程的同步" class="headerlink" title="线程的同步"></a>线程的同步</h3><h3 id="线程的通信"><a href="#线程的通信" class="headerlink" title="线程的通信"></a>线程的通信</h3><h3 id="JDK5-0新增的线程创建方式"><a href="#JDK5-0新增的线程创建方式" class="headerlink" title="JDK5.0新增的线程创建方式"></a>JDK5.0新增的线程创建方式</h3><h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><ul>
+<h3 id="线程的同步"><a href="#线程的同步" class="headerlink" title="线程的同步"></a>线程的同步</h3><h4 id="线程的安全问题"><a href="#线程的安全问题" class="headerlink" title="线程的安全问题"></a>线程的安全问题</h4><p>多个线程执行的不确定性会引起执行结果的不确定性。</p>
+<p>多个线程对数据的共享，会造成操作的不完整性，会破坏数据。</p>
+<h5 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h5><p>当多条语句在操作同一个线程共享数据时，一个线程对多条语句执行了一部分，还没有执行完，另一个线程参与进来执行，导致共享数据的错误。</p>
+<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><p>对多条操作共享数据的语句，只能让一个线程都执行完，在执行的过程中，其他线程不能参与执行。</p>
+<h4 id="使用Synchronized关键字实现线程的同步"><a href="#使用Synchronized关键字实现线程的同步" class="headerlink" title="使用Synchronized关键字实现线程的同步"></a>使用Synchronized关键字实现线程的同步</h4><h5 id="同步代码块"><a href="#同步代码块" class="headerlink" title="同步代码块"></a>同步代码块</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(同步监视器)&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//需要同步的代码</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<ol>
+<li>操作共享数据的代码就是需要被同步的代码。</li>
+<li>共享数据是多个线程共同操控的变量。</li>
+<li>同步监视器俗称“锁”。任何一个类的都可以充当“锁”。</li>
+<li>多个线程必须共用<strong>同一把锁</strong>，即同步监视器必须是<strong>同一个对象</strong>。</li>
+<li>实现Runnable接口创建的线程可以考虑使用<strong>this</strong>充当同步监视器，继承Thread类创建的线程慎用<strong>this</strong>。</li>
+<li>继承Thread类创建的线程可以考虑使用<strong>(类名).class</strong>充当同步监视器。</li>
+</ol>
+<h5 id="同步方法"><a href="#同步方法" class="headerlink" title="同步方法"></a>同步方法</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//格式：</span></span><br><span class="line"><span class="comment">//访问修饰符 synchronized 返回值类型 方法名()&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//例子</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">musterMethod</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">//方法体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>说明：</p>
+<ol>
+<li>同步方法仍然涉及到同步监视器，只不过不需要显式声明。</li>
+<li><strong>非静态</strong>的同步方法的同步监视器为<strong>this</strong>，静态的同步方法的同步监视器是<strong>(类名).class</strong>。</li>
+</ol>
+<h4 id="同步的优点与局限"><a href="#同步的优点与局限" class="headerlink" title="同步的优点与局限"></a>同步的优点与局限</h4><p>优点：解决了线程的安全问题</p>
+<p>局限：操作同步时只能由一个线程参与，其他线程等待，相当于一个单线程的过程，效率较低。</p>
+<h3 id="线程的通信"><a href="#线程的通信" class="headerlink" title="线程的通信"></a>线程的通信</h3><h3 id="JDK5-0新增的线程创建方式"><a href="#JDK5-0新增的线程创建方式" class="headerlink" title="JDK5.0新增的线程创建方式"></a>JDK5.0新增的线程创建方式</h3><h3 id="Q-amp-A"><a href="#Q-amp-A" class="headerlink" title="Q&amp;A"></a>Q&amp;A</h3><h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><ul>
 <li>2020.08.17 更新<strong>基本概念：程序 进程 线程</strong>中的定义和线程与进程的关系。</li>
 <li>2020.08.20 更新<strong>基本概念：程序 进程 线程</strong>中的单核CPU和多核CPU的理解、并行与并发的辨析和何时需要多线程。第一节更新完毕。</li>
 <li>2020.09.05 开始更新<strong>线程的创建和使用（重点）</strong></li>
 <li>2020.09.06 继续更新<strong>线程的创建和使用（重点）</strong>，完成了方式一的代码和输出。完成<strong>Thread类的常用方法</strong>。</li>
 <li>2020.09.07 继续更新<strong>线程的创建和使用（重点）</strong>，完成了<strong>线程的调度</strong>，线程的创建<strong>方式二：实现Runnable接口</strong>。</li>
-<li>2020.09.09 更新<strong>线程的创建和使用（重点）</strong>中的<strong>线程的分类</strong>。</li>
+<li>2020.09.09 更新<strong>线程的创建和使用（重点）</strong>中的<strong>线程的分类</strong>和<strong>线程的生命周期</strong>。</li>
+<li>2020.09.10 开始更新<strong>线程的同步</strong>。</li>
 </ul>
 
       
@@ -1523,92 +1647,10 @@ a_ib_i &(\text{if $a_i>b_i$}) \\
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/P1807-%E6%9C%80%E9%95%BF%E8%B7%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jiong Liu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ljiong">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/09/P1807-%E6%9C%80%E9%95%BF%E8%B7%AF/" class="post-title-link" itemprop="url">P1807 最长路</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-09 16:57:38" itemprop="dateCreated datePublished" datetime="2020-07-09T16:57:38+02:00">2020-07-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-04 23:58:36" itemprop="dateModified" datetime="2020-08-04T23:58:36+02:00">2020-08-04</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a href="https://www.luogu.com.cn/problem/P1807" target="_blank" rel="noopener">题目原文及输入/输出格式</a></p>
-<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>设$G$为有$n$个顶点的带权有向无环图，$G$中各顶点的编号为$1$到$n$，请设计算法，计算图$G$中 $<1,n>$间的最长路径。</1,n></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/09/P1807-%E6%9C%80%E9%95%BF%E8%B7%AF/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1674,7 +1716,7 @@ a_ib_i &(\text{if $a_i>b_i$}) \\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1687,7 +1729,7 @@ a_ib_i &(\text{if $a_i>b_i$}) \\
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
