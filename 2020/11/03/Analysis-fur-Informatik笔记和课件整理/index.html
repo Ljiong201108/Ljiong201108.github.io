@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Dozent: Noam Berger Kontakt: noam.berger@tum.de Übungsleiter: Stefan Possaner &amp;nbsp; 03.11.2020erste Vorlesung Thema: Mengenterminologie, reele Zahlen und Vektor &amp;nbsp; MengenterminologieEine Menge is">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Analysis für Informatik笔记和课件整理">
+<meta property="og:url" content="http://yoursite.com/2020/11/03/Analysis-fur-Informatik%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="Ljiong">
+<meta property="og:description" content="Dozent: Noam Berger Kontakt: noam.berger@tum.de Übungsleiter: Stefan Possaner &amp;nbsp; 03.11.2020erste Vorlesung Thema: Mengenterminologie, reele Zahlen und Vektor &amp;nbsp; MengenterminologieEine Menge is">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-03T20:11:08.000Z">
+<meta property="article:modified_time" content="2020-11-03T23:03:51.283Z">
+<meta property="article:author" content="Jiong Liu">
+<meta property="article:tag" content="TUM">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/11/03/Analysis-fur-Informatik%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Analysis für Informatik笔记和课件整理 | Ljiong</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ljiong</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Programm | Life</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/03/Analysis-fur-Informatik%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jiong Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ljiong">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Analysis für Informatik笔记和课件整理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-11-03 21:11:08" itemprop="dateCreated datePublished" datetime="2020-11-03T21:11:08+01:00">2020-11-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-04 00:03:51" itemprop="dateModified" datetime="2020-11-04T00:03:51+01:00">2020-11-04</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">课堂笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Dozent: Noam Berger</p>
+<p>Kontakt: noam.berger@tum.de</p>
+<p>Übungsleiter: Stefan Possaner</p>
+<p>&nbsp;</p>
+<h3 id="03-11-2020"><a href="#03-11-2020" class="headerlink" title="03.11.2020"></a>03.11.2020</h3><p>erste Vorlesung</p>
+<p>Thema: Mengenterminologie, reele Zahlen und Vektor</p>
+<p>&nbsp;</p>
+<h4 id="Mengenterminologie"><a href="#Mengenterminologie" class="headerlink" title="Mengenterminologie"></a>Mengenterminologie</h4><p>Eine Menge ist die Zusammenfassung von einzelnen Elementen. Wir schreiben $x \in A$, falls $x$ in der Menge $A$ ist und $x \notin A$ sonst. </p>
+<p>&nbsp;</p>
+<h5 id="Schreibweise-fur-Mengen"><a href="#Schreibweise-fur-Mengen" class="headerlink" title="Schreibweise für Mengen"></a>Schreibweise für Mengen</h5><p>(i) $A=\{1,2,3,4\}$</p>
+<p>(ii) $A=\{Alle\ ganzen\ Zahlen\ zwischen\ 1\ und\ 4\}$</p>
+<p>(iii) $A=\{n \in \mathbb{Z}\ |\ 1\leqslant n \leqslant 4\}$</p>
+<p>&nbsp;</p>
+<h5 id="wichtige-Mengen"><a href="#wichtige-Mengen" class="headerlink" title="wichtige Mengen"></a>wichtige Mengen</h5><p>$\emptyset=\{\}\ :\ \forall_n\ x\notin \varnothing$</p>
+<p>$\mathbb{Z}=\{alle\ ganzen\ Zahlen\}$</p>
+<p>$\mathbb{R}=\{alle\ reellen\ Zahlen\}$</p>
+<p>$\mathbb{Q}=\{alle\ rationalen\ Zahlen\}$</p>
+<p>$\mathbb{N}=\{x\in\mathbb{Z}\ |\ x\geqslant 0\}$</p>
+<p>Manchmal schreiben wir $\mathbb{N}_0$, $\mathbb{N}_{&gt;0}=\{1,2,3,…\}=\{x\in\mathbb{Z}\ |\ x&gt; 0\}$</p>
+<p>&nbsp;</p>
+<p>Definition 1.1: $B$ heisst Teilmenge von $A$, $B \subseteq A$, falls $\forall_x x\in B\ \Rightarrow\ x \in A$</p>
+<p>Beispiel: $\emptyset \subseteq \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$</p>
+<p>&nbsp;</p>
+<h5 id="Mengenoperationen"><a href="#Mengenoperationen" class="headerlink" title="Mengenoperationen"></a>Mengenoperationen</h5><p>(1) Vereinigung: $A \cup B=\{n\ |\ n \in A\ or\ n \in B\}$</p>
+<p>(2) Schnitt: $A\cap B=\{n\ |\ x \in A\ und\ x \in B\}$</p>
+<p>(3) Differenz: $A\backslash B=\{x\ |\ x \in A\ und\ x \in B\}$</p>
+<p>(4) kartesische Produkt: $A \times B=\{(x,y)\ |\ x\in A,y \in B\}$</p>
+<p>(5) Protenzmenge: $P(A)=\{B\ |\ B\subseteq A\}$</p>
+<p>Beispiel: $P(\{0,1\})=\{\emptyset,\{0\},\{1\},\{0,1\}\}$</p>
+<p>&nbsp;</p>
+<h5 id="Abblidung"><a href="#Abblidung" class="headerlink" title="Abblidung"></a>Abblidung</h5><p>Eine <strong>Abbildung</strong> oder <strong>Funktion</strong> ist eine Beziehung zwieschen 2 Mengen, die jedem Element der einen Menge genau ein Element der anderen Menge zuordnet.</p>
+<p>Wir schreiben $f:A \rightarrow B$ für eine Funktion $f$ von $A$ in $B$.</p>
+<p>&nbsp;</p>
+<p>Definition 1.2: Eine Funktion $f:A \rightarrow B$ heißt</p>
+<p>(i) injektiv, falls $\forall_{x \neq y \in A}  f(x) \neq f(y)$</p>
+<p>(ii) surjektiv, falls $\forall_{y \in B} \exists_{x\in A} f(x)=y$</p>
+<p>(iii) bijektiv, falls sie sowohl injektiv als auch surjektiv ist</p>
+<p>&nbsp;</p>
+<h5 id="Kardinalitaten"><a href="#Kardinalitaten" class="headerlink" title="Kardinalitäten"></a>Kardinalitäten</h5><p>Wir sagen, dass die Mengen $A$ und $B$ die selbe Kardinalität(auch Mächtigkeit) gaben, falls eine Bijektion zwischen $A$ und $B$ existiert.</p>
+<p>Wir schreiben das $\vert A\vert = \vert B \vert$.</p>
+<p>&nbsp;</p>
+<p>Wir sagen, dass die Kardinalitäte von $A$ größer gleich ist die Kardinalität von $B$, falls eine Surjektion von $A$ in $B$ existert.</p>
+<p>wir schreiben das $\vert A \vert \geq \vert B \vert$.</p>
+<p>&nbsp;</p>
+<p>Axiom 1.3 (das Auswahl-Axiom):</p>
+<p>Eine Surjektion von $A$ in $B$ existiert genau dann, wenn eine Injektion von $B$ in $A$ existiert.</p>
+<p>$\Rightarrow \vert A \vert \geq \vert B \vert$ genau dann, wenn es eine Injektion von $B$ in $A$ gibt.</p>
+<p>为什么等同？</p>
+<p>&nbsp;</p>
+<p>Satz 1.4: Fur jede $A$ und $B$ entweder $\vert A \vert \leq \vert B \vert$ oder $\vert A \vert \geq \vert B \vert$.</p>
+<p>Satz 1.5 (Cantor-Berstein):</p>
+<p>Falls $\vert A \vert \leq \vert B \vert$ und $\vert B \vert \leq \vert A \vert$, dann $\vert A \vert = \vert B$.</p>
+<p>&nbsp;</p>
+<p>Definition 1.6: Menge $A$ heißt abzählbar (countable), falls $\vert A \vert = \vert \mathbb{N} \vert$. In diesem Fall schreibt man $\vert A \vert = \alef_0$.</p>
+<p>Beispiele: $\vert \mathbb{N} \vert = \vert \mathbb{Z} \vert =\vert \mathbb{Z}^2 \vert =\vert \mathbb{Q} \vert = \alef_0$ aber $\vert \mathbb{R} \vert &gt; \alef_0$</p>
+<p>Beweis das $\vert \mathbb{R} \vert &gt; \alef_0$ (cantor’s diagonal)</p>
+<p>Nehme an, dass $\mathbb{R}$ abzählbar wäre, dann gäbe es eine Surjektion $f:\mathbb{N} \rightarrow [0,1)$.</p>
+<p>Sei $d_1$ die erste Ziffer in der Dezimalentwicklung von $f(1)$, $d_2$ die zweite Ziffer in der Dezimalentwicklung von $f(2)$, … , $d_n$ die n-te Ziffer in der Dezimalentwicklung von $f(n)$.</p>
+<p>Für jeder n, sei</p>
+<script type="math/tex; mode=display">
+c_n=
+\begin{cases}
+2\ falls\ d_n \neq 2\\
+5\ falls\ d_n = 2
+\end{cases}</script><p>deshalb ist $c_n$ immer anders als $d_n$.</p>
+<p>$0.c_1\ c_2\ c_3… =: y$</p>
+<p>Für jeden $n$, die n-te Ziffer in der dezimalentwicklung von $y$ ist $c_n \neq d_n$, die n-te Ziffer in der Dezimalentwicklung von $f(n)$ .</p>
+<p>$\Rightarrow\forall_n y \neq f(n)$</p>
+<p>$\Rightarrow f$ ist nicht wurjektiv. Widerspruch</p>
+<p>$\Rightarrow$ Surjeketion $\mathbb{N} \rightarrow \mathbb{R}$ existiert nicht</p>
+<p>$\Rightarrow$ $\vert \mathbb{N} \vert &lt; \vert \mathbb{R} \vert$</p>
+<p>q.e.d</p>
+<p>&nbsp;</p>
+<h4 id="Reelle-Zahlen-und-Vektoren"><a href="#Reelle-Zahlen-und-Vektoren" class="headerlink" title="Reelle Zahlen und Vektoren"></a>Reelle Zahlen und Vektoren</h4><p>Definition 2.1: Ein Körper (F, +, ·) ist eine Menge F mit zweo Operationen +,· , sodass,</p>
+<p>(1) $\forall_{x,y,z \in F}\ (x+y)+z=x+(y+z)$</p>
+<p>(2) $\forall_{x,y}\ x+y=y+x$</p>
+<p>(3) $\exists_0 \forall_x\ x+0=0+x=x$</p>
+<p>(4) $\forall_x \exists_y\ x+y=y+x=0$</p>
+<p>(5) $\forall_{x,y,z}\ (x·y)·z=x·(y·z)$</p>
+<p>(6) $\forall_{x,y}\ x·y=y·x$</p>
+<p>(7) $\exists_{1 \in F} \forall_{x \neq 0}\ x·1=1·x=x$</p>
+<p>(8) $\forall_{x \neq 0} \exists_y\ x·y=y·x=1$</p>
+<p>(9) $\forall_{x,y,z}\ x·(y+z)=x·y+x·z$</p>
+<p>&nbsp;</p>
+<p>Ein Körper heißt <strong>angeordnet</strong>, falls es eine relation &lt; gibt, sodass:</p>
+<p>(1) für jeden $x$ gilt genau eins der folgenden: $x&gt;0$ oder $x&lt;0$ oder $x=0$</p>
+<p>(2) falls $x,y&gt;0;\ x+y&gt;0;\ x·y&gt;0$</p>
+<p>(3) $\forall_{x,y}\ x&gt;y\ \Leftrightarrow\ x-y&gt;0$</p>
+<p>Beispiele: $\mathbb{N}$ und $\mathbb{Z}$ sind keine Körper, $\mathbb{Q}$ und $\mathbb{R}$ sind Körper. $\mathbb{Q}$ und $\mathbb{R}$ sind angeordnet.</p>
+<p>&nbsp;</p>
+<p>Man schreibt:</p>
+<p>$[a,b]=\{x\ |\ a\leq x \leq b\}$</p>
+<p>$(a,b)=\{x\ |\ a&lt;x&lt;b\}$</p>
+<p>&nbsp;</p>
+<p>Definition 2.2: (obere Schranke)</p>
+<p>Eine Zahl $x$ heißt <strong>obere Schranke</strong> einer Teilmenge $A$, falls $\forall_{y \in A}\ x \geq y$.</p>
+<p>$A$  heißt <strong>nach oben beschränkt</strong>, falls $A$ eine obere Schranke hat.</p>
+<p>Analog definiert man untere Schranke.</p>
+<p>&nbsp;</p>
+<p>Definition 2.3:</p>
+<p>Eine Zahl $x$ heißt maximum einer Teilmenge $A$, falls $x \in A$ und ist eine obere Schranke von $A$. </p>
+<p>Anolog definiert man das Minimum einer Teilmenge. </p>
+<p>&nbsp;</p>
+<p>Definition 2.4: </p>
+<p>Eine Zahl $x$ heißt supremum einer Teilmenge $A$, falls $x=min\{obere\ Schranken\ von\ A\}$.</p>
+<p>Wir schreiben $sup\ A$.</p>
+<p>$sup\ \emptyset=-\infty$</p>
+<p>Falls $A$ nicht nach oben beschränkt ist, schreiben wie $sup\ A=\infty$.</p>
+<p>&nbsp;</p>
+<p>Definition 2.5:</p>
+<p>Ein angeordneter Körper heißt <strong>vollständig</strong>, falls jede nicht leere nach oben beschränkte Teilmenge ein Supremum besitzt.</p>
+<p>Beispiel: $\mathbb{Q}$ ist nicht vollständig. (Übung)</p>
+<p>&nbsp;</p>
+<p>Axiom 2.6 (Vollständigkeit): $\mathbb{R}$ ist vollständig.</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TUM/" rel="tag"># TUM</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/09/27/GCPC%E8%AE%AD%E7%BB%83%E7%AC%94%E8%AE%B0-Week1/" rel="prev" title="ICPC训练笔记-Week1">
+      <i class="fa fa-chevron-left"></i> ICPC训练笔记-Week1
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#03-11-2020"><span class="nav-number">1.</span> <span class="nav-text">03.11.2020</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mengenterminologie"><span class="nav-number">1.1.</span> <span class="nav-text">Mengenterminologie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Schreibweise-fur-Mengen"><span class="nav-number">1.1.1.</span> <span class="nav-text">Schreibweise für Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#wichtige-Mengen"><span class="nav-number">1.1.2.</span> <span class="nav-text">wichtige Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mengenoperationen"><span class="nav-number">1.1.3.</span> <span class="nav-text">Mengenoperationen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Abblidung"><span class="nav-number">1.1.4.</span> <span class="nav-text">Abblidung</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Kardinalitaten"><span class="nav-number">1.1.5.</span> <span class="nav-text">Kardinalitäten</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reelle-Zahlen-und-Vektoren"><span class="nav-number">1.2.</span> <span class="nav-text">Reelle Zahlen und Vektoren</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jiong Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiong Liu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  
+
+</body>
+</html>
