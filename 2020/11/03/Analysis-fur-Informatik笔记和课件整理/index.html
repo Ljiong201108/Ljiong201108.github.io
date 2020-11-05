@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Dozent: Noam Berger Kontakt: noam.berger@tum.de Übungsleiter: Stefan Possaner &amp;nbsp; 03.11.2020erste Vorlesung Thema: Mengenterminologie, reele Zahlen und Vektor &amp;nbsp; MengenterminologieEine Menge is">
+  <meta name="description" content="Dozent: Noam Berger Kontakt: noam.berger@tum.de Übungsleiter: Stefan Possaner &amp;nbsp; 03.11.2020Vorlesung 1 Thema: Mengenterminologie, reele Zahlen und Vektor &amp;nbsp; MengenterminologieEine Menge ist di">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Analysis für Informatik笔记和课件整理">
 <meta property="og:url" content="http://yoursite.com/2020/11/03/Analysis-fur-Informatik%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/index.html">
 <meta property="og:site_name" content="Ljiong">
-<meta property="og:description" content="Dozent: Noam Berger Kontakt: noam.berger@tum.de Übungsleiter: Stefan Possaner &amp;nbsp; 03.11.2020erste Vorlesung Thema: Mengenterminologie, reele Zahlen und Vektor &amp;nbsp; MengenterminologieEine Menge is">
+<meta property="og:description" content="Dozent: Noam Berger Kontakt: noam.berger@tum.de Übungsleiter: Stefan Possaner &amp;nbsp; 03.11.2020Vorlesung 1 Thema: Mengenterminologie, reele Zahlen und Vektor &amp;nbsp; MengenterminologieEine Menge ist di">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-03T20:11:08.000Z">
-<meta property="article:modified_time" content="2020-11-03T23:03:51.283Z">
+<meta property="article:modified_time" content="2020-11-05T15:16:18.366Z">
 <meta property="article:author" content="Jiong Liu">
 <meta property="article:tag" content="TUM">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-04 00:03:51" itemprop="dateModified" datetime="2020-11-04T00:03:51+01:00">2020-11-04</time>
+                <time title="修改时间：2020-11-05 16:16:18" itemprop="dateModified" datetime="2020-11-05T16:16:18+01:00">2020-11-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -219,58 +219,97 @@
 <p>Kontakt: noam.berger@tum.de</p>
 <p>Übungsleiter: Stefan Possaner</p>
 <p>&nbsp;</p>
-<h3 id="03-11-2020"><a href="#03-11-2020" class="headerlink" title="03.11.2020"></a>03.11.2020</h3><p>erste Vorlesung</p>
+<h3 id="03-11-2020"><a href="#03-11-2020" class="headerlink" title="03.11.2020"></a>03.11.2020</h3><p>Vorlesung 1</p>
 <p>Thema: Mengenterminologie, reele Zahlen und Vektor</p>
 <p>&nbsp;</p>
-<h4 id="Mengenterminologie"><a href="#Mengenterminologie" class="headerlink" title="Mengenterminologie"></a>Mengenterminologie</h4><p>Eine Menge ist die Zusammenfassung von einzelnen Elementen. Wir schreiben $x \in A$, falls $x$ in der Menge $A$ ist und $x \notin A$ sonst. </p>
+<h4 id="Mengenterminologie"><a href="#Mengenterminologie" class="headerlink" title="Mengenterminologie"></a>Mengenterminologie</h4><p>Eine Menge ist die Zusammenfassung von einzelnen Elementen. </p>
+<font color="#FF0000">Wir schreiben $x \in A$, falls $x$ in der Menge $A$ ist und $x \notin A$ sonst. </font>
+
 <p>&nbsp;</p>
-<h5 id="Schreibweise-fur-Mengen"><a href="#Schreibweise-fur-Mengen" class="headerlink" title="Schreibweise für Mengen"></a>Schreibweise für Mengen</h5><p>(i) $A=\{1,2,3,4\}$</p>
-<p>(ii) $A=\{Alle\ ganzen\ Zahlen\ zwischen\ 1\ und\ 4\}$</p>
-<p>(iii) $A=\{n \in \mathbb{Z}\ |\ 1\leqslant n \leqslant 4\}$</p>
+<h5 id="Schreibweise-fur-Mengen"><a href="#Schreibweise-fur-Mengen" class="headerlink" title="Schreibweise für Mengen"></a>Schreibweise für Mengen</h5><p>Es gibt mehrere Schreibweisen für Menge. Wir beschreiben hier drei davon:</p>
+<ul>
+<li><p>$A=\{1,2,3,4\}$</p>
+</li>
+<li><p>$A=\{\text{Alle ganzen Zahlen zwischen 1 und 4}\}$</p>
+</li>
+<li><p>$A=\{n \in \mathbb{Z}\ :\ 1\leqslant n \leqslant 4\}$</p>
+</li>
+</ul>
+<font color="#0000CD">德语里里面分隔符不同于中国，用的是冒号“ : ”</font>
+
 <p>&nbsp;</p>
-<h5 id="wichtige-Mengen"><a href="#wichtige-Mengen" class="headerlink" title="wichtige Mengen"></a>wichtige Mengen</h5><p>$\emptyset=\{\}\ :\ \forall_n\ x\notin \varnothing$</p>
-<p>$\mathbb{Z}=\{alle\ ganzen\ Zahlen\}$</p>
-<p>$\mathbb{R}=\{alle\ reellen\ Zahlen\}$</p>
-<p>$\mathbb{Q}=\{alle\ rationalen\ Zahlen\}$</p>
-<p>$\mathbb{N}=\{x\in\mathbb{Z}\ |\ x\geqslant 0\}$</p>
-<p>Manchmal schreiben wir $\mathbb{N}_0$, $\mathbb{N}_{&gt;0}=\{1,2,3,…\}=\{x\in\mathbb{Z}\ |\ x&gt; 0\}$</p>
+<h5 id="wichtige-Mengen"><a href="#wichtige-Mengen" class="headerlink" title="wichtige Mengen"></a>wichtige Mengen</h5><p>$\emptyset=\{\}\ :\ \forall_n\ x\notin \emptyset$</p>
+<p>$\mathbb{Z}=\{\text{alle ganzen Zahlen}\}$</p>
+<p>$\mathbb{R}=\{\text{alle reellen Zahlen}\}$</p>
+<p>$\mathbb{Q}=\{\text{alle rationalen Zahlen}\}$</p>
+<p>$\mathbb{N}=\{x\in\mathbb{Z}\ :\ x\geqslant 0\}$</p>
+<font color="#FF0000">Manchmal schreiben wir $\mathbb{N}_0$, $\mathbb{N}_{>0}=\{1,2,3,...\}=\{x\in\mathbb{Z}\ |\ x> 0\}$</font>
+
 <p>&nbsp;</p>
-<p>Definition 1.1: $B$ heisst Teilmenge von $A$, $B \subseteq A$, falls $\forall_x x\in B\ \Rightarrow\ x \in A$</p>
-<p>Beispiel: $\emptyset \subseteq \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$</p>
+<p><strong><font color="#FF0000">Definition 1.1: </font></strong></p>
+<p>$B$ heißt Teilmenge von $A$, $B \subseteq A$, falls $\forall_x\ x\in B\ \Rightarrow\ x \in A$</p>
+<p><strong>Beispiel</strong>: $\emptyset \subseteq \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$</p>
+<font color="#0000CD">对于子集的定义</font>
+
 <p>&nbsp;</p>
-<h5 id="Mengenoperationen"><a href="#Mengenoperationen" class="headerlink" title="Mengenoperationen"></a>Mengenoperationen</h5><p>(1) Vereinigung: $A \cup B=\{n\ |\ n \in A\ or\ n \in B\}$</p>
-<p>(2) Schnitt: $A\cap B=\{n\ |\ x \in A\ und\ x \in B\}$</p>
-<p>(3) Differenz: $A\backslash B=\{x\ |\ x \in A\ und\ x \in B\}$</p>
+<h5 id="Mengenoperationen"><a href="#Mengenoperationen" class="headerlink" title="Mengenoperationen"></a>Mengenoperationen</h5><p>(1) Vereinigung: $A \cup B=\{n\ |\ n \in A\ \text{or}\ n \in B\}$</p>
+<p>(2) Schnitt: $A\cap B=\{n\ |\ x \in A\ \text{und}\ x \in B\}$</p>
+<p>(3) Differenz: $A\ \backslash\ B=\{x\ |\ x \in A\ \text{und}\ x \in B\}$</p>
 <p>(4) kartesische Produkt: $A \times B=\{(x,y)\ |\ x\in A,y \in B\}$</p>
 <p>(5) Protenzmenge: $P(A)=\{B\ |\ B\subseteq A\}$</p>
 <p>Beispiel: $P(\{0,1\})=\{\emptyset,\{0\},\{1\},\{0,1\}\}$</p>
 <p>&nbsp;</p>
-<h5 id="Abblidung"><a href="#Abblidung" class="headerlink" title="Abblidung"></a>Abblidung</h5><p>Eine <strong>Abbildung</strong> oder <strong>Funktion</strong> ist eine Beziehung zwieschen 2 Mengen, die jedem Element der einen Menge genau ein Element der anderen Menge zuordnet.</p>
+<h5 id="Abblidung（映射）"><a href="#Abblidung（映射）" class="headerlink" title="Abblidung（映射）"></a>Abblidung（映射）</h5><font color="#FF0000">Eine **Abbildung** (oder **Funktion**) ist eine Beziehung zwieschen 2 Mengen, die jedem Element der einen Menge genau ein Element der anderen Menge zuordnet.</font>
+
 <p>Wir schreiben $f:A \rightarrow B$ für eine Funktion $f$ von $A$ in $B$.</p>
 <p>&nbsp;</p>
-<p>Definition 1.2: Eine Funktion $f:A \rightarrow B$ heißt</p>
-<p>(i) injektiv, falls $\forall_{x \neq y \in A}  f(x) \neq f(y)$</p>
-<p>(ii) surjektiv, falls $\forall_{y \in B} \exists_{x\in A} f(x)=y$</p>
-<p>(iii) bijektiv, falls sie sowohl injektiv als auch surjektiv ist</p>
+<p><strong><font color="#FF0000">Definition 1.2: </font></strong></p>
+<p>Eine Funktion $f:A \rightarrow B$ heißt</p>
+<ul>
+<li><p>injektiv(单射), falls $\forall_{x \neq y \in A}\ f(x) \neq f(y)$</p>
+</li>
+<li><p>surjektiv(满射), falls $\forall_{y \in B}\ \exists_{x\in A}\ f(x)=y$</p>
+</li>
+<li><p>bijektiv(双射), falls sie sowohl injektiv als auch surjektiv ist</p>
+</li>
+</ul>
+<font color="#0000CD">对于单设，满射和双射的定义。</font>
+
+<font color="#0000CD">如果$f:A \rightarrow B$是单射，那$A$中任意两个不同的元素在$B$中的映射也不同。即不存在$A$中的两个元素对应$B$中的一个元素。</font>
+
+<font color="#0000CD">如果$f:A \rightarrow B$是满射，那对于$B$中任意一个元素$y$都存在一个$A$中的元素$x$使得$f(x)=y$，即B中的所有元素都能在A中找到对应的映射。</font>
+
+<font color="#0000CD">如果$f:A \rightarrow B$是既是单射也是满射，也叫双射(一一映射)。</font>
+
+<font color="#0000CD">图解：</font><font color="#green">（待补充）</font>
+
 <p>&nbsp;</p>
-<h5 id="Kardinalitaten"><a href="#Kardinalitaten" class="headerlink" title="Kardinalitäten"></a>Kardinalitäten</h5><p>Wir sagen, dass die Mengen $A$ und $B$ die selbe Kardinalität(auch Mächtigkeit) gaben, falls eine Bijektion zwischen $A$ und $B$ existiert.</p>
+<h5 id="Kardinalitaten-容量"><a href="#Kardinalitaten-容量" class="headerlink" title="Kardinalitäten(容量)"></a>Kardinalitäten(容量)</h5><p>Wir sagen, dass die Mengen $A$ und $B$ <strong><font color="#FF0000">die selbe Kardinalität(auch Mächtigkeit)</font></strong> haben, falls <strong><font color="#ff0000">eine Bijektion zwischen $A$ und $B$ existiert</font></strong>.</p>
 <p>Wir schreiben das $\vert A\vert = \vert B \vert$.</p>
 <p>&nbsp;</p>
-<p>Wir sagen, dass die Kardinalitäte von $A$ größer gleich ist die Kardinalität von $B$, falls eine Surjektion von $A$ in $B$ existert.</p>
+<p>Wir sagen, dass die Kardinalitäte von $A$ <strong><font color="#FF0000">größer gleich</font></strong> ist die Kardinalität von $B$, falls <strong><font color="#FF0000">eine Surjektion von $A$ in $B$ existert</font></strong>.</p>
 <p>wir schreiben das $\vert A \vert \geq \vert B \vert$.</p>
 <p>&nbsp;</p>
-<p>Axiom 1.3 (das Auswahl-Axiom):</p>
+<p><strong><font color="#FF0000">Axiom 1.3 (das Auswahl-Axiom):</font></strong></p>
 <p>Eine Surjektion von $A$ in $B$ existiert genau dann, wenn eine Injektion von $B$ in $A$ existiert.</p>
 <p>$\Rightarrow \vert A \vert \geq \vert B \vert$ genau dann, wenn es eine Injektion von $B$ in $A$ gibt.</p>
-<p>为什么等同？</p>
+<font color="#0000CD">单射和满射存在的条件</font>
+
 <p>&nbsp;</p>
-<p>Satz 1.4: Fur jede $A$ und $B$ entweder $\vert A \vert \leq \vert B \vert$ oder $\vert A \vert \geq \vert B \vert$.</p>
-<p>Satz 1.5 (Cantor-Berstein):</p>
+<p><strong><font color="#FF0000">Satz 1.4: </font></strong></p>
+<p>Fur jede $A$ und $B$ entweder $\vert A \vert \leq \vert B \vert$ oder $\vert A \vert \geq \vert B \vert$.</p>
+<p>&nbsp;</p>
+<p><strong><font color="#ff0000">Satz 1.5 (Cantor-Berstein):</font></strong></p>
 <p>Falls $\vert A \vert \leq \vert B \vert$ und $\vert B \vert \leq \vert A \vert$, dann $\vert A \vert = \vert B$.</p>
 <p>&nbsp;</p>
-<p>Definition 1.6: Menge $A$ heißt abzählbar (countable), falls $\vert A \vert = \vert \mathbb{N} \vert$. In diesem Fall schreibt man $\vert A \vert = \alef_0$.</p>
-<p>Beispiele: $\vert \mathbb{N} \vert = \vert \mathbb{Z} \vert =\vert \mathbb{Z}^2 \vert =\vert \mathbb{Q} \vert = \alef_0$ aber $\vert \mathbb{R} \vert &gt; \alef_0$</p>
-<p>Beweis das $\vert \mathbb{R} \vert &gt; \alef_0$ (cantor’s diagonal)</p>
+<p><strong><font color="#ff0000">Definition 1.6: </font></strong></p>
+<p>Menge $A$ heißt abzählbar (countable), falls $\vert A \vert = \vert \mathbb{N} \vert$. In diesem Fall schreibt man $\vert A \vert = \aleph_0$.</p>
+<font color="#0000CD">Wikipedia里面还有一段对于可数集的定义：</font>
+
+<font color="#0000CD">In der Mengenlehre wird eine Menge $A$ als **abzählbar unendlich** bezeichnet, wenn sie die gleiche Mächtigkeit hat wie die Menge der natürlichen Zahlen $\mathbb{N}$. Dies bedeutet, dass es eine **Bijektion** zwischen $A$ und der Menge der natürlichen Zahlen gibt, die Elemente der Menge $A$ also „durchnummeriert“ werden können.</font>
+
+<p>Beispiele: $\vert \mathbb{N} \vert = \vert \mathbb{Z} \vert =\vert \mathbb{Z}^2 \vert =\vert \mathbb{Q} \vert = \aleph_0$ aber $\vert \mathbb{R} \vert &gt; \aleph_0$</p>
+<p>Beweis das $\vert \mathbb{R} \vert &gt; \aleph_0$ (cantor’s diagonal):</p>
 <p>Nehme an, dass $\mathbb{R}$ abzählbar wäre, dann gäbe es eine Surjektion $f:\mathbb{N} \rightarrow [0,1)$.</p>
 <p>Sei $d_1$ die erste Ziffer in der Dezimalentwicklung von $f(1)$, $d_2$ die zweite Ziffer in der Dezimalentwicklung von $f(2)$, … , $d_n$ die n-te Ziffer in der Dezimalentwicklung von $f(n)$.</p>
 <p>Für jeder n, sei</p>
@@ -287,8 +326,11 @@ c_n=
 <p>$\Rightarrow$ Surjeketion $\mathbb{N} \rightarrow \mathbb{R}$ existiert nicht</p>
 <p>$\Rightarrow$ $\vert \mathbb{N} \vert &lt; \vert \mathbb{R} \vert$</p>
 <p>q.e.d</p>
+<font color="#0000CD">对角论证法，目的是为了证明$\mathbb{N}$到$[0,1)$的满射不成立。</font>
+
 <p>&nbsp;</p>
-<h4 id="Reelle-Zahlen-und-Vektoren"><a href="#Reelle-Zahlen-und-Vektoren" class="headerlink" title="Reelle Zahlen und Vektoren"></a>Reelle Zahlen und Vektoren</h4><p>Definition 2.1: Ein Körper (F, +, ·) ist eine Menge F mit zweo Operationen +,· , sodass,</p>
+<h4 id="Reelle-Zahlen-und-Vektoren"><a href="#Reelle-Zahlen-und-Vektoren" class="headerlink" title="Reelle Zahlen und Vektoren"></a>Reelle Zahlen und Vektoren</h4><p><strong><font color="#ff0000">Definition 2.1: </font></strong></p>
+<p>Ein Körper (F, +, ·) ist eine Menge F mit zweo Operationen +,· , sodass,</p>
 <p>(1) $\forall_{x,y,z \in F}\ (x+y)+z=x+(y+z)$</p>
 <p>(2) $\forall_{x,y}\ x+y=y+x$</p>
 <p>(3) $\exists_0 \forall_x\ x+0=0+x=x$</p>
@@ -301,34 +343,132 @@ c_n=
 <p>&nbsp;</p>
 <p>Ein Körper heißt <strong>angeordnet</strong>, falls es eine relation &lt; gibt, sodass:</p>
 <p>(1) für jeden $x$ gilt genau eins der folgenden: $x&gt;0$ oder $x&lt;0$ oder $x=0$</p>
-<p>(2) falls $x,y&gt;0;\ x+y&gt;0;\ x·y&gt;0$</p>
-<p>(3) $\forall_{x,y}\ x&gt;y\ \Leftrightarrow\ x-y&gt;0$</p>
-<p>Beispiele: $\mathbb{N}$ und $\mathbb{Z}$ sind keine Körper, $\mathbb{Q}$ und $\mathbb{R}$ sind Körper. $\mathbb{Q}$ und $\mathbb{R}$ sind angeordnet.</p>
+<p>(2) $\forall_{x,y \in F}\ x,y&gt;0 \Rightarrow x+y&gt;0;\ x·y&gt;0$</p>
+<p>(3) $\forall_{x,y \in F}\ x&gt;y\ \Leftrightarrow\ x-y&gt;0$</p>
+<p><strong>Beispiele:</strong> $\mathbb{N}$ und $\mathbb{Z}$ sind keine Körper, $\mathbb{Q}, \mathbb{R}\text{ und } \mathbb{C}$ sind Körper. $\mathbb{Q}$ und $\mathbb{R}$ sind angeordnet.</p>
 <p>&nbsp;</p>
 <p>Man schreibt:</p>
-<p>$[a,b]=\{x\ |\ a\leq x \leq b\}$</p>
-<p>$(a,b)=\{x\ |\ a&lt;x&lt;b\}$</p>
+<p>$[a,b]=\{x\ |\ a\leq x \leq b\}$ (geschlossenes Intervall)</p>
+<p>$(a,b)=\{x\ |\ a&lt;x&lt;b\}$ (offenes Intervall)</p>
+<p>analog bei halboffenen Intervallen ( $[a, b); (a, b]$ )</p>
 <p>&nbsp;</p>
-<p>Definition 2.2: (obere Schranke)</p>
-<p>Eine Zahl $x$ heißt <strong>obere Schranke</strong> einer Teilmenge $A$, falls $\forall_{y \in A}\ x \geq y$.</p>
+<p><strong><font color="#ff0000">Definition 2.2: (obere Schranke) </font></strong></p>
+<p>Eine Zahl $x$ heißt <strong>obere Schranke</strong> einer Teilmenge $A$ von $\mathbb{R}$, falls $\forall_{y \in A}\ x \geq y$.</p>
 <p>$A$  heißt <strong>nach oben beschränkt</strong>, falls $A$ eine obere Schranke hat.</p>
 <p>Analog definiert man untere Schranke.</p>
 <p>&nbsp;</p>
-<p>Definition 2.3:</p>
-<p>Eine Zahl $x$ heißt maximum einer Teilmenge $A$, falls $x \in A$ und ist eine obere Schranke von $A$. </p>
+<p><strong><font color="#ff0000">Definition 2.3: </font></strong></p>
+<p>Eine Zahl $x$ heißt Maximum einer Teilmenge $A$ von $\mathbb{R}$, falls $x \in A$ und ist eine obere Schranke von $A$. </p>
 <p>Anolog definiert man das Minimum einer Teilmenge. </p>
+<p><strong><font color="#ff0000">Eine Menge kann nach oben beschränkt sein, aber kein Maximum haben. </font></strong></p>
+<p>Z.B.:<br>M = (a, b) mit a, b 2 R, a &lt; b</p>
 <p>&nbsp;</p>
-<p>Definition 2.4: </p>
-<p>Eine Zahl $x$ heißt supremum einer Teilmenge $A$, falls $x=min\{obere\ Schranken\ von\ A\}$.</p>
-<p>Wir schreiben $sup\ A$.</p>
-<p>$sup\ \emptyset=-\infty$</p>
-<p>Falls $A$ nicht nach oben beschränkt ist, schreiben wie $sup\ A=\infty$.</p>
+<p><strong><font color="#ff0000">Definition 2.4:(Supremum)  </font></strong></p>
+<p>Eine reelle Zahl $x$ heißt Supremum(上确界) einer Teilmenge $A$ von $\mathbb{R}$, falls $x=min\{\text{obere Schranken von A}\}$.</p>
+<p>Wir schreiben $sup(A)$.</p>
+<p>Konventionen:</p>
+<p>$sup(\emptyset)=-\infty$</p>
+<p>$sup(A)=\infty$, falls $A$ nicht nach oben beschränkt ist.</p>
 <p>&nbsp;</p>
-<p>Definition 2.5:</p>
+<p><strong><font color="#ff0000">Definition 2.5:  </font></strong></p>
 <p>Ein angeordneter Körper heißt <strong>vollständig</strong>, falls jede nicht leere nach oben beschränkte Teilmenge ein Supremum besitzt.</p>
 <p>Beispiel: $\mathbb{Q}$ ist nicht vollständig. (Übung)</p>
 <p>&nbsp;</p>
-<p>Axiom 2.6 (Vollständigkeit): $\mathbb{R}$ ist vollständig.</p>
+<p><strong><font color="#ff0000">Axiom 2.6 (Vollständigkeit):  </font></strong></p>
+<p>$\mathbb{R}$ ist vollständig.</p>
+<p>Analog zu oberer Schranke, Maximum und Supremum definieren wir untere Schranke, Minimum und Infimum. </p>
+<p>Man schreibt: $inf(M)$</p>
+<p>Konvention:</p>
+<p>$inf(\emptyset) = \infty$</p>
+<p>$inf(M) = −\infty$, falls $M$ nach unten unbeschränkt ist.</p>
+<h3 id="05-11-2000"><a href="#05-11-2000" class="headerlink" title="05.11.2000"></a>05.11.2000</h3><p>Vorlesung 2</p>
+<p>Thema: Mengen in $\mathbb{R}$, Vektorräme über $\mathbb{R}$ und ein paar wichtige Ungleichungen</p>
+<p>Satz 2.7: (Eigenschaften des Supremums)</p>
+<p>Seien A und B beschränkte nicht leere Teilmengen von $\mathbb{R}$,</p>
+<ul>
+<li>$sup(A + B) = sup(A) + sup(B)$ für $  A + B = \{a + b : a \in A, b \in B\}$</li>
+<li>Falls $\lambda \geq0$, dann $sup(\lambda \cdot A)=\lambda sup(A)$, wenn $\lambda \cdot A=\{\lambda \cdot x\ :\ x \in A\}$</li>
+<li>Falls $A,B \subseteq [0,\infty)$, dann $sup(A\cdot B)=sup(A) \cdot sup(B)$, wenn $A \cdot B=\{a \cdot b\ :\ a \in A, b \in B\}$</li>
+<li>Falls $A \subseteq B$, $sup(A) \leq sup(B)$</li>
+</ul>
+<p>Wir definieren</p>
+<p>$inf(A):=-sup(-A)$, wenn $A=\{x\ :\ x \in A\}$</p>
+<p>die selben Regeln gelten auch für das Infimum außer dass:</p>
+<p>Falls $A \subseteq B$, $inf(A) \geq inf(B)$</p>
+<p>Offene und abgeschlossene Mengen in $\mathbb{R}$:</p>
+<p>Definition 2.8:</p>
+<p>Sei $x \in \mathbb{R}$, dann ein offenes Interval $(a,b)$ heißt <strong>Umgebung</strong> von $x$, falls $x \in(a,b)$.</p>
+<p>Definition 2.9:</p>
+<p>$A \in \mathbb{R}$ heißt <strong>offen</strong>, falls $\forall_{x \in A}\ \exists_{I_x\ \text{(Umgebung von x)}}\ I_x \in A$.</p>
+<p>Definition 2.10:</p>
+<p>Eine Menge $A$ heisst <strong>abgeschlossen</strong>, falls $\mathbb{R}\ \backslash\ A$ offen ist.</p>
+<p>Beispiele:</p>
+<p>(1) $\mathbb{R}$ ist offen, dabei ist $\emptyset$ abgeschlossen.</p>
+<p>(2) $\emptyset$ ist offen, dabei ist $\mathbb{R}$ abgeschlossen.</p>
+<p>(3) Jedes offene Interval ist offen.</p>
+<p>(4) Eine Vereinigung offenen Mengen ist offen.</p>
+<p>(5) Jedes abgeschlossene Interval ist abgeschlossen.</p>
+<p>(6) Jede endliche Menge ist abgeschlossen.</p>
+<p>(7) Für $a &lt;b$, $\ [a,b)=\{x\ :\ a\leq x&lt;b\}$ ist weder offen noch abgeschlossen.</p>
+<p>(8) $\mathbb{Q}$ ist weder offen noch abgeschlossen.</p>
+<p>Übung:</p>
+<p>(a) beweise diese Aussagen</p>
+<p>(b) beweise, dass $\mathbb{R}$ und $\emptyset$ die einzigen Mengen die gleichzeitig offen und abgeschlossen sind.</p>
+<p>Der Vektorraum $\mathbb{R}^n$:</p>
+<p>$\mathbb{R}^n:=\{(n_1,…,n_n)\ :\ n_1,…,n_n \in \mathbb{R}\}$</p>
+<p>mit den Operationen:</p>
+<p>$(x_1,…,x_n)+(y_1,…,y_n)=(x_1+y_1,…,x_n+y_n)$</p>
+<p>für $\gamma \in \mathbb{R}$</p>
+<p>$\gamma \cdot (x_1,…,x_n)=(\gamma x_1,…,\gamma x_n)$</p>
+<p>und das Skalarprodukt</p>
+<p>$(x_1,…,x_n) \cdot (y_1,…,y_n):=\sum^n_{k=1}\ x_k \cdot y_k \in \mathbb{R}$</p>
+<p>das Skalarprodukt wird auch $\langle x,y \rangle$ geschrieben.</p>
+<p>Wir definieren dasEuclidische Norm:</p>
+<p>$\Vert (x_1,…,x_n)\Vert :=\sqrt{(x_1,…,x_n) \cdot (x_1,…,x_n)}=\sqrt{ \sum^n_{k=1}\ x^2_k}$</p>
+<p>Eigenschaften des Skalarproduktes:</p>
+<p>(1) $\forall_{\overline{x}, \overline{y} \in \mathbb{R}^n}\ \overline{x} \cdot \overline{y}=\overline{y} \cdot \overline{x}$</p>
+<p>(2) $(\alpha \overline{x} )\cdot \overline{y}=\overline{x}\cdot (\alpha \overline{y})=\alpha (\overline{x}\cdot \overline{y})$ für jede $\alpha \in \mathbb{R}$ und $\overline{x}, \overline{y} \in \mathbb{R}^n$</p>
+<p>(3) $\forall_{\overline{x}, \overline{y}, \overline{z}\in \mathbb{R}^n}\ (\overline{x}+\overline{y})\cdot \overline{z}=\overline{x} \cdot \overline{z} + \overline{y} \cdot \overline{z}$</p>
+<p>(4) $\forall_{\overline{x} \in \mathbb{R}^n}\ \overline{x} \cdot \overline{x} \geq 0$ und ist positiv, falls $\overline{x} \neq \overline{0}$</p>
+<p>Übung: Beweise diese Aussage</p>
+<p>Ungleichungen:</p>
+<p>Hier beweisen wir einige wichtige Ungleichungen.</p>
+<p>Lemma 2.12: (Cauchy-Schwarz-Ungleichung)</p>
+<p>$\vert \langle \overline{x}, \overline{y}\rangle\vert =\vert \overline{x} \cdot \overline{y} \vert \leq \Vert \overline{x} \Vert \cdot \Vert \overline{y} \Vert$</p>
+<p>Gleichheit gilt, genau dann wenn es $\alpha \in \mathbb{R}$ existiert, so dass $x=\alpha y$ oder $y=\alpha x$.</p>
+<p>Beweis:</p>
+<p>Nehmen an, dass beide $x$ und $y$ nicht null sind. Dann definieren wir </p>
+<script type="math/tex; mode=display">
+\overline{z}=\overline{x} \frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}} \text{ und } \overline{w}=\overline{y}-\overline{z} \text{.}</script><p>Dann $\overline{x} \cdot \overline{w} = \overline{x} \cdot \overline{y} - \overline{x} \cdot \overline{z}=\overline{x} \cdot \overline{y}-\overline{x} \cdot \overline{x} \frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}}=0$, und $\overline{z} \cdot \overline{w}=\frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}} \cdot \overline{x} \cdot \overline{w}=0$.</p>
+<p>Jetzt $\overline{x} \cdot \overline{z} =\overline{x} \cdot \overline{x} \frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}}=\overline{x} \cdot \overline{y}$ also $(\overline{x} \cdot \overline{y})^2=(\overline{x} \cdot \overline{z})^2$ und $\overline{y} \cdot \overline{y}=(\overline{z} + \overline{w}) \cdot (\overline{z} + \overline{w})=\overline{z} \cdot \overline{z}+\overline{w} \cdot \overline{w}+2\overline{z} \cdot \overline{w}=\overline{z} \cdot \overline{z}+\overline{w} \cdot \overline{w}$.</p>
+<p>und wir rechnen $(\overline{x} \cdot \overline{x})(\overline{y} \cdot \overline{y})=(\overline{x} \cdot \overline{x})(\overline{z} \cdot \overline{z}+\overline{w} \cdot \overline{w})=(\frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}})^2(\overline{x} \cdot \overline{x})^2+(\overline{x} \cdot \overline{x})(\overline{w} \cdot \overline{w})$.</p>
+<p>Weil $\overline{x} \cdot \overline{x} \geq 0$ und $\overline{w} \cdot \overline{w} \geq 0$ sind, ist $(\overline{x} \cdot \overline{x})(\overline{w} \cdot \overline{w}) \geq 0$.</p>
+<p>Deshalb gilt $\Vert x \Vert^2 \Vert y \Vert ^2=(\overline{x} \cdot \overline{x})(\overline{y} \cdot \overline{y}) \geq (\frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}})^2(\overline{x} \cdot \overline{x})^2=(\overline{x} \cdot \overline{y})^2$.</p>
+<p>Also $\vert \langle \overline{x},\overline{y} \rangle \vert \leq \Vert \overline{x} \Vert \cdot \Vert \overline{y} \Vert$, und Gleichheit gilt genau dann, wenn $\overline{w} = 0$, dass $\overline{y}=\text{(etwas)} \cdot \overline{x}$ ist.</p>
+<p>q.e.d</p>
+<p>Lemma 2.13: (Dreiecksungleichung)</p>
+<p>$\forall_{\overline{x}, \overline{y} \in \mathbb{R}}, \Vert \overline{x}+ \overline{y} \Vert \leq \Vert \overline{x} \Vert + \Vert \overline{y} \Vert$.</p>
+<p>(图解)</p>
+<p>Beweis:</p>
+<p>$\Vert \overline{x}+ \overline{y} \Vert = (\overline{x}+ \overline{y}) \cdot (\overline{x} + \overline{y})=\overline{x} \cdot \overline{x} + \overline{y} \cdot \overline{y} + 2\overline{x} \cdot \overline{y} \leq \overline{x} \cdot \overline{x} + \overline{y} \cdot \overline{y} +2\Vert\overline{x} \Vert \Vert \overline{y}\Vert = \Vert \overline{x} \Vert^2 + \Vert \overline{y} \Vert^2+2\Vert\overline{x} \Vert \Vert\overline{y} \Vert $</p>
+<p>$= [\Vert\overline{x} \Vert + \Vert\overline{y} \Vert]^2 \Rightarrow \Vert\overline{x} + \overline{y}\Vert \leq \Vert\overline{x} \Vert + \Vert\overline{y} \Vert$.</p>
+<p>q.e.d</p>
+<p>Gleichheit gilt wenn $xy \geq 0$.</p>
+<p>Wenn $n=1$, bedeutet die Dreiecksgleichung, dass $\vert x+y \vert \leq \vert x \vert + \vert y \vert$ für jede $x,y \in \mathbb{R}$.</p>
+<p><strong>Übung</strong>: Umgekehrte Dreiecksungleichung: $|x − y| \geq \vert| x|−|y| \rvert $</p>
+<p>Lemma 2.14: (Ungleichung zwischen geometrischen und arithmetischem Mittel)</p>
+<p>Seien $x, y \geq 0 \in \mathbb{R}$, dann $\sqrt{x \cdot y} \leq \frac{x+y}{2}$.</p>
+<p>Beweis:</p>
+<p>Seien $\overline{z},\overline{w} \in \mathbb{R}$ so $\overline{z}=(\sqrt{x}, \sqrt{y}), w=(\sqrt{y}, \sqrt{x})$.</p>
+<p>$2\sqrt{x}\sqrt{y}=\overline{z} \cdot \overline{w} \leq \Vert \overline{z} \Vert \cdot \Vert \overline{w} \Vert = x+y \Rightarrow \sqrt{x \cdot y} \leq \frac{x+y}{2}$</p>
+<h4 id="Komplexe-Zahlen"><a href="#Komplexe-Zahlen" class="headerlink" title="Komplexe Zahlen"></a>Komplexe Zahlen</h4><p>Eine Komplexe Zahl $z$ kann definiert werden mit einem Paar $z=(x,y)\ \  x,y \in \mathbb{R},z=x+iy, \mathbb{C}=\{z=x+iy\ :\ x,y \in \mathbb{R}\}, x=Re(z), y=Im(z)$.</p>
+<p>Dabei gilt: $i^2=-1$</p>
+<p>Addition: </p>
+<p>$(x_1+iy_1)+(x_2+iy_2)=(x_1+x_2)+i(y_1+y_2)$.</p>
+<p>Multiplication:</p>
+<p>$(x_1+iy_1) \cdot (x_2+iy_2)=(x_1 \cdot x_2-y_1\cdot y_2)+i(x_1 \cdot y_2 + x_2 \cdot y_1)$</p>
+<p>$\mathbb{C}$ ist wie $\mathbb{R}$ ein Körper, aber nicht angeordnet. (Übung)</p>
+<p>Für $z \in \mathbb{C}$ definieren wir den Betrag $\vert z \vert = \sqrt{x^2+y^2}$.</p>
 
     </div>
 
@@ -350,7 +490,10 @@ c_n=
     <a href="/2020/09/27/GCPC%E8%AE%AD%E7%BB%83%E7%AC%94%E8%AE%B0-Week1/" rel="prev" title="ICPC训练笔记-Week1">
       <i class="fa fa-chevron-left"></i> ICPC训练笔记-Week1
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/11/05/Einfuhrung-in-die-Rechnerarchitektur%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/" rel="next" title="Einführung in die Rechnerarchitektur笔记和课件整理">
+      Einführung in die Rechnerarchitektur笔记和课件整理 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -409,7 +552,7 @@ c_n=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#03-11-2020"><span class="nav-number">1.</span> <span class="nav-text">03.11.2020</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mengenterminologie"><span class="nav-number">1.1.</span> <span class="nav-text">Mengenterminologie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Schreibweise-fur-Mengen"><span class="nav-number">1.1.1.</span> <span class="nav-text">Schreibweise für Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#wichtige-Mengen"><span class="nav-number">1.1.2.</span> <span class="nav-text">wichtige Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mengenoperationen"><span class="nav-number">1.1.3.</span> <span class="nav-text">Mengenoperationen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Abblidung"><span class="nav-number">1.1.4.</span> <span class="nav-text">Abblidung</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Kardinalitaten"><span class="nav-number">1.1.5.</span> <span class="nav-text">Kardinalitäten</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reelle-Zahlen-und-Vektoren"><span class="nav-number">1.2.</span> <span class="nav-text">Reelle Zahlen und Vektoren</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#03-11-2020"><span class="nav-number">1.</span> <span class="nav-text">03.11.2020</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Mengenterminologie"><span class="nav-number">1.1.</span> <span class="nav-text">Mengenterminologie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Schreibweise-fur-Mengen"><span class="nav-number">1.1.1.</span> <span class="nav-text">Schreibweise für Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#wichtige-Mengen"><span class="nav-number">1.1.2.</span> <span class="nav-text">wichtige Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mengenoperationen"><span class="nav-number">1.1.3.</span> <span class="nav-text">Mengenoperationen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Abblidung（映射）"><span class="nav-number">1.1.4.</span> <span class="nav-text">Abblidung（映射）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Kardinalitaten-容量"><span class="nav-number">1.1.5.</span> <span class="nav-text">Kardinalitäten(容量)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reelle-Zahlen-und-Vektoren"><span class="nav-number">1.2.</span> <span class="nav-text">Reelle Zahlen und Vektoren</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#05-11-2000"><span class="nav-number">2.</span> <span class="nav-text">05.11.2000</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Komplexe-Zahlen"><span class="nav-number">2.1.</span> <span class="nav-text">Komplexe Zahlen</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -423,7 +566,7 @@ c_n=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
