@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Einführung什么是离散数学?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Diskrete Strukturen笔记和课件整理">
+<meta property="og:url" content="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/index.html">
+<meta property="og:site_name" content="Ljiong">
+<meta property="og:description" content="Einführung什么是离散数学?">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/vennundkv.png">
+<meta property="og:image" content="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/vennundkv4.png">
+<meta property="og:image" content="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/vennundkv5.png">
+<meta property="og:image" content="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/umformung1.png">
+<meta property="og:image" content="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/umformung2.png">
+<meta property="og:image" content="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/umformung3.png">
+<meta property="og:image" content="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/graphveran.png">
+<meta property="article:published_time" content="2020-11-07T13:36:11.000Z">
+<meta property="article:modified_time" content="2020-11-07T22:42:08.257Z">
+<meta property="article:author" content="Jiong Liu">
+<meta property="article:tag" content="TUM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/vennundkv.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Diskrete Strukturen笔记和课件整理 | Ljiong</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ljiong</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Programm | Life</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jiong Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ljiong">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Diskrete Strukturen笔记和课件整理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-11-07 14:36:11 / 修改时间：23:42:08" itemprop="dateCreated datePublished" datetime="2020-11-07T14:36:11+01:00">2020-11-07</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">课堂笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="Einfuhrung"><a href="#Einfuhrung" class="headerlink" title="Einführung"></a>Einführung</h2><p>什么是离散数学?</p>
+<a id="more"></a>
+<h2 id="Grundlagen"><a href="#Grundlagen" class="headerlink" title="Grundlagen"></a>Grundlagen</h2><h3 id="Einfuhrung-1"><a href="#Einfuhrung-1" class="headerlink" title="Einführung"></a>Einführung</h3><p><strong>目标和动机</strong></p>
+<ul>
+<li>学习数学里的”基础词汇”</li>
+<li>自然语言一般是多义的(可能同时代表很多个意思)</li>
+<li>数学语言允许数学物体的准确定义和定理与结果的准确表达</li>
+</ul>
+<p>&nbsp;</p>
+<p>在信息学里: <strong>集合()</strong>,<strong>反射()</strong>, <strong>函数(或者映射)()</strong>等等是以下的基础</p>
+<ul>
+<li>描述一个算法</li>
+<li>定义一个程序是”做”什么的(内容(Semantik))</li>
+<li>定义程序是用什么字符串(语法(Syntax))</li>
+<li>定义一个程序”应该做”些什么(详细说明(Spezikation))</li>
+<li>数据结构</li>
+</ul>
+<p>&nbsp;</p>
+<h3 id="Mengen"><a href="#Mengen" class="headerlink" title="Mengen"></a>Mengen</h3><h4 id="Basisvokabular-und-konzepte"><a href="#Basisvokabular-und-konzepte" class="headerlink" title="Basisvokabular und -konzepte"></a>Basisvokabular und -konzepte</h4><h5 id="Mengen-in-der-Informatik"><a href="#Mengen-in-der-Informatik" class="headerlink" title="Mengen in der Informatik"></a>Mengen in der Informatik</h5><ul>
+<li>内容对象的顺序, 内容对象的重复出现都是无所谓的. 所以在一个<strong>集合(Menge)</strong>里没有第一个, 第二个等等的对象</li>
+<li>其次集合的<strong>基本操作(Basisoperation)</strong>也很重要, 为了用从两个或者多个集合”构建”一个新的集合: <strong>取交集(Schnitt)</strong>, <strong>取并集(Vereinigung)</strong>和<strong>取差(Differenz)</strong></li>
+</ul>
+<p>&nbsp;</p>
+<h5 id="Mengen-Basisvokabular"><a href="#Mengen-Basisvokabular" class="headerlink" title="Mengen: Basisvokabular"></a>Mengen: Basisvokabular</h5><p>对于一个物体$x$, 一个集合$M$要么含有$x$, 要么不包含.</p>
+<p>物体$x$, $x \in M$, 被称作是”x是M中的一个<strong>元素(Element)</strong>“.</p>
+<p>为了定义一个集合, 人们可以把这个集合里的所有元素全写出来, 或者写出这个集合里元素的特征.</p>
+<p>按照规定集合用$\{$ 和 $\}$来开始和结束.</p>
+<p><strong><font color="#ff0000">例子省略因为太简单了</font></strong></p>
+<p>&nbsp;</p>
+<p>一些会用到的集合的简写</p>
+<ul>
+<li>正整数 $\mathbb{N}=\{1,2,3, \ldots\}$</li>
+<li>包括0的自然数 $\mathbb{N}_{0}=\{0,1,2, \ldots\}$</li>
+<li>整数 $\mathbb{Z}=\{\ldots,-2,-1,0,1,2, \ldots\}$</li>
+<li>有理数 $\mathbb{Q}=\{p / q \mid p \in \mathbb{Z}, q \in \mathbb{N}\}$</li>
+<li>实数 $\mathbb{R}$</li>
+</ul>
+<p>&nbsp;</p>
+<p>空集被定义成$\{\}$, 人们也通常写成$\emptyset$.<br>集合自己也可以作为一个元素被其他集合包含, 比如</p>
+<script type="math/tex; mode=display">
+\{1,\{1,2\},\{1,\{\}\},\{\{1\},\{\{2\}\}, 3\}\}</script><p>用间接的方式表示集合可能会造成问题, 比如<strong>罗素悖论(Russelsche Antinomie)</strong></p>
+<script type="math/tex; mode=display">
+R:=\left\{\left.x\right| x \text { ist Menge mit der Eigenschaft } x \notin x\right\}</script><p>此时, 如果R是自己的一个元素, 那么R就不是自己的一个元素; 如果R不是自己的一个元素, 那么R就是自己的一个元素. </p>
+<p>&nbsp;</p>
+<h4 id="Vergleiche-von-Mengen"><a href="#Vergleiche-von-Mengen" class="headerlink" title="Vergleiche von Mengen"></a>Vergleiche von Mengen</h4><p>$M_1$是$M_2$的<strong>子集(Teilmenge)</strong>(简写$M_{1} \subseteq M_{2}$), 如果每一个$M_1$的元素都是$M_2$的元素.</p>
+<p>人们把一个集合写作$M_{2} \backslash M_{1}$, 如果这个集合含有是$M_2$的元素但不包含$M_1$的元素</p>
+<p>人们把一个集合写作$M_{1} \subsetneq M_{2}$, 如果$M_{1} \subseteq M_{2}$而且$M_{2} \backslash M_{1}$至少包含一个元素</p>
+<p>例子:</p>
+<ul>
+<li>空集是任何集合的子集($\emptyset \subseteq M$)</li>
+<li>如果M是空集的子集, 那么M只能是空集</li>
+<li>简写: $M_{1} \subseteq M_{2}$ genau dann, wenn $M_{1} \backslash M_{2}=\emptyset$</li>
+</ul>
+<p>&nbsp;</p>
+<p>$M_1$和$M_2$被视作是<strong>相等的(gleich (identisch))</strong>, 如果每个属于$M_1$的元素都属于$M_2$, 并且每个属于$M_2$的元素都属于$M_1$</p>
+<p> 简写: $M_1 = M_2$ genau dann, wenn sowohl $M_{1} \subseteq M_{2}$ als auch $M_{2} \subseteq M_{1}$</p>
+<p>换句话说, 如果想要证明$M_1$不等于$M_2$, 那就要找出至少一个元素, 这个元素只属于其中一个集合</p>
+<p>&nbsp;</p>
+<p>人们把一个所有只属于$M_1$和$M_2$其中一个集合的集合写作$M_{1} \Delta M_{2}$.</p>
+<p>$M_{2} \backslash M_{1}$被称作$M_1$和$M_2$的<strong>差(Differrenz)</strong></p>
+<p>$M_1$和$M_2$的<strong>对称差(symmetrische Differenz)</strong></p>
+<p>注意事项: 通常$M_{2} \backslash M_{1} \neq M_{1} \backslash M_{2}$, 但是$M_{1} \Delta M_{2}=M_{2} \Delta M_{1}$总是成立</p>
+<p>&nbsp;</p>
+<p>人们把集合$M$内不同元素的数量称作集合$M$的<strong>基数(Mächtigkeit/Kardinalität)</strong>(简写: $\vert M\vert$)</p>
+<p>一个集合是<strong>有限的(unendlich)</strong>(简写: $|M|&lt;\infty)$)如果存在一个自然数$k$和相应数量的不同的对象$x_{1}, x_{2}, \ldots, x_{k}$, 满足$M=\left\{x_{1}, x_{2}, \ldots, x_{k}\right\}$.</p>
+<p>否则人们就把$M$视作<strong>无限的(unendlich)</strong>.</p>
+<p>&nbsp;</p>
+<h4 id="Operationen-auf-Mengen"><a href="#Operationen-auf-Mengen" class="headerlink" title="Operationen auf Mengen"></a>Operationen auf Mengen</h4><p>对集合$M_1$和$M_2$的基础操作: 交(Schnitt)和并(Vereinigung)</p>
+<p>&nbsp;</p>
+<p>$M_{1} \cap M_{2}$被称为$M_1$和$M_2$的交集</p>
+<p>如果$M_{1} \cap M_{2}=\emptyset$, 人们就说$M_1$和$M_2$<strong>是不相交的(disjunkt)</strong></p>
+<p>$M_{1} \cup M_{2}$被称作$M_1$和$M_2$的并集</p>
+<p>&nbsp;</p>
+<p>人们经常需要求很多集合的交集和并集</p>
+<p>对一个自身元素全是集合的集合$S$, 有如下定义</p>
+<p>$\cap S:=\bigcap_{M \in S} M$$:=\left\{x \mid \right.$”für jedes $M \in S$ gilt $\left.x \in M\right.$”$\}$</p>
+<p>$\cup S:=\bigcup_{M \in S} M$$:=\left\{x \mid\right.$ “es gibt mindestens ein $M \in S$ mit $\left.x \in M\right.$”$\}$</p>
+<p>所以有$M_{1} \cap M_{2}=\cap\left\{M_{1}, M_{2}\right\}$和$M_{1} \cup M_{2}=\cup\left\{M_{1}, M_{2}\right\}$</p>
+<p>如果有$S=\left\{M_{1}, \ldots, M_{k}\right\},k\in \mathbb{N}$, 人们也可以这样写</p>
+<p>$\bigcup_{i=1}^{k} M_{i}:=\cup S$</p>
+<p>$\bigcap_{i=1}^{k} M_{i}:=\cap S$</p>
+<p>&nbsp;</p>
+<p>如果有一个固定的(fest)的集合$\Omega$, 而人们只考虑$\Omega$的子集, 这样对一个属于$\Omega$的集合$A$($A \subseteq \Omega$), 所有不属于集合$A$的元素的集合我们就可以不用这样写: $\Omega \backslash A$, 取而代之, 我们可以这样写: $\bar{A}$</p>
+<p>$\Omega$被称作<strong>全集(Universum)</strong></p>
+<p>$\bar{A}$被称作$A$的<strong>补集(Komplement)</strong></p>
+<p><strong>注意:</strong> 如果不定义全集$\Omega$, 那么集合$A$的补集就没有意义了</p>
+<p>&nbsp;</p>
+<h4 id="Potenzmenge-und-Partitionen"><a href="#Potenzmenge-und-Partitionen" class="headerlink" title="Potenzmenge und Partitionen"></a>Potenzmenge und Partitionen</h4><p>如果$M$是一个集合, 那么$2^M$或者$\mathcal{P}(M)$是$M$的<strong>幂集(Potenzmenge)</strong></p>
+<p>$\mathcal{P}(M):=2^{M}:=\{A \mid A \subseteq M\}$</p>
+<p><strong>$M$的幂集包含了所有$M$的子集</strong></p>
+<p>例子: </p>
+<p>$\mathcal{P}(\{1,2\})=\{\emptyset,\{1\},\{2\},\{1,2\}\}$</p>
+<p>$\mathcal{P}(\{1,2,3\})=\{\emptyset,\{1\},\{2\},\{3\},$$\{1,2\},\{1,3\},\{2,3\},\{1,2,3\}\}$</p>
+<p>$\mathcal{P}(\emptyset)=\{\emptyset\}$</p>
+<p>$\mathcal{P}(\{\emptyset,\{\emptyset\}\})=\{\emptyset,\{\emptyset\},\{\{\emptyset\}\},\{\emptyset,\{\emptyset\}\}\}$</p>
+<p>一个有$k$个元素的集合的幂集的基数大小是$2^k$</p>
+<p>&nbsp;</p>
+<p>集合$M$的<strong>分区(Partitionen)</strong>是一个含有M中不相交的, 非空的, 交集是$M$的子集的集合$P \subseteq \mathcal{P}(M)$</p>
+<p>正式一点的表达</p>
+<ul>
+<li>$M=\cup P$, 这意味着, $P$中的元素覆盖了$M$</li>
+<li>对任意的$A, B \in P$都有$A=B$ 或者$A \cap B=\emptyset$</li>
+<li>对任意的$A \in P$都有$A \neq \emptyset$</li>
+</ul>
+<p>例子$\{1,2.3\}$可能的分区有:</p>
+<p>$\{\{1,2,3\}\},\{\{1\},\{2,3\}\},\{\{1,2\},\{3\}\},\{\{1,3\},\{2\}\},\{\{1\},\{2\},\{3\}\}$</p>
+<p>$\mathbb{N_0}$可能的分区有:</p>
+<p>$\left\{2 \mathbb{N}_{0}, 2 \mathbb{N}_{0}+1\right\},\left\{\{x\} \mid x \in \mathbb{N}_{0}\right\},\left\{\mathbb{N}_{0}\right\} \ldots$</p>
+<p>&nbsp;</p>
+<h4 id="Visualisierung-von-Mengen-Venn-und-KV-Diagramme"><a href="#Visualisierung-von-Mengen-Venn-und-KV-Diagramme" class="headerlink" title="Visualisierung von Mengen: Venn- und KV-Diagramme"></a>Visualisierung von Mengen: Venn- und KV-Diagramme</h4><p>人们可以通过<strong>文氏图(Venn-Diagrammen)</strong>或者<strong>KV图(Karnaugh-Veitch-Diagramme)</strong>来可视化集合</p>
+<p><img src="/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/vennundkv.png" alt></p>
+<p>&nbsp;</p>
+<p>对于4个集合的文氏图和KV图</p>
+<p><img src="/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/vennundkv4.png" alt></p>
+<p>&nbsp;&nbsp;</p>
+<p>对于5个集合的文氏图和KV图</p>
+<p><img src="/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/vennundkv5.png" alt></p>
+<p>&nbsp;</p>
+<h4 id="Mengenterme"><a href="#Mengenterme" class="headerlink" title="Mengenterme"></a>Mengenterme</h4><p>$A,B,C…$是任意的集合, 也是集合的变量标志, 这样我们就可以借助$\cap, \cup, \mathcal{P}(\cdot), \backslash, \Delta$来建立集合术语/表达(Mengenterme/-ausdrücke)</p>
+<p>如果全集$\Omega$被定义了, 那么$A$的补集$\bar{A}$也可以使用了</p>
+<p>如果两个集合术语总是代表一个集合, 那说明这两个集合术语是<strong>等价的(äquivalent)</strong></p>
+<p>两个集合属于的等价性可以通过KV图来说明, 也可以通过等价转换证明</p>
+<p><img src="/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/umformung1.png" alt></p>
+<p><img src="/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/umformung2.png" alt></p>
+<p><img src="/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/umformung3.png" alt></p>
+<p>过程见Übung</p>
+<p>&nbsp;</p>
+<h4 id="Tupel-Sequenzen-Folgen-und-Worter"><a href="#Tupel-Sequenzen-Folgen-und-Worter" class="headerlink" title="Tupel, Sequenzen, Folgen und Wörter"></a>Tupel, Sequenzen, Folgen und Wörter</h4><p>集合: 很多对象的汇聚而成的集体, 对顺序和重复没有要求</p>
+<script type="math/tex; mode=display">
+\{a, b, \emptyset,\{b, a\}, a\}=\{\emptyset,\{a, b\}, a, b\}</script><p><strong>元组(Tupel)</strong>: 很多对象的汇聚而成的集体, 但对象的数量是固定的, 而且对顺序和重复有要求</p>
+<script type="math/tex; mode=display">
+(a, b, \emptyset,\{b, a\}, a) \neq(\emptyset,\{a, b\}, a, b)</script><p>对元组的定义是通过$($和$)$来开始和结束</p>
+<p>&nbsp;</p>
+<p><strong>队列(Sequenz/Folge)</strong>: 对每一个自然数$i \in \mathbb{R}$(或者是$i \in \mathbb{R_0}$)都对应有一个对象$a_i$, 哪人们就把这个无限(unendlich)的列表(Auslistung) $\left(a_{1}, a_{2}, \ldots\right)$(或者是$\left(a_{0}, a_{1}, \ldots\right)$)称作是队列</p>
+<p>简写: $\left(a_{i}\right)_{i \in \mathbb{N}}\left.(\right.$ bzw. $\left.\left(a_{i}\right)_{i \in \mathbb{N}_{0}})\right.$</p>
+<p>例子: $(i)_{i \in \mathbb{N}_{0}}=(0,1,2,3, \ldots),(1 / i)_{i \in \mathbb{N}}=(1,1 / 2,1 / 3,1 / 4, \ldots)$</p>
+<p>通常人们也把元组叫做有限的队列.</p>
+<p>注意: 对$k \in \mathbb{N}$有如下定义: $[k]:=\{1,2, \ldots, k\}$ mit $[0]=\emptyset$</p>
+<p>所以也可以这么写$\left(a_{i}\right)_{i \in[k]}=\left(a_{1}, a_{2}, \ldots, a_{k}\right)$和$\left(a_{i}\right)_{i \in[0]}=()$</p>
+<p>&nbsp;</p>
+<p>元组$t$的<strong>长度(Länge)</strong>$\vert t \vert$或者元组$t$的组成部分的数量$#t$是元组里面的对象的数量</p>
+<p>例子: </p>
+<p>$|(a,(b, c))|=2$</p>
+<p>$|(a, a, a, a, a, a)|=6$</p>
+<p>$|(\{a, b\},\{b, a\}, \emptyset,(a,\{(b, \emptyset)\}))|=4$</p>
+<p>相似的: $k$-Tupel表示长度为$k$的元组, <strong>对(Paar)</strong>是$2$-Tupel</p>
+<p>两个元组是相同的, 如果他们同样长并且每个位置的对象相同</p>
+<p>例子:</p>
+<p>$(a,(b, c)) \neq(a,(c, b))$</p>
+<p>$(a,\{b, c\})=(a,\{c, b\}) \neq(\{c, b\}, a) \neq() \neq(a, b, c)$</p>
+<p>&nbsp;</p>
+<p>如果$A,B$是两个集合, 那么$A \times B$s是集合$A$和$B$的笛卡尔积(kartesische Produkt)</p>
+<script type="math/tex; mode=display">
+A \times B=\{(a, b) \mid a \in A, b \in B\}</script><p>相应的, 做出了下面的定义: </p>
+<script type="math/tex; mode=display">
+A_{1} \times A_{2} \times \ldots \times A_{k}=\left\{\left(a_{1}, a_{2}, \ldots, a_{k}\right) \mid a_{1} \in A_{1}, a_{2} \in A_{2}, \ldots, a_{k} \in A_{k}, \right.  \}</script><script type="math/tex; mode=display">
+\text{如果}k=0\ 乘积结果是\{()\}</script><p>注意事项: </p>
+<ul>
+<li>$A \times B \times C=\{(a, b, c) \mid a \in A, b \in B, c \in C\}$</li>
+<li>$(A \times B) \times C=\{((a, b), c) \mid a \in A, b \in B, c \in C\}$</li>
+<li>$A \times(B \times C)=\{(a,(b, c)) \mid a \in A, b \in B, c \in C\}$</li>
+</ul>
+<p>对这三个例子可以同图像区分:</p>
+<p><img src="/2020/11/07/Diskrete-Strukturen%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/graphveran.png" alt></p>
+<p>&nbsp;</p>
+<p>$A^{k}=\underbrace{A \times \ldots \times A}_{k \text { mal }}$代表所有由$A$构成的$k$-Tupel</p>
+<script type="math/tex; mode=display">
+A^{k}=\left\{\left(a_{1}, \ldots, a_{k}\right) \mid a_{1} \in A, a_{2} \in A, \ldots, a_{k} \in A\right\}</script><p>注意: $A^{0}:=\{()\}$和$A^{1}:=\{(a) \mid a \in A\} \neq A$</p>
+<p>元组可以通过集合来”模拟”, 比如$(a, b)$通过$\{\{0, a\},\{1, b\}\}$ (带数字版本)或者$\{\{\emptyset, a\},\{\{\emptyset\}, b\}\}$(不带数字版本)</p>
+<p>&nbsp;</p>
+<h5 id="Worter-und-Sprachen"><a href="#Worter-und-Sprachen" class="headerlink" title="Wörter und Sprachen"></a>Wörter und Sprachen</h5><p>在信息学里, 元组是字符串(Zeichenketten/strings)的基石</p>
+<p>通常情况下存在一个字母表(Grundzeichen/Alphabet)</p>
+<ul>
+<li>比如ASCII, UTF-8, $\{a, \ldots, z, A, \ldots, Z, 0, \ldots, 9\}$</li>
+<li>通常字母表用$\Sigma$ oder $\Gamma$表示, 元组的元素都是来自字母表</li>
+</ul>
+<p>对所有来自字母表$\Sigma$的字符组成的元组的集合可以写成这样: $\Sigma^{*}:=\bigcup_{k \in \mathbb{N}_{0}} \Sigma^{k}=\cup\left\{\Sigma^{k} \mid k \in \mathbb{N}_{0}\right\}$</p>
+<p>人们把$\Sigma^{<em>}$称作$\Sigma$里所有有限的元组, 并把$\Sigma^{</em>}$里的元素称为<strong>单词(Wörter)</strong></p>
+<p>&nbsp;</p>
+<p>只要没有误解, 就可以把单词$\left(a_{1}, a_{2}, \ldots, a_{k}\right)$简写成$a_{1} a_{2} \cdots a_{k}$</p>
+<p>对一个空的元组(即没有单词), 需要一个特殊的符号, 通常是$\varepsilon$(英语)和$\lambda$(德语)</p>
+<p>如果$\Sigma$是一个字母表, 那么把子集$L \subseteq \Sigma^{*}$称作语言(Sprache)</p>
+<p>对单词和元组还可以<strong>连接(Konkatenation/Verkettung)</strong></p>
+<ul>
+<li>对两个单词$uv$的连接, $u=u_{1} \ldots u_{k}$和$v=v_{1} \ldots v_{l}\left(u_{i}, v_{j} \in \Sigma\right)$可以得到$u v:=$$u_{1} \ldots u_{k} v_{1} \ldots v_{l}$</li>
+<li>注意: $u \varepsilon=\varepsilon u=u$和$|u v|=|u|+|v|$</li>
+<li>对应的, 连接两个元组$\left(u_{1}, \ldots, u_{k}\right)$和$\left(v_{1}, \ldots, v_{l}\right)$能产生新的元组$\left(u_{1}, \ldots, u_{k}, v_{1}, \ldots, v_{l}\right)$</li>
+</ul>
+<p>&nbsp;</p>
+<h3 id="Relationen"><a href="#Relationen" class="headerlink" title="Relationen"></a>Relationen</h3><h3 id="Funktionen"><a href="#Funktionen" class="headerlink" title="Funktionen"></a>Funktionen</h3>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TUM/" rel="tag"># TUM</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/11/05/Einfuhrung-in-die-Rechnerarchitektur%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/" rel="prev" title="Einführung in die Rechnerarchitektur笔记和课件整理">
+      <i class="fa fa-chevron-left"></i> Einführung in die Rechnerarchitektur笔记和课件整理
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Einfuhrung"><span class="nav-number">1.</span> <span class="nav-text">Einführung</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Grundlagen"><span class="nav-number">2.</span> <span class="nav-text">Grundlagen</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Einfuhrung-1"><span class="nav-number">2.1.</span> <span class="nav-text">Einführung</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mengen"><span class="nav-number">2.2.</span> <span class="nav-text">Mengen</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Basisvokabular-und-konzepte"><span class="nav-number">2.2.1.</span> <span class="nav-text">Basisvokabular und -konzepte</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Mengen-in-der-Informatik"><span class="nav-number">2.2.1.1.</span> <span class="nav-text">Mengen in der Informatik</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mengen-Basisvokabular"><span class="nav-number">2.2.1.2.</span> <span class="nav-text">Mengen: Basisvokabular</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Vergleiche-von-Mengen"><span class="nav-number">2.2.2.</span> <span class="nav-text">Vergleiche von Mengen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Operationen-auf-Mengen"><span class="nav-number">2.2.3.</span> <span class="nav-text">Operationen auf Mengen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Potenzmenge-und-Partitionen"><span class="nav-number">2.2.4.</span> <span class="nav-text">Potenzmenge und Partitionen</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Visualisierung-von-Mengen-Venn-und-KV-Diagramme"><span class="nav-number">2.2.5.</span> <span class="nav-text">Visualisierung von Mengen: Venn- und KV-Diagramme</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Mengenterme"><span class="nav-number">2.2.6.</span> <span class="nav-text">Mengenterme</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tupel-Sequenzen-Folgen-und-Worter"><span class="nav-number">2.2.7.</span> <span class="nav-text">Tupel, Sequenzen, Folgen und Wörter</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Worter-und-Sprachen"><span class="nav-number">2.2.7.1.</span> <span class="nav-text">Wörter und Sprachen</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Relationen"><span class="nav-number">2.3.</span> <span class="nav-text">Relationen</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Funktionen"><span class="nav-number">2.4.</span> <span class="nav-text">Funktionen</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jiong Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiong Liu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  
+
+</body>
+</html>
