@@ -28,7 +28,7 @@
 <meta property="og:description" content="Dozent: Noam Berger Kontakt: noam.berger@tum.de Übungsleiter: Stefan Possaner">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-03T20:11:08.000Z">
-<meta property="article:modified_time" content="2020-11-13T13:37:24.361Z">
+<meta property="article:modified_time" content="2020-11-21T22:21:27.235Z">
 <meta property="article:author" content="Jiong Liu">
 <meta property="article:tag" content="TUM">
 <meta name="twitter:card" content="summary">
@@ -100,7 +100,7 @@
       <h1 class="site-title">Ljiong</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">Programm | Life</p>
+      <p class="site-subtitle" itemprop="description">不甘心有什么用呢?</p>
   </div>
 
   <div class="site-nav-right">
@@ -192,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-13 14:37:24" itemprop="dateModified" datetime="2020-11-13T14:37:24+01:00">2020-11-13</time>
+                <time title="修改时间：2020-11-21 23:21:27" itemprop="dateModified" datetime="2020-11-21T23:21:27+01:00">2020-11-21</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -495,14 +495,14 @@ c_n=
 <p>&nbsp;</p>
 <p>Für $z \in \mathbb{C}$ definieren wir den Betrag $\vert z \vert = \sqrt{x^2+y^2}$.</p>
 <p>&nbsp;</p>
-<h2 id="Folgen"><a href="#Folgen" class="headerlink" title="Folgen"></a>Folgen</h2><p>Definition 3.1:</p>
+<h2 id="Folgen"><a href="#Folgen" class="headerlink" title="Folgen"></a>Folgen</h2><p><strong>Definition 3.1:</strong></p>
 <p>Sei $M$ eine Menge (z.B. $M=\mathbb{R}$ oder $\mathbb{R}^n$). Eine Folge mit Werten in $M$ ist eine Abbildung $\mathbb{N}^{+} \rightarrow M$ (oder $\mathbb{N} \rightarrow M$). Wir schreiben $x_{1}, x_{2}, x_{3} \ldots$ oder $x_{0}, x_{1}, x_{2} \ldots$.</p>
 <p>Eine Folge kann explizit gegeben sein, z.B.: $x_{n}=2^{n}$ oder rekursiv z.B.: $x_{n+1}=2 x_{n}, x_{0}=1$.</p>
-<p>Definition 3.2:</p>
+<p><strong>Definition 3.2:</strong></p>
 <p>Eine Folge heißt monoton wachsend, falls $\forall n x_{n} \leq x_{n+1}$.</p>
 <p>Eine Folge heißt streng monoton wachsend, falls $\forall n x_{n}&lt;x_{n+1}$.</p>
 <p>Analog definiert man monoton fallende byw. streng monoton fallende Folgen.</p>
-<p>Definition 3.3 (Grenzwert einer Folge):</p>
+<p><strong>Definition 3.3 (Grenzwert einer Folge):</strong></p>
 <p>Sei $\left(x_{n}\right)_{n \in \mathbb{N}}$ eine reelle Folge. Eine Zahl $x \in \mathbb{R}$ heißt <strong>Grenzwert (oder Limes)</strong> von $\left(x_{n}\right)_{n \in \mathbb{N}}$, falls er zu jedem $\varepsilon&gt;0$ ein $\mathbb{N}$ gibt, so dass $\left|x_{n}-x\right|&lt;\varepsilon$ für alle $n \geq \mathbb{N}$.</p>
 <p>Man sagt: $\left(x_{n}\right)$ konvengiert gegen $x$.</p>
 <p>Man schreibt:</p>
@@ -510,12 +510,12 @@ c_n=
 x_{n} \underset{n \rightarrow \infty}{\rightarrow} x</script><p>oder $x=\lim _{n \rightarrow \infty} x_{n}$</p>
 <p><strong>Bsp.:</strong> Die Folge $x_{n}=\frac{1}{n}$ konvergiert gegen $x=0$. Wähle zu $\varepsilon&gt;0$ ein $N$, so dass $N&gt;\frac{1}{\varepsilon}$, dann gilt für $n \geq N:\left|x_{n}-0\right|=x_{n}=\frac{1}{n} \leq \frac{1}{N} \leq \varepsilon$ und $(3.3)$ erfüllt.</p>
 <p><strong>Bsp.:</strong> Die Folge $x_{n}=(-1)^{n}$hat keinen Grenywert. Gibt man $\varepsilon \leq 1$ so gilt für jedes $x \in \mathbb{R}$ entweder $|1-x| \geq \varepsilon$ oder $|(-1)-x| \geq \varepsilon$, d.h. $(3.3)$ kann nicht erfüllt werden.</p>
-<p>Satz 3.4: </p>
+<p><strong>Satz 3.4:</strong> </p>
 <p>Jede reelle Folge $(x_n)$ hat höchstens einen Grenzwert.</p>
 <p><strong>Beweis:</strong> Falls $x_{n} \rightarrow_{n \rightarrow \infty} x$ und $x_{n} \rightarrow_{n \rightarrow \infty} y$, so gibt es zu jedem $\varepsilon&gt;0$ ein $\mathbb{N}$ mit $|x-y| \leq\left|x-x_{n}\right|+\left|x_{n}-y\right| \leq 2 \varepsilon\ , \forall n \geq N \Rightarrow x=y$.</p>
 <p><strong>Bsp.:</strong> Sei $x \in[0,1]$ mit Dezimaldarstellung $x=0 . d_{1} d_{2} d_{3 \cdots}$ und $x_{n}=0 . d_{1} d_{2} \ldots d_{n}, n=1,2,3 \dots$</p>
 <p>Dann gilt $x_n \rightarrow_{n \rightarrow \infty} x$, da $\left|x_{n}-x\right| \leq 10^{-N}$ für $n \geq N$.</p>
-<p>Lemma 3.5:</p>
+<p><strong>Lemma 3.5:</strong></p>
 <p>$(x_n)$ und $(y_n)$ seien Folgen mit $x_n \rightarrow x$ und $y_n \rightarrow y$. Falls $x_n \leq y_n \forall n$, so gilt $x \leq y$</p>
 <p>Beweis. Übung</p>
 <p>Bsp.: $x_{n}=\frac{1}{n^{2}}, y_{n}=\frac{1}{n}, n=1,2, \ldots$. Dann gilt $x=y=0$.</p>
@@ -533,21 +533,21 @@ x_{n+1}=\left\{\begin{array}{l}
 <p>$ x_{25}= 2, x_{26}=1$</p>
 <p>Collatz-Vermutung:</p>
 <p>Für jedes $x_{1} \in \mathbb{N}$ konvergiert $(x_n)$ gegen 1.</p>
-<p>Satz 3.6 (Einschliessung):</p>
+<p><strong>Satz 3.6 (Einschliessung):</strong></p>
 <p>Seien $(x_n)$ und $(y_n)$, Folgen mit $x_{n} \rightarrow x$ und $y_{n} \rightarrow x$ und $x_{n} \leq y_{n} \forall n$,</p>
 <p>Ist $(w_n)$ eine weitere Folge mit $x_{n} \leq w_{n} \leq y_{n} \forall n$ so gilt auch $w_n \rightarrow x$.</p>
 <p>Beweis. Übung</p>
 <p>Bsp.:</p>
 <p>$w_{n}=\frac{1}{n+n \log (n)+\frac{7}{13} n^{17}}$. Wissen $n \log n+\frac{7}{13} n^{17} \geq 0 \forall n$</p>
 <p>$0 \leq w_{n} \leq x_{n}=\frac{1}{n} \Rightarrow w_{n} n \stackrel{\rightarrow}{\rightarrow} \infty 0$</p>
-<p>Definition 3.7:</p>
+<p><strong>Definition 3.7:</strong></p>
 <p>Wir sagen, $(x_n)$ geht gegen $+ \infty$ falls es zu jedem $c &gt; 0$ ein $N \in \mathbb{N}$ mit $x_{n} \geq C \forall n \geq N(3.6)$</p>
 <p>$(x_n)$ geht gegen $- \infty$, falls $(-x_n)$ gegen $+ \infty$ geht.</p>
 <p>Bsp.: Die Folge $x_{n}=2^{n}, n \in \mathbb{N}$, geht gegen $+ \infty$</p>
 <p>Eine Folge heißt <strong>beschränkt</strong>, falls es $K&gt;0$ gibt, so dass $\left|x_{n}\right| \leq K \forall n$.</p>
-<p>Satz 3.8:</p>
+<p><strong>Satz 3.8:</strong></p>
 <p>Jede konvergierte Folge ist beschränkt. (Konvergierte Folge soll heißen: $x_{n} \rightarrow x$ für ein $x \in \mathbb{R}$, siehe Def 3.1)</p>
-<p>Satz 3.9 (Rechnenreglen für Grenzwerte):</p>
+<p><strong>Satz 3.9 (Rechnenreglen für Grenzwerte):</strong></p>
 <p>Seien $\left(x_{n}\right),\left(y_{n}\right)$ Folgen mit $x_{n} \rightarrow a$ und $y_{n} \rightarrow b$, so gilt $x_{n}+y_{n} \rightarrow a+b, x_{n}-y_{n} \rightarrow a-b, x_{n} \cdot y_{n} \rightarrow a \cdot b$ und $\frac{x_{n}}{y_{n}} \rightarrow \frac{a}{b}$, falls $b\neq 0$</p>
 <p>Beweis:</p>
 <p>(1) +: Sei $\epsilon&gt;0$ und sei $N$ so groß, dass für jeden $n&gt;N$, $\left|x_{n}-x\right|&lt;\epsilon / 2$ und $\left|y_{n}-y\right|&lt;\epsilon / 2$. Dann, für jeden $n&gt;N$, $\left|\left(x_{n}+y_{n}\right)-\right|(x_n-y_n) \mid&lt;\epsilon$.</p>
@@ -563,6 +563,81 @@ x_{n+1}=\left\{\begin{array}{l}
 <script type="math/tex; mode=display">
 x_{n}=\frac{n^{2}-\log n}{n^{2}+2 n+1}</script><script type="math/tex; mode=display">
 x_{n}=\frac{1-\frac{\log n}{n^{2}}}{1+\frac{2}{n}+\frac{1}{n^{2}}} n \stackrel{\rightarrow}{\rightarrow} 1</script><p>da <script type="math/tex">1-\frac{\log n}{n^{2}} n \rightarrow \infty 1,1+\frac{2}{n}+\frac{1}{n^{2}} n \stackrel{\rightarrow}{\rightarrow} \infty 1</script></p>
+<p><strong>Satz 3.10:</strong></p>
+<p>Jede monoton wachsende und beschränkte Folge ist konvergiert und es gilt $\lim _{n \rightarrow \infty} x_{n}=\sup _{n} x_{n}$ wobei $\sup _{n} x_{n}:=\sup (M)$ wobei $M=\left\{x_{n}: n \in \mathbb{N}\right\}$</p>
+<p>Beweis: Für jedes $\varepsilon&gt;0$ gibt es $N \in \mathbb{N}$ so dass $s-\varepsilon&lt;x_{N}$, andernfalls wäre $s-\varepsilon$ eine obere Schranke von $M$ und $s$ wäre die kleinste obere Schranke. Für $n \geq N$ gilt $s-\varepsilon&lt;x_{N} \leq x_{n} \leq s$, da die Folge monoton wachsend ist und $s$ eine obere Schranke ist. Damit gilt $x_{n} \rightarrow s$.</p>
+<font color="#0000cd">这里的$s$指的是$sup(x_n)$</font>
+
+<p>Analog gilt, dass jede beschränkte monoton fallende Folge gegen ihre Infinmum konvergiert.</p>
+<p>Bsp.: $x_{1}&gt;0, x_{n+1}=\sqrt{x_{n}}$ Falls $x \geq 1$ so ist $(x_n)$ monoton fallend, falls $x_{1}&lt;1$, so ist $(x_n)$ monoton wachsend. In beiden Fällen gilt $x_{n} \stackrel{n \rightarrow \infty}{\rightarrow} 1$</p>
+<p><strong>Beschränkte Folgen, Limes superior und Limes inferior</strong></p>
+<p>Sei $(x_n)$ eine <strong>beschränkte</strong> Folge reeller Zahlen.</p>
+<p>Betrachte $\overline{x_{n}}=\sup _{k \geq n} x_{k}, \underline{x_{n}}=\inf _{k \geq n} x_{k}$</p>
+<p>Dann ist $\left(\overline{x_{n}}\right)$ monoton fallend und $\left(x_{n}\right)$ monoton wachsend. Also existieren nach Satz 3.10 die beiden Grenzwerte. $\limsup _{n \rightarrow \infty} x_{n}:=\lim _{n \rightarrow \infty} \overline{x_{n}}$ und $\liminf _{n \rightarrow \infty} \underline{x_{n}}$ die wir als limes superior bzw. limes inferior von $(x_n)$ bezeichnen.</p>
+<p>Aus $\underline{x}_{n} \leq \bar{x}_{n}$ folgt:</p>
+<script type="math/tex; mode=display">
+\liminf _{n \rightarrow \infty} x_{n} \leq \limsup _{n \rightarrow \infty} x_{n}</script><p><strong>Definition 3.11 (Häufungspunkt)</strong>:</p>
+<p>Ist $\left(x_{n}\right)$ reellwertige Folge und $n_{1}&lt;n_{2}&lt;n_{3}&lt;$$n_{4} \ldots, n_{k} \in \mathbb{N}, \forall k$ so heißt $x_{n_k}$ Teilfolge von $(x_n)$. $x$ heißt Häufungspunkt von $(x_n)$, falls es eine Teilfolge $(x_{n_k})$ gibt mit $\lim _{k \rightarrow \infty} x_{n_{k}}=x$.</p>
+<p>Beispiel:</p>
+<script type="math/tex; mode=display">
+x_{n}=(-1)^{n}, n \in \mathbb{N}</script><p>Die Häufungspunkte von $(x_n)$ sind $+1$ und $-1$.</p>
+<p><strong>Satz 3.12 (Bolzano-Weierstrass):</strong></p>
+<p>Gegeben sei eine beschränkte reellewertige Folge $(x_n)$. <strong>Dann sind Limes superior und Limes inferior maximaler bzw. minimaler Häufungspunkt der Folge.</strong></p>
+<p>Weiter gilt:</p>
+<script type="math/tex; mode=display">
+x_{n} \stackrel{n \rightarrow \infty}{\longrightarrow} x \Leftrightarrow \liminf _{n \rightarrow \infty} x_{n}=\limsup _{n \rightarrow \infty} x_{n}=x\ \ \ \ \ \ (3.1)</script><font color="#0000cd">下面那个是推广, 上面那个也很重要.</font>
+
+
+
+<p><strong>Beweis:</strong> </p>
+<p>Müssen drei Dinge zeigen:</p>
+<p>(1) Limes superior und Limes inferior sind Häufungspunkte.</p>
+<p>(2) Jeder Häufungspunkt $x$ liegt in $\left[\liminf _{n \rightarrow \infty} x_{n}, \limsup _{n \rightarrow \infty} x_{n}\right]$</p>
+<p>(3) $(3.1)$ gilt</p>
+<p><strong>Zu (1):</strong> </p>
+<p>Definiere für $k=1,2,3 \ldots$ rekursiv $n_{1}=1&lt;n_{2}&lt;n_{3}&lt;\ldots$ so dass</p>
+<script type="math/tex; mode=display">
+\overline{x_{n_{k}+1}}=\sup _{n>n_{k}} x_{n}-\frac{1}{k} \leq x_{n_{k+1}} \leq \sup _{n>n_{k}} x_{n}=\overline{x_{n_{k}+1}}</script><script type="math/tex; mode=display">
+\bar{x}_{n_{k}+1}-\frac{1}{k}=\sup _{n>n_{k}} x_{n}-\frac{1}{k} \leq x_{n_{k+1}} \leq \sup _{n>n_{k}} x_{n}=\bar{x}_{n_{k}+1}</script><font color="#0000cd">下面的是另外一个Skript里面的, 我觉得这个其实才是对的</font>
+
+<p>Lassen wir $k \rightarrow \infty$ gehen. so erhalten wir(durch Einschließung):</p>
+<script type="math/tex; mode=display">
+\lim _{k \rightarrow \infty} x_{n_{k}}=\lim _{k \rightarrow \infty} \overline{x_{n_{k}+1}}=\limsup _{n \rightarrow \infty} x_{n}</script><p>d.h. die so konstruierte Teilfolge $(x_{n_k})$ konvergiert gegen den Limes superior von $(x_n)$. Dieser ist daher Häufungspunkt von $(x_n)$.</p>
+<p>Der Beweis, dass Limes inferior ein Häufungspunkt von $(x_n)$ ist, geht analog.</p>
+<p><strong>Zu (2):</strong></p>
+<p>Für jede Teilfolge $x_{n_k}$ gilt</p>
+<script type="math/tex; mode=display">
+\inf _{n \geq n_{k}} x_{n} \leq x_{n_{k}} \leq \sup _{n \geq n_{k}} x_{n}</script><p>Falls $x_{n_{k}} \rightarrow_{k \rightarrow \infty} x$, d.h. falls die Teilfolge gegen den Häufungspunkt $x$ konvergiert, so bekommt man mit $k \rightarrow \infty$</p>
+<script type="math/tex; mode=display">
+\liminf _{n \rightarrow \infty} x_{n} \leq x \leq \limsup _{n \rightarrow \infty} x_{n}</script><p><strong>Zu (3):</strong></p>
+<p>“$\Rightarrow$” in $(3.1)$ gilt, weil <strong>jede</strong> Teilfolge einer konvergierten Folge $(x_n)$ mit $x_{n} \rightarrow x$ gegen denselben Grenzwert $x$ konvergiert.</p>
+<p>Für “$\Leftarrow$” führen wir einen Widerspruchsbeweis:</p>
+<p>Wir nehmen an, dass </p>
+<script type="math/tex; mode=display">
+\limsup _{n \rightarrow \infty} x_{n}=\liminf _{n \rightarrow \infty} x_{n}=x</script><p>aber dass $(x_n)$ <strong>nicht</strong> gegen $x$ konvergiert.</p>
+<p>Dann gibt es für jedes $\varepsilon_{0}&gt;0$ eine Teilfolge $(x_{n_k})$, sodass $\left|x-x_{n_{k}}\right|&gt;\varepsilon_{0} \quad \forall k \in \mathbb{N}$.</p>
+<p>Die Teilfolge $(x_{n_k})$ ist wie $(x_n)$ beschränkt und hat daher selber einen Häufungspunkt $\tilde{x}$. Dieser erfüllt nach Konstruktion $|\widetilde{x}-x|&gt;\varepsilon_{0}&gt;0$, also $\widetilde{x} \neq x$.</p>
+<p>Also ist $\tilde{x}$ auch ein Häufungspunkt der ursprünglichen Folge $(x_n)$ und nach $(2)$ müsste</p>
+<script type="math/tex; mode=display">
+x=\liminf _{n \rightarrow \infty} x_{n} \leq \widetilde{x} \leq \limsup _{n \rightarrow \infty} x_{n}=x</script><p> gelten.</p>
+<p>so gilt Widerspruch.</p>
+<p>Bsp.:</p>
+<p>Betrachten die Folge $\left(x_{n}\right)=\left(0, \frac{1}{2}, 1,0, \frac{1}{4}, \frac{1}{2}, \frac{3}{4}, 1,0, \frac{1}{8}, \frac{1}{4}, \frac{3}{8}, \frac{1}{2}, \frac{5}{8}, \frac{3}{4}, \frac{7}{8}, 1,0, \frac{1}{16}, \ldots\right)$</p>
+<p>Die Menge der Häufungspunkte isr $[0,1]$.</p>
+<p>Es gilt: $\liminf _{n \rightarrow \infty} x_{n}=0, \limsup _{n \rightarrow \infty} x_{n}=1$</p>
+<p><strong>Folgerung:</strong></p>
+<p>Jeder beschränkte reellwertige Folge hat eine konvergente Teilfolge und damit auch einen Häufungspunkt.</p>
+<p><strong>Satz 3.13 (Cauchys Kriterium für Konvergenz):</strong></p>
+<p>Sei $(x_n)_n$ Folge. Dann konvergiert $(x_n)_n$ genau dann, wenn für jedes $\epsilon&gt;0$ ein $N$ existiert, so dass</p>
+<script type="math/tex; mode=display">
+\left|x_{n}-x_{m}\right|<\epsilon \quad \text { für alle } m, n>N</script><p>Beweis:</p>
+<p>$\Rightarrow$ : Sei $\epsilon&gt;0$. $(x_n)_n$ konvergiert gegen einen Grenzwert $x$, also existieren ein $N$, so dass $\left|x_{n}-x\right|&lt;\epsilon / 2$ für alle $n&gt;N$ gilt. Dann gilt für alle $m, n&gt;N$, dass $\left|x_{n}-x_{m}\right| \leq\left|x_{n}-x\right|+\left|x-x_{m}\right|&lt;\epsilon$.</p>
+<p>$\Leftarrow$ : Erst zeigen wir, dass  $(x_n)_n$ beschränkt ist. Sei $N$ so, dass $\left|x_{n}-x_{m}\right|<1$ für alle $m, n>N$. Dann ist $\max \left\{x_{1}, \ldots, x_{N}, x_{N+1}+1\right\}$$\max \left\{x_{1}, \ldots, x_{N}, x_{N+1}+1\right\}$ eine obere Schranke. Analog findet man eine untere Schranke. Da die Folge $(x_n)_n$ beschränkt ist, besitzt sie nach Satz 3.12 einen Häufungspunkt $x$. Sei nun $\epsilon&gt;0$ beliebig und $N$ so groß, dass $\left|x_{n}-x_{m}\right|&lt;\epsilon / 2$ für alle $m, n&gt;N$. Wähle num $m&gt;N$ so, dass $\left|x_{m}-x\right|&lt;\epsilon / 2$ gilt(ein solches $m$ existiert, weil $x$ Häufungspunkt von $\left(x_{n}\right)_{n}$ ist). Dann gilt für jedes $n&gt;N$,</1$></p>
+<script type="math/tex; mode=display">
+$\left|x_{n}-x\right| \leq\left|x_{n}-x_{m}\right|+\left|x_{m}-x\right|<\epsilon$</script><p>Weil $\epsilon$ beliebig ist, konvergiert also $(x_n)_n$ konvergiert gegen $x$.</p>
+<p>q.e.d</p>
+<p><strong>Übung</strong></p>
+<p>$(x_n)_n$ ist konvergiert $\Leftrightarrow\left(x_{n}\right)_{n}$ hat genau einen Häufungspunkt $\Leftrightarrow \limsup _{n \rightarrow \infty} x_{n}=\liminf _{n \rightarrow \infty} x_{n}$</p>
 
     </div>
 
@@ -660,7 +735,7 @@ x_{n}=\frac{1-\frac{\log n}{n^{2}}}{1+\frac{2}{n}+\frac{1}{n^{2}}} n \stackrel{\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">28</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -673,7 +748,7 @@ x_{n}=\frac{1-\frac{\log n}{n^{2}}}{1+\frac{2}{n}+\frac{1}{n^{2}}} n \stackrel{\
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
