@@ -28,7 +28,7 @@
 <meta property="og:description" content="Dozent: Noam Berger Kontakt: noam.berger@tum.de Übungsleiter: Stefan Possaner">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-03T20:11:08.000Z">
-<meta property="article:modified_time" content="2020-11-21T22:21:27.235Z">
+<meta property="article:modified_time" content="2020-11-29T17:20:55.399Z">
 <meta property="article:author" content="Jiong Liu">
 <meta property="article:tag" content="TUM">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-21 23:21:27" itemprop="dateModified" datetime="2020-11-21T23:21:27+01:00">2020-11-21</time>
+                <time title="修改时间：2020-11-29 18:20:55" itemprop="dateModified" datetime="2020-11-29T18:20:55+01:00">2020-11-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -638,6 +638,110 @@ $\left|x_{n}-x\right| \leq\left|x_{n}-x_{m}\right|+\left|x_{m}-x\right|<\epsilon
 <p>q.e.d</p>
 <p><strong>Übung</strong></p>
 <p>$(x_n)_n$ ist konvergiert $\Leftrightarrow\left(x_{n}\right)_{n}$ hat genau einen Häufungspunkt $\Leftrightarrow \limsup _{n \rightarrow \infty} x_{n}=\liminf _{n \rightarrow \infty} x_{n}$</p>
+<h2 id="Reihen"><a href="#Reihen" class="headerlink" title="Reihen"></a>Reihen</h2><p><strong>Definition 4.1</strong>:</p>
+<p>Einer Folge $(a_n)$ komplexer Zahlen ordnen wir die Folge $s_{n}=a_{0}+\ldots+a_{n}=\sum_{k=0}^{n} a_{k}$ zu und bezeichnen sie als <strong>unendliche Reihe</strong>, kurze <strong>Reihe</strong> mit den <strong>Gliedern $a_n$</strong> und die <strong>Partialsummen</strong> $s_n$.</p>
+<p>Falls die Partialsummen $s_n$ konvergieren, d.h. $s_{n} \stackrel{n\rightarrow \infty}{\rightarrow}  s$, soheißt die Reihe konvergent und der Grenzwert $s$ heißt <strong>Summe</strong> oder <strong>Wert</strong> der Reihe. Wir schreiben $s=\lim _{n \rightarrow \infty} s_{n}:=\sum_{k=0}^{\infty} a_{k}$. Sind die Glieder reell und geht die Floge$(s_n)$ gegen $+\infty$(bzw. $-\infty$) os schreiben wir auch $\sum_{k=0}^{\infty} a_{k}=+\infty\left(b z w . \sum_{k=0}^{\infty} a_{k}=-\infty\right)$</p>
+<p><strong>Beispiele</strong>:</p>
+<p>(1) Die <strong>geometrische Reihe</strong>. </p>
+<p>Für $z \in \mathbb{C}$ betrachten wir $s_{n}=\sum_{k=0}^{n} z^{k}$ (Konvention: $z^0=1$)</p>
+<p>Es gilt $s_{n}=\frac{1-z^{n+1}}{1-z}$(等比数列求和公式)</p>
+<p>Für $|z|&lt;1$ gilt $\left|z^{n+1}\right| \stackrel{n\rightarrow \infty}{\rightarrow}  0$(da $\left|z^{n+1}\right|=|z|^{n+1}$) und damit $s_{n} \rightarrow s=\frac{1}{1-z}$</p>
+<p>Also: $\sum_{k=0}^{\infty} z^{k}=\frac{1}{1-z}$ falls $|z|&lt;1$</p>
+<p>Für $z \in \mathbb{R},|z| \geq 1$ gilt $\sum_{k=0}^{\infty} z^{k}=\infty$(denn$s_{n} \geq n+1$)</p>
+<p><strong>Bemerkung</strong>: Für die Frage , <strong>ob</strong> eine Reihe konvergiert, spielen die ersten $n_0$ Glieder keine Rolle: Für $m \geq n_{0}$, $m$ beliebig, gilt, dass $\sum_{k=n_{0}}^{n} a_{k}$ konvergiert gdw. $\sum_{k=m}^{n} a_{k}$ konvergiert.</p>
+<p>(2) Die <strong>harmonische Reihe</strong></p>
+<p>Sei $s_{n}=\sum_{k=1}^{n} \frac{1}{k}$.</p>
+<p>Behauptung: $\sum_{k=1}^{\infty} \frac{1}{n}=\infty$</p>
+<p><strong>Beweis</strong>: Für $N=2^{j}$ gilt $s_{N}=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\ldots+\frac{1}{8}+\ldots+\frac{1}{2^{j-1}+1}+\ldots+\frac{1}{2^{j}}$</p>
+<p>$\frac{1}{3}+\frac{1}{4} \geq \frac{1}{2}$</p>
+<p>$\frac{1}{5}+\ldots+\frac{1}{8} \geq \frac{1}{2}$</p>
+<p>$\frac{1}{2^{j-1}+1}+\ldots+\frac{1}{2^{j}} \geq \frac{1}{2}$</p>
+<p>also $s_{n} \geq 1+\frac{j}{2}$ für $N=2^{j}$</p>
+<p>Damit geht $(s_n)$ gegen $+\infty$</p>
+<p>Falls $\sum_{k=0}^{\infty} a_{k}=a$ und $\sum_{k=0}^{\infty} b_{k}=b$ so gilt $\sum_{k=0}^{\infty}\left(a_{k}+b_{k}\right)=a+b\ (3.11)$</p>
+<p>und $\sum_{k=0}^{\infty} c a_{k}=c \sum_{k=0}^{\infty} a_k=c \cdot a \forall c \in \mathbb{R}\ (3.12)$</p>
+<p>(3.11) und (3.12) ergeben sich aus den entsprechenden Aussagen für Grenzwerte von Folgen.</p>
+<p>Falls eine Reihe konvergent ist, d.h. $s_{n} \rightarrow s$ für ein $s \in \mathbb{C}$ so gilt für die Glieder $a_{n}=s_{n}-s_{n-1}=\left(s_{n}-s\right)+\left(s-s_{n-1}\right) \Rightarrow a_{n} \rightarrow 0$</p>
+<p><strong>Satz 4.2(Notwendige Bedingung für die Konvergenz)</strong>:</p>
+<p>Ist eine Reihe konvergent, so muss gelten:</p>
+<script type="math/tex; mode=display">
+\lim _{n \rightarrow \infty} a_{n}=0</script><p><strong>Beweis. Übung. Hinweis: Satz 3.13</strong></p>
+<p><strong>Satz 4.3</strong>:</p>
+<p>Ist $s_{n}=\sum_{k=0}^{n} a_{k}$ eine Reelle Reihe mit $a_{k} \geq 0 \forall k \in \mathbb{N}_{0}$, so ist $(s_n)$ konvergent gdw. $(s_n)$ beschränkt ist.</p>
+<p>Beweis. $(s_n)$ ist monoton wachsend.</p>
+<h3 id="Vergleichskriterien-fur-Konvergenz"><a href="#Vergleichskriterien-fur-Konvergenz" class="headerlink" title="Vergleichskriterien für Konvergenz"></a>Vergleichskriterien für Konvergenz</h3><p><strong>Definition 4.4(Majorante)</strong>:</p>
+<p>Sei $s_{n}=\sum_{k=0}^{n} a_{k}$ eine Reihe mit Werten in $\mathbb{C}$. Eine Reihe $\sum_{k=0}^{n} b_{k}$(mit $b_{k} \in \mathbb{R}, \forall k$) mit $\left|a_{k}\right| \leq b_{k}$$\left|a_{k}\right| \leq b_{k}$ heißt <strong>Majorante</strong> von $\sum_{k=0}^{n} a_{k}$</p>
+<p><strong>Satz 4.5(Majorantenkriterium)</strong>:</p>
+<p>Sei $s_{n}=\sum_{k=0}^{n} a_{k}$ eine Reihe mit Werten in $\mathbb{C}$, welche eine konvergente Majorante $\sum_{k=0}^{n} b_{k}$ besitzt. Dann ist $(s_n)$ konvergent und es gilt:</p>
+<script type="math/tex; mode=display">
+\left|\sum_{k=0}^{\infty} a_{k}\right| \leq \sum_{k=0}^{\infty}\left|a_{k}\right| \leq \sum_{k=0}^{\infty} b_{k}</script><p><strong>Beweis</strong>:</p>
+<p>Sei $\epsilon&gt;0$ und $N$ so groß, dass</p>
+<script type="math/tex; mode=display">
+\sum_{n=N}^{\infty} b_{k}<\epsilon</script><p>Dann gilt für $m&gt;n&gt;N$</p>
+<script type="math/tex; mode=display">
+\left|s_{n}-s_{m}\right|=\left|\sum_{k=n+1}^{m} a_{k}\right| \leq \sum_{k=n+1}^{m}\left|a_{k}\right| \leq \sum_{k=n+1}^{m} b_{k} \leq \sum_{k=N}^{\infty} b_{k}<\epsilon</script><p>und mit Satz 3.13 ist die Aussage bewiesen.</p>
+<p><strong>Definition 4.6</strong>:</p>
+<p>Eine Reihe die <strong>nicht</strong> konvergiert heißt divigent.</p>
+<p><strong>Beispiele</strong>:</p>
+<p>(1) $\sum_{k=1}^{\infty} \frac{1}{k^{2}} \leq 2$, denn</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{k=1}^{\infty} \frac{1}{k^{2}} &=1+\frac{1}{2^{2}}+\frac{1}{3^{2}}+\frac{1}{4^{2}} \ldots \\
+& \leq 1+\frac{1}{1\cdot 2}+\frac{1}{2 \cdot3}+\frac{1}{3\cdot4}+\ldots \\
+&=1+\sum_{k=1}^{\infty} \frac{1}{k(k+1)} \\
+&=2
+\end{aligned}</script><p>mit Satz 4.3</p>
+<p>(2) $\sum_{k=1}^{\infty} \frac{1}{\sqrt{k(k+1)}}=\infty$, denn</p>
+<script type="math/tex; mode=display">
+\frac{1}{\sqrt{k(k+1)}}>\frac{1}{2 k} \forall k \in \mathbb{N}</script><script type="math/tex; mode=display">
+\text{und wir wissen dass} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><script type="math/tex; mode=display">
+\sum_{k=1}^{\infty} \frac{1}{k}=\infty</script><p>Das Argument des letzten Beispiels ist allgemein:</p>
+<p><strong>Folgerung Divergente Minorante</strong>:</p>
+<p>Seien $\sum_{k=0}^{\infty} a_{k}, \sum_{k=0}^{\infty} b_{k}$ Reihen mit $0 \leq a_{k} \leq b_{k} \forall k$. Falls $\sum_{k=0}^{\infty} a_{k}$ divergent ist, so ist auch $\sum_{k=0}^{\infty} b_{k}$ divergent. Die Reihe $\sum_{k=0}^{\infty} a_{k}$ heißt in diesem Fall <strong>divergente Minorante</strong> von $\sum_{k=1}^{\infty} b_{k}$</p>
+<p>Aus dem Vergleich mit der geometrischen Reihen erhalten wir das <strong>Quotientenkriterium</strong>.</p>
+<p><strong>Satz 4.7 (Quotientenkriterium):</strong></p>
+<p>Sei $\sum_{k=0}^{\infty} a_{k}$ eine Reihe mit Werten in $\mathbb{C}$. Die Reihe konvergiert falls es ein $q \in \mathbb{R}$ gibt mit $q&lt;1$ und $n_{0} \geq 0$ gibt, sodass$\forall_{k} \geq n_{0} \frac{\left|a_{k+1}\right|}{\left|a_{k}\right|} \leq q$.</p>
+<p><strong>Beweis</strong>:</p>
+<p>Das folgt aus dem Majorantenkriterium, da $\left|a_{k}\right| \leq\left|a_{n_{0}}\right| q^{k-n_{0}}$ für $k \geq n_{0}$.</p>
+<p>Die Reihe $\sum_{k=n_{0}}^{\infty}\left|a_{n_{0}}\right| q^{k-n_{0}}$ ist also eine konvergente Majorante von $\sum_{k=n_{0}}^{n} a_{k}$.</p>
+<p><strong>Beachte, dass es nicht genügt, dass $\frac{\left|a_{k+1}\right|}{\left|a_{k}\right|}&lt;1$ gilt.</strong></p>
+<p><strong>Beispiel</strong>: Für die harmonische Reihe mit $a_{k}=\frac{1}{k}$ gilt:</p>
+<script type="math/tex; mode=display">
+\frac{\left|a_{k+1}\right|}{\left|a_{k}\right|}=\frac{\frac{1}{k+1}}{\frac{1}{k}}=\frac{k}{k+1}<1</script><p>aber wir wissen, dass sie divergent ist.</p>
+<p><strong>Beispiel: Exponentialreihe</strong></p>
+<p>Sei $z \in \mathbb{C}$ und $a_{k}=\frac{z^{k}}{k !}$. Wegen</p>
+<script type="math/tex; mode=display">
+\frac{\left|a_{k+1}\right|}{\left|a_{k}\right|}=\frac{|z|^{k+1}}{(k+1) !} \frac{k !}{|z|^{k}}=\frac{|z|}{k+1} \text { gilt } \frac{\left|a_{k+1}\right|}{\left|a_{k}\right|} \leq \frac{1}{2} \forall k \geq 2|z|-1</script><p>also ist die Reihe konvergent, $\forall z \in \mathbb{C}$. Sie definiert die <strong>Exponentialfunktion</strong>:</p>
+<script type="math/tex; mode=display">
+\exp (z)=\sum_{k=0}^{\infty} \frac{z^{k}}{k !}\ (3.19)</script><p>und $\exp : \mathbb{C} \rightarrow \mathbb{C}$</p>
+<p>Falls $z \in \mathbb{R}$ gilt $\exp (z) \in \mathbb{R}$, wir können also exp auf $\mathbb{R}$ einschränken. Aus (3.19) folgt $\exp (0)=1$. Für $z=1$ bekommt man die Eulersche Zahl:</p>
+<p><strong>Behauptung</strong>: $e=\exp (1)$</p>
+<p>Beweis: Zu zeigen ist:</p>
+<script type="math/tex; mode=display">
+\lim _{n \rightarrow \infty}\left(1+\frac{1}{n}\right)^{n}=\sum_{k=0}^{\infty} \frac{1}{k !}(\text { sh. Übungen })</script><p>Wir werden sehen, dass $\exp (x)=e^{x} \forall x \in \mathbb{R}$.</p>
+<h3 id="Alternierende-Reihen"><a href="#Alternierende-Reihen" class="headerlink" title="Alternierende Reihen"></a>Alternierende Reihen</h3><p>Eine Reihen $\sum_{k=0}^{n} a_{k}$ heißt <strong>alternierend</strong>, wenn die Glieder abwechselnd positives und negatives Vorzeichen haben. Wir schreiben $a_{0}-a_{1}+a_{2}-a_{3}+a_{4} \ldots$ und nehmen an $a_{0} \geq 0$</p>
+<p><strong>Satz 4.8 (Leibnitzkriterium)</strong>:</p>
+<p>Sei $\left(a_{n}\right)_{n \geq 0}$ eine monoton fallende Folge in $\mathbb{R}$ mit $a_{n} \stackrel{n\rightarrow \infty}{\rightarrow} 0$. Dann konvergiert die Reihe $\sum_{k=0}^{n}(-1)^{k} a_{k}$ und es gilt für alle $n \in \mathbb{N}$:</p>
+<script type="math/tex; mode=display">
+\left|\sum_{k=0}^{\infty}(-1)^{k} a_{k}-s_{n}\right|=\left|\sum_{k=0}^{\infty}(-1)^{k} a_{k}-\sum_{k=0}^{\infty}(-1)^{k} a_{k}\right| \leq a_{n+1}</script><p><strong>Beweis</strong>:</p>
+<p>Für $k \geq 1$ ist $a_{2 k}-a_{2 k-1} \leq 0$ und $a_{2 k}-a_{2 k+1} \geq 0$, also</p>
+<script type="math/tex; mode=display">
+s_{2 k}=s_{2 k-2}-a_{2 k-1}+a_{2 k} \leq a_{2 k} \leq s_{2 k-2}</script><script type="math/tex; mode=display">
+s_{2 k+1}=s_{2 k-1}+a_{2 k}-a_{2 k+1} \geq s_{2 k-1}</script><p>also ist $\left(s_{2 k}\right)_{k \in \mathbb{N}}$ monoton fallend und $\left(s_{2 k-1}\right)_{k \in \mathbb{N}}$ monoton wachsend. Es gilt für all $k$:</p>
+<script type="math/tex; mode=display">
+s_{1} \leq s_{2 k-1}=s_{2 k}-a_{2 k} \leq s_{2 k} \leq s_{0}</script><p>und für $m \geq k$</p>
+<script type="math/tex; mode=display">
+s_{1} \leq s_{2 k-1} \leq s_{2 m-1} \leq s_{2 m} \leq s_{2 k} \leq s_{0}(3.24)</script><p>Also sind beide Teilfolge $\left(s_{2 k}\right)$ und $\left(s_{2 k-1}\right)$ beschränkt und damit konvergent, und für alle $k \in \mathbb{N}$ gilt:</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+s_{2 k-1} \leq \lim _{m \rightarrow \infty} s_{2 m-1} \leq s_{2 k} \\
+s_{2 k-1} \leq \lim _{m \rightarrow \infty} s_{2 m} \leq s_{2 k}
+\end{array}</script><p>Aus (3.24) folgt</p>
+<script type="math/tex; mode=display">
+0 \leq\left|\lim _{m \rightarrow \infty} s_{2 m}-\lim _{m \rightarrow \infty} s_{2 m-1}\right| \leq a_{2k} \forall k</script><p>also</p>
+<script type="math/tex; mode=display">
+\lim _{m \rightarrow \infty} s_{2 m}=\lim _{m \rightarrow \infty} s_{2 m-1}</script><p>da $a_{2 k} \rightarrow 0$</p>
+<p>Sei $b:=\lim _{m \rightarrow \infty} s_{2 m-1}$ . Das für alle $n \in \mathbb{N}$ entweder $s_{n} \leq b \leq s_{n+1}$ oder $s_{n} \geq b \geq s_{n+1}$ folgt $0 \leq\left|b-s_{n}\right| \leq\left|s_{n}-s_{n+1}\right|=a_{n+1} \stackrel{n \rightarrow \infty}{\rightarrow}  0$, also $s_{n} \stackrel{n \rightarrow \infty}{\rightarrow}  b$.</p>
 
     </div>
 
@@ -721,7 +825,7 @@ $\left|x_{n}-x\right| \leq\left|x_{n}-x_{m}\right|+\left|x_{m}-x\right|<\epsilon
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mengenterminologie"><span class="nav-number">1.</span> <span class="nav-text">Mengenterminologie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Schreibweise-fur-Mengen"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Schreibweise für Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#wichtige-Mengen"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">wichtige Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mengenoperationen"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">Mengenoperationen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Abblidung（映射）"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">Abblidung（映射）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Kardinalitaten-容量"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">Kardinalitäten(容量)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reelle-Zahlen-und-Vektoren"><span class="nav-number">2.</span> <span class="nav-text">Reelle Zahlen und Vektoren</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Offene-und-abgeschlossene-Mengen-in-mathbb-R"><span class="nav-number">2.1.</span> <span class="nav-text">Offene und abgeschlossene Mengen in $\mathbb{R}$:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ungleichungen"><span class="nav-number">2.2.</span> <span class="nav-text">Ungleichungen:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Komplexe-Zahlen"><span class="nav-number">3.</span> <span class="nav-text">Komplexe Zahlen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Folgen"><span class="nav-number">4.</span> <span class="nav-text">Folgen</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Mengenterminologie"><span class="nav-number">1.</span> <span class="nav-text">Mengenterminologie</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Schreibweise-fur-Mengen"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Schreibweise für Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#wichtige-Mengen"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">wichtige Mengen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Mengenoperationen"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">Mengenoperationen</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Abblidung（映射）"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">Abblidung（映射）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Kardinalitaten-容量"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">Kardinalitäten(容量)</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reelle-Zahlen-und-Vektoren"><span class="nav-number">2.</span> <span class="nav-text">Reelle Zahlen und Vektoren</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Offene-und-abgeschlossene-Mengen-in-mathbb-R"><span class="nav-number">2.1.</span> <span class="nav-text">Offene und abgeschlossene Mengen in $\mathbb{R}$:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ungleichungen"><span class="nav-number">2.2.</span> <span class="nav-text">Ungleichungen:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Komplexe-Zahlen"><span class="nav-number">3.</span> <span class="nav-text">Komplexe Zahlen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Folgen"><span class="nav-number">4.</span> <span class="nav-text">Folgen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reihen"><span class="nav-number">5.</span> <span class="nav-text">Reihen</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vergleichskriterien-fur-Konvergenz"><span class="nav-number">5.1.</span> <span class="nav-text">Vergleichskriterien für Konvergenz</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Alternierende-Reihen"><span class="nav-number">5.2.</span> <span class="nav-text">Alternierende Reihen</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
