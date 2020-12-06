@@ -28,7 +28,7 @@
 <meta property="og:description" content="Dozent: Noam Berger Kontakt: noam.berger@tum.de Übungsleiter: Stefan Possaner">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-03T20:11:08.000Z">
-<meta property="article:modified_time" content="2020-11-29T17:20:55.399Z">
+<meta property="article:modified_time" content="2020-12-05T15:55:56.818Z">
 <meta property="article:author" content="Jiong Liu">
 <meta property="article:tag" content="TUM">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-11-29 18:20:55" itemprop="dateModified" datetime="2020-11-29T18:20:55+01:00">2020-11-29</time>
+                <time title="修改时间：2020-12-05 16:55:56" itemprop="dateModified" datetime="2020-12-05T16:55:56+01:00">2020-12-05</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -742,7 +742,68 @@ s_{2 k-1} \leq \lim _{m \rightarrow \infty} s_{2 m} \leq s_{2 k}
 <script type="math/tex; mode=display">
 \lim _{m \rightarrow \infty} s_{2 m}=\lim _{m \rightarrow \infty} s_{2 m-1}</script><p>da $a_{2 k} \rightarrow 0$</p>
 <p>Sei $b:=\lim _{m \rightarrow \infty} s_{2 m-1}$ . Das für alle $n \in \mathbb{N}$ entweder $s_{n} \leq b \leq s_{n+1}$ oder $s_{n} \geq b \geq s_{n+1}$ folgt $0 \leq\left|b-s_{n}\right| \leq\left|s_{n}-s_{n+1}\right|=a_{n+1} \stackrel{n \rightarrow \infty}{\rightarrow}  0$, also $s_{n} \stackrel{n \rightarrow \infty}{\rightarrow}  b$.</p>
-
+<p><strong>Beispiel</strong>:</p>
+<p>Die alternierende harmonische Reihe.</p>
+<p>$\sum_{k=1}^{\infty}(-1)^{k} \frac{1}{k}$ ist nach dem Leibniz-Kriterium konvergiert: $\sum_{k=1}^{\infty}(-1)^{k} \frac{1}{k} \neq \infty$</p>
+<p>Die Reihe $\sum_{k=1}^{\infty} \frac{1}{2 k}$ ist divergent, die Reihe $\sum_{k=1}^{\infty} \frac{1}{2 k-1}$ ebenfalls ($\sum_{k=1}^{\infty} \frac{1}{2 k}$ ist divergente Minorante).</p>
+<p>Geben wir eine beliebige Zahl $a \in \mathbb{R}$ vor, so können wir durch Umordnen erreichen, dass die ungeordnete Reihe gegen $a$ konvvergiert.</p>
+<p>z.B. für $a=1$:</p>
+<script type="math/tex; mode=display">
+1-\frac{1}{2}+\frac{1}{3}+\frac{1}{5}-\frac{1}{4}+\frac{1}{7} \ldots</script><p>wobei wir negativen Glieder summieren bis die Partialsumme $\leq 1$ ist, dann positive Glieder bis die Partialsumme $\geq 1$ ist.</p>
+<p><strong>Definition 4.9(Absolute Konvergenz):</strong></p>
+<p>Eine Reihe $\sum_{k=0}^{n} a_{k}$ mit $a_{k} \in \mathbb{C}$ heißt <strong>absolut konvergent</strong>, falls $\sum_{k=0}^{n}\left|a_{k}\right|$ konvergent ist.</p>
+<p>Eine bijektive Abbildung $\sigma: \mathbb{N} \rightarrow \mathbb{N}$ heißt <strong>Permutation</strong> von $\mathbb{N}$.</p>
+<p><strong>Satz 4.10(Umordnungssatz)</strong>:</p>
+<p>Eine Reihe $\sum_{k=1}^{n} a_{k}$ konvergiert genau dann absolut, wenn für jede Permutation $\sigma$ von  $\mathbb{N}$ die umgeordnete Reihe gegen denselben Wert konvergiert:</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^{\infty} a_{\sigma(k)}=\sum_{k=1}^{\infty} a_{k}</script><p><strong>Satz 4.11 (Doppelreihensatz)</strong>:</p>
+<p>Falls $\sum_{k=1}^{\infty} \sum_{j=1}^{\infty}\left|a_{k, j}\right|&lt;\infty$(absolut konvergiert), so gilt:</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^{\infty} \sum_{j=1}^{\infty} a_{k, j}=\sum_{j=1}^{\infty} \sum_{k=1}^{\infty} a_{k, j}</script><p>Können wir das Produkt zweier konvergenter Reihen $\sum_{k=0}^{\infty} a_{k}, \sum_{k=0}^{\infty} b_{k}$ wieder als Reihen schrreiben?</p>
+<p>Wollen also $(c_m)$ finden, so dass</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{\infty} a_{k} \cdot \sum_{j=0}^{\infty} b_{j}=\sum_{m=0}^{\infty} c_{m}</script><p>wir rechenen:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{k=0}^{\infty} a_{k} \sum_{j=0}^{\infty} b_{j} & \\
+&=\sum_{k=0}^{\infty} \sum_{j=0}^{\infty} a_{k} b_{j} \\
+&=\sum_{m=0}^{\infty} \sum_{k, j, k+j=m}^{\infty} \\
+&=\sum_{m=0}^{\infty} c_{m}
+\end{aligned}</script><script type="math/tex; mode=display">
+\text{mit dem Cauchy-Produkt: } c_{m}=\sum_{k=0}^{m} a_{k} b_{m-k}</script><p>Dies gilt nur unter Vorraussetzungen…</p>
+<p><strong>Beispiel 4.12</strong></p>
+<script type="math/tex; mode=display">
+\exp (z)=\sum_{k=0}^{\infty} \frac{z^{k}}{k !}</script><p>ist für jedes $z \in \mathbb{C}$ nach dem Quotientenkriteriumabsolut konvergent, denn $\frac{\frac{z^{k+1}}{(k+1) !}}{\left|\frac{z^{k}}{k !}\right|}=\frac{|z|}{k+1}  \stackrel{k\rightarrow\infty}{\rightarrow}  0$. Also dürfen wir das Cauchy-Produkt bilden und erhalten für alle $z, w \in \mathbb{C}$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\exp (z) \exp (w) &=\sum_{k=0}^{\infty} \sum_{j=0}^{k} \frac{z^{j} w^{k-j}}{j !(k-j) !)} \\
+=& \sum_{k=0}^{\infty} \frac{1}{k !} \sum_{j=0}^{\infty}\left(\begin{array}{c}
+k \\
+j
+\end{array}\right) z^{j} w^{k-j} \\
+&=\exp (z+w)(4.1)
+\end{aligned}</script><p>Die Exponentialfunktion hat folgende Eigenschaften:</p>
+<p><strong>Satz 4.13</strong>:</p>
+<p>(1) $\exp (-z)=\frac{1}{\exp (z)} \forall z \in \mathbb{C}$</p>
+<p>(2) $\exp (z) \neq 0 \forall z \in \mathbb{C}(0$ steht für (0,0)$\in \mathbb{C}$</p>
+<p>(3) $\exp (x)&gt;0 \forall x \in \mathbb{R}\left(\exp (x)=e^{x} \forall x \in \mathbb{R}\right)$</p>
+<p>(4) $\exp (n)=e^{n} \forall n \in \mathbb{N}$</p>
+<p>(5) $\overline{\exp (z)}=\exp \bar{z} \forall z \in \mathbb{C}$</p>
+<p>(6) Die reelle Exponentialfunktion $\exp : \mathbb{R} \rightarrow \mathbb{R}$ ist monoton wachsend, und für die komplexe Funktion gilt $|\exp (z)| \leq \exp (|z|) \forall z \in \mathbb{C}$</p>
+<p><strong>Beweis</strong>:</p>
+<p>Aus $1=\exp (0)=\exp (z-z) \stackrel{(4.1)}{=} \exp (z) \exp (-z)$ folgen (1) und (2).</p>
+<p>Aus der Definition der Exponentialfunktion folgt $\exp (x) \geq 1&gt;0, \forall x \in \mathbb{R}, x \geq 0$.</p>
+<p>Also folgt auch $\exp (-x)&gt;0 \forall x&lt;0$ wegen (1).</p>
+<p>Eigenschaft (4) folgt wegen</p>
+<script type="math/tex; mode=display">
+\exp (n)=\exp \left(\sum_{k=1}^{\infty} 1\right) \stackrel{(4.1)}{=} \prod_{k=1}^{n} \exp (1)</script><p>Eigenschaft (5) folgt aus</p>
+<script type="math/tex; mode=display">
+\exp (\bar{z})=\lim _{n \rightarrow \infty} \sum_{k=0}^{n} \frac{(\bar{z})^{k}}{k !}=\lim _{n \rightarrow n} \sum_{k=0}^{n} \frac{z^{k}}{k !}=\exp (z)</script><p>(denn es gilt: $\lim _{n \rightarrow \infty} z_{n}$ falls $\left(z_{n}\right)$ konvergiert.)</p>
+<p>Um Eigenschaft (6) zu zeigen, stellen wir fest, dass für $0 \leq x \leq y \in \mathbb{R}$ gilt: Ist $x \leq y \leq 0$ so ist $0 \leq-y \leq-x$ und wir haben</p>
+<script type="math/tex; mode=display">
+\frac{1}{\exp (y)}=\exp (-y) \leq \exp (-x)=\frac{1}{\exp (x)}</script><p>also $\exp (x) \leq \exp (y)$. Schließlich gilt</p>
+<script type="math/tex; mode=display">
+|\exp (z)|=\left|\sum_{k=0}^{\infty} \frac{z^{k}}{k !}\right| \leq \sum_{k=0}^{\infty} \frac{|z|^{k}}{k !}=\exp (z)</script>
     </div>
 
     
