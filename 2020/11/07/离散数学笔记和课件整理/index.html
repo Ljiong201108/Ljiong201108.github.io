@@ -204,10 +204,9 @@
 <meta property="og:image" content="http://yoursite.com/2020/11/07/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/QQ%E6%88%AA%E5%9B%BE20210119130348.png">
 <meta property="og:image" content="http://yoursite.com/2020/11/07/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/QQ%E6%88%AA%E5%9B%BE20210119130413.png">
 <meta property="og:image" content="http://yoursite.com/2020/11/07/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-01-26%20170503.png">
-<meta property="og:image" content="http://yoursite.com/2020/11/07/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/QQ%E6%88%AA%E5%9B%BE20210227222324.png">
 <meta property="og:image" content="http://yoursite.com/2020/11/07/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/QQ%E6%88%AA%E5%9B%BE20210227222509.png">
 <meta property="article:published_time" content="2020-11-07T13:36:11.000Z">
-<meta property="article:modified_time" content="2021-02-27T21:25:49.551Z">
+<meta property="article:modified_time" content="2021-02-27T21:38:40.797Z">
 <meta property="article:author" content="Jiong Liu">
 <meta property="article:tag" content="TUM">
 <meta name="twitter:card" content="summary">
@@ -372,7 +371,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-27 22:25:49" itemprop="dateModified" datetime="2021-02-27T22:25:49+01:00">2021-02-27</time>
+                <time title="修改时间：2021-02-27 22:38:40" itemprop="dateModified" datetime="2021-02-27T22:38:40+01:00">2021-02-27</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1946,7 +1945,109 @@ f:\{0,1\}^{n} \rightarrow\{0,1\}</script><p>都有一个析取范式, $V_{F}=\le
 <p>所以$\left|E_{n, k}\right|=\left|D_{n, k+1}\right|=\left(\begin{array}{c}n+k \\ k\end{array}\right)$</p>
 <p>&nbsp;</p>
 <h3 id="符号公式整理"><a href="#符号公式整理" class="headerlink" title="符号公式整理"></a>符号公式整理</h3><p>把Skript上面所有的组合数这一块的公式进行了汇总, 包括第一类和第二类Striling-Zahl.</p>
-<p><img src="/2020/11/07/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/QQ截图20210227222324.png" alt></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>表达式</th>
+<th>人话解释&amp;备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$A_{n, k}$</td>
+<td>$\left\{\left(s_{1}, \ldots, s_{k}\right) \in[n]^{k}:\mid \left\{s_{1}, s_{2}, \ldots, s_{k}\right\} \mid=k\right\}$</td>
+<td>从$n$个数里面取出$k$个数的排列的可能数, 相当于$P_n^k$, 可写成$\frac{n !}{(n-k) !}$.</td>
+</tr>
+<tr>
+<td>$B_{n, k}$</td>
+<td>$\left\{\left(s_{1}, \ldots, s_{k}\right) \in[n]^{k}: s_{1}&lt;s_{2}&lt;\ldots&lt;s_{k}\right\}$</td>
+<td>从$n$个数里面取出$k$个数的组合的可能数, 相当于$C_n^k$, 可写成$\frac{n !}{(n-k) ! k !}$</td>
+</tr>
+<tr>
+<td>$C_{n, k}$</td>
+<td>$\left\{\left(s_{1}, \ldots, s_{k}\right) \in[n]^{k}: s_{1} \leq s_{2} \leq \ldots \leq s_{k}\right\}$</td>
+<td>从$n$个数里面取出$k$个数, 每一次取完之后又放回, 与$D_{k,n}$等价</td>
+</tr>
+<tr>
+<td>$D_{n, k}$</td>
+<td>$\left\{\left(s_{1}, \ldots, s_{k}\right) \in \mathbb{N}_{0}^{k} : s_{1}+s_{2}+\ldots+s_{k}=n\right\}$</td>
+<td>把$n$个一样的东西分给$k$个不一样的人的可能数, 有人可以不分东西, 可写成$\left(\begin{array}{c}n+k-1 \\ n\end{array}\right)$</td>
+</tr>
+<tr>
+<td>$E_{n, k}$</td>
+<td>$\left\{\left(s_{1}, \ldots, s_{k}\right) \in \mathbb{N}_{0}^{k} : s_{1}+s_{2}+\ldots+s_{k} \leq n\right\}$</td>
+<td>把不超过$n$个一样的东西分给$k$个不一样的人的可能数, 有人可以不分东西, <strong>思路: 多找一个人接盘(接手前面的人分剩下的)</strong>, 可写成$\left(\begin{array}{c}n+k \\ n\end{array}\right)$</td>
+</tr>
+<tr>
+<td>$E_{n, k}$</td>
+<td>$\sum_{m=0}^{n}\mid D_{m, k} \mid =\sum_{m=0}^{n}\left(\begin{array}{c}m+k-1 \\ m\end{array}\right) =\left(\begin{array}{c}n+k \\ n\end{array}\right)$</td>
+<td>换了种粗俗的写法, 不过结论一样</td>
+</tr>
+<tr>
+<td>$F_{n, k}$</td>
+<td>$\left\{\left(s_{1}, \ldots, s_{k}\right) \in[n]^{k}: \mid \left\{s_{1}, s_{2}, \ldots, s_{k}\right\} \mid=n\right\}$</td>
+<td>把$k$个不一样的东西分给$n$个不一样的人的可能数, 每个人至少分到一个</td>
+</tr>
+<tr>
+<td>$S_{n, k}$</td>
+<td>$\begin{aligned} S_{n, k} &amp;=S_{n-1, k-1}+k \cdot S_{n-1, k} &amp; &amp; \text { für } n&gt;k&gt;0 \\ S_{n, 0} &amp;=0 &amp; &amp; \text { für } n&gt;0 \\ S_{n, n} &amp;= 1 &amp; &amp; \end{aligned}$</td>
+<td>把$n$个不一样的东西分给$k$个相同的袋子的可能数, 每个袋子至少分到一个. 和$F_{n, k}$的关系: $\mid F_{n, k} \mid =n ! \cdot S_{k, n}$</td>
+</tr>
+<tr>
+<td></td>
+<td>$n ! S_{k, n}= \mid F_{n, k} \mid =\sum_{i=0}^{n}(-1)^{i}\left(\begin{array}{c}n \\ i\end{array}\right)(n-i)^{k}=\sum_{i=0}^{n}(-1)^{n-i}\left(\begin{array}{c}n \\ i\end{array}\right) i^{k}$</td>
+<td>通过容斥原理推出.</td>
+</tr>
+<tr>
+<td>$???$</td>
+<td>$\frac{n !}{(1 !)^{\lambda_{1}} \cdots(n !)^{\lambda_{n}} \cdot \lambda_{1} ! \cdots \lambda_{n} !}$</td>
+<td>对于某一个特定的分组的可能数(是$S_{n,k}$中的某一个情况)</td>
+</tr>
+<tr>
+<td>$s_{n, k}$</td>
+<td>$\left[\begin{array}{c}n+1 \\ k\end{array}\right]=\left[\begin{array}{c}n \\ k-1\end{array}\right]+n \cdot\left[\begin{array}{l}n \\ k\end{array}\right] \operatorname{mit}\left[\begin{array}{l}n \\ n\end{array}\right]=1,\left[\begin{array}{c}n+1 \\ 0\end{array}\right]=0$</td>
+<td>把n个不一样的的东西分成$k$个循环的可能数, 每个循环非空 <strong>并非重点</strong></td>
+</tr>
+<tr>
+<td>$???$</td>
+<td>$\frac{n !}{\lambda_{1} ! \lambda_{2} ! \cdots \lambda_{n} !(1 !)^{\lambda_{1}}(2 !)^{\lambda_{2}} \cdots(n !)^{\lambda_{n}}} \cdot {(\frac{1 !}{1})}^{\lambda_{1}} {(\frac{2 !}{2})}^{\lambda_{2}} \cdots {(\frac{n !}{n})}^{\lambda_{n}}$</td>
+<td>对于某一个特定的循环分组的可能数(是$s_{n,k}$中的某一种情况) <strong>Zentralübung中有所涉及</strong></td>
+</tr>
+<tr>
+<td>$G_{n, k}$</td>
+<td>$\left\{\left(s_{1}, \ldots, s_{k}\right) \in \mathbb{N}^{k} \mid s_{1}+\ldots+s_{k}=n\right\}$</td>
+<td>把$n$个一样的东西分给$k$个不一样的人的可能数, 每个人至少分到一个, 可以写成$\left(\begin{array}{l}n-1 \\ k-1\end{array}\right)$, <strong>和$D_{n+k, k}$等价</strong></td>
+</tr>
+<tr>
+<td></td>
+<td>$\sum_{k=1}^{n} \mid G_{n, k} \mid =\sum_{k=1}^{n}\left(\begin{array}{l}n-1 \\ k-1\end{array}\right)=2^{n-1}$</td>
+<td>一个衍生, 至今未用过</td>
+</tr>
+<tr>
+<td>$P_{n, k}$</td>
+<td>$\left\{\left(s_{1}, \ldots, s_{k}\right) \in \mathbb{N}^{k} \mid s_{1}+\ldots+s_{k}=n, s_{1} \leq \ldots \leq s_{k}\right\}$</td>
+<td>把$n$个一样的东西分给$k$个一样的袋子的可能数, 每个袋子至少有一个东西</td>
+</tr>
+<tr>
+<td></td>
+<td>$\begin{aligned}\mid P_{n, k} \mid  &amp;= \mid P_{n-1, k-1} \mid + \mid P_{n-k, k} \mid  &amp; \text { für } k&gt;0 \\ \mid P_{n, 0} \mid  &amp;=0 &amp; \text { für } n&gt;0 \\ \mid P_{n, k} \mid &amp;=0 &amp; \text { für } k&gt;n \\ \mid P_{n, n} \mid &amp;=1 &amp; &amp; \end{aligned}$</td>
+<td>$P_{n,k}$的递推公式</td>
+</tr>
+<tr>
+<td></td>
+<td>$\sum_{k=0}^n \mid P_{n,k} \mid = \mid P_{2n,n} \mid $</td>
+<td>一个衍生, 还挺有用的</td>
+</tr>
+<tr>
+<td>$H_{n, k}$</td>
+<td>$\left\{\left(s_{1}, \ldots, s_{k}\right) \in \mathbb{N}_{0}^{k} \mid s_{1}+\ldots+s_{k}=n, s_{1} \leq \ldots \leq s_{k}\right\}$</td>
+<td>把$n$个一样的东西分给$k$个一样的袋子的可能数, 袋子可以为空, 与$P_{n,k}$的关系: $\mid H_{n, k} \mid = \mid P_{n+k, k} \mid $</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>&nbsp;</p>
 <p>这个是Tutor整理的一张表:</p>
 <p><img src="/2020/11/07/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/QQ截图20210227222509.png" alt></p>
