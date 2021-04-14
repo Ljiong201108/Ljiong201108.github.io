@@ -156,6 +156,108 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jiong Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ljiong">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/" class="post-title-link" itemprop="url">线性代数</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-14 17:08:48 / 修改时间：19:02:19" itemprop="dateCreated datePublished" datetime="2021-04-14T17:08:48+08:00">2021-04-14</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h1><p>&nbsp;</p>
+<h2 id="0-准备知识"><a href="#0-准备知识" class="headerlink" title="0. 准备知识"></a>0. 准备知识</h2><p>&nbsp;</p>
+<h3 id="0-1-代数结构-algebraische-Strukturen"><a href="#0-1-代数结构-algebraische-Strukturen" class="headerlink" title="0.1 代数结构(algebraische Strukturen)"></a>0.1 代数结构(algebraische Strukturen)</h3><p>&nbsp;</p>
+<h4 id="0-1-1-半群-Halbgruppe"><a href="#0-1-1-半群-Halbgruppe" class="headerlink" title="0.1.1 半群(Halbgruppe)"></a>0.1.1 半群(Halbgruppe)</h4><p>&nbsp;</p>
+<p>一个半群是一种代数结构$\left\langle A, \bullet^{2}\right\rangle$, 其具有如下的性质:</p>
+<ul>
+<li>满足结合律, 也就是说$\forall a, b, c:(a \cdot(b \bullet c))=((a \cdot b) \cdot c)$</li>
+</ul>
+<p>&nbsp;</p>
+<p>一个可换的的半群还需满足如下性质:<br>&nbsp;</p>
+<ul>
+<li>满足交换律, 也就是说$\forall a, b:(a \cdot b)=(b \bullet a)$</li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="0-1-2-幺半群-Monoid"><a href="#0-1-2-幺半群-Monoid" class="headerlink" title="0.1.2 幺半群(Monoid)"></a>0.1.2 幺半群(Monoid)</h4><p>&nbsp;</p>
+<p>一个(可换的)幺半群是一种代数结构$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$, 其具有如下性质:</p>
+<ul>
+<li>$\left\langle A, \bullet^{2}\right\rangle$是一个(可换的)半群</li>
+<li>存在单位元(neutrales Element): $1^{0} ($关于$\bullet)$</li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="0-1-3-群-Gruppe"><a href="#0-1-3-群-Gruppe" class="headerlink" title="0.1.3 群(Gruppe)"></a>0.1.3 群(Gruppe)</h4><p>&nbsp;</p>
+<p>一个(可换的)群是一种代数结构$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$, 其具有以下性质:</p>
+<ul>
+<li>$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$是一个(可换的)幺半群</li>
+<li>存在逆元(关于$\bullet$), 也就是说$\forall a \exists b:(a \cdot b)=1=(b \cdot a)$</li>
+</ul>
+<p>&nbsp;</p>
+<p><strong>一个可换的群也被称作阿贝尔群(abelsche Gruppe)</strong></p>
+<p>&nbsp;</p>
+<h4 id="0-1-4-环-Ring"><a href="#0-1-4-环-Ring" class="headerlink" title="0.1.4 环(Ring)"></a>0.1.4 环(Ring)</h4><p>&nbsp;</p>
+<p>一个(伪)环是一个代数结构$\left\langle A,+^{2}, \bullet^{2}, 0^{0}\right\rangle$ (或者$\left\langle A,+^{2}, \bullet^{2}, 0^{0}, 1^{0}\right\rangle$), 其具有以下性质:</p>
+<ul>
+<li>$\left\langle A, \bullet^{2}\right\rangle$是一个半群(或者$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$是一个幺半群)</li>
+<li>$\left\langle A,+^{2}, 0^{0}\right\rangle$是一个可换的群</li>
+<li>从两个方向满足交换律, 也就是说$\forall a, b, c:(a \cdot(b+c))=(a \bullet b+a \cdot c)$并且$((a+b) \cdot c)=((a \cdot c)+(b \bullet c))$</li>
+</ul>
+<p>&nbsp;</p>
+<h4 id="0-1-5-域-Korper"><a href="#0-1-5-域-Korper" class="headerlink" title="0.1.5 域(Körper)"></a>0.1.5 域(Körper)</h4><p>&nbsp;</p>
+<p>一个域是一个代数结构$\left\langle A,+^{2}, \bullet^{2}, 0^{0}, 1^{0}\right\rangle$, 其具有以下性质:</p>
+<ul>
+<li>$\left\langle A,+^{2}, \bullet^{2}, 0^{0}, 1^{0}\right\rangle$是一个伪环</li>
+<li>$\left\langle A \backslash\{0\}, \bullet^{2}, 1^{0}\right\rangle$是一个可换的群</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/11/07/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -180,14 +282,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-11-07 14:36:11" itemprop="dateCreated datePublished" datetime="2020-11-07T14:36:11+01:00">2020-11-07</time>
+              <time title="创建时间：2020-11-07 14:36:11" itemprop="dateCreated datePublished" datetime="2020-11-07T14:36:11+08:00">2020-11-07</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-27 22:38:40" itemprop="dateModified" datetime="2021-02-27T22:38:40+01:00">2021-02-27</time>
+                <time title="修改时间：2021-02-28 05:38:40" itemprop="dateModified" datetime="2021-02-28T05:38:40+08:00">2021-02-28</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -261,14 +363,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-11-05 17:07:20" itemprop="dateCreated datePublished" datetime="2020-11-05T17:07:20+01:00">2020-11-05</time>
+              <time title="创建时间：2020-11-05 17:07:20" itemprop="dateCreated datePublished" datetime="2020-11-05T17:07:20+08:00">2020-11-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-16 15:14:06" itemprop="dateModified" datetime="2021-02-16T15:14:06+01:00">2021-02-16</time>
+                <time title="修改时间：2021-02-16 22:14:06" itemprop="dateModified" datetime="2021-02-16T22:14:06+08:00">2021-02-16</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -344,14 +446,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-11-03 21:11:08" itemprop="dateCreated datePublished" datetime="2020-11-03T21:11:08+01:00">2020-11-03</time>
+              <time title="创建时间：2020-11-03 21:11:08" itemprop="dateCreated datePublished" datetime="2020-11-03T21:11:08+08:00">2020-11-03</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-12-13 16:38:10" itemprop="dateModified" datetime="2020-12-13T16:38:10+01:00">2020-12-13</time>
+                <time title="修改时间：2020-12-13 23:38:10" itemprop="dateModified" datetime="2020-12-13T23:38:10+08:00">2020-12-13</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -426,10 +528,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-09-27 14:30:17 / 修改时间：19:58:15" itemprop="dateCreated datePublished" datetime="2020-09-27T14:30:17+02:00">2020-09-27</time>
+              <time title="创建时间：2020-09-27 14:30:17" itemprop="dateCreated datePublished" datetime="2020-09-27T14:30:17+08:00">2020-09-27</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-28 01:58:15" itemprop="dateModified" datetime="2020-09-28T01:58:15+08:00">2020-09-28</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -517,10 +625,16 @@ d(i-1, j-1)\ &if\ A[i]=A[j]\\
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-09-20 19:55:56 / 修改时间：19:59:23" itemprop="dateCreated datePublished" datetime="2020-09-20T19:55:56+02:00">2020-09-20</time>
+              <time title="创建时间：2020-09-20 19:55:56" itemprop="dateCreated datePublished" datetime="2020-09-20T19:55:56+08:00">2020-09-20</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-21 01:59:23" itemprop="dateModified" datetime="2020-09-21T01:59:23+08:00">2020-09-21</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -586,7 +700,7 @@ d(i-1, j-1)\ &if\ A[i]=A[j]\\
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-09-20 13:04:29 / 修改时间：13:49:00" itemprop="dateCreated datePublished" datetime="2020-09-20T13:04:29+02:00">2020-09-20</time>
+              <time title="创建时间：2020-09-20 13:04:29 / 修改时间：19:49:00" itemprop="dateCreated datePublished" datetime="2020-09-20T13:04:29+08:00">2020-09-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -720,7 +834,7 @@ d(i-1, j-1)\ &if\ A[i]=A[j]\\
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-09-07 16:13:55 / 修改时间：16:57:04" itemprop="dateCreated datePublished" datetime="2020-09-07T16:13:55+02:00">2020-09-07</time>
+              <time title="创建时间：2020-09-07 16:13:55 / 修改时间：22:57:04" itemprop="dateCreated datePublished" datetime="2020-09-07T16:13:55+08:00">2020-09-07</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -870,10 +984,16 @@ F(p)=sort([p1+p2,p2+p3,…,pn−1+pn]).F(p)=sort([p1+p2,p2+p3,…,pn−1+pn])</s
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-09-03 23:05:57 / 修改时间：23:33:57" itemprop="dateCreated datePublished" datetime="2020-09-03T23:05:57+02:00">2020-09-03</time>
+              <time title="创建时间：2020-09-03 23:05:57" itemprop="dateCreated datePublished" datetime="2020-09-03T23:05:57+08:00">2020-09-03</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-09-04 05:33:57" itemprop="dateModified" datetime="2020-09-04T05:33:57+08:00">2020-09-04</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -1021,7 +1141,7 @@ F(p)=sort([p1+p2,p2+p3,…,pn−1+pn]).F(p)=sort([p1+p2,p2+p3,…,pn−1+pn])</s
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-08-25 10:29:03 / 修改时间：11:49:27" itemprop="dateCreated datePublished" datetime="2020-08-25T10:29:03+02:00">2020-08-25</time>
+              <time title="创建时间：2020-08-25 10:29:03 / 修改时间：17:49:27" itemprop="dateCreated datePublished" datetime="2020-08-25T10:29:03+08:00">2020-08-25</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1184,161 +1304,6 @@ a_ib_i &(\text{if $a_i>b_i$}) \\
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/14/Codeforces-Round-663-Div-2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Jiong Liu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ljiong">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/08/14/Codeforces-Round-663-Div-2/" class="post-title-link" itemprop="url">Codeforces Round #663 (Div. 2)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-08-14 20:12:39 / 修改时间：22:40:58" itemprop="dateCreated datePublished" datetime="2020-08-14T20:12:39+02:00">2020-08-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>对于Codeforces Round #660(Div. 2) 的解题思路和一些想法</p>
-<h4 id="A-Suborrays"><a href="#A-Suborrays" class="headerlink" title="A. Suborrays"></a>A. Suborrays</h4><p>A permutation of length $n$ is an array consisting of $n$ distinct integers from $1$ to $n$ in arbitrary order. For example, $[2,3,1,5,4]$ is a permutation, but $[1,2,2]$ is not a permutation ($2$ appears twice in the array) and $[1,3,4]$ is also not a permutation ($n=3$ but there is $4$ in the array). </p>
-<p>For a positive integer $n$, we call a permutation $p$ of length $n$ <strong>good</strong> if the following condition holds for every pair $i$ and $j$ ($1≤i≤j≤n$) —</p>
-<ul>
-<li>$(pi OR pi+1 OR … OR pj−1 OR pj)≥j−i+1$, where $OR$ denotes the <a href="https://en.wikipedia.org/wiki/Bitwise_operation#OR" target="_blank" rel="noopener">bitwise OR operation.</a></li>
-</ul>
-<p>In other words, a permutation $p$ is <strong>good</strong> if for every subarray of $p$, the OROR of all elements in it is not less than the number of elements in that subarray. </p>
-<p>Given a positive integer $n$, output any <strong>good</strong> permutation of length $n$. We can show that for the given constraints such a permutation always exists. </p>
-<p><strong>Input</strong></p>
-<p>Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1≤t≤100$). Description of the test cases follows.</p>
-<p>The first and only line of every test case contains a single integer $n$ ($1≤n≤100$).</p>
-<p><strong>Output</strong></p>
-<p>For every test, output any <strong>good</strong> permutation of length $n$ on a separate line. </p>
-<p><strong>Example</strong></p>
-<p>input</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
-<p>output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">3 1 2</span><br><span class="line">4 3 5 2 7 1 6</span><br></pre></td></tr></table></figure>
-<p><strong>Note</strong></p>
-<p>For $n=3$, $[3,1,2]$ is a good permutation. Some of the subarrays are listed below.</p>
-<ul>
-<li>$3 OR 1=3≥2$ $(i=1,j=2)$</li>
-<li>$3 OR 1 OR 2=3≥3$ $(i=1,j=3)$</li>
-<li>$1 OR 2=3≥2$ $(i=2,j=3)$</li>
-<li>$1≥1$ $(i=2,j=2)$</li>
-</ul>
-<p>Similarly, you can verify that $[4,3,5,2,7,1,6]$ is also good.</p>
-<h5 id="解法"><a href="#解法" class="headerlink" title="解法"></a>解法</h5><p>经典第一题0.0</p>
-<p>谁想着去模拟就掉进坑里面去了- . -</p>
-<p>根据 $OR$ 的运算规律，如果$a&gt;b$, 那么$a$ $OR$ $b$ $≥$ $a$。</p>
-<p>题意要求任意$k$个数$OR$出来的值要比$k$小$(0≤k≤n)$。</p>
-<p>那么$[1,2,3,…,n]$正好满足，直接输出就好。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> t, n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;i&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=t;i++)&#123;</span><br><span class="line">		solve();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="B-Fix-You"><a href="#B-Fix-You" class="headerlink" title="B. Fix You"></a>B. Fix You</h4><p>Consider a conveyor belt represented using a grid consisting of $n$ rows and mm columns. The cell in the $i$-th row from the top and the $j$-th column from the left is labelled $(i,j)$. </p>
-<p>Every cell, except $(n,m)$, has a direction R (Right) or D (Down) assigned to it. If the cell $(i,j)$ is assigned direction R, any luggage kept on that will move to the cell $(i,j+1)$. Similarly, if the cell $(i,j)$ is assigned direction D, any luggage kept on that will move to the cell $(i+1,j)$. If at any moment, the luggage moves out of the grid, it is considered to be lost.</p>
-<p>There is a counter at the cell $(n,m)$ from where all luggage is picked. A conveyor belt is called <strong>functional</strong> if and only if any luggage reaches the counter regardless of which cell it is placed in initially. More formally, for every cell $(i,j)$, any luggage placed in this cell should eventually end up in the cell $(n,m)$. </p>
-<p>This may not hold initially; you are, however, allowed to <strong>change</strong> the directions of some cells to make the conveyor belt functional. Please determine the minimum amount of cells you have to change.</p>
-<p>Please note that it is always possible to make any conveyor belt functional by changing the directions of some set of cells.</p>
-<p><strong>Input</strong></p>
-<p>Each test contains multiple test cases. The first line contains the number of test cases $t$ ($1≤t≤10$). Description of the test cases follows.</p>
-<p>The first line of each test case contains two integers n,mn,m ($1≤n≤100$, $1≤m≤100$)  — the number of rows and columns, respectively.</p>
-<p>The following $n$ lines each contain mm characters. The $j$-th character in the $i$-th line, ai,jai,j is the initial direction of the cell $(i,j)$. Please note that $a_{n,m}=C$.</p>
-<p><strong>Output</strong></p>
-<p>For each case, output in a new line the minimum number of cells that you have to change to make the conveyor belt functional.</p>
-<p><strong>Example</strong></p>
-<p>input</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3 3</span><br><span class="line">RRD</span><br><span class="line">DDR</span><br><span class="line">RRC</span><br><span class="line">1 4</span><br><span class="line">DDDC</span><br><span class="line">6 9</span><br><span class="line">RDDDDDRRR</span><br><span class="line">RRDDRRDDD</span><br><span class="line">RRDRDRRDR</span><br><span class="line">DDDDRDDRR</span><br><span class="line">DRRDRDDDR</span><br><span class="line">DDRDRRDDC</span><br><span class="line">1 1</span><br><span class="line">C</span><br></pre></td></tr></table></figure>
-<p>output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">3</span><br><span class="line">9</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-<p><strong>Note</strong></p>
-<p>In the first case, just changing the direction of $(2,3)$ to D is enough.</p>
-<p>You can verify that the resulting belt is functional. For example, if we place any luggage at $(2,2)$, it first moves to $(3,2)$ and then to $(3,3)$.</p>
-<p>In the second case, we have no option but to change the first $3$ cells from D to R making the grid equal to RRRC.</p>
-<h5 id="解法-1"><a href="#解法-1" class="headerlink" title="解法"></a>解法</h5><p>贪心</p>
-<p>把最右边的一列变成全都往下的，最下面的一行变成全都往右的，中间什么路线完全不用去管。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> t, n, m;</span><br><span class="line"><span class="keyword">char</span> G[<span class="number">110</span>][<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;G[i][j];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">	<span class="keyword">int</span> ans=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">		<span class="built_in">string</span> str;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;str;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">			G[i][j]=str[j<span class="number">-1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//print();</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(G[i][m]==<span class="string">'R'</span>) ans++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;m;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(G[n][i]==<span class="string">'D'</span>) ans++;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;ans&lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;t;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=t;i++)&#123;</span><br><span class="line">		solve();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="C-Cyclic-Permutations"><a href="#C-Cyclic-Permutations" class="headerlink" title="C. Cyclic Permutations"></a>C. Cyclic Permutations</h4><p>A permutation of length $n$ is an array consisting of $n$ distinct integers from $1$ to $n$ in arbitrary order. For example, $[2,3,1,5,4]$ is a permutation, but $[1,2,2]$ is not a permutation ($2$ appears twice in the array) and $[1,3,4]$ is also not a permutation ($n=3$ but there is $4$ in the array).</p>
-<p>Consider a permutation pp of length $n$, we build a graph of size $n$ using it as follows:</p>
-<ul>
-<li>For every $1≤i≤n$, find the <strong>largest</strong> $j$ such that $1≤j<i$ $and$ $p_j>p_i$, and add an undirected edge between node $i$ and node $j$</i$></li>
-<li>For every 1≤i≤n1≤i≤n, find the <strong>smallest</strong> $j$ such that $i<j≤n$ $and$ $p_j>p_i$, and add an undirected edge between node $i$ and node $j$</j≤n$></li>
-</ul>
-<p>In cases where no such $j$ exists, we make no edges. Also, note that we make edges between the corresponding indices, not the values at those indices.</p>
-<p>For clarity, consider as an example $n=4$, and $p=[3,1,4,2]$; here, the edges of the graph are $(1,3),(2,1),(2,3),(4,3)$.</p>
-<p>A permutation pp is <strong>cyclic</strong> if the graph built using pp has at least one simple cycle.</p>
-<p>Given $n$, find the number of cyclic permutations of length $n$. Since the number may be very large, output it modulo $10^9+7$.</p>
-<p>Please refer to the Notes section for the formal definition of a simple cycle</p>
-<p><strong>Input</strong></p>
-<p>The first and only line contains a single integer $n$ (3≤n≤1063≤n≤106).</p>
-<p><strong>Output</strong></p>
-<p>Output a single integer $0≤x&lt;10^9+7$, the number of cyclic permutations of length $n$ modulo $10^9+7$.</p>
-<p><strong>Examples</strong></p>
-<p>input</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4</span><br></pre></td></tr></table></figure>
-<p>output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">16</span><br></pre></td></tr></table></figure>
-<p>input</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">583291</span><br></pre></td></tr></table></figure>
-<p>output</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">135712853</span><br></pre></td></tr></table></figure>
-<p><strong>Note</strong></p>
-<p>There are $16$ cyclic permutations for $n=4$. $[4,2,1,3]$ is one such permutation, having a cycle of length four: $4→3→2→1→4$.</p>
-<p>Nodes $v_1$, $v_2$, ……, $v_k$ form a simple cycle if the following conditions hold:</p>
-<ul>
-<li>$k≥3$.</li>
-<li>$vi≠vj$ for any pair of indices $i$ and $j$. ($1≤i&lt;j≤k$)</li>
-<li>$v_i$ and $v_i+1$ share an edge for all $i$ ($1≤i&lt;k$), and $v_1$ and $v_k$ share an edge.  </li>
-</ul>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1408,7 +1373,7 @@ a_ib_i &(\text{if $a_i>b_i$}) \\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
