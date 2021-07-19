@@ -20,19 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="线性代数&amp;nbsp; 0. 准备知识&amp;nbsp; 0.1 代数结构(algebraische Strukturen)&amp;nbsp; 0.1.1 半群(Halbgruppe)&amp;nbsp; 一个半群是一种代数结构$\left\langle A, \bullet^{2}\right\rangle$, 其具有如下的性质:  满足结合律, 也就是说$\forall a, b, c:(a \cdot(b \bu">
+  <meta name="description" content="代数结构(algebraische Strukturen)半群(Halbgruppe)一个半群是一种代数结构$\left\langle A, \bullet^{2}\right\rangle$, 其具有如下的性质:  满足结合律, 也就是说$\forall a, b, c:(a \cdot(b \bullet c))&#x3D;((a \cdot b) \cdot c)$  &amp;nbsp; 一个可换的的半群">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线性代数">
-<meta property="og:url" content="http://yoursite.com/2021/04/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/index.html">
+<meta property="og:title" content="代数结构">
+<meta property="og:url" content="http://yoursite.com/2021/07/11/%E4%BB%A3%E6%95%B0%E7%BB%93%E6%9E%84/index.html">
 <meta property="og:site_name" content="Ljiong">
-<meta property="og:description" content="线性代数&amp;nbsp; 0. 准备知识&amp;nbsp; 0.1 代数结构(algebraische Strukturen)&amp;nbsp; 0.1.1 半群(Halbgruppe)&amp;nbsp; 一个半群是一种代数结构$\left\langle A, \bullet^{2}\right\rangle$, 其具有如下的性质:  满足结合律, 也就是说$\forall a, b, c:(a \cdot(b \bu">
+<meta property="og:description" content="代数结构(algebraische Strukturen)半群(Halbgruppe)一个半群是一种代数结构$\left\langle A, \bullet^{2}\right\rangle$, 其具有如下的性质:  满足结合律, 也就是说$\forall a, b, c:(a \cdot(b \bullet c))&#x3D;((a \cdot b) \cdot c)$  &amp;nbsp; 一个可换的的半群">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-14T09:08:48.000Z">
-<meta property="article:modified_time" content="2021-04-14T11:02:19.121Z">
+<meta property="article:published_time" content="2021-07-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-19T14:23:45.115Z">
 <meta property="article:author" content="Jiong Liu">
+<meta property="article:tag" content="TUM">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2021/04/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+<link rel="canonical" href="http://yoursite.com/2021/07/11/%E4%BB%A3%E6%95%B0%E7%BB%93%E6%9E%84/">
 
 
 <script id="page-configurations">
@@ -45,7 +46,7 @@
   };
 </script>
 
-  <title>线性代数 | Ljiong</title>
+  <title>代数结构 | Ljiong</title>
   
 
 
@@ -161,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/04/14/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/07/11/%E4%BB%A3%E6%95%B0%E7%BB%93%E6%9E%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -174,7 +175,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          线性代数
+          代数结构
         </h1>
 
         <div class="post-meta">
@@ -183,9 +184,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-04-14 17:08:48 / 修改时间：19:02:19" itemprop="dateCreated datePublished" datetime="2021-04-14T17:08:48+08:00">2021-04-14</time>
+              <time title="创建时间：2021-07-11 18:00:00" itemprop="dateCreated datePublished" datetime="2021-07-11T18:00:00+02:00">2021-07-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-07-19 16:23:45" itemprop="dateModified" datetime="2021-07-19T16:23:45+02:00">2021-07-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">课堂笔记</span></a>
+                </span>
             </span>
 
           
@@ -199,50 +215,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h1><p>&nbsp;</p>
-<h2 id="0-准备知识"><a href="#0-准备知识" class="headerlink" title="0. 准备知识"></a>0. 准备知识</h2><p>&nbsp;</p>
-<h3 id="0-1-代数结构-algebraische-Strukturen"><a href="#0-1-代数结构-algebraische-Strukturen" class="headerlink" title="0.1 代数结构(algebraische Strukturen)"></a>0.1 代数结构(algebraische Strukturen)</h3><p>&nbsp;</p>
-<h4 id="0-1-1-半群-Halbgruppe"><a href="#0-1-1-半群-Halbgruppe" class="headerlink" title="0.1.1 半群(Halbgruppe)"></a>0.1.1 半群(Halbgruppe)</h4><p>&nbsp;</p>
-<p>一个半群是一种代数结构$\left\langle A, \bullet^{2}\right\rangle$, 其具有如下的性质:</p>
+        <a id="more"></a>
+<h3 id="代数结构-algebraische-Strukturen"><a href="#代数结构-algebraische-Strukturen" class="headerlink" title="代数结构(algebraische Strukturen)"></a>代数结构(algebraische Strukturen)</h3><h4 id="半群-Halbgruppe"><a href="#半群-Halbgruppe" class="headerlink" title="半群(Halbgruppe)"></a>半群(Halbgruppe)</h4><p>一个半群是一种代数结构$\left\langle A, \bullet^{2}\right\rangle$, 其具有如下的性质:</p>
 <ul>
 <li>满足结合律, 也就是说$\forall a, b, c:(a \cdot(b \bullet c))=((a \cdot b) \cdot c)$</li>
 </ul>
 <p>&nbsp;</p>
-<p>一个可换的的半群还需满足如下性质:<br>&nbsp;</p>
+<p>一个可换的的半群还需满足如下性质:</p>
 <ul>
 <li>满足交换律, 也就是说$\forall a, b:(a \cdot b)=(b \bullet a)$</li>
 </ul>
 <p>&nbsp;</p>
-<h4 id="0-1-2-幺半群-Monoid"><a href="#0-1-2-幺半群-Monoid" class="headerlink" title="0.1.2 幺半群(Monoid)"></a>0.1.2 幺半群(Monoid)</h4><p>&nbsp;</p>
-<p>一个(可换的)幺半群是一种代数结构$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$, 其具有如下性质:</p>
+<h4 id="幺半群-Monoid"><a href="#幺半群-Monoid" class="headerlink" title="幺半群(Monoid)"></a>幺半群(Monoid)</h4><p>一个(可换的)幺半群是一种代数结构$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$, 其具有如下性质:</p>
 <ul>
 <li>$\left\langle A, \bullet^{2}\right\rangle$是一个(可换的)半群</li>
 <li>存在单位元(neutrales Element): $1^{0} ($关于$\bullet)$</li>
 </ul>
+<font color="red">在半群的基础上新加了**单位元$1^{0}$的需求**</font>
+
 <p>&nbsp;</p>
-<h4 id="0-1-3-群-Gruppe"><a href="#0-1-3-群-Gruppe" class="headerlink" title="0.1.3 群(Gruppe)"></a>0.1.3 群(Gruppe)</h4><p>&nbsp;</p>
-<p>一个(可换的)群是一种代数结构$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$, 其具有以下性质:</p>
+<h4 id="群-Gruppe"><a href="#群-Gruppe" class="headerlink" title="群(Gruppe)"></a>群(Gruppe)</h4><p>一个(可换的)群是一种代数结构$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$, 其具有以下性质:</p>
 <ul>
 <li>$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$是一个(可换的)幺半群</li>
 <li>存在逆元(关于$\bullet$), 也就是说$\forall a \exists b:(a \cdot b)=1=(b \cdot a)$</li>
 </ul>
+<font color="red">在幺半群的基础上新加了**元素的逆元存在需求**</font>
+
 <p>&nbsp;</p>
 <p><strong>一个可换的群也被称作阿贝尔群(abelsche Gruppe)</strong></p>
 <p>&nbsp;</p>
-<h4 id="0-1-4-环-Ring"><a href="#0-1-4-环-Ring" class="headerlink" title="0.1.4 环(Ring)"></a>0.1.4 环(Ring)</h4><p>&nbsp;</p>
-<p>一个(伪)环是一个代数结构$\left\langle A,+^{2}, \bullet^{2}, 0^{0}\right\rangle$ (或者$\left\langle A,+^{2}, \bullet^{2}, 0^{0}, 1^{0}\right\rangle$), 其具有以下性质:</p>
+<h4 id="环-Ring"><a href="#环-Ring" class="headerlink" title="环(Ring)"></a>环(Ring)</h4><p>一个(伪)环是一个代数结构$\left\langle A,+^{2}, \bullet^{2}, 0^{0}\right\rangle$ (或者$\left\langle A,+^{2}, \bullet^{2}, 0^{0}, 1^{0}\right\rangle$), 其具有以下性质:</p>
 <ul>
 <li>$\left\langle A, \bullet^{2}\right\rangle$是一个半群(或者$\left\langle A, \bullet^{2}, 1^{0}\right\rangle$是一个幺半群)</li>
 <li>$\left\langle A,+^{2}, 0^{0}\right\rangle$是一个可换的群</li>
-<li>从两个方向满足交换律, 也就是说$\forall a, b, c:(a \cdot(b+c))=(a \bullet b+a \cdot c)$并且$((a+b) \cdot c)=((a \cdot c)+(b \bullet c))$</li>
+<li>从两个方向满足交换律, 也就是说$\forall a, b, c:(a \cdot(b+c))=(a \bullet b+a \cdot c)$并且$((a+b) \cdot c)=((a \cdot c)+(b \cdot c))$</li>
 </ul>
+<font color="red">在群的基础上新增了对于**交换律的需求**</font>
+
 <p>&nbsp;</p>
-<h4 id="0-1-5-域-Korper"><a href="#0-1-5-域-Korper" class="headerlink" title="0.1.5 域(Körper)"></a>0.1.5 域(Körper)</h4><p>&nbsp;</p>
-<p>一个域是一个代数结构$\left\langle A,+^{2}, \bullet^{2}, 0^{0}, 1^{0}\right\rangle$, 其具有以下性质:</p>
+<h4 id="域-Korper"><a href="#域-Korper" class="headerlink" title="域(Körper)"></a>域(Körper)</h4><p>一个域是一个代数结构$\left\langle A,+^{2}, \bullet^{2}, 0^{0}, 1^{0}\right\rangle$, 其具有以下性质:</p>
 <ul>
 <li>$\left\langle A,+^{2}, \bullet^{2}, 0^{0}, 1^{0}\right\rangle$是一个伪环</li>
 <li>$\left\langle A \backslash\{0\}, \bullet^{2}, 1^{0}\right\rangle$是一个可换的群</li>
 </ul>
+<font color="red">以上所有性质都有, 并且新增了对于**非0单位有逆元的需求**</font>
 
     </div>
 
@@ -251,6 +267,9 @@
     
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TUM/" rel="tag"># TUM</a>
+          </div>
 
         
 
@@ -258,10 +277,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/11/07/%E7%A6%BB%E6%95%A3%E6%95%B0%E5%AD%A6%E7%AC%94%E8%AE%B0%E5%92%8C%E8%AF%BE%E4%BB%B6%E6%95%B4%E7%90%86/" rel="prev" title="离散数学笔记和课件整理">
-      <i class="fa fa-chevron-left"></i> 离散数学笔记和课件整理
+    <a href="/2021/04/17/%E7%AE%97%E6%B3%95%E9%9A%8F%E7%AC%94/" rel="prev" title="算法随笔">
+      <i class="fa fa-chevron-left"></i> 算法随笔
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2021/07/19/EIST%E6%A8%A1%E6%9D%BF/" rel="next" title="EIST模板">
+      EIST模板 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -320,7 +342,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性代数"><span class="nav-number">1.</span> <span class="nav-text">线性代数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-准备知识"><span class="nav-number">1.1.</span> <span class="nav-text">0. 准备知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0-1-代数结构-algebraische-Strukturen"><span class="nav-number">1.1.1.</span> <span class="nav-text">0.1 代数结构(algebraische Strukturen)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-1-半群-Halbgruppe"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">0.1.1 半群(Halbgruppe)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-2-幺半群-Monoid"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">0.1.2 幺半群(Monoid)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-3-群-Gruppe"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">0.1.3 群(Gruppe)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-4-环-Ring"><span class="nav-number">1.1.1.4.</span> <span class="nav-text">0.1.4 环(Ring)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0-1-5-域-Korper"><span class="nav-number">1.1.1.5.</span> <span class="nav-text">0.1.5 域(Körper)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#代数结构-algebraische-Strukturen"><span class="nav-number">1.</span> <span class="nav-text">代数结构(algebraische Strukturen)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#半群-Halbgruppe"><span class="nav-number">1.1.</span> <span class="nav-text">半群(Halbgruppe)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#幺半群-Monoid"><span class="nav-number">1.2.</span> <span class="nav-text">幺半群(Monoid)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#群-Gruppe"><span class="nav-number">1.3.</span> <span class="nav-text">群(Gruppe)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环-Ring"><span class="nav-number">1.4.</span> <span class="nav-text">环(Ring)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#域-Korper"><span class="nav-number">1.5.</span> <span class="nav-text">域(Körper)</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -334,7 +356,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
