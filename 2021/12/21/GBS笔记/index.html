@@ -1,0 +1,1998 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Grundlagen der Betriebsysteme und Systemsoftware">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GBS笔记">
+<meta property="og:url" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Jiong">
+<meta property="og:description" content="Grundlagen der Betriebsysteme und Systemsoftware">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211221175034.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211221175853.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211221181351.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211221181406.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211221182041.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211221182653.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211221183643.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211221183653.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222112203.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222112425.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222112730.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222113555.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222113621.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222113819.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222114126.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222132501.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222133357.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222133652.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222133742.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211222133752.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211223185856.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211223190715.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211223191753.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211223191817.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211223191827.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211223191837.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211223191847.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211223191859.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224132324.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224132345.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224132403.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224132421.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224132432.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224132452.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224132503.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224132550.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224132617.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224133131.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224134224.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224134544.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224134751.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224134807.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224135824.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224135833.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224140355.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224141156.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224141208.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211224141217.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225140905.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225141601.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225141612.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225141627.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225143741.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225144403.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225153804.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225160444.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225161114.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225161241.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225161251.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225161306.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211225161321.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226142245.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226142553.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226143311.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226143507.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226143932.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226144143.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226144153.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226144728.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226150347.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226150359.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226151222.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226152008.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226152021.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226152047.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211226152058.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228180054.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228180928.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228181341.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228194858.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228195536.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228195618.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228195628.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228200106.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228200142.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228200501.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228200522.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228200602.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228200624.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228200633.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228200644.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211228200712.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211230195755.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211230195807.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211230195819.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211230195952.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211230200014.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211230200048.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211230200103.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211230200110.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211230200212.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231145109.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231145120.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231145056.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231145148.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231150528.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231150710.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231150719.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231150729.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231154223.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231154237.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231160501.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231161015.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231161024.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231161034.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231161109.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211231161117.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220101202717.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220101205755.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220101205810.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220101212519.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102200316.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102200344.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102200403.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102200413.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102202123.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102202209.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102203553.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102204250.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102205056.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102205619.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102205705.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102210621.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102210640.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220102235008.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195536.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195547.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195634.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195642.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195651.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195724.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195746.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195759.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195815.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195832.png">
+<meta property="og:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20220103195841.png">
+<meta property="article:published_time" content="2021-12-21T16:24:46.000Z">
+<meta property="article:modified_time" content="2022-01-07T15:04:43.461Z">
+<meta property="article:author" content="Jiong Liu">
+<meta property="article:tag" content="TUM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ%E6%88%AA%E5%9B%BE20211221175034.png">
+
+<link rel="canonical" href="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>GBS笔记 | Jiong</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Jiong</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">月落无题江南</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/12/21/GBS%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jiong Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jiong">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GBS笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-12-21 17:24:46" itemprop="dateCreated datePublished" datetime="2021-12-21T17:24:46+01:00">2021-12-21</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-01-07 16:04:43" itemprop="dateModified" datetime="2022-01-07T16:04:43+01:00">2022-01-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">课堂笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Grundlagen der Betriebsysteme und Systemsoftware</p>
+<a id="more"></a>
+<h1 id="引入-Einfuhrung"><a href="#引入-Einfuhrung" class="headerlink" title="引入 Einführung"></a>引入 Einführung</h1><h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><ul>
+<li>操作系统有哪些任务？</li>
+<li>操作系统怎么实现这些任务的？</li>
+<li>操作系统怎么和用户的实际应用划清界限的？（基于理论和实际操作）</li>
+</ul>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>定义：计算机系统作为复杂的系统</li>
+<li>操作系统的分类</li>
+<li>操作系统的任务（职责）</li>
+<li>基础概念（以后逐步加深理解）</li>
+<li>操作系统架构</li>
+<li>系统程序设计（作为作业）</li>
+</ul>
+<h2 id="一些的概念"><a href="#一些的概念" class="headerlink" title="一些的概念"></a>一些的概念</h2><h3 id="普遍的定义：信息学（Informatik）的任务"><a href="#普遍的定义：信息学（Informatik）的任务" class="headerlink" title="普遍的定义：信息学（Informatik）的任务"></a>普遍的定义：信息学（Informatik）的任务</h3><p>信息学的任务是开发<strong>计算系统</strong>，并将其应用作为强力的<strong>辅助工具</strong>提供给大众使用，为了解决信息处理的问题。</p>
+<h4 id="计算系统（Rechnensystem，同义词：计算机Rechner，电脑Computer）的定义"><a href="#计算系统（Rechnensystem，同义词：计算机Rechner，电脑Computer）的定义" class="headerlink" title="计算系统（Rechnensystem，同义词：计算机Rechner，电脑Computer）的定义"></a>计算系统（Rechnensystem，同义词：计算机Rechner，电脑Computer）的定义</h4><p><strong>计算系统</strong>是</p>
+<ul>
+<li>开放的</li>
+<li>动态的</li>
+<li>技术性的</li>
+</ul>
+<p>系统，并且具有一下能力：</p>
+<ul>
+<li>储存信息（Speicherung von Information）</li>
+<li>处理信息（Verarbeitung von Information）</li>
+<li>交流（Kommunikation）</li>
+</ul>
+<h2 id="冯诺依曼架构（Von-Neumann-Architektur）"><a href="#冯诺依曼架构（Von-Neumann-Architektur）" class="headerlink" title="冯诺依曼架构（Von-Neumann-Architektur）"></a>冯诺依曼架构（Von-Neumann-Architektur）</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211221175034.png" alt> </p>
+<h2 id="简单的系统结构"><a href="#简单的系统结构" class="headerlink" title="简单的系统结构"></a>简单的系统结构</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211221175853.png" alt></p>
+<h2 id="开放系统（Offenes-System），构成部分（Komponenten），角度（Sichten）"><a href="#开放系统（Offenes-System），构成部分（Komponenten），角度（Sichten）" class="headerlink" title="开放系统（Offenes System），构成部分（Komponenten），角度（Sichten）"></a>开放系统（Offenes System），构成部分（Komponenten），角度（Sichten）</h2><h3 id="开放系统"><a href="#开放系统" class="headerlink" title="开放系统"></a>开放系统</h3><ul>
+<li>由构成部分组成</li>
+<li>构成部分之间的关系被称作联系（Abhängigkeiten）</li>
+<li>拥有接口使得外部的影响能作用的系统</li>
+</ul>
+<p>（重要的进一步关于“开放（offen）”的措辞： 是否具有完整的结构和文档使得用户能够通过接口使用系统）</p>
+<h3 id="接口（Schnittstelle）"><a href="#接口（Schnittstelle）" class="headerlink" title="接口（Schnittstelle）"></a>接口（Schnittstelle）</h3><p>比如：用户交互，网络接口</p>
+<p>接口允许（使其成为可能）从不同的角度操作系统：</p>
+<h4 id="从外部：黑盒视角（Black-Box-Sicht）"><a href="#从外部：黑盒视角（Black-Box-Sicht）" class="headerlink" title="从外部：黑盒视角（Black-Box-Sicht）"></a>从外部：黑盒视角（Black-Box-Sicht）</h4><p>构成部分和界限的总结</p>
+<h4 id="从内部：白盒视角（White-Box-Sicht）"><a href="#从内部：白盒视角（White-Box-Sicht）" class="headerlink" title="从内部：白盒视角（White-Box-Sicht）"></a>从内部：白盒视角（White-Box-Sicht）</h4><p>递归的分配构成部分和子构成部分</p>
+<h4 id="图示"><a href="#图示" class="headerlink" title="图示"></a>图示</h4><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211221181351.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211221181406.png" alt></p>
+<h2 id="动态系统"><a href="#动态系统" class="headerlink" title="动态系统"></a>动态系统</h2><ul>
+<li>一系列的属性（Eigenschaften）描述了一个系统的状态——一个可以着眼的时间节点</li>
+<li>计算系统的属性随时间而改变</li>
+<li>属性改变是状态改变</li>
+<li>状态和状态改变描述了系统行为（Systemverhalten）</li>
+<li>一个计算系统从主动（active）和被动（passive）构成部分中获得状态改变的能力</li>
+<li>被动的构成部分是这种行为的辅助工具</li>
+</ul>
+<h2 id="技术系统"><a href="#技术系统" class="headerlink" title="技术系统"></a>技术系统</h2><p>一个计算系统是通过硬件和软件资源技术实现的</p>
+<h2 id="操作系统作为计算系统的一个部分"><a href="#操作系统作为计算系统的一个部分" class="headerlink" title="操作系统作为计算系统的一个部分"></a>操作系统作为计算系统的一个部分</h2><p>普遍的操作系统的层级结构和分类</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211221182041.png" alt></p>
+<h2 id="定义：操作系统"><a href="#定义：操作系统" class="headerlink" title="定义：操作系统"></a>定义：操作系统</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211221182653.png" alt></p>
+<h2 id="操作系统的任务"><a href="#操作系统的任务" class="headerlink" title="操作系统的任务"></a>操作系统的任务</h2><h3 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h3><p>抽象概念和通用接口的简化和提供，比如：文件</p>
+<p>抽象的例子：访问输入输出设备</p>
+<ul>
+<li>每个设备有自己的命令和寄存器</li>
+<li>问题：编程者必须熟知每个设备的属性</li>
+<li>解决方法：操作系统定义统一的操作（接口），比如：read，write</li>
+<li>编程者使用这些操作（接口）</li>
+<li>操作系统把这些操作转换成设备特有的指令</li>
+</ul>
+<h3 id="（资源）管理"><a href="#（资源）管理" class="headerlink" title="（资源）管理"></a>（资源）管理</h3><p>控制程序的运行</p>
+<h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><p>CPU使用控制：哪个程序允许使用多久的CPU</p>
+<h4 id="决定策略"><a href="#决定策略" class="headerlink" title="决定策略"></a>决定策略</h4><p>优先级：谁有优先权？平等？<br>灵活，适应：怎么处理当前的要求？</p>
+<h4 id="决定操作"><a href="#决定操作" class="headerlink" title="决定操作"></a>决定操作</h4><p>把CPU在某个时间点给到某个程序或者从某个程序那取走</p>
+<h2 id="操作系统发展的因素"><a href="#操作系统发展的因素" class="headerlink" title="操作系统发展的因素"></a>操作系统发展的因素</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211221183643.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211221183653.png" alt></p>
+<h2 id="操作模式（Betribsarten）"><a href="#操作模式（Betribsarten）" class="headerlink" title="操作模式（Betribsarten）"></a>操作模式（Betribsarten）</h2><h3 id="批处理任务-Stapelverarbeitung-batch-processing"><a href="#批处理任务-Stapelverarbeitung-batch-processing" class="headerlink" title="批处理任务 Stapelverarbeitung (batch processing)"></a>批处理任务 Stapelverarbeitung (batch processing)</h3><p>程序从开始就被定义好了，封闭执行</p>
+<p>不规划用户交互</p>
+<h3 id="业务操作-Transaktionsbetrieb-transaction-system"><a href="#业务操作-Transaktionsbetrieb-transaction-system" class="headerlink" title="业务操作 Transaktionsbetrieb (transaction system)"></a>业务操作 Transaktionsbetrieb (transaction system)</h3><p>在数据库也很有名</p>
+<p>AICD-准测（原子性，一致性，独立性，持久性）</p>
+<h3 id="对话操作-Dialogbetrieb-time-sharing"><a href="#对话操作-Dialogbetrieb-time-sharing" class="headerlink" title="对话操作 Dialogbetrieb (time sharing)"></a>对话操作 Dialogbetrieb (time sharing)</h3><p>用户和操作系统的交互</p>
+<p>需要（G）UI</p>
+<h3 id="实时操作-Echtzeitbetrieb-real-time-system"><a href="#实时操作-Echtzeitbetrieb-real-time-system" class="headerlink" title="实时操作 Echtzeitbetrieb (real time system)"></a>实时操作 Echtzeitbetrieb (real time system)</h3><p>硬实时（Harte Echtzeit (hard deadlines)）：响应时间不能超过限额</p>
+<p>软实时（Weiche Echtzeit (soft deadlines)）：允许响应时间超过一点</p>
+<h2 id="操作系统的分支和目标"><a href="#操作系统的分支和目标" class="headerlink" title="操作系统的分支和目标"></a>操作系统的分支和目标</h2><h3 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h3><p>普遍目的 vs 特殊目的</p>
+<h4 id="普遍目的"><a href="#普遍目的" class="headerlink" title="普遍目的"></a>普遍目的</h4><p>如Linux，MacOS，Windows</p>
+<ul>
+<li>多样的（reichhaltig）功能性</li>
+<li>复杂</li>
+</ul>
+<h4 id="特殊目的"><a href="#特殊目的" class="headerlink" title="特殊目的"></a>特殊目的</h4><ul>
+<li>有限的功能性</li>
+<li>简单</li>
+<li>可验证</li>
+</ul>
+<h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>不可能同时实现</p>
+<ul>
+<li>高性能：SuperMUC</li>
+<li>短响应时间：Echtzeitsteuerung，搜索引擎</li>
+<li>低能耗：嵌入式系统，传感器</li>
+</ul>
+<h2 id="操作系统的类型"><a href="#操作系统的类型" class="headerlink" title="操作系统的类型"></a>操作系统的类型</h2><h3 id="服务器操作系统"><a href="#服务器操作系统" class="headerlink" title="服务器操作系统"></a>服务器操作系统</h3><p>SuperMUC，MPI</p>
+<h3 id="服务器和桌面操作系统"><a href="#服务器和桌面操作系统" class="headerlink" title="服务器和桌面操作系统"></a>服务器和桌面操作系统</h3><p>Linux，MaxOS，Windows</p>
+<h3 id="移动操作系统"><a href="#移动操作系统" class="headerlink" title="移动操作系统"></a>移动操作系统</h3><p>Android，IOS</p>
+<h3 id="嵌入式操作系统"><a href="#嵌入式操作系统" class="headerlink" title="嵌入式操作系统"></a>嵌入式操作系统</h3><p>QNX, L4 (embedded), PikeOS, TinyOS, RTOS, RIOT</p>
+<p>Ggf. Echtzeit-fähig</p>
+<h2 id="基础：操作系统的概念"><a href="#基础：操作系统的概念" class="headerlink" title="基础：操作系统的概念"></a>基础：操作系统的概念</h2><p>第一轮：一个关于一些重要的概念的粗略的概览<br>将会在接下来的Vorlesung中逐步深入</p>
+<p>基础概念：</p>
+<ul>
+<li>资源（Resourcen/Betriebsmittel）以及它的分类</li>
+<li>进程：作为处理器的抽象</li>
+<li>文件：作为储存器的抽象</li>
+<li>操作系统模式</li>
+<li>系统调用（Systemaufruf）：作为应用程序和操作系统的接口</li>
+</ul>
+<h2 id="资源的分类"><a href="#资源的分类" class="headerlink" title="资源的分类"></a>资源的分类</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222112203.png" alt></p>
+<h2 id="进程（Process）"><a href="#进程（Process）" class="headerlink" title="进程（Process）"></a>进程（Process）</h2><h3 id="进程的定义"><a href="#进程的定义" class="headerlink" title="进程的定义"></a>进程的定义</h3><p>一个进程是一个在被运行的程序（Programm）</p>
+<p>程序是被动单元，进程是主动单元</p>
+<p>一个程序可以在多个线程中被执行（多个程序的实例）</p>
+<ul>
+<li>比如说：两个Microsoft Word窗口</li>
+</ul>
+<p>一个系统由一组进程组成</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222112425.png" alt></p>
+<p>一个进程需要资源来完成它的任务</p>
+<ul>
+<li>资源是CPU，储存器，输入输出设备，或者也可以是文件</li>
+<li>理想情况每个进程占有一个自己的CPU</li>
+<li>但实际上，进程必须与其他进程共享一个CPU</li>
+<li><ul>
+<li>这是操作系统的进程管理任务</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222112730.png" alt></p>
+<p>每个进程都有一个自己的<strong>进程地址空间</strong>（Processadressraum）</p>
+<p>虚拟地址空间（Virtueller Adressraum）是物理地址空间的一个抽象</p>
+<p>地址空间装有代码和数据</p>
+<p>不同进程的地址空间是在硬件层面与其他进程的地址空间隔离开的</p>
+<p>进程共享一个被操作系统管理的物理储存器</p>
+<h2 id="连续进程（sequnzielle-Prozesse）和并行进程（parallele-Prozesse）"><a href="#连续进程（sequnzielle-Prozesse）和并行进程（parallele-Prozesse）" class="headerlink" title="连续进程（sequnzielle Prozesse）和并行进程（parallele Prozesse）"></a>连续进程（sequnzielle Prozesse）和并行进程（parallele Prozesse）</h2><p>一个连续进程</p>
+<ul>
+<li>拥有一个控制流程/线程（Kontrollfluss/eng. Thread）和仅有一个指令计数器（Befehlszähler/eng. program counter）</li>
+<li>连续的执行程序的指令</li>
+</ul>
+<p>一个并行的线程</p>
+<ul>
+<li>拥有多个控制流程/线程</li>
+<li>每个线程有自己的指令计数器和寄存器</li>
+<li>每个进程有自己的栈（Stack）</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222113555.png" alt></p>
+<h2 id="文件和文件系统"><a href="#文件和文件系统" class="headerlink" title="文件和文件系统"></a>文件和文件系统</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222113621.png" alt></p>
+<p>理念：“Everything is a file” (Unix / Linux)</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222113819.png" alt></p>
+<p>通过操作系统产生的普遍的抽象</p>
+<ul>
+<li>文件描述器：方便输入输出的指向一个文件的引用</li>
+<li>通常来说：open，close，read，write</li>
+<li>特殊的控制：ioctl</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222114126.png" alt></p>
+<h2 id="操作系统模式（Betriessystem-Modi）"><a href="#操作系统模式（Betriessystem-Modi）" class="headerlink" title="操作系统模式（Betriessystem-Modi）"></a>操作系统模式（Betriessystem-Modi）</h2><p>目的：从编程错误和攻击中保护操作系统</p>
+<p>解决方法：通过工作模式来区分不同的权限</p>
+<h3 id="用户模式（User-Mode-Space）"><a href="#用户模式（User-Mode-Space）" class="headerlink" title="用户模式（User Mode/Space）"></a>用户模式（User Mode/Space）</h3><ul>
+<li>不能直接访问硬件，所有访问必须经过操作系统</li>
+<li>不能使用特权指令（privilegierten Befehle），比如：输入输出</li>
+<li>对于访问体统代码或者数据没有或者只有只读权限</li>
+<li>只能访问虚拟地址空间</li>
+</ul>
+<p>应用程序只能运行在用户模式中</p>
+<h3 id="系统模式（Kernel-Mode-Space）"><a href="#系统模式（Kernel-Mode-Space）" class="headerlink" title="系统模式（Kernel Mode/Space）"></a>系统模式（Kernel Mode/Space）</h3><ul>
+<li>有特权的模式，能够使用所有的机器指令</li>
+<li>可以使用特权代码，比如访问硬件</li>
+<li>可以访问系统代码和数据</li>
+</ul>
+<p>操作系统核心运行在系统模式中</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222132501.png" alt></p>
+<h2 id="系统调用（System-Aufrufe-Systemcalls）"><a href="#系统调用（System-Aufrufe-Systemcalls）" class="headerlink" title="系统调用（System-Aufrufe/Systemcalls）"></a>系统调用（System-Aufrufe/Systemcalls）</h2><p>任务：提供一个接口，让应用程序能够使用操作系统的服务并借此能够访问硬件</p>
+<p>解法：</p>
+<ul>
+<li>定义一组服务，这就是系统调用（粗略类比方法调用）</li>
+<li>系统调用通常不直接被应用程序调用，而是应用程序调用系统库，系统库调用系统调用</li>
+<li>库会被绑定给应用程序（通过Linker/Loader）</li>
+</ul>
+<h2 id="系统调用的例子"><a href="#系统调用的例子" class="headerlink" title="系统调用的例子"></a>系统调用的例子</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222133357.png" alt></p>
+<h2 id="在用户模式中使用系统调用"><a href="#在用户模式中使用系统调用" class="headerlink" title="在用户模式中使用系统调用"></a>在用户模式中使用系统调用</h2><ul>
+<li>系统在启动的时候在系统模式</li>
+<li>执行用户进程的时候，系统在用户模式</li>
+<li>在想要使用操作系统服务时（例如IO），需要通过系统调用，系统调用与转入系统模式是绑定的</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222133652.png" alt></p>
+<h3 id="系统调用的例子-1"><a href="#系统调用的例子-1" class="headerlink" title="系统调用的例子"></a>系统调用的例子</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222133742.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211222133752.png" alt></p>
+<h2 id="操作系统架构（Betriebssystem-Architekturen）"><a href="#操作系统架构（Betriebssystem-Architekturen）" class="headerlink" title="操作系统架构（Betriebssystem-Architekturen）"></a>操作系统架构（Betriebssystem-Architekturen）</h2><p>随着时间的流逝，许多不同架构的操作系统被研发了出来</p>
+<p>概览：</p>
+<ul>
+<li><strong>整体系统（Monolithische Systeme/monolithic systems）</strong> </li>
+<li>层级系统（Geschichtete Systeme/layered systems）</li>
+<li><strong>微核系统（Mikrokernel-Systemen/microkernels）</strong></li>
+<li>客户端服务端系统（Client-Server-Systeme）</li>
+<li>虚拟机（virtual machines）</li>
+</ul>
+<h2 id="整体系统"><a href="#整体系统" class="headerlink" title="整体系统"></a>整体系统</h2><p>操作系统包含了大规模的功能</p>
+<p>功能的概要在操作系统核心中</p>
+<ul>
+<li>所有的驱动都是在核心内实现的</li>
+<li>通过系统调用进入操作系统核心</li>
+<li>一个可执行程序绑定了很多程序</li>
+</ul>
+<p>操作系统被当作一个程序运行</p>
+<p>一些后果</p>
+<ul>
+<li>很灵活：程序可以互相调用</li>
+<li>混乱的，因为没有结构，在维护的时候会出现问题</li>
+<li>没有弹性：程序的崩溃会导致操作系统崩溃</li>
+</ul>
+<p>通常：Minimale Struktur</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211223185856.png" alt></p>
+<p>特征:</p>
+<ul>
+<li>操作系统完全运行在系统模式</li>
+<li>操作系统内核有很高的进程优先级</li>
+<li>操作系统永远在内存中</li>
+<li>整体系统（经常）没有结构</li>
+<li>所以很难维护和拓展</li>
+</ul>
+<p>变体：目的是更好的维护</p>
+<ul>
+<li>模块化（Modularität）：拓展性</li>
+<li><ul>
+<li>新的模块可以被加载，并且拓展功能性</li>
+</ul>
+</li>
+<li>移植性（Portierbarkeit）：从软件转移到其他的硬件</li>
+<li><ul>
+<li>在操作系统中只提供基础的功能</li>
+</ul>
+</li>
+<li><ul>
+<li>减少工作量：只有基础的功能需要移植到新的硬件结构上</li>
+</ul>
+</li>
+<li>层级系统（Geschichtete Systeme (Layers)）</li>
+<li><ul>
+<li>根据层来分等级，通过抽象简化</li>
+</ul>
+</li>
+</ul>
+<h2 id="微核-Mikrokerne"><a href="#微核-Mikrokerne" class="headerlink" title="微核 Mikrokerne"></a>微核 Mikrokerne</h2><h3 id="核心动力"><a href="#核心动力" class="headerlink" title="核心动力"></a>核心动力</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211223190715.png" alt></p>
+<p>理念：</p>
+<ul>
+<li>将操作系统拆开成独立的系统进程（eigenständige Systemprozesse）</li>
+<li>只有一个模块，即微核，在系统模式中运行</li>
+<li>小的微核：易于维护</li>
+<li>将错误隔离开</li>
+</ul>
+<p>例子：L4, PikeOS, Mach, QNX, MINIX</p>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><p>还提供基本机制：例如进程间交互（Prozesskommunikation (IPC)）和CPU调度（CPU-Zuteilung (Scheduling)）</p>
+<p>子系统被当作<strong>系统服务在用户模式中</strong>实现，没有特权</p>
+<p>例子：文件系统，储存管理或者进程管理</p>
+<p>这样核心就是可保护的/可证明的</p>
+<p>一些子系统也可以简单的被替换</p>
+<h3 id="服务进程（Serverprocess）"><a href="#服务进程（Serverprocess）" class="headerlink" title="服务进程（Serverprocess）"></a>服务进程（Serverprocess）</h3><p>系统方法被当作服务进程来执行</p>
+<p>如果一个应用程序需要一个系统服务，那它就与对应的进程沟通</p>
+<p>服务之间的沟通并不是直接发生，而是通过操作系统核心通过IPC：客户端-服务端原则（Client-Server-Prinzip）</p>
+<p>优点？</p>
+<p>可以根据需要启动所需要的进程，而不是全部启动。这样就可以在一些小的平台上运行</p>
+<p>如果一个服务进程掉了，那剩下的还可以继续运行，因为错误被子系统划分隔离（isoliert）了</p>
+<p>缺点？</p>
+<p>有太多的进程间交互（Inter Process Communication/IPC），所以会相对慢一点、</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211223191753.png" alt></p>
+<h2 id="系统编程（非重点）"><a href="#系统编程（非重点）" class="headerlink" title="系统编程（非重点）"></a>系统编程（非重点）</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211223191817.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211223191827.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211223191837.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211223191847.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211223191859.png" alt></p>
+<h1 id="进程和处理器管理-Process-und-Processorverwaltung"><a href="#进程和处理器管理-Process-und-Processorverwaltung" class="headerlink" title="进程和处理器管理 Process- und Processorverwaltung"></a>进程和处理器管理 Process- und Processorverwaltung</h1><h2 id="目录-1"><a href="#目录-1" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>基础：进程和处理器</li>
+<li>进程和线程管理的实现概念</li>
+<li>分配进程给CPU的算法（管理策略）</li>
+<li><ul>
+<li>调度器（Schedulers）的任务</li>
+</ul>
+</li>
+<li>把进程绑定给处理器或者解绑的进程概念和技术</li>
+<li><ul>
+<li>分配器（Dispatchers）的任务</li>
+</ul>
+</li>
+<li>调度算法</li>
+</ul>
+<h2 id="从源代码到程序（ERA知识）"><a href="#从源代码到程序（ERA知识）" class="headerlink" title="从源代码到程序（ERA知识）"></a>从源代码到程序（ERA知识）</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224132324.png" alt></p>
+<h2 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224132345.png" alt></p>
+<h2 id="处理器"><a href="#处理器" class="headerlink" title="处理器"></a>处理器</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224132403.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224132421.png" alt></p>
+<h2 id="储存器中的线程"><a href="#储存器中的线程" class="headerlink" title="储存器中的线程"></a>储存器中的线程</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224132432.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224132452.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224132503.png" alt></p>
+<h2 id="操作系统中的进程环境"><a href="#操作系统中的进程环境" class="headerlink" title="操作系统中的进程环境"></a>操作系统中的进程环境</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224132550.png" alt></p>
+<p>这些内容会以数据（Daten）的方式存在在储存器中</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224132617.png" alt></p>
+<h2 id="并行的进程程，多进程（Multiprogramming）"><a href="#并行的进程程，多进程（Multiprogramming）" class="headerlink" title="并行的进程程，多进程（Multiprogramming）"></a>并行的进程程，多进程（Multiprogramming）</h2><p>一个系统由一组进程组成</p>
+<ul>
+<li>进程可以（近似）平行的被处理</li>
+<li>存在进程之间的转换（调度 Scheduling）</li>
+</ul>
+<p>近似平行的的进程处理是多进程的基础</p>
+<p>例子：多进程系统</p>
+<ul>
+<li>四个有自己的控制流的不同的进程</li>
+<li>在一个单进程系统中，CPU在用一个时间点只运行一个进程</li>
+<li>随着时间的流逝，所有进程都会被执行到</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224133131.png" alt></p>
+<p>I/O-bound：指一些线程要频繁的与输入输出设备交互，并不一直使用CPU，这些线程被称作I/O-bound</p>
+<p>CPU-bound：指一些线程要一直占用CPU进行运算，很少与输入输出设备交互，这些线程被称作CPU-bound</p>
+<h2 id="为什么要多进程？"><a href="#为什么要多进程？" class="headerlink" title="为什么要多进程？"></a>为什么要多进程？</h2><p>进程可能被CPU限制（limitiert）或者被I/O限制</p>
+<ul>
+<li>当一个线程要为了输入输出等它的一部分$p$，那么它的CPU负载就会出问题，在$n$个进程仅有$1-p^n$。</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224134224.png" alt></p>
+<p>说白了就是用多进程抵消等候I/O的时间</p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224134544.png" alt></p>
+<p>cat和grep各自有一个线程</p>
+<p>如果没有多进程，那么cat读完一个文件，grep处理一个文件，相对较慢，因为在cat读文件的时候，CPU啥也没干。</p>
+<p>如果是多进程，在cat读文件的时候，grep就可以占用CPU去处理读进来的内容，实现了更高的CPU占用率。</p>
+<h2 id="进程状态-Prozesse-Zustande"><a href="#进程状态-Prozesse-Zustande" class="headerlink" title="进程状态 Prozesse Zustände"></a>进程状态 Prozesse Zustände</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224134751.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224134807.png" alt></p>
+<h2 id="进程-Process-与-线程-Thread"><a href="#进程-Process-与-线程-Thread" class="headerlink" title="进程 Process 与 线程 Thread"></a>进程 Process 与 线程 Thread</h2><p>进程是在运行中的程序</p>
+<ul>
+<li>使用资源，如CPU，储存器，数据，设备等</li>
+<li>拥有一个控制流（Kontrollfluss），通过程序的指令定义</li>
+</ul>
+<p>资源和控制流是两个不相关的概念</p>
+<ul>
+<li>区分开来！</li>
+</ul>
+<p>一个进程编组（gruppieren）和管理（verwalten）资源</p>
+<p>一个线程定义了一个控制流</p>
+<p>至今：一个进程只有一个线程</p>
+<h2 id="线程-Thread"><a href="#线程-Thread" class="headerlink" title="线程 Thread"></a>线程 Thread</h2><p>定义：线程</p>
+<ul>
+<li>一个线程被视作一个物理处理器的抽象</li>
+<li>线程表现了一个系统的并行的执行线路</li>
+<li>一个进程拥有至少一个线程</li>
+<li>一个多线程的进程有多个流程图</li>
+<li>一个进程的线程共享一个地址空间</li>
+<li><strong>每个线程拥有自己的指令技术器</strong></li>
+</ul>
+<h2 id="进程-Process-vs-线程-Thread"><a href="#进程-Process-vs-线程-Thread" class="headerlink" title="进程 Process vs 线程 Thread"></a>进程 Process vs 线程 Thread</h2><p>线程是进程的行为载体</p>
+<p>线程特有的信息（线程环境）：</p>
+<ul>
+<li>程序技术器（program counter）</li>
+<li>寄存器的值（Registerwerte (z.B. Variablen, etc.)）</li>
+<li>管理子程序的栈（Stack zur Verwaltung von Unterprogrammaufrufen）</li>
+</ul>
+<p>线程也有不同的状态</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224135824.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224135833.png" alt></p>
+<p>如果一个线程被拿走CPU，那么这个线程的环境安全必须被确保</p>
+<ul>
+<li>状态从rechnend转移到rechnenwillig或者wartend</li>
+</ul>
+<p>进程编组了资源</p>
+<ul>
+<li>包括程序代码和数据的地址空间</li>
+<li>一个进程的所有线程共用的资源</li>
+<li><ul>
+<li>全局变量，公用的文件（offene Datei），子进程描述器，警告（Alarme）和中断（Interrupt (signal handler)）</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224140355.png" alt></p>
+<h2 id="多线程的原因"><a href="#多线程的原因" class="headerlink" title="多线程的原因"></a>多线程的原因</h2><h3 id="开支-Overhead"><a href="#开支-Overhead" class="headerlink" title="开支 Overhead"></a>开支 Overhead</h3><p>一个线程是一个轻量级的进程（此外共同的地址空间）</p>
+<p>在一个进程的地址空间中的进程彼此交流很容易</p>
+<p>在一个进程中创建一个线程的费用比创建一个进程要小很多</p>
+<p>线程的转换要比进程之间的转换快</p>
+<h3 id="性能"><a href="#性能" class="headerlink" title="性能"></a>性能</h3><p>多线程允许I/O密集和CPU密集的区域近似并行的执行（两个线程，一个I/O，一个CPU）</p>
+<p>真正的线程的并行可以在多核或者多CPU上实现</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224141156.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224141208.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211224141217.png" alt></p>
+<h2 id="进程的实现"><a href="#进程的实现" class="headerlink" title="进程的实现"></a>进程的实现</h2><p>核心数据结构：进程控制模块（Process Control Block (PCB)）</p>
+<ul>
+<li>包含进程管理（Prozessverwaltung (engl. process management)）信息</li>
+<li><ul>
+<li>寄存器内容（包括程序计数器 program counter，栈指针 stack pointer，状态寄存器 status register）</li>
+</ul>
+</li>
+<li><ul>
+<li>进程状态（比如wartend，rechnend等）</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>rechnend：提供属于它的CPU</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li><ul>
+<li>wartend：提供一个进程正在等候的事件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><ul>
+<li>优先级</li>
+</ul>
+</li>
+<li><ul>
+<li>唯一的进程ID（Process ID (PID)）</li>
+</ul>
+</li>
+<li><ul>
+<li>父进程ID（Parent PID (PPID)）用来标识父进程</li>
+</ul>
+</li>
+<li><ul>
+<li>进程组ID（Process Group ID (PGID)）</li>
+</ul>
+</li>
+<li>包含储存器管理（Speicherverwaltung (engl. memory management)）的信息</li>
+<li><ul>
+<li>指向代码段（code segement），数据段（data segement）和栈段（stack segement）的指针</li>
+</ul>
+</li>
+<li><ul>
+<li>这些信息都包含对应段的起始位置和长度的信息</li>
+</ul>
+</li>
+<li>包含文件管理（Dateiverwaltung (engl. file management)）</li>
+<li><ul>
+<li>根目录（Root Verzeichnis）</li>
+</ul>
+</li>
+<li><ul>
+<li>文件解释器（File Deskriptoren）：一种数据结构，用来描述一个已经打开的文件</li>
+</ul>
+</li>
+<li><ul>
+<li>用户（Benutzer User）和他的用户组ID（Gruppen ID (UID, GID)）</li>
+</ul>
+</li>
+</ul>
+<p>操作系统用一个进程表管理所有的进程</p>
+<p>一个进程表是一个进程控制模块的链表（verkettete Liste）</p>
+<p>对于不同的进程状态有不同的表</p>
+<ul>
+<li>Run Queue（ready queue）：Linux中rechnenwillig的进程</li>
+<li>Wait Queue：Linux中管理wartend的进程</li>
+</ul>
+<h3 id="这样做的原因"><a href="#这样做的原因" class="headerlink" title="这样做的原因"></a>这样做的原因</h3><p>可以快速的找出一个目标状态的进程，也可以查出哪些进程是对应的目标状态，也可以根据需求对表中的单一目标状态的进程进行排序。省的在一张什么状态都有的表中一个个找。</p>
+<h2 id="系统管理的操作系统服务"><a href="#系统管理的操作系统服务" class="headerlink" title="系统管理的操作系统服务"></a>系统管理的操作系统服务</h2><p>创建一个进程的服务</p>
+<p>终止一个进程的服务</p>
+<p>进程分配的策略（调度 Scheduling）</p>
+<ul>
+<li>从rechnenbereit的进程中选择一个进程出来</li>
+</ul>
+<p>进程链接的服务（分发 Dispatching）</p>
+<ul>
+<li>改变进程的环境（Kontext）和状态（Zustand）</li>
+</ul>
+<h2 id="创建进程：起因"><a href="#创建进程：起因" class="headerlink" title="创建进程：起因"></a>创建进程：起因</h2><p>在系统初始化的时候（während der Systeminitialisierung）创建进程</p>
+<ul>
+<li>创建前台进程（Vordergrundprozessen），与用户交互</li>
+<li>创建后台进程</li>
+<li><ul>
+<li>守护进程（Dämonen (engl. daemons)），特殊的系统进程</li>
+</ul>
+</li>
+<li><ul>
+<li>长时间存在的，被动的系统进程，这些进程会被事件唤醒，例如httpd，sshd等</li>
+</ul>
+</li>
+</ul>
+<p>通过其他进程创建进程</p>
+<ul>
+<li>把任务外包给更多的进程</li>
+<li>例如：服务器在客户端访问的时候都会创建一个新的进程</li>
+</ul>
+<p>通过用户创建进程</p>
+<ul>
+<li>在Shell中运行命令行，双击一个图标等</li>
+</ul>
+<p>通过批处理任务系统 Batch-System创建进程</p>
+<ul>
+<li>操作系统创建一个新的进程来处理任务和数据</li>
+</ul>
+<h2 id="创建进程：服务"><a href="#创建进程：服务" class="headerlink" title="创建进程：服务"></a>创建进程：服务</h2><p>编程的内容</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225140905.png" alt></p>
+<h2 id="进程的终止"><a href="#进程的终止" class="headerlink" title="进程的终止"></a>进程的终止</h2><p>正常的终止（自愿）</p>
+<ul>
+<li>程序通过使用系统调用（Systemcalls）来终止</li>
+<li>例如：void exit (int status), return status;</li>
+</ul>
+<p>在遇到一个线程已知的错误时的提前终止（自愿）</p>
+<ul>
+<li>例：线程发现，想要访问的文件不存在时</li>
+<li>使用上面的exit()方法，只不过status填一个不是0的值</li>
+</ul>
+<p>在遇到一个操作系统发现的错误时的提前终止（强制）</p>
+<ul>
+<li>这导致了程序的错误</li>
+<li>例：访问了一个不存在的内存地址，会导致Segementation fault</li>
+</ul>
+<p>通过其他线程终止</p>
+<p>例：通过函数int kill (pid_t process_id, int signal);传递一个终止信号</p>
+<h2 id="进程阶级-Prozesshierarchien-Unix"><a href="#进程阶级-Prozesshierarchien-Unix" class="headerlink" title="进程阶级 Prozesshierarchien (Unix)"></a>进程阶级 Prozesshierarchien (Unix)</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225141601.png" alt></p>
+<h2 id="一些例子"><a href="#一些例子" class="headerlink" title="一些例子"></a>一些例子</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225141612.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225141627.png" alt></p>
+<h2 id="僵尸进程-Zombies"><a href="#僵尸进程-Zombies" class="headerlink" title="僵尸进程 Zombies"></a>僵尸进程 Zombies</h2><p>父进程可以通过wait()或者waitpid()来等待子进程的终止</p>
+<ul>
+<li>父进程被阻塞 blockiert（被塞入wait queue），直到子进程终止</li>
+<li>子进程终止时，父进程可以询问子进程终止的原因</li>
+</ul>
+<p>当子进程在父进程之前就终止了，就产生了一个僵尸进程</p>
+<ul>
+<li>当子进程时这样终止的话，那么就会：</li>
+<li><ul>
+<li>取消子进程的储存区域的分配</li>
+</ul>
+</li>
+<li><ul>
+<li>把退出状态（exit status）写进子进程的进程管理模块（PCB）中，并且是能被获取到的，就是所谓的僵尸</li>
+</ul>
+</li>
+<li>当父进程通过wait（waitpid）读取了子进程的退出状态，僵尸就会被移除</li>
+<li>僵尸进程不执行任何代码，但是仍旧占用进程列表中的空间</li>
+</ul>
+<h2 id="孤儿进程"><a href="#孤儿进程" class="headerlink" title="孤儿进程"></a>孤儿进程</h2><p>当父进程在子进程之前终止，就产生了孤儿进程（就是子进程）</p>
+<ul>
+<li>子进程会被init进程收养：子进程的PPID=1</li>
+</ul>
+<p>一个孤儿进程可以变成一个守护进程（Dämonen，后台进程）</p>
+<ul>
+<li>这样的话，子进程就得删掉自己的Gruppen-ID和Benutzer-ID</li>
+<li>如果可以的话，所有开放的文件解释器都得被更改</li>
+</ul>
+<p>注意：Windows中没有进程阶级</p>
+<ul>
+<li>每个进程在创建的时候都会产生一个Handle</li>
+<li>这个Handle可以给到别的进程</li>
+</ul>
+<h2 id="进程管理-Prozessorverwaltung"><a href="#进程管理-Prozessorverwaltung" class="headerlink" title="进程管理 Prozessorverwaltung"></a>进程管理 Prozessorverwaltung</h2><p>任务被分配给分发器 Dispatcher和调度器 Scheduler</p>
+<p>分发器：实现进程状态的从rechnenwillig到rechnend的转变</p>
+<ul>
+<li>进程A的运行必须被终止，为了能让另一个进程B开始运行</li>
+</ul>
+<p>调度器：从Run queue中选一个进程来执行</p>
+<ul>
+<li>通过调度算法 Scheduling-Algorithmen决定选哪个</li>
+</ul>
+<h2 id="分发-Dispatching"><a href="#分发-Dispatching" class="headerlink" title="分发 Dispatching"></a>分发 Dispatching</h2><p>分发器的任务（大多情况是调度器的一部分）</p>
+<ul>
+<li>在进程状态转变从rechnenwillig到rechnend的时候会发生环境的转变 Kontextwechsel (engl. context switch)</li>
+<li>分发器实现了这个转换</li>
+<li>分发器从rechnend的进程中取走CPU并把它分给另一个rechnenwillig的进程</li>
+</ul>
+<p>线程转换的四步：</p>
+<p>假设B进程要取代A进程</p>
+<ol>
+<li>改变A进程的状态到不是rechnend</li>
+<li>保存A进程的环境</li>
+<li>读取B进程的环境</li>
+<li>改变B进程的状态到rechnend</li>
+</ol>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225143741.png" alt></p>
+<p>注意：PCD的内容越多，环境转变就越慢</p>
+<p>线程有一个相对于进程更加微小的环境</p>
+<ul>
+<li>回忆：进程编组了资源</li>
+<li>线程和进程共享资源，例如：地址空间</li>
+</ul>
+<p>线程之间的切换相较于进程会更快</p>
+<p>在不同进程的不同线程中切换和切换进程是一样慢的，因为也要切换进程</p>
+<h2 id="调度-Scheduling"><a href="#调度-Scheduling" class="headerlink" title="调度 Scheduling"></a>调度 Scheduling</h2><p>调度器的任务：</p>
+<ul>
+<li>根据调度策略做出决定：哪个进程或者线程允许在什么时候使用多久的CPU</li>
+<li>在多核的系统中还要决定：用哪个CPU</li>
+</ul>
+<p>CPU brust和I/O brust</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225144403.png" alt></p>
+<p>调度器在以下情况会被唤醒并且做出选择：</p>
+<ul>
+<li>当一个新的进程被创建的时候</li>
+<li><ul>
+<li>执行父进程还是子进程？</li>
+</ul>
+</li>
+<li>当一个进程终止的时候</li>
+<li>问题：当没有rechnenwillig的进程的时候会发生什么？</li>
+<li>当一个进程阻塞的时候（因为I/O或者Semaphore等）</li>
+<li>当一个阻塞的线程占有了另一个线程需要的资源的时候会发生什么？</li>
+<li>当一个中断（Interrupt）发生的时候</li>
+<li><ul>
+<li>一个I/O设备发出的中断可以唤醒一个阻塞的进程</li>
+</ul>
+</li>
+<li><ul>
+<li>调度决定可以发生在每个计时器中断</li>
+</ul>
+</li>
+</ul>
+<h2 id="线程的实现"><a href="#线程的实现" class="headerlink" title="线程的实现"></a>线程的实现</h2><p>线程在进程的地址空间中运行</p>
+<ul>
+<li>使用同步机制 Synchronisationsmechanismen，来协调的访问公共资源（也是为了保护公共资源）</li>
+</ul>
+<p>和进程类似，线程也可以在以下状态</p>
+<ul>
+<li>wartend, rechenbereit, rechnend, etc.</li>
+</ul>
+<p>线程的实现可以有这么几种变形：</p>
+<ul>
+<li>User Space</li>
+<li>Kernel Space</li>
+<li>User Space和Kernel Space的混合</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225153804.png" alt></p>
+<h2 id="用户等级线程-User-Level-Threads"><a href="#用户等级线程-User-Level-Threads" class="headerlink" title="用户等级线程 User-Level-Threads"></a>用户等级线程 User-Level-Threads</h2><p>操作系统不认识任何线程，只认识进程</p>
+<ul>
+<li>操作系统管理单线程进程</li>
+</ul>
+<p>线程的实现和管理需要额外的操作</p>
+<ul>
+<li>通过线程包（Thread-Pakets）实现</li>
+<li>在User Space有为了线程管理的库（Bibliothek）</li>
+<li>线程包可以运行在任意操作系统上</li>
+</ul>
+<p>线程包作为运行时系统提供一系列的操作</p>
+<p>例：thread_create, thread_exit, thread_join, thread_yield, etc.</p>
+<p>运行时系统在User Space中管理线程</p>
+<ul>
+<li>每个进程有一个线程表</li>
+</ul>
+<p>CPU被分配给进程而不是线程</p>
+<ul>
+<li>线程包实现了一个自己的线程调度</li>
+<li>也意味着：一个系统有一个二级调度行为 Two-level-Scheduling-Verfahren</li>
+</ul>
+<h2 id="用户等级线程的调度"><a href="#用户等级线程的调度" class="headerlink" title="用户等级线程的调度"></a>用户等级线程的调度</h2><p>操作系统不认识任何用户等级线程</p>
+<p>调度器选出一个进程并且给与这个进程一个CPU的时间单元（ein Quantum an CPU-Zeit）</p>
+<p>进程的运行时系统选出一个rechnenwillig的线程</p>
+<p>一个线程不能被运行时系统打断</p>
+<ul>
+<li>但是线程可以自己通过调用函数thread_yield来取消CPU占用</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225160444.png" alt></p>
+<h2 id="核心等级线程"><a href="#核心等级线程" class="headerlink" title="核心等级线程"></a>核心等级线程</h2><p>操作系统自己管理线程</p>
+<ul>
+<li>操作系统有一张线程表，包含所有线程</li>
+<li>线程操作会引起一个通向核心的陷阱（Trap）</li>
+<li><ul>
+<li>thread_create, thread_exit, thread_join, thread_yield, etc.</li>
+</ul>
+</li>
+<li><ul>
+<li>从用户到系统模式</li>
+</ul>
+</li>
+<li>在生成和终止线程的时候使用系统调用</li>
+<li>不再那么轻量了相较于进程</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225161114.png" alt></p>
+<h2 id="混合实现"><a href="#混合实现" class="headerlink" title="混合实现"></a>混合实现</h2><p>操作系统管理所谓的核心线程</p>
+<p>操作系统只认识核心线程：调度只对于核心线程</p>
+<p>n个用户等级线程被映射到m个核心等级线程</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225161241.png" alt></p>
+<h2 id="Unix-Thread"><a href="#Unix-Thread" class="headerlink" title="Unix Thread"></a>Unix Thread</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225161251.png" alt></p>
+<h2 id="一些例子-1"><a href="#一些例子-1" class="headerlink" title="一些例子"></a>一些例子</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225161306.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211225161321.png" alt></p>
+<h2 id="调度-Scheduling-1"><a href="#调度-Scheduling-1" class="headerlink" title="调度 Scheduling"></a>调度 Scheduling</h2><p>分配CPU给进程（或者线程）</p>
+<ul>
+<li>批处理系统</li>
+<li>交互系统</li>
+<li>实时系统</li>
+</ul>
+<p>目标</p>
+<p>评判标准</p>
+<p>算法</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>优化目标时依据系统的</p>
+<p>所有系统</p>
+<ul>
+<li>公平（Fairness）：所有系统应该得到一个公平的CPU分配</li>
+<li>平衡（Balance）：系统的所有部分（CPU、I/O等）应当尽可能有效的负载</li>
+</ul>
+<p>批处理系统</p>
+<ul>
+<li>性能（Durchsatz）：最大化单位时间的任务数量，是系统负载的计量单位</li>
+<li>运行时间（Ausführungszeit）：最小化运行时间</li>
+<li>CPU占用率（CPU Belegung）：稳定的CPU占用</li>
+</ul>
+<p>交互系统</p>
+<ul>
+<li>响应时间（Antwortzeit）：对输入的询问最小化响应时间</li>
+<li>均匀（Proportionalität）：注意每个用户的预期响应</li>
+</ul>
+<p>实时系统</p>
+<ul>
+<li>遵循Deadline（Deadlines einhalten）：避免数据丢失</li>
+<li>可预见性（Vorhersagbarkeit）：避免质量的丢失，例如多媒体系统</li>
+</ul>
+<h2 id="选择进程的标准"><a href="#选择进程的标准" class="headerlink" title="选择进程的标准"></a>选择进程的标准</h2><p>Fairness vs. Priorität</p>
+<ul>
+<li>CPU应该公平的分配给相似的进程（一类进程）</li>
+<li>但是优先级高的进程应该占用更久的CPU</li>
+<li>在什么情况下Fairness是不被期待的？ //TODO</li>
+</ul>
+<p>I/O- vs. CPU-bound Prozesse</p>
+<ul>
+<li>进程应该怎么分配，为了让CPU更好的负载？</li>
+<li>I/O bound的进程应该被移到前面去吗，为了不阻碍其他进程？</li>
+</ul>
+<p>Wartezeit</p>
+<ul>
+<li>当进程已知不被使用的时候，进程可能会饥饿（verhungern）</li>
+<li>提高优先级要等多久才是值得的</li>
+</ul>
+<p>CPU-Belegung vs. Durchsatz</p>
+<ul>
+<li>CPU已知在负载也不意味着它的性能高</li>
+<li>再多久之后一个进程应该被打断？</li>
+</ul>
+<h2 id="调度类别-Scheduling-Klassen"><a href="#调度类别-Scheduling-Klassen" class="headerlink" title="调度类别 Scheduling-Klassen"></a>调度类别 Scheduling-Klassen</h2><p>本质的区别</p>
+<p>非打断的（Nicht-unterbrechend (engl. non-preemptive)）</p>
+<ul>
+<li>进程会一直执行，直达他被阻塞或者主动放开CPU</li>
+<li>和用户等级线程类似</li>
+</ul>
+<p>打断的（Unterbrechend (engl. preemptive)）</p>
+<p>进程会在特定事件发生的情况下（比如：计时器陷阱）被打断</p>
+<h2 id="调度策略概览"><a href="#调度策略概览" class="headerlink" title="调度策略概览"></a>调度策略概览</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226142245.png" alt></p>
+<h2 id="评判标准"><a href="#评判标准" class="headerlink" title="评判标准"></a>评判标准</h2><ul>
+<li>CPU负载（更确切的说是资源的负载）</li>
+<li>性能</li>
+<li>处理时间=计算时间+等待时间=现实时间</li>
+</ul>
+<h2 id="批处理系统的调度策略"><a href="#批处理系统的调度策略" class="headerlink" title="批处理系统的调度策略"></a>批处理系统的调度策略</h2><h3 id="先到先处理（FCFS-First-Come-First-Served）"><a href="#先到先处理（FCFS-First-Come-First-Served）" class="headerlink" title="先到先处理（FCFS First-Come-First-Served）"></a>先到先处理（FCFS First-Come-First-Served）</h3><p>哪个进程先来，就先处理哪个进程，后到的进程需要排队等候被处理</p>
+<p>不中断进程的策略</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226142553.png" alt></p>
+<p>缺点：这种处理方法性能上不是最优的，因为短的进程可能后来。</p>
+<h3 id="先处理短的（SJF-Shortest-Job-First）"><a href="#先处理短的（SJF-Shortest-Job-First）" class="headerlink" title="先处理短的（SJF Shortest Job First）"></a>先处理短的（SJF Shortest Job First）</h3><p>在处理完一个进程之后，寻找剩下的进程中最短的进程，并处理它</p>
+<p>SJF是最优的策略，如果所有进程的处理时间在一开始都是已知的</p>
+<p>不能被用在交互系统中，因为在交互系统中不知道进程的运行时间，而且运行时间长的进程会被最后处理，如果中间来了很多比他短的进程，他就会饥饿，因为已知在被抢CPU</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226143311.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226143507.png" alt></p>
+<h3 id="处理剩下时间最短的"><a href="#处理剩下时间最短的" class="headerlink" title="处理剩下时间最短的"></a>处理剩下时间最短的</h3><p>这是一种进程中断的策略（SJF的变形）</p>
+<p>每运行一个单位时间，就判断当前进程的余下部分是不是最短的，如果不是，就选出最短的，继续运行</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226143932.png" alt></p>
+<h2 id="交互系统的调度策略"><a href="#交互系统的调度策略" class="headerlink" title="交互系统的调度策略"></a>交互系统的调度策略</h2><h3 id="时间片策略（Round-Robin-Zeitscheibenstrategie）"><a href="#时间片策略（Round-Robin-Zeitscheibenstrategie）" class="headerlink" title="时间片策略（Round-Robin, Zeitscheibenstrategie）"></a>时间片策略（Round-Robin, Zeitscheibenstrategie）</h3><p>进程中断的策略</p>
+<p>让每个进程运行一个固定的时间片，然后换进程</p>
+<p>时间片长度的选择很重要，如果太短就会有很多环境转换，很慢</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226144143.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226144153.png" alt></p>
+<h3 id="优先级调度（Priority-Scheduling）"><a href="#优先级调度（Priority-Scheduling）" class="headerlink" title="优先级调度（Priority-Scheduling）"></a>优先级调度（Priority-Scheduling）</h3><p>进程中断的策略</p>
+<p>每个进程会给予一个优先级</p>
+<p>每个优先级都会有一个队列</p>
+<p>只要有更高的优先级的准备运行的进程，就会发生环境转换</p>
+<p>静态优先级：优先级是不变的，所以优先级高的进程会一直运行，优先级低的就会有饥饿</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226144728.png" alt></p>
+<p>动态优先级，比如在一个计时器陷阱之后重新计算优先级</p>
+<ul>
+<li>优先级减少：防止高优先级的进程无止境的运行</li>
+<li>优先级增加：防止低优先级的进程饥饿</li>
+<li>I/O boost：I/O bound的进程在短时间内是首选</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226150347.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226150359.png" alt></p>
+<h2 id="实时系统调度"><a href="#实时系统调度" class="headerlink" title="实时系统调度"></a>实时系统调度</h2><p>在实时系统中，时间扮演了一个很重要的角色</p>
+<p>人们把实时系统分为软实时系统（weiche/soft）和硬实时系统（hart/hard）</p>
+<p>软实时系统：对于遵守Deadline相对宽容</p>
+<p>硬实时系统：Deadline必须被遵守</p>
+<p>在unkritischen和zeitkritischen进程中对立的调度目标</p>
+<p>unkritische Processe：不应该长时间的被阻塞</p>
+<p>zeitkritische Prozesse：必须遵守期限</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226151222.png" alt></p>
+<h3 id="最早期限有限"><a href="#最早期限有限" class="headerlink" title="最早期限有限"></a>最早期限有限</h3><p>CPU给每个进程一个Deadline</p>
+<p>如果把期限当作优先级来实现，那就是一个基于优先级的调度行为</p>
+<p>实现方式有两种：</p>
+<h4 id="进程不中断"><a href="#进程不中断" class="headerlink" title="进程不中断"></a>进程不中断</h4><p>进程将会一直运行，直到它阻塞或者主动交出CPU。然后CPU根据期限来选择下一个运行的进程</p>
+<h4 id="进程中断"><a href="#进程中断" class="headerlink" title="进程中断"></a>进程中断</h4><p>进程的运行会被中断，如果有一个有着更早期限的进程变成了rechnenwillig的状态</p>
+<p>缺点：开销太大<br>优点：不必猜想计算时间</p>
+<h2 id="多等级调度"><a href="#多等级调度" class="headerlink" title="多等级调度"></a>多等级调度</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226152008.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226152021.png" alt></p>
+<h2 id="Linux下的调度"><a href="#Linux下的调度" class="headerlink" title="Linux下的调度"></a>Linux下的调度</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226152047.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211226152058.png" alt></p>
+<h2 id="多核-多处理器调度"><a href="#多核-多处理器调度" class="headerlink" title="多核/多处理器调度"></a>多核/多处理器调度</h2><p>问题:</p>
+<ul>
+<li>如何把进程分配给多个核心/处理器</li>
+<li>不同计算单元的不同特性</li>
+<li>调度复杂度的提升导致需要在调度质量和速度之间做取舍</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228180054.png" alt></p>
+<h2 id="几种方式"><a href="#几种方式" class="headerlink" title="几种方式"></a>几种方式</h2><h3 id="共享时间-Time-sharing"><a href="#共享时间-Time-sharing" class="headerlink" title="共享时间 Time sharing"></a>共享时间 Time sharing</h3><p>交替的使用资源，即把时间分配成了好几块，每一块给到一个进程/线程去使用</p>
+<p>对于有依赖关系的进程是很慢的</p>
+<h3 id="共享空间-Space-sharing"><a href="#共享空间-Space-sharing" class="headerlink" title="共享空间 Space sharing"></a>共享空间 Space sharing</h3><p>允许一起使用资源，把资源分成好几块，分配给进程/线程</p>
+<p>允许有依赖关系的进程直接交流</p>
+<p>有依赖关系的进程会被一起调度并占有资源直到进程终止</p>
+<p>优点：在运行时没有环境转换</p>
+<p>缺点：时常会有很久的等待时间，有依赖关系的进程限制了资源，资源经常不能被全部利用</p>
+<h3 id="组团调度-Gang-Scheduling"><a href="#组团调度-Gang-Scheduling" class="headerlink" title="组团调度 Gang Scheduling"></a>组团调度 Gang Scheduling</h3><p>组合了共享时间和共享空间的调度方式</p>
+<p>有依赖关系的进程会被组成一团，然后被看作一个单元</p>
+<p>一组会得到使用CPU的时间片</p>
+<h2 id="全局等待队列-Globale-Warteschlange"><a href="#全局等待队列-Globale-Warteschlange" class="headerlink" title="全局等待队列 Globale Warteschlange"></a>全局等待队列 Globale Warteschlange</h2><p>对所有处理器有一个全局的等待队列</p>
+<p>优点：</p>
+<ul>
+<li>好的CPU负载</li>
+<li>对所有进程是公平的</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>因为锁的竞争，拓展性（Skalierbarkeit）不好</li>
+<li>差的缓存使用</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228180928.png" alt></p>
+<h2 id="每个CPU一个等待队列-Eine-Warteschlange-fur-jede-CPU"><a href="#每个CPU一个等待队列-Eine-Warteschlange-fur-jede-CPU" class="headerlink" title="每个CPU一个等待队列 Eine Warteschlange für jede CPU"></a>每个CPU一个等待队列 Eine Warteschlange für jede CPU</h2><p>把进程静态的分配给每个CPU</p>
+<p>优点：</p>
+<ul>
+<li>实现简单</li>
+<li>可拓展（没有锁）</li>
+<li>更好的缓存利用</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>CPU的不同的负载</li>
+<li>对于进程是不公平的</li>
+</ul>
+<h2 id="混合方式-Hybride-Herangehensweise"><a href="#混合方式-Hybride-Herangehensweise" class="headerlink" title="混合方式 Hybride Herangehensweise"></a>混合方式 Hybride Herangehensweise</h2><p>既有全局的等待队列，CPU也有自己的等待队列</p>
+<p>如果必要的话，一个局部等待队列的进程会被移动到另一个等待队列（Work stealing）</p>
+<p>优点：</p>
+<ul>
+<li>好的CPU负载</li>
+<li>进程的移动允许了缓存中数据的重复使用</li>
+</ul>
+<p>缺点：</p>
+<p>实现复杂</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228181341.png" alt></p>
+<h1 id="并发系统和同步-Parallele-Systeme-und-Synchronisation"><a href="#并发系统和同步-Parallele-Systeme-und-Synchronisation" class="headerlink" title="并发系统和同步 Parallele Systeme und Synchronisation"></a>并发系统和同步 Parallele Systeme und Synchronisation</h1><h2 id="目录-2"><a href="#目录-2" class="headerlink" title="目录"></a>目录</h2><ul>
+<li>连续和并发程序</li>
+<li>程序之间的交互</li>
+<li>协调方法</li>
+<li>经典的同步问题</li>
+<li>死锁</li>
+</ul>
+<h2 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h2><p>挑战：</p>
+<ul>
+<li>很多行为和计算是接近同步发生的</li>
+<li>对于短的运行时间/计算时间的高要求</li>
+<li>但是：硬件的计算水平到达了一个瓶颈</li>
+<li>很多行为的搞笑运行需要并发的使用公共资源：处理器、储存器等</li>
+</ul>
+<p>问题：</p>
+<ul>
+<li>并行的行为竞争公共资源</li>
+<li>并行的行为会彼此间互相扰乱</li>
+</ul>
+<p>任务：</p>
+<ul>
+<li>并行的行为必须被协调</li>
+<li>什么是合适的协调方法呢？</li>
+</ul>
+<h2 id="连续和并行的程序"><a href="#连续和并行的程序" class="headerlink" title="连续和并行的程序"></a>连续和并行的程序</h2><p>一个程序是一个算法的体现</p>
+<p>一个程序是一系列的赋值</p>
+<p>连续的程序运行</p>
+<ul>
+<li>确定的程序行为</li>
+<li>在同样的环境和输入的情况下，程序算出来的值也相同</li>
+</ul>
+<p>并行程序运行</p>
+<ul>
+<li>程序行为是不能确定的</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228194858.png" alt></p>
+<h2 id="交流-Interaktion"><a href="#交流-Interaktion" class="headerlink" title="交流 Interaktion"></a>交流 Interaktion</h2><p>（并行的）程序彼此之间存在互动并且能互相影响</p>
+<ul>
+<li>被期望的：直接的数据交换</li>
+<li>不被期望的：因为竞争而导致的延迟</li>
+</ul>
+<p>我们把交互做了区分：</p>
+<ul>
+<li>因果关系（Kausale Beziehungen）</li>
+<li>交流（Kommunikation）</li>
+<li>协调（Koordinierung）</li>
+<li>竞争（Konkurrenz）</li>
+</ul>
+<p>行为的并行可以导致进程的不确定行为</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228195536.png" alt></p>
+<h2 id="并行行为的描述"><a href="#并行行为的描述" class="headerlink" title="并行行为的描述"></a>并行行为的描述</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228195618.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228195628.png" alt></p>
+<h2 id="并行系统的特征"><a href="#并行系统的特征" class="headerlink" title="并行系统的特征"></a>并行系统的特征</h2><p>确定性</p>
+<ul>
+<li>在同样的输入的情况下产生同样的输出</li>
+</ul>
+<p>无干扰</p>
+<ul>
+<li>遵循一个确定的并行时间的运行顺序并且行为不会影响结果</li>
+</ul>
+<p>进程对互斥的资源的互相排斥</p>
+<ul>
+<li>在竞争访问时，在同一个时间点只有一个进程能访问公共资源</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228200106.png" alt></p>
+<p>无死锁</p>
+<p>无饥饿</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228200142.png" alt></p>
+<h2 id="连续系统和并行系统"><a href="#连续系统和并行系统" class="headerlink" title="连续系统和并行系统"></a>连续系统和并行系统</h2><p>连续系统</p>
+<ul>
+<li>单位行为会被连续的执行</li>
+<li>有一个线性的时间轴</li>
+<li>建模的话会忽略时间</li>
+</ul>
+<p>并行系统</p>
+<ul>
+<li>包含连续和并行的行为</li>
+<li>并行的行为不能确定顺序</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228200501.png" alt></p>
+<h2 id="并行系统：同步"><a href="#并行系统：同步" class="headerlink" title="并行系统：同步"></a>并行系统：同步</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228200522.png" alt></p>
+<h2 id="竞争-Race-Condition"><a href="#竞争-Race-Condition" class="headerlink" title="竞争 Race Condition"></a>竞争 Race Condition</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228200602.png" alt></p>
+<h2 id="危险区域-Kritischer-Abschnitt"><a href="#危险区域-Kritischer-Abschnitt" class="headerlink" title="危险区域 Kritischer Abschnitt"></a>危险区域 Kritischer Abschnitt</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228200624.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228200633.png" alt></p>
+<h2 id="相互排斥-Wechselseitiger-Ausschluss"><a href="#相互排斥-Wechselseitiger-Ausschluss" class="headerlink" title="相互排斥 Wechselseitiger Ausschluss"></a>相互排斥 Wechselseitiger Ausschluss</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228200644.png" alt></p>
+<h2 id="同步的例子"><a href="#同步的例子" class="headerlink" title="同步的例子"></a>同步的例子</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211228200712.png" alt></p>
+<h2 id="解决方法的概览-Uberblick-uber-Losungskonzepte"><a href="#解决方法的概览-Uberblick-uber-Losungskonzepte" class="headerlink" title="解决方法的概览 Überblick über Lösungskonzepte"></a>解决方法的概览 Überblick über Lösungskonzepte</h2><p>硬件层面</p>
+<ul>
+<li>中断阻断（Interrupts sperren (disabling)），终止阻断（Unterbrechungssperre）</li>
+<li>单元的机器指令（Atomare Maschinenbefehle）</li>
+</ul>
+<p>简单的操作系统服务</p>
+<ul>
+<li>主动等待服务（Spin lock）</li>
+<li>被动等待服务（sleep/wake up）</li>
+</ul>
+<p>在更高的抽象等级的操作系统方法</p>
+<ul>
+<li>Semaphore：实现方式可以是主动或者被动等待</li>
+<li>Mutex：只有两个状态的Semaphor</li>
+</ul>
+<p>编程语言</p>
+<ul>
+<li>监视器方法 Monitor-Konzept</li>
+</ul>
+<h3 id="终止阻断-Unterbrechungssperre"><a href="#终止阻断-Unterbrechungssperre" class="headerlink" title="终止阻断 Unterbrechungssperre"></a>终止阻断 Unterbrechungssperre</h3><p>中断（Interrupt）通过专用的中断引导（Interrupt-Leitungen）来发出信号</p>
+<ul>
+<li>输入输出设备发出信号提示任务已经完成</li>
+<li>计时器发出信号，表示已经过去一段时间</li>
+</ul>
+<p>处理中断信号</p>
+<ul>
+<li>中断打断正在运行中的进程</li>
+<li>进程状态编程等待或者准备运算，给出CPU的使用权</li>
+<li>中断会被中断处理器处理</li>
+</ul>
+<p>禁用中断的方式实现相互排斥</p>
+<ul>
+<li>中断阻断防止正在运行中的进程交出CPU使用权</li>
+<li>这也意味着进程可以没有中断的访问危险区域</li>
+</ul>
+<p>注意事项：</p>
+<p>中断阻止只适用于单进程系统来实现危险区域的相互排斥，因为如果有多个进程，另一个进程的中断可能不被阻止，危险区域就不再相互排斥了</p>
+<p>被中断阻止保护的危险区域必须短，因为在单一进程运行的时候，可能会有丢失事件的情况发生</p>
+<p>这种方法最多使用在操作系统核心中，因为和中断有关的指令都是特权指令，并且如果有错误代码的话会导致系统停机</p>
+<h3 id="单元的系统指令"><a href="#单元的系统指令" class="headerlink" title="单元的系统指令"></a>单元的系统指令</h3><p>这种指令能被视作一个单元，在执行这个命令的时候，其他进程无法访问危险区域</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211230195755.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211230195807.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211230195819.png" alt></p>
+<h3 id="主动等待-Aktives-Warten"><a href="#主动等待-Aktives-Warten" class="headerlink" title="主动等待 Aktives Warten"></a>主动等待 Aktives Warten</h3><p>这种方式也被称作Spin-Lock</p>
+<p>进程不断的测试是否可以访问(“looping”, “spinning”)</p>
+<p>主动等待</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211230195952.png" alt></p>
+<h3 id="被动等待-Passives-Warten"><a href="#被动等待-Passives-Warten" class="headerlink" title="被动等待 Passives Warten"></a>被动等待 Passives Warten</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211230200014.png" alt></p>
+<h3 id="例子：生产者消费者模型"><a href="#例子：生产者消费者模型" class="headerlink" title="例子：生产者消费者模型"></a>例子：生产者消费者模型</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211230200048.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211230200103.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211230200110.png" alt></p>
+<h3 id="Semaphore和Mutex"><a href="#Semaphore和Mutex" class="headerlink" title="Semaphore和Mutex"></a>Semaphore和Mutex</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211230200212.png" alt></p>
+<h3 id="Monitor"><a href="#Monitor" class="headerlink" title="Monitor"></a>Monitor</h3><p>一种封装好的数据结构，自动生成Semaphore，是一种更高抽象等级的同步方式</p>
+<p>核心理念：在Monitor里面最多只能有一个进程活动。进程可以使用Monitor的方法，但是不能直接访问他的内部数据结构。</p>
+<p>Monitor内部有条件变量，满足的时候会发出信号，一个进程可以等候一个条件的满足后进入Monitor内部</p>
+<p>Monitor内部的数据是可以被其他进程更改的。但是等候中的进程必须在其他进程离开之后才能运行。、</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231145109.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231145120.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231145056.png" alt></p>
+<h3 id="死锁"><a href="#死锁" class="headerlink" title="死锁"></a>死锁</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231145148.png" alt></p>
+<h3 id="死锁的条件"><a href="#死锁的条件" class="headerlink" title="死锁的条件"></a>死锁的条件</h3><p>死锁的充分必要条件</p>
+<p>单一进程可用的资源(Mutual Exclusion)</p>
+<ul>
+<li>公共的资源要么是可用的，要么是被其他进程占用的</li>
+</ul>
+<p>占有和要求（就是占着碗里的看着锅里的）（Hold and Wait）</p>
+<ul>
+<li>已经分配了资源的进程占用了这些资源并且还要求别的资源</li>
+</ul>
+<p>不可移走(No-preemption)</p>
+<ul>
+<li>已经分配给了一个进程的资源是不能被拿走的</li>
+</ul>
+<p>环形的等待(Circular wait)</p>
+<ul>
+<li>每个进程都占有了一些进程，并且等待其他进程把他所需的进程放开，就形成了环形等待</li>
+</ul>
+<p>要形成死锁就必须满足这四个条件。这也就是说，死锁是可以避免的，如果这四个条件的任意一个不满足</p>
+<h3 id="死锁的建模"><a href="#死锁的建模" class="headerlink" title="死锁的建模"></a>死锁的建模</h3><p>节点：圆形是进程，方形是资源<br>边：进程A占有资源R，那就从R到A有一条边。如果进程A需要资源R，那就从A到R有一条边</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231150528.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231150710.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231150719.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231150729.png" alt></p>
+<h3 id="解决死锁的一些策略"><a href="#解决死锁的一些策略" class="headerlink" title="解决死锁的一些策略"></a>解决死锁的一些策略</h3><ol>
+<li>忽略</li>
+<li>发现死锁然后解决</li>
+<li>预防死锁</li>
+<li>避免死锁</li>
+</ol>
+<h4 id="Deadlock-Detection"><a href="#Deadlock-Detection" class="headerlink" title="Deadlock-Detection"></a>Deadlock-Detection</h4><p>找到一个能够得到所有资源的进程，模拟这个进程释放所有资源，把这个进程移除。直到没有进程能被移除，若是还有进程留下，那就有可能死锁，反之没有</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231154223.png" alt></p>
+<p>如何处理死锁？</p>
+<p>打断正在死锁的进程</p>
+<p>移除资源，为了让其他进程也能使用</p>
+<p>回滚到上一个检查点</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231154237.png" alt></p>
+<h4 id="Deadlock-Avoidance"><a href="#Deadlock-Avoidance" class="headerlink" title="Deadlock-Avoidance"></a>Deadlock-Avoidance</h4><p>每一次资源占用之前进行一次分析，这一次的占用会不会导致死锁，如果会的话就不允许这次操作，不会的话就继续操作</p>
+<h5 id="Bankier-Algorithmus"><a href="#Bankier-Algorithmus" class="headerlink" title="Bankier-Algorithmus"></a>Bankier-Algorithmus</h5><p>大致的流程</p>
+<ul>
+<li>如果一个进程需要一个现在可用的资源，就尝试性的把资源分给他，然后对这个新的状态进行分析，看会不会有死锁出现。这个分析是这样的：从其他每个进程的最坏情况的资源需求出发，即其他每个进程都要他们的最大资源需求。对于这个状态进行一次Deadlock-Detection，如果不会出现死锁，那就真正的进行这次资源的分配。</li>
+</ul>
+<p>但是这种方法是现实中不可行的（nicht praxistauglich）</p>
+<ul>
+<li>资源的需求大多情况是不清楚的也是不可估计的</li>
+<li>进程会在运行时动态创建，这也是说，进程的集合是不确定的</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231160501.png" alt></p>
+<h4 id="Deadlock-Prevention"><a href="#Deadlock-Prevention" class="headerlink" title="Deadlock-Prevention"></a>Deadlock-Prevention</h4><p>理念：至少有一个条件不满足就好了</p>
+<p>//TODO</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231161015.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231161024.png" alt></p>
+<h4 id="比较一下这几种处理死锁的方式"><a href="#比较一下这几种处理死锁的方式" class="headerlink" title="比较一下这几种处理死锁的方式"></a>比较一下这几种处理死锁的方式</h4><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231161034.png" alt></p>
+<h4 id="其他死锁的方式"><a href="#其他死锁的方式" class="headerlink" title="其他死锁的方式"></a>其他死锁的方式</h4><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231161109.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20211231161117.png" alt></p>
+<h1 id="建模-Modelierung"><a href="#建模-Modelierung" class="headerlink" title="建模 Modelierung"></a>建模 Modelierung</h1><p>//自己看</p>
+<h1 id="进程间通讯-Inter-Prozesskommunikation-IPC"><a href="#进程间通讯-Inter-Prozesskommunikation-IPC" class="headerlink" title="进程间通讯 Inter-Prozesskommunikation (IPC)"></a>进程间通讯 Inter-Prozesskommunikation (IPC)</h1><h2 id="目前为止"><a href="#目前为止" class="headerlink" title="目前为止"></a>目前为止</h2><p>仅有有着分割开的地址空间的进程</p>
+<ul>
+<li>关于进程ID也只能在进程组中获知</li>
+<li>父进程&lt;——&gt;子进程</li>
+</ul>
+<p>线程有着共同的地址空间</p>
+<p>同步机制</p>
+<ul>
+<li>来协调对于公共资源的访问</li>
+<li>Semaphore/Mutex</li>
+</ul>
+<p>线程间通讯</p>
+<ul>
+<li>明确规定的进程/线程之间的交互</li>
+<li>在这之间同步是必须的!</li>
+</ul>
+<h2 id="通讯形式"><a href="#通讯形式" class="headerlink" title="通讯形式"></a>通讯形式</h2><p>进程和线程间的通讯种类</p>
+<ul>
+<li>因事件（Ereigniss）而发出的信号</li>
+<li>消息（Nachrichten）的交换</li>
+<li>共同的储存</li>
+</ul>
+<p>进程间通讯的特征</p>
+<ul>
+<li>宽带的vs窄带的</li>
+<li>隐式的 vs 显示的</li>
+<li>面向消息的 vs 面向储存的</li>
+<li>响应形式：消息 vs 委托</li>
+</ul>
+<h2 id="通讯管道的带宽"><a href="#通讯管道的带宽" class="headerlink" title="通讯管道的带宽"></a>通讯管道的带宽</h2><h3 id="窄带的管道"><a href="#窄带的管道" class="headerlink" title="窄带的管道"></a>窄带的管道</h3><ul>
+<li>仅转交很少bit的信息</li>
+<li>用来报告事件</li>
+<li>同步方法和中断方法仍是必须的</li>
+</ul>
+<p>Linux下的案例：</p>
+<ul>
+<li>进程之间可以发送信号（kill()）</li>
+<li>进程可以显示的捕获这个信号（signal()）</li>
+<li><ul>
+<li>通过注册一个信号处理器（Signal-Handlers）或者显式的忽略(SIG_IGN)</li>
+</ul>
+</li>
+<li>在Posix有不同的信号，比如：SIGINT, SIGTERM, SIGKILL, SIGSEGV, SIGILL, … (man 7 signal)</li>
+<li>如果进程不捕获这个信号，那这个进程就会被操作系统终止</li>
+<li>SIGKILL和SIGKLILL不能被捕获</li>
+<li>注意：Linux下的信号会异步的打断一个进程</li>
+<li><ul>
+<li>发出信号的进程必须能处理这种中断</li>
+</ul>
+</li>
+</ul>
+<p>例子：</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220101202717.png" alt></p>
+<h3 id="宽带的管道"><a href="#宽带的管道" class="headerlink" title="宽带的管道"></a>宽带的管道</h3><ul>
+<li>转交大量的信息</li>
+<li>根据形式区分：</li>
+<li><ul>
+<li>隐式的转交（比如：公共储存）</li>
+</ul>
+</li>
+<li><ul>
+<li>显示的转交（比如：Pipes，Sockets）</li>
+</ul>
+</li>
+<li>这里分布式系统领域的一些知识也是相关的</li>
+</ul>
+<p>接下来会着手一些宽带管道的例子</p>
+<h2 id="隐式通讯-Implizite-Kommunikation"><a href="#隐式通讯-Implizite-Kommunikation" class="headerlink" title="隐式通讯 Implizite Kommunikation"></a>隐式通讯 Implizite Kommunikation</h2><p>通过公共的资源进行隐式通讯</p>
+<ul>
+<li>操作系统不直接支持</li>
+<li>优点：简单而且快速，因为不需要再两个地址空间中来回复制</li>
+<li>但是：</li>
+<li><ul>
+<li>公共的储存空间不是一直存在的</li>
+</ul>
+</li>
+<li><ul>
+<li>花费大的busy-waiting可能会发生</li>
+</ul>
+</li>
+<li><ul>
+<li>更多的同步机制是必须的</li>
+</ul>
+</li>
+<li>例子：</li>
+<li><ul>
+<li>储存器，寄存器，文件，队列</li>
+</ul>
+</li>
+<li><ul>
+<li>在进程中的队列的数据结构，会被所有的线程使用</li>
+</ul>
+</li>
+<li>数据结构的储存空间也能被映射到其他进程中去</li>
+<li><ul>
+<li>这里就需要操作系统的支持了</li>
+</ul>
+</li>
+<li><ul>
+<li>是Pagetable的一个Eintrag</li>
+</ul>
+</li>
+</ul>
+<p>公共储存的一个例子：</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220101205755.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220101205810.png" alt></p>
+<h2 id="显式通讯-Explizite-Kommunikation"><a href="#显式通讯-Explizite-Kommunikation" class="headerlink" title="显式通讯 Explizite Kommunikation"></a>显式通讯 Explizite Kommunikation</h2><p>发送和接收信息：信息传递（message passing）</p>
+<ul>
+<li>适合在不同地址空间中的进程</li>
+<li>通过操作系统的专用的交互（Dedizierte Interaktion）</li>
+<li><ul>
+<li>send (int sockfd, const char* buf, …)</li>
+</ul>
+</li>
+<li><ul>
+<li>recv (int sockfd, const char* buf, …)</li>
+</ul>
+</li>
+<li>函数的标志可能不同，但是是在POSIX中定义了标准</li>
+<li>典型的标志：Sender/Empfänger, Nachricht</li>
+<li>通讯可以是本地的（比如：PID）也可以是和一个远端的系统（比如：IP地址，端口号）</li>
+<li>也可以使用read()/write()，因为Socket也是文件解释器</li>
+</ul>
+<p>消息的构造</p>
+<ul>
+<li>消息头（Nachrichtenkopf (header)）：用于管理消息的一些信息，比如发送者和接收者的ID信息，消息的大小</li>
+<li>消息体（Nachrichtenkörper）：包含负载（Nutzlast/payload），即数据传输中所欲传输的实际信息</li>
+</ul>
+<p>运行</p>
+<ol>
+<li>进程通过send()发送消息</li>
+<li>操作系统的消息服务传递消息</li>
+<li>接收的进程通过recv()接收消息</li>
+</ol>
+<p>有同步的和异步的通讯两种显示通讯方式</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220101212519.png" alt></p>
+<h2 id="同步-vs-异步"><a href="#同步-vs-异步" class="headerlink" title="同步 vs 异步"></a>同步 vs 异步</h2><p>进程之间的耦合度（Kopplungsgrad）</p>
+<ul>
+<li>同步（synchron）：两个进程会在消息传递的时候被同步，阻塞</li>
+<li>异步（asynchron）：发送者和接收者的解耦，不会被阻塞</li>
+</ul>
+<h2 id="消息通讯的模板"><a href="#消息通讯的模板" class="headerlink" title="消息通讯的模板"></a>消息通讯的模板</h2><p>报告 Meldung（信号，不要和窄带的Linux信号混淆）</p>
+<ul>
+<li>从发送者向接收者的一些信息（单向的）</li>
+<li>只会传递比较少的信息</li>
+<li>例子：告知一个状态转变（例如文件成功被打印）</li>
+<li>但是：经常需要确认接收 Acknowledgment (Ack)</li>
+</ul>
+<p>委托 （要求——响应 (Request – Response)）</p>
+<ul>
+<li>发送者和接收者的交互（双向的）</li>
+<li>例子：询问一下特定的数据，响应包含要求的数据</li>
+</ul>
+<h2 id="排列组合所有宽带通讯方式"><a href="#排列组合所有宽带通讯方式" class="headerlink" title="排列组合所有宽带通讯方式"></a>排列组合所有宽带通讯方式</h2><h3 id="异步报告"><a href="#异步报告" class="headerlink" title="异步报告"></a>异步报告</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102200316.png" alt></p>
+<h3 id="同步报告"><a href="#同步报告" class="headerlink" title="同步报告"></a>同步报告</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102200344.png" alt></p>
+<h3 id="异步委托"><a href="#异步委托" class="headerlink" title="异步委托"></a>异步委托</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102200403.png" alt></p>
+<h3 id="同步委托"><a href="#同步委托" class="headerlink" title="同步委托"></a>同步委托</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102200413.png" alt></p>
+<h2 id="对于同步和异步通讯的评价"><a href="#对于同步和异步通讯的评价" class="headerlink" title="对于同步和异步通讯的评价"></a>对于同步和异步通讯的评价</h2><p>异步发送的优点</p>
+<ul>
+<li>对实时应用是很有用的，如果发送进程不允许阻塞</li>
+<li>允许发送者和接收者并行的处理</li>
+<li>可以用来发送事件的信号</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>操作系统的管理开销（需要一个消息缓冲）</li>
+<li>处理错误变得很难</li>
+<li><ul>
+<li>没有直接的发送者的消息</li>
+</ul>
+</li>
+<li><ul>
+<li>数据包（packet）丢失（缓冲满了，特别是网络通讯）</li>
+</ul>
+</li>
+<li><ul>
+<li>数据包的重复</li>
+</ul>
+</li>
+</ul>
+<p>通常来说都是用异步通讯</p>
+<ul>
+<li>首先，不清楚是否接收者是否能收到或者答复多久才能计算好然后发出来</li>
+<li>可选：使用线程，来混合同步和异步消息</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102202123.png" alt></p>
+<h2 id="消息传递来解决生产者消费者模型"><a href="#消息传递来解决生产者消费者模型" class="headerlink" title="消息传递来解决生产者消费者模型"></a>消息传递来解决生产者消费者模型</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102202209.png" alt></p>
+<h2 id="流-Stream"><a href="#流-Stream" class="headerlink" title="流 Stream"></a>流 Stream</h2><p>到现在我们研究的都是无连接的通讯方式，不知道消息传递的方式</p>
+<p>一个流（Strom/Stream）是一个连接的抽象</p>
+<ul>
+<li>消息会在通讯的路上被缓冲</li>
+<li>被发送的信息被转换成逻辑字节流（logischer Bytestrom）</li>
+<li>字节流可以和消息无关地被处理</li>
+<li><ul>
+<li>注意：谁需要消息限制，必须自己加上去</li>
+</ul>
+</li>
+<li>操作系统服务：连接的建立和销毁，流中的写入和读取</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102203553.png" alt></p>
+<h2 id="管道-Pipes"><a href="#管道-Pipes" class="headerlink" title="管道 Pipes"></a>管道 Pipes</h2><p>管道的概念（在windows和linux下）作为流的实现</p>
+<ul>
+<li>一个管道(“|”, Röhre)是两个通讯对象之间的一个单向流（unidirektionaler Strom）</li>
+<li><ul>
+<li>双向通讯也可以用一对管道实现</li>
+</ul>
+</li>
+<li>一个管道允许FIFO类型的数据传输：open pipe, read, write</li>
+<li>阻塞的发生：管道满了写入会被阻塞，管道空了读取会被阻塞</li>
+<li>管道也可以用虚拟文件（virtuelle Dateien）的方式实现（记名管道 named pipes）</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102204250.png" alt></p>
+<h3 id="现实中的（匿名）管道"><a href="#现实中的（匿名）管道" class="headerlink" title="现实中的（匿名）管道"></a>现实中的（匿名）管道</h3><p>函数pipe()产生两个通讯端点</p>
+<p>其中一个可以通过例如fork()给到子进程，或者在不同的线程中使用</p>
+<h3 id="记名的管道"><a href="#记名的管道" class="headerlink" title="记名的管道"></a>记名的管道</h3><p>给不同的进程使用</p>
+<p>这种管道有名字并且和文件系统链接</p>
+<h2 id="定位：端口-Port"><a href="#定位：端口-Port" class="headerlink" title="定位：端口 Port"></a>定位：端口 Port</h2><p>到现在的方案</p>
+<ul>
+<li>通过PID和名字产生的确定的发送者和接收者的关系（Feste Beziehung zwischen Sender und Empfänger）</li>
+<li>进程应该能够在自己的地址空间中接收消息</li>
+<li>进程需要一个自己的给先来的，还没到的消息的一个缓冲队列</li>
+</ul>
+<p>问题</p>
+<ul>
+<li>进程编号是会变的并且进程名字不是唯一的</li>
+<li>进程可能同时和很多的其他进程通讯</li>
+</ul>
+<p>解决方案</p>
+<ul>
+<li>引入端口（Ports）的概念作为通讯端点（Kommunikationsendpunkten）的逻辑抽象（logische Abstraktion）</li>
+</ul>
+<h2 id="Historisches-Ursprungliche-Terminologie-und-Architektur-im-Internet-1974"><a href="#Historisches-Ursprungliche-Terminologie-und-Architektur-im-Internet-1974" class="headerlink" title="Historisches: Ursprüngliche Terminologie und Architektur im Internet (1974)"></a>Historisches: Ursprüngliche Terminologie und Architektur im Internet (1974)</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102205056.png" alt></p>
+<h2 id="端口"><a href="#端口" class="headerlink" title="端口"></a>端口</h2><p>一个端口在一段时间内唯一属于一个进程</p>
+<p>接收进程可以建立一个对于发送者特殊的端口</p>
+<ul>
+<li>一个自己的线程可以分配给一个端口</li>
+</ul>
+<p>端口的状态可以是：offen, geschlossen, blockiert</p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102205619.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102205705.png" alt></p>
+<p>被动进程（例如：服务器）</p>
+<ul>
+<li>注册一个（或者多个）端口号</li>
+<li>等待进入的连接（TCP）或者消息（UDP）</li>
+<li>一个（TCP-）端口对应着一个FIFO等待队列</li>
+<li><ul>
+<li>等待队列总结了连接愿望（Verbindungswünsche）</li>
+</ul>
+</li>
+<li><ul>
+<li>等待队列的最大长度取决于操作系统</li>
+</ul>
+</li>
+<li><ul>
+<li>其他的连接愿望不会被接受了，如果等待队列满了</li>
+</ul>
+</li>
+</ul>
+<p>主动进程（例如：客户端）</p>
+<ul>
+<li>初始化一个与被动进程的交互</li>
+<li>从操作系统中动态的获取可用的端口号</li>
+<li>从这个被动进程中就可以获得数据</li>
+</ul>
+<p>用一个五元组可以标识一个通讯关系</p>
+<ul>
+<li>Quell-IP-Adresse, Ziel-IP-Adresse, Quell-Port, Ziel-Port, Protokoll（TCP/UDP）</li>
+<li>Vom BS verwendet, um eingehende Nachrichten zuzuordnen</li>
+</ul>
+<h2 id="Adressen-im-Internet"><a href="#Adressen-im-Internet" class="headerlink" title="Adressen im Internet"></a>Adressen im Internet</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102210621.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102210640.png" alt></p>
+<h2 id="Socket"><a href="#Socket" class="headerlink" title="Socket"></a>Socket</h2><p>目前的假设</p>
+<ul>
+<li>通过消息传送的无连接的通讯(UDP)</li>
+<li>在使用面向连接的通讯（TCP）的时候必须在两个终端之间造一个逻辑通道</li>
+</ul>
+<p>两种交互方式在操作系统中的抽象：Socket（Steckdose）</p>
+<ul>
+<li>通讯对象之间的逻辑连接</li>
+<li>通常是双向的，但是也可以在一端关闭</li>
+<li>通常是两个终端一对一（端口和IP）</li>
+<li>也可以是广播（Broadcast (alle)，即一对所有）或者多路广播（Multicast (selektiv)，即一对多）</li>
+<li>实现了面向连接的，基于流的通讯</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220102235008.png" alt></p>
+<p>通过操作系统的本地集成</p>
+<ul>
+<li>Socket解释器等于文件解释器</li>
+<li>支持同样的系统调用，如：read(), write(), close()</li>
+<li>多了一些特殊操作：创建和连接Socket（socket(), connect(), bind(), listen(), … (analog zu pipe())）</li>
+<li>控制socket（setsockopt(), getsockopt(), ioctl()）</li>
+</ul>
+<h2 id="管道，socket和进程"><a href="#管道，socket和进程" class="headerlink" title="管道，socket和进程"></a>管道，socket和进程</h2><p>管道和Socket允许输入输出越过进程之间的障碍</p>
+<p>什么会发生，如果一个和另一个进程连接中的进程终止了？</p>
+<ul>
+<li>管道和Socket连接会被关闭</li>
+<li>信号可以通过不同的方式发生</li>
+<li><ul>
+<li>输入的话：EOF</li>
+</ul>
+</li>
+<li><ul>
+<li>Linux信号：SIGPIPE</li>
+</ul>
+</li>
+<li><ul>
+<li>一个错误报告：对应的文件解释器不再工作了</li>
+</ul>
+</li>
+</ul>
+<p>需要对应的错误报告</p>
+<p>信号只会在对应的进程真的没有通讯对象之后</p>
+<ul>
+<li>在生成子进程的时候很重要</li>
+</ul>
+<p>对于核心资源的说明</p>
+<ul>
+<li>所有的I/O解释器形式都能用（Standardein-/-ausgabe, Pipes, Sockets, geöffnete Dateien）</li>
+</ul>
+<p>如果一个资源被打开了或者被使用了，这个资源会分配一个对应的</p>
+<ul>
+<li>数据结构，用来储存这个资源的信息</li>
+<li>一个引用计数器（Reference-Counter）</li>
+<li><ul>
+<li>记录这个资源过去被使用了几次</li>
+</ul>
+</li>
+<li><ul>
+<li>在进程内部</li>
+</ul>
+</li>
+<li><ul>
+<li>可以越过进程间的障碍</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195536.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195547.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195634.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195642.png" alt></p>
+<h2 id="客户端服务端模型"><a href="#客户端服务端模型" class="headerlink" title="客户端服务端模型"></a>客户端服务端模型</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195651.png" alt></p>
+<h2 id="端对端模型-P2P"><a href="#端对端模型-P2P" class="headerlink" title="端对端模型 P2P"></a>端对端模型 P2P</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195724.png" alt></p>
+<h2 id="软件总线系统-Software-Bussysteme"><a href="#软件总线系统-Software-Bussysteme" class="headerlink" title="软件总线系统 Software-Bussysteme"></a>软件总线系统 Software-Bussysteme</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195746.png" alt></p>
+<h3 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h3><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195759.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195815.png" alt></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195832.png" alt></p>
+<p><img src="/2021/12/21/GBS%E7%AC%94%E8%AE%B0/QQ截图20220103195841.png" alt></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/TUM/" rel="tag"># TUM</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/09/28/CF1574D-The-Strongest-Build%E9%A2%98%E8%A7%A3-%E6%80%9D%E7%BB%B4-STL/" rel="prev" title="CF1574D The Strongest Build题解(思维+STL)">
+      <i class="fa fa-chevron-left"></i> CF1574D The Strongest Build题解(思维+STL)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/07/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/" rel="next" title="算法模板">
+      算法模板 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#引入-Einfuhrung"><span class="nav-number">1.</span> <span class="nav-text">引入 Einführung</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思考"><span class="nav-number">1.1.</span> <span class="nav-text">思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.2.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些的概念"><span class="nav-number">1.3.</span> <span class="nav-text">一些的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普遍的定义：信息学（Informatik）的任务"><span class="nav-number">1.3.1.</span> <span class="nav-text">普遍的定义：信息学（Informatik）的任务</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#计算系统（Rechnensystem，同义词：计算机Rechner，电脑Computer）的定义"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">计算系统（Rechnensystem，同义词：计算机Rechner，电脑Computer）的定义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#冯诺依曼架构（Von-Neumann-Architektur）"><span class="nav-number">1.4.</span> <span class="nav-text">冯诺依曼架构（Von-Neumann-Architektur）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#简单的系统结构"><span class="nav-number">1.5.</span> <span class="nav-text">简单的系统结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放系统（Offenes-System），构成部分（Komponenten），角度（Sichten）"><span class="nav-number">1.6.</span> <span class="nav-text">开放系统（Offenes System），构成部分（Komponenten），角度（Sichten）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开放系统"><span class="nav-number">1.6.1.</span> <span class="nav-text">开放系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#接口（Schnittstelle）"><span class="nav-number">1.6.2.</span> <span class="nav-text">接口（Schnittstelle）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#从外部：黑盒视角（Black-Box-Sicht）"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">从外部：黑盒视角（Black-Box-Sicht）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#从内部：白盒视角（White-Box-Sicht）"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">从内部：白盒视角（White-Box-Sicht）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#图示"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">图示</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#动态系统"><span class="nav-number">1.7.</span> <span class="nav-text">动态系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#技术系统"><span class="nav-number">1.8.</span> <span class="nav-text">技术系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统作为计算系统的一个部分"><span class="nav-number">1.9.</span> <span class="nav-text">操作系统作为计算系统的一个部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义：操作系统"><span class="nav-number">1.10.</span> <span class="nav-text">定义：操作系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统的任务"><span class="nav-number">1.11.</span> <span class="nav-text">操作系统的任务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#抽象"><span class="nav-number">1.11.1.</span> <span class="nav-text">抽象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#（资源）管理"><span class="nav-number">1.11.2.</span> <span class="nav-text">（资源）管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例子："><span class="nav-number">1.11.2.1.</span> <span class="nav-text">例子：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决定策略"><span class="nav-number">1.11.2.2.</span> <span class="nav-text">决定策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#决定操作"><span class="nav-number">1.11.2.3.</span> <span class="nav-text">决定操作</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统发展的因素"><span class="nav-number">1.12.</span> <span class="nav-text">操作系统发展的因素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作模式（Betribsarten）"><span class="nav-number">1.13.</span> <span class="nav-text">操作模式（Betribsarten）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#批处理任务-Stapelverarbeitung-batch-processing"><span class="nav-number">1.13.1.</span> <span class="nav-text">批处理任务 Stapelverarbeitung (batch processing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#业务操作-Transaktionsbetrieb-transaction-system"><span class="nav-number">1.13.2.</span> <span class="nav-text">业务操作 Transaktionsbetrieb (transaction system)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对话操作-Dialogbetrieb-time-sharing"><span class="nav-number">1.13.3.</span> <span class="nav-text">对话操作 Dialogbetrieb (time sharing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实时操作-Echtzeitbetrieb-real-time-system"><span class="nav-number">1.13.4.</span> <span class="nav-text">实时操作 Echtzeitbetrieb (real time system)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统的分支和目标"><span class="nav-number">1.14.</span> <span class="nav-text">操作系统的分支和目标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支"><span class="nav-number">1.14.1.</span> <span class="nav-text">分支</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#普遍目的"><span class="nav-number">1.14.1.1.</span> <span class="nav-text">普遍目的</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊目的"><span class="nav-number">1.14.1.2.</span> <span class="nav-text">特殊目的</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目的"><span class="nav-number">1.14.2.</span> <span class="nav-text">目的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统的类型"><span class="nav-number">1.15.</span> <span class="nav-text">操作系统的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器操作系统"><span class="nav-number">1.15.1.</span> <span class="nav-text">服务器操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器和桌面操作系统"><span class="nav-number">1.15.2.</span> <span class="nav-text">服务器和桌面操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#移动操作系统"><span class="nav-number">1.15.3.</span> <span class="nav-text">移动操作系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌入式操作系统"><span class="nav-number">1.15.4.</span> <span class="nav-text">嵌入式操作系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础：操作系统的概念"><span class="nav-number">1.16.</span> <span class="nav-text">基础：操作系统的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资源的分类"><span class="nav-number">1.17.</span> <span class="nav-text">资源的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程（Process）"><span class="nav-number">1.18.</span> <span class="nav-text">进程（Process）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#进程的定义"><span class="nav-number">1.18.1.</span> <span class="nav-text">进程的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续进程（sequnzielle-Prozesse）和并行进程（parallele-Prozesse）"><span class="nav-number">1.19.</span> <span class="nav-text">连续进程（sequnzielle Prozesse）和并行进程（parallele Prozesse）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件和文件系统"><span class="nav-number">1.20.</span> <span class="nav-text">文件和文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统模式（Betriessystem-Modi）"><span class="nav-number">1.21.</span> <span class="nav-text">操作系统模式（Betriessystem-Modi）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用户模式（User-Mode-Space）"><span class="nav-number">1.21.1.</span> <span class="nav-text">用户模式（User Mode&#x2F;Space）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统模式（Kernel-Mode-Space）"><span class="nav-number">1.21.2.</span> <span class="nav-text">系统模式（Kernel Mode&#x2F;Space）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统调用（System-Aufrufe-Systemcalls）"><span class="nav-number">1.22.</span> <span class="nav-text">系统调用（System-Aufrufe&#x2F;Systemcalls）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统调用的例子"><span class="nav-number">1.23.</span> <span class="nav-text">系统调用的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在用户模式中使用系统调用"><span class="nav-number">1.24.</span> <span class="nav-text">在用户模式中使用系统调用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#系统调用的例子-1"><span class="nav-number">1.24.1.</span> <span class="nav-text">系统调用的例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统架构（Betriebssystem-Architekturen）"><span class="nav-number">1.25.</span> <span class="nav-text">操作系统架构（Betriebssystem-Architekturen）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#整体系统"><span class="nav-number">1.26.</span> <span class="nav-text">整体系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#微核-Mikrokerne"><span class="nav-number">1.27.</span> <span class="nav-text">微核 Mikrokerne</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#核心动力"><span class="nav-number">1.27.1.</span> <span class="nav-text">核心动力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实现"><span class="nav-number">1.27.2.</span> <span class="nav-text">具体实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务进程（Serverprocess）"><span class="nav-number">1.27.3.</span> <span class="nav-text">服务进程（Serverprocess）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统编程（非重点）"><span class="nav-number">1.28.</span> <span class="nav-text">系统编程（非重点）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程和处理器管理-Process-und-Processorverwaltung"><span class="nav-number">2.</span> <span class="nav-text">进程和处理器管理 Process- und Processorverwaltung</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录-1"><span class="nav-number">2.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#从源代码到程序（ERA知识）"><span class="nav-number">2.2.</span> <span class="nav-text">从源代码到程序（ERA知识）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#回顾"><span class="nav-number">2.3.</span> <span class="nav-text">回顾</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#处理器"><span class="nav-number">2.4.</span> <span class="nav-text">处理器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#储存器中的线程"><span class="nav-number">2.5.</span> <span class="nav-text">储存器中的线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作系统中的进程环境"><span class="nav-number">2.6.</span> <span class="nav-text">操作系统中的进程环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并行的进程程，多进程（Multiprogramming）"><span class="nav-number">2.7.</span> <span class="nav-text">并行的进程程，多进程（Multiprogramming）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要多进程？"><span class="nav-number">2.8.</span> <span class="nav-text">为什么要多进程？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">2.9.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程状态-Prozesse-Zustande"><span class="nav-number">2.10.</span> <span class="nav-text">进程状态 Prozesse Zustände</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程-Process-与-线程-Thread"><span class="nav-number">2.11.</span> <span class="nav-text">进程 Process 与 线程 Thread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程-Thread"><span class="nav-number">2.12.</span> <span class="nav-text">线程 Thread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程-Process-vs-线程-Thread"><span class="nav-number">2.13.</span> <span class="nav-text">进程 Process vs 线程 Thread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程的原因"><span class="nav-number">2.14.</span> <span class="nav-text">多线程的原因</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#开支-Overhead"><span class="nav-number">2.14.1.</span> <span class="nav-text">开支 Overhead</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#性能"><span class="nav-number">2.14.2.</span> <span class="nav-text">性能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的实现"><span class="nav-number">2.15.</span> <span class="nav-text">进程的实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#这样做的原因"><span class="nav-number">2.15.1.</span> <span class="nav-text">这样做的原因</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统管理的操作系统服务"><span class="nav-number">2.16.</span> <span class="nav-text">系统管理的操作系统服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建进程：起因"><span class="nav-number">2.17.</span> <span class="nav-text">创建进程：起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建进程：服务"><span class="nav-number">2.18.</span> <span class="nav-text">创建进程：服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的终止"><span class="nav-number">2.19.</span> <span class="nav-text">进程的终止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程阶级-Prozesshierarchien-Unix"><span class="nav-number">2.20.</span> <span class="nav-text">进程阶级 Prozesshierarchien (Unix)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些例子"><span class="nav-number">2.21.</span> <span class="nav-text">一些例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#僵尸进程-Zombies"><span class="nav-number">2.22.</span> <span class="nav-text">僵尸进程 Zombies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#孤儿进程"><span class="nav-number">2.23.</span> <span class="nav-text">孤儿进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程管理-Prozessorverwaltung"><span class="nav-number">2.24.</span> <span class="nav-text">进程管理 Prozessorverwaltung</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分发-Dispatching"><span class="nav-number">2.25.</span> <span class="nav-text">分发 Dispatching</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调度-Scheduling"><span class="nav-number">2.26.</span> <span class="nav-text">调度 Scheduling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程的实现"><span class="nav-number">2.27.</span> <span class="nav-text">线程的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户等级线程-User-Level-Threads"><span class="nav-number">2.28.</span> <span class="nav-text">用户等级线程 User-Level-Threads</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户等级线程的调度"><span class="nav-number">2.29.</span> <span class="nav-text">用户等级线程的调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心等级线程"><span class="nav-number">2.30.</span> <span class="nav-text">核心等级线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合实现"><span class="nav-number">2.31.</span> <span class="nav-text">混合实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Unix-Thread"><span class="nav-number">2.32.</span> <span class="nav-text">Unix Thread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些例子-1"><span class="nav-number">2.33.</span> <span class="nav-text">一些例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调度-Scheduling-1"><span class="nav-number">2.34.</span> <span class="nav-text">调度 Scheduling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">2.35.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择进程的标准"><span class="nav-number">2.36.</span> <span class="nav-text">选择进程的标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调度类别-Scheduling-Klassen"><span class="nav-number">2.37.</span> <span class="nav-text">调度类别 Scheduling-Klassen</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调度策略概览"><span class="nav-number">2.38.</span> <span class="nav-text">调度策略概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评判标准"><span class="nav-number">2.39.</span> <span class="nav-text">评判标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批处理系统的调度策略"><span class="nav-number">2.40.</span> <span class="nav-text">批处理系统的调度策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先到先处理（FCFS-First-Come-First-Served）"><span class="nav-number">2.40.1.</span> <span class="nav-text">先到先处理（FCFS First-Come-First-Served）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#先处理短的（SJF-Shortest-Job-First）"><span class="nav-number">2.40.2.</span> <span class="nav-text">先处理短的（SJF Shortest Job First）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#处理剩下时间最短的"><span class="nav-number">2.40.3.</span> <span class="nav-text">处理剩下时间最短的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交互系统的调度策略"><span class="nav-number">2.41.</span> <span class="nav-text">交互系统的调度策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#时间片策略（Round-Robin-Zeitscheibenstrategie）"><span class="nav-number">2.41.1.</span> <span class="nav-text">时间片策略（Round-Robin, Zeitscheibenstrategie）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优先级调度（Priority-Scheduling）"><span class="nav-number">2.41.2.</span> <span class="nav-text">优先级调度（Priority-Scheduling）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实时系统调度"><span class="nav-number">2.42.</span> <span class="nav-text">实时系统调度</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最早期限有限"><span class="nav-number">2.42.1.</span> <span class="nav-text">最早期限有限</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#进程不中断"><span class="nav-number">2.42.1.1.</span> <span class="nav-text">进程不中断</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进程中断"><span class="nav-number">2.42.1.2.</span> <span class="nav-text">进程中断</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多等级调度"><span class="nav-number">2.43.</span> <span class="nav-text">多等级调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux下的调度"><span class="nav-number">2.44.</span> <span class="nav-text">Linux下的调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多核-多处理器调度"><span class="nav-number">2.45.</span> <span class="nav-text">多核&#x2F;多处理器调度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几种方式"><span class="nav-number">2.46.</span> <span class="nav-text">几种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#共享时间-Time-sharing"><span class="nav-number">2.46.1.</span> <span class="nav-text">共享时间 Time sharing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#共享空间-Space-sharing"><span class="nav-number">2.46.2.</span> <span class="nav-text">共享空间 Space sharing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组团调度-Gang-Scheduling"><span class="nav-number">2.46.3.</span> <span class="nav-text">组团调度 Gang Scheduling</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局等待队列-Globale-Warteschlange"><span class="nav-number">2.47.</span> <span class="nav-text">全局等待队列 Globale Warteschlange</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#每个CPU一个等待队列-Eine-Warteschlange-fur-jede-CPU"><span class="nav-number">2.48.</span> <span class="nav-text">每个CPU一个等待队列 Eine Warteschlange für jede CPU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混合方式-Hybride-Herangehensweise"><span class="nav-number">2.49.</span> <span class="nav-text">混合方式 Hybride Herangehensweise</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#并发系统和同步-Parallele-Systeme-und-Synchronisation"><span class="nav-number">3.</span> <span class="nav-text">并发系统和同步 Parallele Systeme und Synchronisation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录-2"><span class="nav-number">3.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引入"><span class="nav-number">3.2.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续和并行的程序"><span class="nav-number">3.3.</span> <span class="nav-text">连续和并行的程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交流-Interaktion"><span class="nav-number">3.4.</span> <span class="nav-text">交流 Interaktion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并行行为的描述"><span class="nav-number">3.5.</span> <span class="nav-text">并行行为的描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并行系统的特征"><span class="nav-number">3.6.</span> <span class="nav-text">并行系统的特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#连续系统和并行系统"><span class="nav-number">3.7.</span> <span class="nav-text">连续系统和并行系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#并行系统：同步"><span class="nav-number">3.8.</span> <span class="nav-text">并行系统：同步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#竞争-Race-Condition"><span class="nav-number">3.9.</span> <span class="nav-text">竞争 Race Condition</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#危险区域-Kritischer-Abschnitt"><span class="nav-number">3.10.</span> <span class="nav-text">危险区域 Kritischer Abschnitt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相互排斥-Wechselseitiger-Ausschluss"><span class="nav-number">3.11.</span> <span class="nav-text">相互排斥 Wechselseitiger Ausschluss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步的例子"><span class="nav-number">3.12.</span> <span class="nav-text">同步的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法的概览-Uberblick-uber-Losungskonzepte"><span class="nav-number">3.13.</span> <span class="nav-text">解决方法的概览 Überblick über Lösungskonzepte</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#终止阻断-Unterbrechungssperre"><span class="nav-number">3.13.1.</span> <span class="nav-text">终止阻断 Unterbrechungssperre</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单元的系统指令"><span class="nav-number">3.13.2.</span> <span class="nav-text">单元的系统指令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主动等待-Aktives-Warten"><span class="nav-number">3.13.3.</span> <span class="nav-text">主动等待 Aktives Warten</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#被动等待-Passives-Warten"><span class="nav-number">3.13.4.</span> <span class="nav-text">被动等待 Passives Warten</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子：生产者消费者模型"><span class="nav-number">3.13.5.</span> <span class="nav-text">例子：生产者消费者模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Semaphore和Mutex"><span class="nav-number">3.13.6.</span> <span class="nav-text">Semaphore和Mutex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Monitor"><span class="nav-number">3.13.7.</span> <span class="nav-text">Monitor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁"><span class="nav-number">3.13.8.</span> <span class="nav-text">死锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁的条件"><span class="nav-number">3.13.9.</span> <span class="nav-text">死锁的条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#死锁的建模"><span class="nav-number">3.13.10.</span> <span class="nav-text">死锁的建模</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决死锁的一些策略"><span class="nav-number">3.13.11.</span> <span class="nav-text">解决死锁的一些策略</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Deadlock-Detection"><span class="nav-number">3.13.11.1.</span> <span class="nav-text">Deadlock-Detection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deadlock-Avoidance"><span class="nav-number">3.13.11.2.</span> <span class="nav-text">Deadlock-Avoidance</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Bankier-Algorithmus"><span class="nav-number">3.13.11.2.1.</span> <span class="nav-text">Bankier-Algorithmus</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Deadlock-Prevention"><span class="nav-number">3.13.11.3.</span> <span class="nav-text">Deadlock-Prevention</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#比较一下这几种处理死锁的方式"><span class="nav-number">3.13.11.4.</span> <span class="nav-text">比较一下这几种处理死锁的方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他死锁的方式"><span class="nav-number">3.13.11.5.</span> <span class="nav-text">其他死锁的方式</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#建模-Modelierung"><span class="nav-number">4.</span> <span class="nav-text">建模 Modelierung</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#进程间通讯-Inter-Prozesskommunikation-IPC"><span class="nav-number">5.</span> <span class="nav-text">进程间通讯 Inter-Prozesskommunikation (IPC)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目前为止"><span class="nav-number">5.1.</span> <span class="nav-text">目前为止</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通讯形式"><span class="nav-number">5.2.</span> <span class="nav-text">通讯形式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通讯管道的带宽"><span class="nav-number">5.3.</span> <span class="nav-text">通讯管道的带宽</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#窄带的管道"><span class="nav-number">5.3.1.</span> <span class="nav-text">窄带的管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#宽带的管道"><span class="nav-number">5.3.2.</span> <span class="nav-text">宽带的管道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式通讯-Implizite-Kommunikation"><span class="nav-number">5.4.</span> <span class="nav-text">隐式通讯 Implizite Kommunikation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显式通讯-Explizite-Kommunikation"><span class="nav-number">5.5.</span> <span class="nav-text">显式通讯 Explizite Kommunikation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步-vs-异步"><span class="nav-number">5.6.</span> <span class="nav-text">同步 vs 异步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息通讯的模板"><span class="nav-number">5.7.</span> <span class="nav-text">消息通讯的模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排列组合所有宽带通讯方式"><span class="nav-number">5.8.</span> <span class="nav-text">排列组合所有宽带通讯方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步报告"><span class="nav-number">5.8.1.</span> <span class="nav-text">异步报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步报告"><span class="nav-number">5.8.2.</span> <span class="nav-text">同步报告</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步委托"><span class="nav-number">5.8.3.</span> <span class="nav-text">异步委托</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步委托"><span class="nav-number">5.8.4.</span> <span class="nav-text">同步委托</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对于同步和异步通讯的评价"><span class="nav-number">5.9.</span> <span class="nav-text">对于同步和异步通讯的评价</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#消息传递来解决生产者消费者模型"><span class="nav-number">5.10.</span> <span class="nav-text">消息传递来解决生产者消费者模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流-Stream"><span class="nav-number">5.11.</span> <span class="nav-text">流 Stream</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管道-Pipes"><span class="nav-number">5.12.</span> <span class="nav-text">管道 Pipes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#现实中的（匿名）管道"><span class="nav-number">5.12.1.</span> <span class="nav-text">现实中的（匿名）管道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记名的管道"><span class="nav-number">5.12.2.</span> <span class="nav-text">记名的管道</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位：端口-Port"><span class="nav-number">5.13.</span> <span class="nav-text">定位：端口 Port</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Historisches-Ursprungliche-Terminologie-und-Architektur-im-Internet-1974"><span class="nav-number">5.14.</span> <span class="nav-text">Historisches: Ursprüngliche Terminologie und Architektur im Internet (1974)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端口"><span class="nav-number">5.15.</span> <span class="nav-text">端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adressen-im-Internet"><span class="nav-number">5.16.</span> <span class="nav-text">Adressen im Internet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket"><span class="nav-number">5.17.</span> <span class="nav-text">Socket</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#管道，socket和进程"><span class="nav-number">5.18.</span> <span class="nav-text">管道，socket和进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#客户端服务端模型"><span class="nav-number">5.19.</span> <span class="nav-text">客户端服务端模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#端对端模型-P2P"><span class="nav-number">5.20.</span> <span class="nav-text">端对端模型 P2P</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件总线系统-Software-Bussysteme"><span class="nav-number">5.21.</span> <span class="nav-text">软件总线系统 Software-Bussysteme</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例子-1"><span class="nav-number">5.21.1.</span> <span class="nav-text">例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.22.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jiong Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">35</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jiong Liu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  
+
+</body>
+</html>
