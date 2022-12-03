@@ -1,0 +1,12 @@
+friends:
+    href: "friends"
+    page:
+        title: "Friends"
+        comments: false
+        description: "扩列~"
+        updated: "2021-12-06"
+    list:
+    -   name: "Fyind"
+        bio: "某不知名AMCMer和B站UP主"
+        avatar: "/img/friends/Fyind.png"
+        link: "https://fyind.github.io/"
