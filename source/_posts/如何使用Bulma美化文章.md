@@ -6,6 +6,7 @@ tags:
 categories:
  - Hexo搭建
 top: 50
+toc: true
 ---
 
 {% raw %}<div class="post-summary">{% endraw %}
