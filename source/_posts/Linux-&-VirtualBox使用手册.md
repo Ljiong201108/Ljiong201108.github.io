@@ -89,3 +89,14 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 ```
 
 在 `zshrc`中设置`ZSH_THEME="powerlevel10k/powerlevel10k"`
+
+# Ubuntu下安装中文输入法
+
+首先先整题更新一下系统`sudo apt update`
+
+然后必须事先先安装好中文语言包, 如果出错也可以用命令行安装`sudo apt install language-pack-zh-hans`
+
+随后将Keyboard Input System设置成fcitx
+
+最后需要配置一下fcitx
+
