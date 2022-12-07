@@ -1,9 +1,7 @@
 ---
-title: CF1324F Maximum White Subtree题解(树形DP之换根DP)
+title: CF1324F Maximum White Subtree 题解
 date: 2021-09-27 11:56:12
 mathjax: true
-tags:
-- Codeforces
 categories: 
 - 题解
 ---
@@ -26,7 +24,7 @@ categories:
 
 <!--more-->
 
-### 题解
+<br/>
 
 对于无根树，应该先想的转换成有根树，不妨设根节点为1
 
@@ -93,8 +91,6 @@ $$
 ans_u=f_u+max(g_u-colour_u, 0)
 $$
 
-
-### AC代码
 
 ```cpp
 #include<bits/stdc++.h>

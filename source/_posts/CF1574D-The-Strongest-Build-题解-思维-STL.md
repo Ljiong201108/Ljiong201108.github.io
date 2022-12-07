@@ -1,9 +1,7 @@
 ---
-title: CF1574D The Strongest Build题解(思维+STL)
+title: CF1574D The Strongest Build 题解
 date: 2021-09-28 01:04:54
 mathjax: true
-tags:
-- Codeforces
 categories: 
 - 题解
 ---
@@ -20,7 +18,7 @@ categories:
 
 <!--more-->
 
-### 题解
+<br/>
 
 通过观察可以知道，如果所有物品槽都选择那个最大价值的物品，则这个物品组合的价值之和最大，但是这个物品组合可能会被禁用掉，所以我们要从最大的组合推次大的组合、次次大的组合等等
 

@@ -3,6 +3,8 @@ title: CF1759F All Possible Digits 题解
 date: 2022-12-05 20:51:29
 mathjax: true
 tags:
+- greedy
+- math
 - Codeforces 1800
 categories:
 - 题解
@@ -13,6 +15,8 @@ categories:
 给定一个数字$n(1 \leq n \leq 100)$，进制$p(2 \leq p \leq 10^9)$，并且给出这个数在$p$进制下的表示。现在有一个操作，即给这个数加上1，问要操作几次才能让$p$进制下的所有数位都出现一次？
 
 <!-- more -->
+
+<br/>
 
 观察可知，这个操作次数的上限是$p$，考虑到一直往上加会出现进位的情况，我们先分类讨论：
 

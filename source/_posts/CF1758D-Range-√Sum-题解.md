@@ -1,12 +1,17 @@
 ---
-title: CF1758D Range = √Sum题解
+title: CF1758D Range = √Sum 题解
 date: 2022-12-05 21:33:21
 mathjax: true
 tags:
+- brute force
+- math
+- constructive algorithms
 - Codeforces 1800
 categories:
 - 题解
 ---
+
+传送门：[Range = √Sum](https://codeforces.com/problemset/problem/1758/D)
 
 给定一个正整数$n(1 \leq n \leq 3 \cdot 10^5)$，找出一串$n$个不同的数的数列$a_1, a_2, ... , a_n(1 \leq a_i \leq 10^9)$，满足以下式子：
 
@@ -15,6 +20,8 @@ $$
 $$
 
 <!-- more -->
+
+<br/>
 
 如果$n$是偶数，我们可以直接构造：$n-\frac{n}{2}, n-\frac{n}{2}+1, ..., n-1, n+1, ..., n+\frac{n}{2}-1, n+\frac{n}{2}$，这样$\max \left(a_1, a_2, \ldots, a_n\right)-\min \left(a_1, a_2, \ldots, a_n\right)$就是$n+\frac{n}{2}-(n-\frac{n}{2})=n$，$\sqrt{a_1+a_2+\cdots+a_n}=\sqrt{n^2}=n$，满足题意
 
