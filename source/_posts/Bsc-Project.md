@@ -35,10 +35,18 @@ zstd所有的步骤都在kernel里面 -> 64GB要开一个64GB的vector可能开�
 
 所有的decompress 加个max_out_size
 
+优化Application(多个xclbin，因为一个xclbin只能装40个kernel)
+完成其他的压缩方式(lz4 zstd)，但是有的不支持大文件压缩，需要优化
+
+关于gzip的大文件mm压缩，代码写了半小时，nnd花了10个小时找bug，最后发现是num_core设小了，是4，换成默认的8就好了。。。
+tmd不是这个问题，是sw_emu有bug，我麻了。以后不用sw_emu了。。。
+
+gzip/zlib compressMM现在支持大文件了，但是checksum还是有点问题。。。
+
 TODO: 
 完善gzip/zlib和snappy接口
-完成其他的压缩方式(lz4 zstd)
-优化Application(多个xclbin，因为一个xclbin只能装40个kernel)
+gzip外部的接口里面有hexdump，后期需要去除
+有的不支持大文件压缩，需要优化
 优化Pointer(集成内置的OCL_CHECK)
 test多block下压缩算法（gzip/zlib）是否能顺利运行
 加个时间的记录
