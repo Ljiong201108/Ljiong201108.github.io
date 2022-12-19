@@ -43,6 +43,31 @@ tmd不是这个问题，是sw_emu有bug，我麻了。以后不用sw_emu了。�
 
 gzip/zlib compressMM现在支持大文件了，但是checksum还是有点问题。。。
 
+gzip/zlib的decompress分段式stream居然一次性就过了！
+稍微修改了一下S2MM的内容，不会多输出东西。原版是让他多输出东西然后
+
+snappy的CRC也是0
+gzip不同的chunksize和blocksize压出来的crc也不同，这个crc再解压的时候是不检查的
+
+// 更改了snappy decompress kernel的inputSize成uint64_t，正确性需要以后测试
+
+所有的compress checksum都暂时忽略掉
+lz4 dict ID假设是没设置的，设置了就报错
+lz4的footer取消了checksum，因为64GB不好设置这个
+
+zstd的压缩方法：
+将文件分块，每块送进kernel压缩，会产出多个frame，最后将这些frame按顺序放好即可
+
+zstd的解压方法：
+zstd的kernel一次能处理一个frame，所以按frame依次将数据传入，最后将解压好的数据按顺序放好即可
+
+lz4的压缩方法：
+将文件分块，每块送进kernel压缩，会产生多个block，每个block选择压缩的还是未压缩的，将选择好的数据按顺序放回即可
+所有的block组成一个frame（其实可以有多个frame）
+
+lz4的解压缩方法：
+lz4的解压缩kernel能处理多个block，所以对于每个frame，将block分段读入解压，将解压好的数据按顺序放好
+
 TODO: 
 完善gzip/zlib和snappy接口
 gzip外部的接口里面有hexdump，后期需要去除
