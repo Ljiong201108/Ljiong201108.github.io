@@ -179,10 +179,10 @@ search:
 
 # Comment plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Comment/
-comment:
-    type: disqus
+# comment:
+    # type: disqus
     # Disqus shortname
-    shortname: 'jiongs-blog'
+    # shortname: 'jiongs-blog'
 
 # Donate plugin configurations
 # https://ppoffice.github.io/hexo-theme-icarus/categories/Plugins/Donation/

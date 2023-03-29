@@ -68,6 +68,27 @@ lz4的压缩方法：
 lz4的解压缩方法：
 lz4的解压缩kernel能处理多个block，所以对于每个frame，将block分段读入解压，将解压好的数据按顺序放好
 
+Snappy decompress kernel MM有缺陷，已经帮他修复好了
+Snappy在compress的时候要用一个crc32-c的值，目前是0，需要修复：https://github.com/google/crc32c
+
+多个kernel需要实现（data_compression和security）。
+
+database:
+
+Join:
+CH_NM = channel_num: 4 -> 1
+HASHWH: 3 -> 0 ==> PU = 1 << HASHWH: 8 -> 1
+
+Part:
+CH_NM = channel_num: 4 -> 1
+HASHWH: 3 -> 0 ==> PU = 1 << HASHWH: 8 -> 1
+
+Aggr:
+CH_NM = channel_num: 4 -> 1
+
+security:
+lz_compress.hpp: lzCompress() uram -> lutram
+
 TODO: 
 完善gzip/zlib和snappy接口
 gzip外部的接口里面有hexdump，后期需要去除
