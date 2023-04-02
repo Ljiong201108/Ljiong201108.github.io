@@ -7,11 +7,11 @@ tags:
 - 赛后总结 & 补题
 
 ---
-{% raw %}`<div class="post-summary">`{% endraw %}
+{% raw %}<div class="post-summary">{% endraw %}
 
 Educational Codeforces Round 145 AC代码
 
-{% raw %}`</div>`{% endraw %}
+{% raw %}</div>{% endraw %}
 
 <!-- more -->
 
