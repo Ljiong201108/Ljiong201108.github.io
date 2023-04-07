@@ -167,9 +167,17 @@ pause
 
 ## WSL下的图形化界面
 
+### X11 Forwarding
+
+这个就是和其他linux远程访问一样的设置。
+
+### WSGL
+
 微软不太推荐我们给WSL安装桌面环境，但是还是提供了图形化的支持：WSLG。这个是直接集成在最新的WSL里面的，所以不需要额外的安装。想要测试的话可以安装x11-apps这个库，然后启动xclock。
 
-X11和WSLG是不能一起用的。推荐用WT（Windows Terminal）作为终端。X11有些东西没法显示。
+X11和WSLG是不能一起用的。
+
+### 测试
 
 ```bash
 sudo apt install x11-apps
@@ -189,3 +197,9 @@ xclock
 ## 安装喜欢的shell
 
 这一步可以查看[我的这篇博客](https://ljiong201108.github.io/2022/12/03/Linux-&-VirtualBox%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/)，步骤都是一样一样的。
+
+## Vscode
+
+微软很贴心地为我们提供了一个拓展包：Remote Development。这个包里面有一个Remote: WSL的拓展。
+
+如果用WSLG作为图形界面的话需要在设置里面把Remote X11.WSL这个选项勾掉（不选中），反之X11的话就勾上。设置完记得重启一下。
