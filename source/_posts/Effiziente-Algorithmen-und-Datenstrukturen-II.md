@@ -342,6 +342,10 @@ $\Rightarrow A \cdot (x \pm d)=b \Rightarrow A \cdot d=0 \Rightarrow A\text{ 中
 
 对于一个LP问题, 我们能够假设矩阵 $A$ 是行满秩的, 即 $\operatorname{rank}(A)=m$
 
+{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+从现在开始, 我们假设标准形式的LP问题的条件矩阵 $A$ 都是行满秩的
+{% raw %}</div></article>{% endraw %}
+
 {% fold 说明 %}
 
 假设 $\operatorname{rank}(A)<m$
@@ -367,10 +371,6 @@ $$
 即如果第一行成立, 则其他行不成立; 如果其他行成立, 则第一行必不成立
 
 {% endfold %}
-
-{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
-从现在开始, 我们假设标准形式的LP问题的条件矩阵 $A$ 都是行满秩的
-{% raw %}</div></article>{% endraw %}
 
 ## Theorem 24
 
