@@ -307,3 +307,95 @@ $\Rightarrow A \cdot (x \pm d)=b \Rightarrow A \cdot d=0 \Rightarrow A\text{ 中
 所以对于足够小的 $\lambda$ 有 $x \pm \lambda d \in P$ , 因此 $x$ 不是一个极值点, 与假设矛盾
 
 {% endfold %}
+
+## Theorem 23
+
+给定 $P=\{x \mid A x=b, x \geq 0\}$ , 对任意 $x \in P$ , 我们定义 $B=\left\{j \mid x_j>0\right\}$ . 如果 $A_B$ 的列是线性无关的, 则 $x$ 是 $P$ 的一个端点(vertex).
+
+{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+结合**Theorem 22**, 说明端点和极值点其实是等价的
+{% raw %}</div></article>{% endraw %}
+
+{% fold 证明 %}
+
+定义 $c_j= \begin{cases}0 & j \in B \\ -1 & j \notin B\end{cases}$ 
+
+则 $c^T \cdot x=0$ , 对于其他点 $y \in P$ , $c^T \cdot y \le 0$ (因为 $c$ 是非正的)
+
+根据端点的定义(**Definition 18**), 如果 $x$ 是端点, 我们必须证明: $\forall y, c^T \cdot y = 0 \Rightarrow x=y$
+
+我们假设 $c^T y=0$ , 则如果 $j \notin B$ , $y_j=0$ 必须满足, 否则结果里面就会出现 $-1$
+
+因为 $y \in P$ , 所以有 $Ay=b$ , 对于 $y$ 中不属于 $B$ 的索引对应的元素, 不会对结果产生贡献, 因为他们是 $0$ , 所以有 $Ay=b=A_B \cdot y_B$ . 对于 $x$ 中不属于 $B$ 的索引对应的元素同理. 所以有 $Ay=b=A_B \cdot y_B = Ax=A_B \cdot x_B$
+
+移项之后能得出: $A_B\left(x_B-y_B\right)=0$
+
+因为 $A$ 的列是线性无关的, 所以 $x_B - y_B$ 一定得是 $0$ (线性无关的定义)
+
+于是就证出了 $\forall y, c^T \cdot y = 0 \Rightarrow x=y$
+
+所以在 $A_B$ 的列是线性无关的条件下, 对于我们构建的 $c$ , $\nexists y \neq x , c^T \cdot y \ge c^T \cdot x$ , 所以 $x$ 必定是端点.
+
+{% endfold %}
+
+## Observation
+
+对于一个LP问题, 我们能够假设矩阵 $A$ 是行满秩的, 即 $\operatorname{rank}(A)=m$
+
+{% fold 说明 %}
+
+假设 $\operatorname{rank}(A)<m$
+
+不失一般性, 我们假设第一行 $A_1$ 能够表示成其他列 $A_2, \ldots, A_m$ 的线性组合: 
+
+$$
+A_1=\sum_{i=2}^m \lambda_i \cdot A_i
+$$
+
+### Case 1
+
+如果 $b_1=\sum_{i=2}^m \lambda_i \cdot b_i$ , 则第一行就没意义了, 如果除了第一行的其他行能够成立, 那么第一行必定成立
+
+### Case 2
+
+如果 $b_1 \neq \sum_{i=2}^m \lambda_i \cdot b_i$ , 那么LP就是无解的, 因为: 
+
+$$
+A_1 x=\sum_{i=2}^m \lambda_i \cdot A_i x=\sum_{i=2}^m \lambda_i \cdot b_i \neq b_1
+$$
+
+即如果第一行成立, 则其他行不成立; 如果其他行成立, 则第一行必不成立
+
+{% endfold %}
+
+{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+从现在开始, 我们假设标准形式的LP问题的条件矩阵 $A$ 都是行满秩的
+{% raw %}</div></article>{% endraw %}
+
+## Theorem 24
+
+给定 $P=\{x \mid A x=b, x \geq 0\}$ , $x$ 是极值点当且仅当存在 $B \subseteq\{1, \ldots, n\}$ , 满足 $|B|=m$ 并且: 
+
+* $A_B$ 是非奇异的
+* $x_B=A_B^{-1} b \geq 0$
+* $x_N=0$
+
+定义 $N=\{1, \ldots, n\} \backslash B$
+
+{% fold 证明 %}
+
+### $\Rightarrow$
+
+根据**Theorem 22**, 如果 $x$ 是极值点, 则存在 $B=\{j \mid x_j>0\}$ , 使得 $A_B$ 的列是线性无关的. 
+
+$max\left(|B|\right)=m$ , 因为 $A$ 是行满秩的, 即 $rank(A)=m$ , 并且行秩等于列秩, 所以列秩最大就是 $m$ , 即最多有 $m$ 个线性无关的列.
+
+如果 $|B|<m$ , 我们就往里面加入线性无关的列即可.
+
+易得, 这样构造出的 $B$ 和 $A_B$ 是满足条件的
+
+### $\Leftarrow$
+
+上述过程都是充要的, 反过来写就好了
+
+{% endfold %}
