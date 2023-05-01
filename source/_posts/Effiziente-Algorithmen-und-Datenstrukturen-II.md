@@ -27,9 +27,9 @@ EA2的笔记
 
 $$
 \begin{aligned}
-& \max \left( \sum_{j=1}^n c_j x_j \right) \\
-& \text { s.t. } \sum_{j=1}^n a_{i j} x_j=b_i \quad 1 \leq i \leq m \\
-& x_j \geq 0 \quad 1 \leq j \leq n \\
+& \max \left( \sum_{j=1}^n c_j x_j \right) \\\\
+& \text { s.t. } \sum_{j=1}^n a_{i j} x_j=b_i \quad 1 \leq i \leq m \\\\
+& x_j \geq 0 \quad 1 \leq j \leq n \\\\
 &
 \end{aligned}
 $$
@@ -38,8 +38,8 @@ $$
 
 $$
 \begin{aligned}
-\max & \left(c^T x\right) \\
-\text { s.t. } & A x=b \\
+\max & \left(c^T x\right) \\\\
+\text { s.t. } & A x=b \\\\
 & x \geq 0
 \end{aligned}
 $$
@@ -48,17 +48,17 @@ $$
 
 当然, LP也有除了等号的标准形式: 
 
-* 求最小值: $\begin{array}{rr} & \min \left( c^T x \right) \\ & \text { s.t. } A x=b \\ & x \geq 0\end{array}$
-* 最大化约束: $\begin{array}{rr} & \max \left( c^T x \right) \\ & \text { s.t. } A x \leq b \\ & x \geq 0\end{array}$
-* 最小化约束: $\begin{array}{rr} & \max \left( c^T x \right) \\ & \text { s.t. } A x \geq b \\ & x \geq 0\end{array}$
+* 求最小值: $\begin{array}{rr} & \min \left( c^T x \right) \\\\ & \text { s.t. } A x=b \\\\ & x \geq 0\end{array}$
+* 最大化约束: $\begin{array}{rr} & \max \left( c^T x \right) \\\\ & \text { s.t. } A x \leq b \\\\ & x \geq 0\end{array}$
+* 最小化约束: $\begin{array}{rr} & \max \left( c^T x \right) \\\\ & \text { s.t. } A x \geq b \\\\ & x \geq 0\end{array}$
 
 我们可以很容易地从一个形式转换成另一个形式: 
 
-* 小于等于变等于: $a-3 b+5 c \leq 12 \Rightarrow \begin{aligned} a-3 b+5 c+s & =12 \\ s & \geq 0\end{aligned}$
-* 大于等于变等于: $a-3 b+5 c \geq 12 \Rightarrow \begin{aligned} a-3 b+5 c-s & =12 \\ s & \geq 0\end{aligned}$
+* 小于等于变等于: $a-3 b+5 c \leq 12 \Rightarrow \begin{aligned} a-3 b+5 c+s & =12 \\\\ s & \geq 0\end{aligned}$
+* 大于等于变等于: $a-3 b+5 c \geq 12 \Rightarrow \begin{aligned} a-3 b+5 c-s & =12 \\\\ s & \geq 0\end{aligned}$
 * 最小值转最大值: $\min \left( a-3 b+5 c \right) \Rightarrow \max \left( -a+3 b-5 c \right)$
-* 等于转小于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \leq 12 \\ -a+3 b-5 c \leq-12\end{gathered}$
-* 等于转大于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \geq 12 \\ -a+3 b-5 c \geq-12\end{gathered}$
+* 等于转小于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \leq 12 \\\\ -a+3 b-5 c \leq-12\end{gathered}$
+* 等于转大于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \geq 12 \\\\ -a+3 b-5 c \geq-12\end{gathered}$
 * 未限制转非负: $x$ unrestricted $\Rightarrow x=x^{+}-x^{-}, x^{+} \geq 0, x^{-} \geq 0$
 
 {% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
@@ -310,15 +310,17 @@ $\Rightarrow A \cdot (x \pm d)=b \Rightarrow A \cdot d=0 \Rightarrow A\text{ 中
 
 ## Theorem 23
 
-给定 $P=\{x \mid A x=b, x \geq 0\}$ , 对任意 $x \in P$ , 我们定义 $B=\left\{j \mid x_j>0\right\}$ . 如果 $A_B$ 的列是线性无关的, 则 $x$ 是 $P$ 的一个端点(vertex).
+给定 $P=\{x \mid A x=b, x \geq 0\}$ , 对任意 $x \in P$ , 我们定义 $B=\{j \mid x_j>0\}$ . 如果 $A_B$ 的列是线性无关的, 则 $x$ 是 $P$ 的一个端点(vertex).
 
 {% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
-结合**Theorem 22**, 说明端点和极值点其实是等价的
+
+结合**Theorem 22**, 说明在 $A_B$ 行满秩的前提下, 端点和极值点其实是等价的
+
 {% raw %}</div></article>{% endraw %}
 
 {% fold 证明 %}
 
-定义 $c_j= \begin{cases}0 & j \in B \\ -1 & j \notin B\end{cases}$ 
+定义 $c_j= \begin{cases}0 & j \in B \\\\ -1 & j \notin B\end{cases}$ 
 
 则 $c^T \cdot x=0$ , 对于其他点 $y \in P$ , $c^T \cdot y \le 0$ (因为 $c$ 是非正的)
 
@@ -343,7 +345,9 @@ $\Rightarrow A \cdot (x \pm d)=b \Rightarrow A \cdot d=0 \Rightarrow A\text{ 中
 对于一个LP问题, 我们能够假设矩阵 $A$ 是行满秩的, 即 $\operatorname{rank}(A)=m$
 
 {% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+
 从现在开始, 我们假设标准形式的LP问题的条件矩阵 $A$ 都是行满秩的
+
 {% raw %}</div></article>{% endraw %}
 
 {% fold 说明 %}
@@ -396,6 +400,211 @@ $max\left(|B|\right)=m$ , 因为 $A$ 是行满秩的, 即 $rank(A)=m$ , 并且�
 
 ### $\Leftarrow$
 
-上述过程都是充要的, 反过来写就好了
+上述过程都是充要并且可逆的, 反过来写就好了
 
 {% endfold %}
+
+## Basic Feasible Solutions
+
+如果 $x \in \mathbb{R}^n$ , $A x=b$ 并且定义 $J=\{j \mid x_j \neq 0\}$ , $\operatorname{rank}\left(A_J\right)=|J|$ , 则 $x$ 被称作基本解 (basis solution).
+
+如果 $x$ 是一个基本解, 并且 $x \ge 0$ , 那么 $x$ 被称作基本可行解 (basic feasible solution)
+
+一个底 (basis) 是一个索引集 $B \subseteq\{1, \ldots, n\}$ , 满足 $\operatorname{rank}\left(A_B\right)=m$ 并且 $|B|=m$
+
+给定底 $B$ , 满足 $A_B x_B=b$ , 并且对于所有 $j \notin B$ , $x_j=0$ 的 $x \in \mathbb{R}^n$ 被称作关联底 $B$ 的基本解
+
+{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+
+根据**Theorem 22**, **Theorem 23**和**Theorem 24**, 我们知道任何关联底 $B$ 的基本都是一个极值点和端点.
+
+{% raw %}</div></article>{% endraw %}
+
+### Facts
+
+一个基本可行解满足了约束矩阵 $A$ 中的 $m$ 个等号约束
+
+除此之外, 索引不在底 $B$ 中的 $x$ 的元素 $x_j$ 的值是 $0$ , 因此 $x \ge 0$ 的 $n$ 个非负约束中的 $n-m$ 个被等号满足.
+
+也就是说, 一个基本可行解能等号满足至少 $n$ 个约束
+
+## Definition 25
+
+基于上述Facts, 对于一个有 $n$ 个变量的通用LP ($\max \{c^T x \mid A x \leq b\}$) , $x$ 是一个基本可行解如果 $x$ 是可行的并且存在 $n$ 个 (线性无关的) 约束是被等号满足的 (tight)
+
+## Illustration
+
+![](/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230501_113427.png)
+
+其中蓝色的是基本可行解, 红色的是基本解
+
+## Fundamental Questions
+
+Is LP in NP? yes!
+
+因为给定一个底 $B$ , 我们能在多项式时间内计算出他对应的基本解 $A_B^{-1} b$
+
+{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+
+NP is the set of decision problems for which the problem instances, where the answer is "yes", have proofs verifiable in polynomial time by a deterministic Turing machine, or alternatively the set of problems that can be solved in polynomial time by a nondeterministic Turing machine.
+
+{% raw %}</div></article>{% endraw %}
+
+## Observation
+
+我们能在 $\mathcal{O}\left(\left(\begin{array}{c}n \\\\ m\end{array}\right) \cdot \operatorname{poly}(n, m)\right)$ 的时间复杂度内计算出最优解
+
+{% fold 证明 %}
+
+最多只有 $\left(\begin{array}{c}n \\\\ m\end{array}\right)$ 个底, 便利一次计算出最优解即可
+
+如果LP不是有界的, 那么把要求(证)的那个 $c^Tx \leq \alpha$ 也加进去, 就能转换成有界的LP了
+
+{% endfold %}
+
+## **Simplex Algorithm**
+
+### Idea
+
+如果便利所有的基本可行解来求最优解太慢了
+
+我们只需要从一个基本可行解开始, 经过与他相邻 (adjacent) 的基本可行解, 保证目标函数 (objective function) 不减少
+
+两个基本可行解是相邻的, 如果他们对应的底只有一个变量不同
+
+### Pivoting Step (Example)
+
+$$
+\begin{array}{rcrcrcrcrcl}
+\max \quad 13 a & +&23 b \\\\
+\text { s.t. } \quad 5a & + & 15b & + & s_c & & & & & = & 480 \\\\
+4a & + & 4b & & &  + & s_h & & & = & 160 \\\\
+35a & + & 20b & & & & & + & s_m & = & 1190 \\\\
+a & , & b & , & s_c & , & s_h &, & s_m & \geq & 0
+\end{array}
+$$
+
+先进行一次小小的变形, 我们要保证在底中的变量 ( $\{s_c, s_h, s_m\}$ ) 的系数必须是 $1$ , 否则进行一次高斯消元 
+
+| 约束矩阵 | 状态 |
+| :-: | :-: |
+| $\begin{array}{rcrcrcrcrcrcl} \max \quad Z \\\\ \text { s.t. } \quad 13 a & + &23 b & & & & & & & - & Z & = & 0 \\\\ 5a & + & 15b & + & s_c & & & & & & & = & 480 \\\\ 4a & + & 4b & & &  + & s_h & & & & & = & 160 \\\\ 35a & + & 20b & & & & & + & s_m & & & = & 1190 \\\\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{s_c, s_h, s_m\} \\\\ & a=b=0 \\\\ & Z=0 \\\\ & s_c=480 \\\\ & s_h=160 \\\\ & s_m=1190\end{aligned}$ |
+
+这样我们的目标函数就是约束矩阵的第一行了
+
+接下来我们从目标函数中取一个不在底中的并且系数是正的变量(必须是最大的那个, 否则会死循环), 这个例子中可供选择的有 $\{a, b\}$ , 但是 $b$ 的系数更大, 所以我们选 $b$ , 这变量叫做进入变量 (entering variable)
+
+接下来我们保持 $a=0$ 不变, 增大 $b$ , 因为要维护约束约束矩阵, 所以底中的变量会变小, 我们增大 $b$ 到 $\theta$ 使得有一个底中的变量减小到了 $0$ (不可能有两个, 因为约束矩阵 $A$ 是行满秩的, 如果有两个的话说明 $A$ 的行是线性相关的, 就不是行满秩的了)
+
+这里我们可以很容易的算出 $\theta=\min \{480 / 15,160 / 4,1190 / 20\}$ , 因为底中的变量的系数都是1
+
+第一个被减到 $0$ 的底中的变量是 $s_c$ , 这个变量叫做离开变量 (leaving variable)
+
+得到了进入变量和离开变量, 我们要对约束矩阵进行变换: 
+
+* 在除了第一行 (目标函数) 的行中, 首先将进入变量的系数变为 $1$
+* 找到进入变量和离开变量都存在的那行, 消去除了这行的所有行中的进入变量 (这一步的目的是消去其他行不是底中的变量, 让底中的变量只出现一次)
+* 更改状态, 将离开变量从底中剔除, 加入进入变量, 根据求得的 $\theta$ 改变变量的值
+
+
+| 约束矩阵 | 状态 |
+| :-: | :-: |
+| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\\\ \text { s.t. } \quad \frac {16}{3} a & & & - & \frac{23}{15} s_c & & & & & - & Z & = & -736 \\\\ \frac{1}{3}a & + & b & + & \frac{1}{15}s_c & & & & & & & = & 32 \\\\ \frac{8}{3} a & & & - & \frac{4}{15}s_c &  + & s_h & & & & & = & 32 \\\\ \frac{85}{3} a & & & - & \frac{4}{3}s_c & & & + & s_m & & & = & 550 \\\\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{b, s_h, s_m\} \\\\ & a=s_c=0 \\\\ & Z=736 \\\\ & b=32 \\\\ & s_h=32 \\\\ & s_m=550\end{aligned}$ |
+
+重复以上步骤知道目标函数中的系数都是负的. 
+
+{% fold 剩下的步骤 %}
+
+这里再走一步:
+
+目标函数中现在只有 $a$ 的系数是负的, 所以我们选择 $a$ 作为进入变量
+
+然后计算 $\theta = \min \{3 \cdot 32,3 \cdot 32 / 8,3 \cdot 550 / 85\}$ , 这里最小的是第三项, 所以我们选 $s_m$ 作为离开变量
+
+| 约束矩阵 | 状态 |
+| :-: | :-: |
+| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\\\ \text { s.t. } \quad \& & & - & \frac{23}{15} s_c & & - & 2s_h & & & - & Z & = & -800 \\\\ & + & b & + & \frac{1}{10}s_c & - & \frac{1}{8}s_h & & & & & = & 28 \\\\ a & & & - & \frac{1}{10}s_c &  + & \frac{3}{8}s_h & & & & & = & 12 \\\\ & & & & \frac{2}{3}s_c & - & \frac{85}{8}s_h & + & s_m & & & = & 210 \\\\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{a, b, s_m\} \\\\ & s_c=s_h=0 \\\\ & Z=800 \\\\ & b=28 \\\\ & a=12 \\\\ & s_m=210\end{aligned}$ |
+
+此时目标矩阵中的变量的系数全是负的了, 所以程序结束, 我们找到的最优解是 $800$
+
+{% endfold %}
+
+### Matrix View
+
+$$
+\begin{array}{rcrcl}
+c_B^T x_B & + & c_N^T x_N & = & Z \\
+A_B x_B & + & A_N x_N & = & b \\
+x_B & , & x_N & \geq & 0
+\end{array}
+$$
+
+按照上面说的, 需要把底中的变量的系数变成 $1$ , 并且在约束矩阵中只能出现一次:
+
+$$
+\begin{array}{rcrcl}
+& & \left(c_N^T-c_B^T A_B^{-1} A_N\right) x_N & = & Z-c_B^T A_B^{-1} b \\
+x_B & + & A_B^{-1} A_N x_N & = & A_B^{-1} b \\
+x_B & , & x_N & \geq & 0
+\end{array}
+$$
+
+那么基本可行解就是由 $x_N=0, x_B=A_B^{-1} b$ 组成
+
+如果 $\left(c_N^T-c_B^T A_B^{-1} A_N\right) \leq 0$ , 我们就知道我们已经找到最优解了
+
+### Geometric View of Pivoting
+
+![](/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230501_134945.png)
+
+一开始的底在原点, 然后往上走了一步, 再往右走了一步到达最优解
+
+### Algebraic Definition of Pivoting
+
+给定底 $B$ 和他关联的基本可行解 $x^*$
+
+选一个索引 $j \notin B$ , 把 $x_j^*$ 从 $0$ 增大到 $\theta \ge 0$
+
+* 其他非底的变量应该不变, 为 $0$
+* 底中的变量应该自适应改动以维护约束成立
+
+也就是说从 $x^*$ 变成 $x^* + \theta \cdot d$
+
+#### Requirements for $d$
+
+* $d_j = 1$ (归一化)
+* $d_{\ell}=0, \ell \notin B, \ell \neq j$
+* $A\left(x^*+\theta d\right)=b$ 必须满足, 因为移动后也必须是可行解, 所以我们可以推出 $A d=0$
+
+## Definition 26 ( $j$ -th basis direction)
+
+综上, $Ad = A_B d_B+A_{* j}=0$ , $A_{* j}$ 是约束矩阵 $A$ 的第 $j$ 列
+
+$A_B$ 的列是线性无关的, 所以 $A_B$ 是可逆的, 我们能直接推出 $d_B=-A_B^{-1} A_{* j}$
+
+$d_B$ 就是 $j$ -th basis direction
+
+## Definition 27 (Reduced Cost)
+
+从 $x^*$ 移动到 $x^*+\theta \cdot d$ , 目标函数变化了 $\theta \cdot c^T d=\theta\left(c_j-c_B^T A_B^{-1} A_{* j}\right)$
+
+我们定义: $\tilde{c}_j=c_j-c_B^T A_B^{-1} A_{* j}$ 是 $x_j$ 的reduced cost.
+
+reduced cost是对每个 $j$ 都有定义的, 如果 $j \in B$ , 那么 $x_j$ 的reduced cost就是0, 因为我们不能选这个 $j$ 作为进入变量, 所以无法改变目标函数
+
+{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+
+**Matrix View**中的 $c_N^T-c_B^T A_B^{-1} A_N$ 就是由 $j \in N$ 的reduced cost构成
+
+{% raw %}</div></article>{% endraw %}
+
+## Min Ratio Test
+
+Q: What happens if the min ratio test fails to give us a value $θ$
+by which we can safely increase the entering variable?
+
+我们知道 $\theta = \min \left( \max \left( b_i / A_{i e}, 0 \right) \right)$ , 这里的 $A_{i e}$ 是第 $i$ 行中的在底中的变量的值 (具体看上面的步骤) 
+
+如果这些值中不是全是负的, 那么这个负值只会增大这个变量, 而不是减小, 所以是没有危险的
+
+如果全是负的, 那么就没有离开变量选择了, LP就不是有界的了
