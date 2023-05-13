@@ -608,3 +608,34 @@ by which we can safely increase the entering variable?
 如果这些值中不是全是负的, 那么这个负值只会增大这个变量, 而不是减小, 所以是没有危险的
 
 如果全是负的, 那么就没有离开变量选择了, LP就不是有界的了
+
+## Termination
+
+在Simplex方法的一次迭代中, 目标函数的值是不会下降的, 但是他会保证一直上升吗?
+
+答案是: **并不**!
+
+### Definition 28 (退化 Degeneracy)
+
+一个基本可行解 $x^\ast$ 是退化的, 如果集合 $J=\left\{j \mid x_j^*>0\right\}$ 满足 $|J|<m$
+
+{% fold 人话 %}
+
+若干个基本可行解重合了, 如图右下角有三个点重合了
+
+![](/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230514_004656.png)
+
+{% endfold %}
+
+## 总结: 如何挑选每次迭代中加入到底中的那个下标?
+
+* 我们可以选择一列 $e$ 作为进入变量, 如果 $\tilde{C}_e>0$ ($\tilde{c}_e$ 是 $x_e$ 对应的reduced cost)
+* 标准选择是选 $\tilde{c}_e$ 最大的那个列 $e$
+* 如果对所有 $i \in\{1, \ldots, m\}$ 都有 $A_{i e} \leq 0$ , 那说明最大值是无界的
+* 否则, 选一个离开变量 $l$ 使得 $b_{\ell} / A_{\ell e}$ 在所有的 $A_{i e}>0$ 是最小的
+* 如果有数个变量都同时是最小值, 那就到了一个退化的基本可行解
+* 取决于 $l$ 的选取, Simplex方法可能会陷入死循环
+
+{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+一些感悟: 约束矩阵 $A$ 中的每一行都能代表一个在底中的变量, 而 $A$ 中的每一列代表一个变量
+{% raw %}</div></article>{% endraw %}
