@@ -27,9 +27,9 @@ EA2的笔记
 
 $$
 \begin{aligned}
-& \max \left( \sum_{j=1}^n c_j x_j \right) \\\\
-& \text { s.t. } \sum_{j=1}^n a_{i j} x_j=b_i \quad 1 \leq i \leq m \\\\
-& x_j \geq 0 \quad 1 \leq j \leq n \\\\
+& \max \left( \sum_{j=1}^n c_j x_j \right) \\
+& \text { s.t. } \sum_{j=1}^n a_{i j} x_j=b_i \quad 1 \leq i \leq m \\
+& x_j \geq 0 \quad 1 \leq j \leq n \\
 &
 \end{aligned}
 $$
@@ -38,8 +38,8 @@ $$
 
 $$
 \begin{aligned}
-\max & \left(c^T x\right) \\\\
-\text { s.t. } & A x=b \\\\
+\max & \left(c^T x\right) \\
+\text { s.t. } & A x=b \\
 & x \geq 0
 \end{aligned}
 $$
@@ -48,17 +48,17 @@ $$
 
 当然, LP也有除了等号的标准形式: 
 
-* 求最小值: $\begin{array}{rr} & \min \left( c^T x \right) \\\\ & \text { s.t. } A x=b \\\\ & x \geq 0\end{array}$
-* 最大化约束: $\begin{array}{rr} & \max \left( c^T x \right) \\\\ & \text { s.t. } A x \leq b \\\\ & x \geq 0\end{array}$
-* 最小化约束: $\begin{array}{rr} & \max \left( c^T x \right) \\\\ & \text { s.t. } A x \geq b \\\\ & x \geq 0\end{array}$
+* 求最小值: $\begin{array}{rr} & \min \left( c^T x \right) \\ & \text { s.t. } A x=b \\ & x \geq 0\end{array}$
+* 最大化约束: $\begin{array}{rr} & \max \left( c^T x \right) \\ & \text { s.t. } A x \leq b \\ & x \geq 0\end{array}$
+* 最小化约束: $\begin{array}{rr} & \max \left( c^T x \right) \\ & \text { s.t. } A x \geq b \\ & x \geq 0\end{array}$
 
 我们可以很容易地从一个形式转换成另一个形式: 
 
-* 小于等于变等于: $a-3 b+5 c \leq 12 \Rightarrow \begin{aligned} a-3 b+5 c+s & =12 \\\\ s & \geq 0\end{aligned}$
-* 大于等于变等于: $a-3 b+5 c \geq 12 \Rightarrow \begin{aligned} a-3 b+5 c-s & =12 \\\\ s & \geq 0\end{aligned}$
+* 小于等于变等于: $a-3 b+5 c \leq 12 \Rightarrow \begin{aligned} a-3 b+5 c+s & =12 \\ s & \geq 0\end{aligned}$
+* 大于等于变等于: $a-3 b+5 c \geq 12 \Rightarrow \begin{aligned} a-3 b+5 c-s & =12 \\ s & \geq 0\end{aligned}$
 * 最小值转最大值: $\min \left( a-3 b+5 c \right) \Rightarrow \max \left( -a+3 b-5 c \right)$
-* 等于转小于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \leq 12 \\\\ -a+3 b-5 c \leq-12\end{gathered}$
-* 等于转大于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \geq 12 \\\\ -a+3 b-5 c \geq-12\end{gathered}$
+* 等于转小于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \leq 12 \\ -a+3 b-5 c \leq-12\end{gathered}$
+* 等于转大于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \geq 12 \\ -a+3 b-5 c \geq-12\end{gathered}$
 * 未限制转非负: $x$ unrestricted $\Rightarrow x=x^{+}-x^{-}, x^{+} \geq 0, x^{-} \geq 0$
 
 {% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
@@ -320,7 +320,7 @@ $\Rightarrow A \cdot (x \pm d)=b \Rightarrow A \cdot d=0 \Rightarrow A\text{ 中
 
 {% fold 证明 %}
 
-定义 $c_j= \begin{cases}0 & j \in B \\\\ -1 & j \notin B\end{cases}$ 
+定义 $c_j= \begin{cases}0 & j \in B \\ -1 & j \notin B\end{cases}$ 
 
 则 $c^T \cdot x=0$ , 对于其他点 $y \in P$ , $c^T \cdot y \le 0$ (因为 $c$ 是非正的)
 
@@ -452,11 +452,11 @@ NP is the set of decision problems for which the problem instances, where the an
 
 ## Observation
 
-我们能在 $\mathcal{O}\left(\left(\begin{array}{c}n \\\\ m\end{array}\right) \cdot \operatorname{poly}(n, m)\right)$ 的时间复杂度内计算出最优解
+我们能在 $\mathcal{O}\left(\left(\begin{array}{c}n \\ m\end{array}\right) \cdot \operatorname{poly}(n, m)\right)$ 的时间复杂度内计算出最优解
 
 {% fold 证明 %}
 
-最多只有 $\left(\begin{array}{c}n \\\\ m\end{array}\right)$ 个底, 便利一次计算出最优解即可
+最多只有 $\left(\begin{array}{c}n \\ m\end{array}\right)$ 个底, 便利一次计算出最优解即可
 
 如果LP不是有界的, 那么把要求(证)的那个 $c^Tx \leq \alpha$ 也加进去, 就能转换成有界的LP了
 
@@ -476,10 +476,10 @@ NP is the set of decision problems for which the problem instances, where the an
 
 $$
 \begin{array}{rcrcrcrcrcl}
-\max \quad 13 a & +&23 b \\\\
-\text { s.t. } \quad 5a & + & 15b & + & s_c & & & & & = & 480 \\\\
-4a & + & 4b & & &  + & s_h & & & = & 160 \\\\
-35a & + & 20b & & & & & + & s_m & = & 1190 \\\\
+\max \quad 13 a & +&23 b \\
+\text { s.t. } \quad 5a & + & 15b & + & s_c & & & & & = & 480 \\
+4a & + & 4b & & &  + & s_h & & & = & 160 \\
+35a & + & 20b & & & & & + & s_m & = & 1190 \\
 a & , & b & , & s_c & , & s_h &, & s_m & \geq & 0
 \end{array}
 $$
@@ -488,7 +488,7 @@ $$
 
 | 约束矩阵 | 状态 |
 | :-: | :-: |
-| $\begin{array}{rcrcrcrcrcrcl} \max \quad Z \\\\ \text { s.t. } \quad 13 a & + &23 b & & & & & & & - & Z & = & 0 \\\\ 5a & + & 15b & + & s_c & & & & & & & = & 480 \\\\ 4a & + & 4b & & &  + & s_h & & & & & = & 160 \\\\ 35a & + & 20b & & & & & + & s_m & & & = & 1190 \\\\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{s_c, s_h, s_m\} \\\\ & a=b=0 \\\\ & Z=0 \\\\ & s_c=480 \\\\ & s_h=160 \\\\ & s_m=1190\end{aligned}$ |
+| $\begin{array}{rcrcrcrcrcrcl} \max \quad Z \\ \text { s.t. } \quad 13 a & + &23 b & & & & & & & - & Z & = & 0 \\ 5a & + & 15b & + & s_c & & & & & & & = & 480 \\ 4a & + & 4b & & &  + & s_h & & & & & = & 160 \\ 35a & + & 20b & & & & & + & s_m & & & = & 1190 \\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{s_c, s_h, s_m\} \\ & a=b=0 \\ & Z=0 \\ & s_c=480 \\ & s_h=160 \\ & s_m=1190\end{aligned}$ |
 
 这样我们的目标函数就是约束矩阵的第一行了
 
@@ -509,7 +509,7 @@ $$
 
 | 约束矩阵 | 状态 |
 | :-: | :-: |
-| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\\\ \text { s.t. } \quad \frac {16}{3} a & & & - & \frac{23}{15} s_c & & & & & - & Z & = & -736 \\\\ \frac{1}{3}a & + & b & + & \frac{1}{15}s_c & & & & & & & = & 32 \\\\ \frac{8}{3} a & & & - & \frac{4}{15}s_c &  + & s_h & & & & & = & 32 \\\\ \frac{85}{3} a & & & - & \frac{4}{3}s_c & & & + & s_m & & & = & 550 \\\\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{b, s_h, s_m\} \\\\ & a=s_c=0 \\\\ & Z=736 \\\\ & b=32 \\\\ & s_h=32 \\\\ & s_m=550\end{aligned}$ |
+| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\ \text { s.t. } \quad \frac {16}{3} a & & & - & \frac{23}{15} s_c & & & & & - & Z & = & -736 \\ \frac{1}{3}a & + & b & + & \frac{1}{15}s_c & & & & & & & = & 32 \\ \frac{8}{3} a & & & - & \frac{4}{15}s_c &  + & s_h & & & & & = & 32 \\ \frac{85}{3} a & & & - & \frac{4}{3}s_c & & & + & s_m & & & = & 550 \\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{b, s_h, s_m\} \\ & a=s_c=0 \\ & Z=736 \\ & b=32 \\ & s_h=32 \\ & s_m=550\end{aligned}$ |
 
 重复以上步骤知道目标函数中的系数都是负的. 
 
@@ -523,7 +523,7 @@ $$
 
 | 约束矩阵 | 状态 |
 | :-: | :-: |
-| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\\\ \text { s.t. } \quad \& & & - & \frac{23}{15} s_c & & - & 2s_h & & & - & Z & = & -800 \\\\ & + & b & + & \frac{1}{10}s_c & - & \frac{1}{8}s_h & & & & & = & 28 \\\\ a & & & - & \frac{1}{10}s_c &  + & \frac{3}{8}s_h & & & & & = & 12 \\\\ & & & & \frac{2}{3}s_c & - & \frac{85}{8}s_h & + & s_m & & & = & 210 \\\\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{a, b, s_m\} \\\\ & s_c=s_h=0 \\\\ & Z=800 \\\\ & b=28 \\\\ & a=12 \\\\ & s_m=210\end{aligned}$ |
+| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\ \text { s.t. } \quad \& & & - & \frac{23}{15} s_c & & - & 2s_h & & & - & Z & = & -800 \\ & + & b & + & \frac{1}{10}s_c & - & \frac{1}{8}s_h & & & & & = & 28 \\ a & & & - & \frac{1}{10}s_c &  + & \frac{3}{8}s_h & & & & & = & 12 \\ & & & & \frac{2}{3}s_c & - & \frac{85}{8}s_h & + & s_m & & & = & 210 \\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{a, b, s_m\} \\ & s_c=s_h=0 \\ & Z=800 \\ & b=28 \\ & a=12 \\ & s_m=210\end{aligned}$ |
 
 此时目标矩阵中的变量的系数全是负的了, 所以程序结束, 我们找到的最优解是 $800$
 
@@ -568,7 +568,7 @@ $$
 * 其他非底的变量应该不变, 为 $0$
 * 底中的变量应该自适应改动以维护约束成立
 
-也就是说从 $x^*$ 变成 $x^* + \theta \cdot d$
+也就是说从 $x^\ast$ 变成 $x^\ast + \theta \cdot d$
 
 #### Requirements for $d$
 
@@ -578,7 +578,7 @@ $$
 
 ## Definition 26 ( $j$ -th basis direction)
 
-综上, $Ad = A_B d_B+A_{* j}=0$ , $A_{* j}$ 是约束矩阵 $A$ 的第 $j$ 列
+综上, $Ad = A_B d_B+A_{\ast j}=0$ , $A_{\ast j}$ 是约束矩阵 $A$ 的第 $j$ 列
 
 $A_B$ 的列是线性无关的, 所以 $A_B$ 是可逆的, 我们能直接推出 $d_B=-A_B^{-1} A_{* j}$
 
@@ -586,9 +586,9 @@ $d_B$ 就是 $j$ -th basis direction
 
 ## Definition 27 (Reduced Cost)
 
-从 $x^*$ 移动到 $x^*+\theta \cdot d$ , 目标函数变化了 $\theta \cdot c^T d=\theta\left(c_j-c_B^T A_B^{-1} A_{* j}\right)$
+从 $x^\ast$ 移动到 $x^\ast+\theta \cdot d$ , 目标函数变化了 $\theta \cdot c^T d=\theta\left(c_j-c_B^T A_B^{-1} A_{\ast j}\right)$
 
-我们定义: $\tilde{c}_j=c_j-c_B^T A_B^{-1} A_{* j}$ 是 $x_j$ 的reduced cost.
+我们定义: $\tilde{c}_j=c_j-c_B^T A_B^{-1} A_{\ast j}$ 是 $x_j$ 的reduced cost.
 
 reduced cost是对每个 $j$ 都有定义的, 如果 $j \in B$ , 那么 $x_j$ 的reduced cost就是0, 因为我们不能选这个 $j$ 作为进入变量, 所以无法改变目标函数
 
