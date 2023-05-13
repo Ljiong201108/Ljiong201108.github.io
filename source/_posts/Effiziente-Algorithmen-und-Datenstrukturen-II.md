@@ -488,7 +488,7 @@ $$
 
 | 约束矩阵 | 状态 |
 | :-: | :-: |
-| $\begin{array}{rcrcrcrcrcrcl} \max \quad Z \\ \text { s.t. } \quad 13 a & + &23 b & & & & & & & - & Z & = & 0 \\ 5a & + & 15b & + & s_c & & & & & & & = & 480 \\ 4a & + & 4b & & &  + & s_h & & & & & = & 160 \\ 35a & + & 20b & & & & & + & s_m & & & = & 1190 \\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{s_c, s_h, s_m\} \\ & a=b=0 \\ & Z=0 \\ & s_c=480 \\ & s_h=160 \\ & s_m=1190\end{aligned}$ |
+| $\begin{array}{rcrcrcrcrcrcl} \max \quad Z \\\\ \text { s.t. } \quad 13 a & + &23 b & & & & & & & - & Z & = & 0 \\\\ 5a & + & 15b & + & s_c & & & & & & & = & 480 \\\\ 4a & + & 4b & & &  + & s_h & & & & & = & 160 \\\\ 35a & + & 20b & & & & & + & s_m & & & = & 1190 \\\\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{s_c, s_h, s_m\} \\\\ & a=b=0 \\\\ & Z=0 \\\\ & s_c=480 \\\\ & s_h=160 \\\\ & s_m=1190\end{aligned}$ |
 
 这样我们的目标函数就是约束矩阵的第一行了
 
@@ -509,7 +509,7 @@ $$
 
 | 约束矩阵 | 状态 |
 | :-: | :-: |
-| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\ \text { s.t. } \quad \frac {16}{3} a & & & - & \frac{23}{15} s_c & & & & & - & Z & = & -736 \\ \frac{1}{3}a & + & b & + & \frac{1}{15}s_c & & & & & & & = & 32 \\ \frac{8}{3} a & & & - & \frac{4}{15}s_c &  + & s_h & & & & & = & 32 \\ \frac{85}{3} a & & & - & \frac{4}{3}s_c & & & + & s_m & & & = & 550 \\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{b, s_h, s_m\} \\ & a=s_c=0 \\ & Z=736 \\ & b=32 \\ & s_h=32 \\ & s_m=550\end{aligned}$ |
+| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\\\ \text { s.t. } \quad \frac {16}{3} a & & & - & \frac{23}{15} s_c & & & & & - & Z & = & -736 \\\\ \frac{1}{3}a & + & b & + & \frac{1}{15}s_c & & & & & & & = & 32 \\\\ \frac{8}{3} a & & & - & \frac{4}{15}s_c &  + & s_h & & & & & = & 32 \\\\ \frac{85}{3} a & & & - & \frac{4}{3}s_c & & & + & s_m & & & = & 550 \\\\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{b, s_h, s_m\} \\\\ & a=s_c=0 \\\\ & Z=736 \\\\ & b=32 \\\\ & s_h=32 \\\\ & s_m=550\end{aligned}$ |
 
 重复以上步骤知道目标函数中的系数都是负的. 
 
@@ -523,7 +523,7 @@ $$
 
 | 约束矩阵 | 状态 |
 | :-: | :-: |
-| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\ \text { s.t. } \quad \& & & - & \frac{23}{15} s_c & & - & 2s_h & & & - & Z & = & -800 \\ & + & b & + & \frac{1}{10}s_c & - & \frac{1}{8}s_h & & & & & = & 28 \\ a & & & - & \frac{1}{10}s_c &  + & \frac{3}{8}s_h & & & & & = & 12 \\ & & & & \frac{2}{3}s_c & - & \frac{85}{8}s_h & + & s_m & & & = & 210 \\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{a, b, s_m\} \\ & s_c=s_h=0 \\ & Z=800 \\ & b=28 \\ & a=12 \\ & s_m=210\end{aligned}$ |
+| $ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\\\ \text { s.t. } \quad \& & & - & \frac{23}{15} s_c & & - & 2s_h & & & - & Z & = & -800 \\\\ & + & b & + & \frac{1}{10}s_c & - & \frac{1}{8}s_h & & & & & = & 28 \\\\ a & & & - & \frac{1}{10}s_c &  + & \frac{3}{8}s_h & & & & & = & 12 \\\\ & & & & \frac{2}{3}s_c & - & \frac{85}{8}s_h & + & s_m & & & = & 210 \\\\ a & , & b & , & s_c & , & s_h &, & s_m & & & \geq & 0 \end{array} $ | $\begin{aligned} & \text {basis}=\{a, b, s_m\} \\\\ & s_c=s_h=0 \\\\ & Z=800 \\\\ & b=28 \\\\ & a=12 \\\\ & s_m=210\end{aligned}$ |
 
 此时目标矩阵中的变量的系数全是负的了, 所以程序结束, 我们找到的最优解是 $800$
 
