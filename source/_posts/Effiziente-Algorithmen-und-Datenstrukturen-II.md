@@ -637,5 +637,111 @@ by which we can safely increase the entering variable?
 * 取决于 $l$ 的选取, Simplex方法可能会陷入死循环
 
 {% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
-一些感悟: 约束矩阵 $A$ 中的每一行都能代表一个在底中的变量, 而 $A$ 中的每一列代表一个变量
+一些感悟: 约束矩阵 $A$ 中的每一行都能代表一个在底中的变量, 而 $A$ 中的每一列代表一个变量, 因为 $A$ 是行满秩的
 {% raw %}</div></article>{% endraw %}
+
+{% raw %}<article class="message is-info"><div class="message-header">{% endraw %}
+What do we have so far?
+{% raw %}</div><div class="message-body">{% endraw %}
+Suppose we are given an initial feasible solution to an LP. If the LP
+is non-degenerate then Simplex will terminate.
+Note that we either terminate because the min-ratio test fails and
+we can conclude that the LP is **unbounded**, or we terminate
+because the vector of reduced cost is non-positive. In the latter
+case we have an **optimum solution**.
+{% raw %}</div></article>{% endraw %}
+
+## Initial Solution
+
+{% raw %}<article class="message is-danger"><div class="message-body">{% endraw %}
+TODO
+{% raw %}</div></article>{% endraw %}
+
+## Lemma 29 (Optimality)
+
+有一个底 $B$ 和一个基于 $B$ 的基本可行解 $x^\ast$ , $\tilde{c} \leq 0$ 能够得出 $x^\ast$ 是LP的最优解
+
+## Definition 30 (Duality)
+
+主要线性规划(primal LP) $z=\max \left\{c^T x \mid A x \leq b, x \geq 0\right\}$ 的对偶问题(dual problem) 是 $w=\min \left\{b^T y \mid A^T y \geq c, y \geq 0\right\}$
+
+## Lemma 31
+
+一个主要线性规划问题的对偶问题的对偶问题是他自己
+
+$\begin{aligned} & w=\min \left\{b^T y \mid A^T y \geq c, y \geq 0\right\} \\ & w=-\max \left\{-b^T y \mid-A^T y \leq-c, y \geq 0\right\}\end{aligned}$
+
+$w$ 的对偶问题是:
+
+$\begin{aligned} & z=-\min \left\{-c^T x \mid-A x \geq-b, x \geq 0\right\} \\ & z=\max \left\{c^T x \mid A x \leq b, x \geq 0\right\}\end{aligned}$
+
+## Theorem 32 (Weak Duality)
+
+$z=\max \left\{c^T x \mid A x \leq b, x \geq 0\right\}$ 和 $w=\min \left\{b^T y \mid A^T y \geq c, y \geq 0\right\}$ 是一对对偶问题, $x$ 是主要可行(primal feasible), 当且仅当 $x \in\{x \mid A x \leq b, x \geq 0\}$ , 
+$y$ 是对偶可行(dual feasible), 当且仅当 $y \in\left\{y \mid A^T y \geq c, y \geq 0\right\}$
+
+给定 $\hat{x}$ 是主要可行的, $\hat{y}$ 是对偶可行的:
+
+$$
+c^T \hat{x} \leq z \leq w \leq b^T \hat{y}
+$$
+
+{% fold 查看证明 %}
+
+$$
+A^T \hat{y} \geq c \Rightarrow \hat{x}^T A^T \hat{y} \geq \hat{x}^T c\quad (\hat{x} \geq 0)
+$$
+
+$$
+A \hat{x} \leq b \Rightarrow y^T A \hat{x} \leq \hat{y}^T b \quad (\hat{y} \geq 0)
+$$
+
+通过这两个能推出:
+
+$$
+c^T \hat{x} \leq \hat{y}^T A \hat{x} \leq b^T \hat{y}
+$$
+
+又因为 $z$ 是主要可行的最大解, $w$ 是对偶可行的最小解, 就有: $z \leq w$
+
+{% endfold %}
+
+另外: 如果主要线性规划问题 $P$ 是无界的, 那么其对偶问题 $D$ 就是不可行的
+
+## Simplex and Duality
+
+$z =\max \left\{c^T x \mid A x=b, x \geq 0\right\} $
+
+$w =\min \left\{b^T y \mid A^T y \geq c\right\}$
+
+是一组对偶问题, 这也代表: 在解一个主要线性规划问题的对偶问题的时候, 我们没有变量非负的限制
+
+{% fold 查看证明 %}
+
+对主要线性规划问题进行改写:
+
+$\begin{aligned} \max & \left\{c^T x \mid A x=b, x \geq 0\right\} \\\\ & =\max \left\{c^T x \mid A x \leq b,-A x \leq-b, x \geq 0\right\} \\\\ & =\max \left\{c^T x \mid\left[\begin{array}{c}A \\\\ -A\end{array}\right] x \leq\left[\begin{array}{c}b \\\\ -b\end{array}\right], x \geq 0\right\}\end{aligned}$
+
+这里的最后一步就是把两个不等式写成矩阵形式
+
+改写后的对偶问题为: 
+
+$\begin{aligned} \min & \left\{\left[b^T-b^T\right] y \mid\left[A^T-A^T\right] y \geq c, y \geq 0\right\} \\\\ & =\min \left\{\left[b^T-b^T\right] \cdot\left[\begin{array}{c}y^{+} \\\\ y^{-}\end{array}\right] \mid\left[A^T-A^T\right] \cdot\left[\begin{array}{l}y^{+} \\\\ y^{-}\end{array}\right] \geq c, y^{-} \geq 0, y^{+} \geq 0\right\} \\\\ & =\min \left\{b^T \cdot\left(y^{+}-y^{-}\right) \mid A^T \cdot\left(y^{+}-y^{-}\right) \geq c, y^{-} \geq 0, y^{+} \geq 0\right\} \\\\ & =\min \left\{b^T y^{\prime} \mid A^T y^{\prime} \geq c\right\}\end{aligned}$
+
+{% endfold %}
+
+## Proof of Optimality Criterion for Simplex
+
+假设我们有一个基本可行解 $x^\ast$, 其reduced cost为:
+
+$\tilde{c}=c^T-c_B^T A_B^{-1} A \leq 0$
+
+这也代表 $x^ast$ 是最优解 (Lemma 29)
+
+我们对这个式子进行改写: $A^T\left(A_B^{-1}\right)^T c_B \geq c$
+
+令 $y^\ast=\left(A_B^{-1}\right)^T c_B$
+
+$\begin{aligned} b^T y^\ast & =\left(A x^\ast\right)^T y^\ast=\left(A_B x_B^\ast\right)^T y^\ast \\\\ & =\left(A_B x_B^\ast\right)^T\left(A_B^{-1}\right)^T c_B=\left(x_B^\ast\right)^T A_B^T\left(A_B^{-1}\right)^T c_B \\\\ & =c^T x^\ast\end{aligned}$
+
+因为 $c^T \hat{x} \leq z \leq w \leq b^T \hat{y}$ 所以 $y^\ast$ 其实也是最优解
