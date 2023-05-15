@@ -745,3 +745,132 @@ $\tilde{c}=c^T-c_B^T A_B^{-1} A \leq 0$
 $\begin{aligned} b^T y^\ast & =\left(A x^\ast\right)^T y^\ast=\left(A_B x_B^\ast\right)^T y^\ast \\\\ & =\left(A_B x_B^\ast\right)^T\left(A_B^{-1}\right)^T c_B=\left(x_B^\ast\right)^T A_B^T\left(A_B^{-1}\right)^T c_B \\\\ & =c^T x^\ast\end{aligned}$
 
 因为 $c^T \hat{x} \leq z \leq w \leq b^T \hat{y}$ 所以 $y^\ast$ 其实也是最优解
+
+{% raw %}<article class="message is-info"><div class="message-body">{% endraw %}
+
+所以在 $x^\ast$ 和 $y^\ast$ 都是最优解的情况下, 对偶差距(Duality Gap)为 $0$
+
+{% raw %}</div></article>{% endraw %}
+
+## Strong Duality
+
+$P=\max \left\{c^T x \mid A x \leq b, x \geq 0\right\}$
+
+$n_A$ : 变量的个数( $A$ 的列数), $m_A$ : 约束的个数 ( $A$ 的行数)
+
+我们也可以把变量非负这个约束加入约束矩阵 $A$ ( $ x \geq 0 \Rightarrow -x \leq 0$ )
+
+然后新的LP: $\bar{P}=\max \left\{c^T x \mid \bar{A} x \leq \bar{b}\right\}$
+
+$n_{\bar{A}}=n_A, m_{\bar{A}}=m_A+n_A$
+
+新LP的对偶问题: $D=\min \left\{\bar{b}^T y \mid \bar{A}^T y=c, y \geq 0\right\}$
+
+## Theorem 33 (Strong Duality)
+
+给定 $P$ 和 $D$ 互为对偶问题对, $z^\ast$ 和 $w^\ast$ 是这对问题的最优解, 那么:
+
+$$
+z^\ast = w^\ast
+$$
+
+## Lemma 34 (Weierstrass)
+
+给定 $X$ 是一个凸集, $f(x)$ 是在凸集 $X$ 上的一个连续的函数, 那么 $\min \{f(x): x \in X\}$ 存在
+
+## Lemma 35 (Projection Lemma)
+
+给定 $X \subseteq \mathbb{R}^m$ 是一个非空的凸集, 并且 $y \notin X$. 那就存在一个凸集上到 $y$ 的距离最近的点 $x^\ast$ . 并且, 对所有 $x \in X$ , 都有 $\left(y-x^\ast\right)^T\left(x-x^\ast\right) \leq 0$
+
+![](/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_205348.png)
+
+{% fold 查看证明 %}
+
+$f(x)=\|y-x\|$
+
+但是此时还不能用Lemma 34, 因为 $X$ 可能不是有界的
+
+解决方法: 因为 $X \neq \varnothing$ , 所以存在一个点 $x' \in X$ , 定义 $X^{\prime}=\left\{x \in X \mid\|y-x\| \leq\left\|y-x^{\prime}\right\|\right\}$ , 此时这个 $X'$ 就是闭合的(closed)并且有界的(bounded)
+
+这样我们就可以通过Lemma 34证明: 最近点必定存在.
+
+![](/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_212354.png)
+
+接下来证明 $\left(y-x^\ast\right)^T\left(x-x^\ast\right) \leq 0$
+
+假设 $x^\ast$ 是最近点. 所以 对所有的 $x \in X$ , $\left\|y-x^\ast\right\|^2 \leq\|y-x\|^2$ 
+
+根据凸集的性质: $x \in X$ 那么 对于所有的 $0 \leq \epsilon \leq 1$ , $x^\ast+\epsilon\left(x-x^\ast\right) \in X$ ( $x$ 和 $x'$ 的连线上的点)
+
+$$
+\begin{aligned}
+\left\|y-x^\ast\right\|^2 & \leq\left\|y-x^\ast-\epsilon\left(x-x^\ast\right)\right\|^2 \\\\
+& =\left\|y-x^\ast\right\|^2+\epsilon^2\left\|x-x^\ast\right\|^2-2 \epsilon\left(y-x^\ast\right)^T\left(x-x^\ast\right)
+\end{aligned}
+$$
+
+改写一下上面的式子: $\left(y-x^\ast\right)^T\left(x-x^\ast\right) \leq \frac{1}{2} \epsilon\left\|x-x^\ast\right\|^2$
+
+如果 $\epsilon \rightarrow 0$ 就得到了我们要证明的结论
+
+{% endfold %}
+
+## Theorem 36 (Separating Hyperplane)
+
+给定 $X \subseteq \mathbb{R}^m$ 是一个非空的凸集, 并且 $y \notin X$. 那么一定存在一个分割超平面 $\left\{x \in \mathbb{R}: a^T x=\alpha, a \in \mathbb{R}^m, \alpha \in \mathbb{R} \right\}$ 将 $X$ 和 $y$ 分割开 (对于所有的 $x \in X$, $a^T y<\alpha ; a^T x \geq \alpha$)
+
+{% fold 查看证明 %}
+
+$x^\ast \in X$ 是 $X$ 中距离 $y$ 的最近点
+
+根据上面的定理, 对于所有的 $x \in X$, $\left(y-x^\ast\right)^T\left(x-x^\ast\right) \leq 0$
+
+令: $a=\left(x^\ast-y\right)$ , $\alpha=a^T x^\ast$
+
+对于所有的 $x \in X: a^T\left(x-x^\ast\right) \geq 0$ , 所以有 $a^T x \geq \alpha$
+
+同时 $a^T y=a^T\left(x^\ast-a\right)=\alpha-\|a\|^2<\alpha$
+
+![](/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_213029.png)
+
+{% endfold %}
+
+## Lemma 37 (Farkas Lemma)
+
+给定 $A$ 是一个 $m \times n$ 的矩阵, 那么下面两个陈述仅有一个是真的:
+
+* $\exists x \in \mathbb{R}^n$ , $A x=b, x \geq 0$
+* $\exists y \in \mathbb{R}^m$ , $A^T y \geq 0, b^T y<0$
+
+{% fold 点击显/隐内容 %}
+
+首先我们先证明上述两个陈述最多有一个是正确的
+
+假设 $\hat{x}$ 满足第一天陈述, $\hat{y}$ 满足第二条, 那么有
+
+$$
+0>y^T b=y^T A x \geq 0
+$$
+
+所以不能两条都同时满足
+
+现在假设第一条不满足
+
+$S=\{A x: x \geq 0\}$ 是矩阵 $A$ 的列的锥组合, 所以 $S$ 是闭合的, 凸的. 因为第一条不满足, 所以 $Ax \neq b$ , 所以 $b \notin S$
+
+我们想要证明存在一个 $y$ , 满足 $A^T y \geq 0, b^T y<0$
+
+让 $y$ 是分割 $b$ 和 $S$ 的半平面, 因此: $y^T b<\alpha$ 并且对于所有的 $s \in S$ , $y^T s \geq \alpha$
+
+$0 \in S \Rightarrow y^T \cdot 0 \geq \alpha \Rightarrow \alpha \leq 0 \Rightarrow y^T b<0$
+
+对于 $x \geq 0$ , $y^T A x \geq \alpha$ , 因此 $y^T A \geq 0$ (我们能随意指定 $x \geq 0$ )
+
+## Lemma 38 (Farkas Lemma; different version)
+
+将两个陈述重写一下: 
+
+* $\exists x \in \mathbb{R}^n$ , $[A \quad I] \cdot\left[\begin{array}{c}x \\\\ s\end{array}\right]=b, x \geq 0, s \geq 0$
+* $\exists y \in \mathbb{R}^m$ , $\left[\begin{array}{c}A^T \\ I\end{array}\right] y \geq 0, b^T y<0$
+
+{% endfold %}
