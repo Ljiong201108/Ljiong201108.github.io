@@ -873,4 +873,71 @@ $0 \in S \Rightarrow y^T \cdot 0 \geq \alpha \Rightarrow \alpha \leq 0 \Rightarr
 * $\exists x \in \mathbb{R}^n$ , $[A \quad I] \cdot\left[\begin{array}{c}x \\\\ s\end{array}\right]=b, x \geq 0, s \geq 0$
 * $\exists y \in \mathbb{R}^m$ , $\left[\begin{array}{c}A^T \\ I\end{array}\right] y \geq 0, b^T y<0$
 
-{% endfold %}
+{% endfold %}   
+
+## Proof of Strong Duality
+
+~~讲了这么就的辅助定理, 正菜终于端上来了~~
+
+$P: z=\max \left\{c^T x \mid A x \leq b, x \geq 0\right\} $
+
+$D: w=\min \left\{b^T y \mid A^T y \geq c, y \geq 0\right\}$
+
+### Theorem 39 (Strong Duality) 同Theorem 33
+
+$\boldsymbol{z} \leq \boldsymbol{w}$ : 
+
+weak duality已经证明了
+
+$z \geq w$ : 
+
+我们证明 $z<\alpha$ 能够推出 $w<\alpha$
+
+| | |
+| :-: | :-: |
+| $\begin{array}{rrcr} \exists x \in \mathbb{R}^n & \\\\ \text { s.t. } &  A x & \leq & b \\\\ & -c^T x & \leq & -\alpha \\\\ & x & \geq & 0 \end{array}$ | $\begin{array}{rrcr} \exists y \in \mathbb{R}^m ; v \in \mathbb{R} & \\\\ \text { s.t. } & A^T y-c v & \geq & 0 \\\\ & b^T y-\alpha v & < & 0 \\\\ & y, v & \geq & 0\end{array}$ |
+
+因为我们这里假设的 $z<\alpha$ , 又因为 $z$ 是 $c^T x$ 的最大值, 所以 $c^T x$ 是不可能大于等于 $\alpha$ 的, 所以左边的不等式组是不可能被满足的, 根据Farkas Lemma, 那么右边的一定是可满足的
+
+如果解 $y, v$ 满足 $v=0$ , 那么我们就可以推出
+
+$$
+\begin{array}{rrcr}\exists y \in \mathbb{R}^m & \\\\ \text { s.t. } & A^T y & \geq & 0 \\\\ & b^T y & < & 0 \\\\ & y & \geq & 0\end{array}
+$$
+
+是可满足的
+
+这玩意儿的根据Farkars Lemma对应的那个不等式组其实就是原来的LP, 因此我们就推出原来的LP是不可能被满足的, 而我们假设LP应该是有解的, 所以 $v \neq 0$ 必须满足
+
+因此存在一个解 $y, v$ 满足 $v>0$
+
+那么我们缩放整个不等式组 (同时缩放 $y$ 和 $v$), 让 $v=1$
+
+$$
+\begin{array}{rrcr} \exists y \in \mathbb{R}^m ; v \in \mathbb{R} & \\\\ \text { s.t. } & A^T y & \geq & c \\\\ & b^T y & < & \alpha \\\\ & y & \geq & 0 \\\\ & v & = & 1\end{array}
+$$
+
+因为这个不等式组是有解的, 因此存在 $y$ , $b^T y<\alpha$ , 因为 $w$ 是 $b^T y$ 的最小值, 所以有 $w<\alpha$ , 得证
+
+{% raw %}<article class="message is-danger"><div class="message-body">{% endraw %}
+所以怎么推出 $z \geq w$ 来的 ? 
+{% raw %}</div></article>{% endraw %}
+
+## Lemma 41 (Complementary Slackness)
+
+假设LP $P=\max \left\{c^T x \mid A x \leq b ; x \geq 0\right\}$ 有解 $x^*$ , 他的对偶问题 $D=\min \left\{b^T y \mid A^T y \geq c ; y \geq 0\right\}$ 有解 $y^*$ , 那么:
+
+1. 如果 $x_j^*>0$ 那么 $D$ 中第 $j$ 个约束是等号满足的
+2. 如果 $D$ 中第 $j$ 个约束不是等号满足的, 那么$x_j^*=0$
+3. 如果 $y_i^*>0$ 那么 $P$ 中第 $i$ 个约束是等号满足的
+4. 如果 $P$ 中第 $i$ 个约束不是等号满足的, 那么$x_i^*=0$
+
+
+
+{% raw %}<article class="message is-warning"><div class="message-body">{% endraw %}
+
+TODO: 写完这个
+
+TODO: Interpretation of Dual Variables
+
+{% raw %}</div></article>{% endraw %}
