@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Effiziente Algorithmen und Datenstrukturen II - Jiong&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Jiong&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_io/favicon-32x32.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jiong&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="EA2的笔记 （感谢fy的课后辅导）"><meta property="og:type" content="blog"><meta property="og:title" content="Effiziente Algorithmen und Datenstrukturen II"><meta property="og:url" content="http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/"><meta property="og:site_name" content="Jiong&#039;s Blog"><meta property="og:description" content="EA2的笔记 （感谢fy的课后辅导）"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230423_103344.png"><meta property="og:image" content="http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230423_103454.png"><meta property="og:image" content="http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230501_113427.png"><meta property="og:image" content="http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230501_134945.png"><meta property="og:image" content="http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230514_004656.png"><meta property="og:image" content="http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_205348.png"><meta property="og:image" content="http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_212354.png"><meta property="og:image" content="http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_213029.png"><meta property="article:published_time" content="2023-04-22T17:30:47.000Z"><meta property="article:modified_time" content="2023-11-04T20:33:40.466Z"><meta property="article:author" content="Jiong Liu"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230423_103344.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/"},"headline":"Effiziente Algorithmen und Datenstrukturen II","image":["http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230423_103344.png","http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230423_103454.png","http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230501_113427.png","http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230501_134945.png","http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230514_004656.png","http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_205348.png","http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_212354.png","http://example.com/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_213029.png"],"datePublished":"2023-04-22T17:30:47.000Z","dateModified":"2023-11-04T20:33:40.466Z","author":{"@type":"Person","name":"Jiong Liu"},"publisher":{"@type":"Organization","name":"Jiong's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.webp"}},"description":"EA2的笔记 （感谢fy的课后辅导）"}</script><link rel="canonical" href="http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/"><link rel="icon" href="/img/favicon_io/favicon-32x32.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.webp" alt="Jiong&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/friends">Friends</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/Ljiong201108"><i class="fab fa-github"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Codeforces" href="https://codeforces.com/profile/LJIONG"><i class="fa-solid fa-c"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Atcoder" href="https://atcoder.jp/users/LJIONG"><i class="fa-solid fa-a"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2023-04-22T17:30:47.000Z" title="4/22/2023, 7:30:47 PM">2023-04-22</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-11-04T20:33:40.466Z" title="11/4/2023, 9:33:40 PM">2023-11-04</time></span><span class="level-item">an hour read (About 7679 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">Effiziente Algorithmen und Datenstrukturen II</h1><div class="content"><div class="post-summary">
+<p>EA2的笔记</p>
+<p><del>（感谢fy的课后辅导）</del></p>
+</div>
+<span id="more"></span>
+<style type="text/css">
+.post-summary { display: none; }
+</style>
+
+<h1 id="Introduction-to-Linear-Programming-LP"><a href="#Introduction-to-Linear-Programming-LP" class="headerlink" title="Introduction to Linear Programming (LP)"></a>Introduction to Linear Programming (LP)</h1><p>给定$m$个对于$n$个自变量的约束条件, 要求在满足这些约束条件的前提下, 最大化收益.</p>
+<p>标准的LP形式: </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+& \max \left( \sum_{j=1}^n c_j x_j \right) \\
+& \text { s.t. } \sum_{j=1}^n a_{i j} x_j=b_i \quad 1 \leq i \leq m \\
+& x_j \geq 0 \quad 1 \leq j \leq n \\
+&
+\end{aligned}</script><p>以数组的形式: </p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\max & \left(c^T x\right) \\
+\text { s.t. } & A x=b \\
+& x \geq 0
+\end{aligned}</script><p>其中$Ax=b$指出了自变量$x$需要满足的条件, 而$c^Tx$就是收益计算方式, 他给每一个自变量$x_j$一个权值$c_j$.</p>
+<p>当然, LP也有除了等号的标准形式: </p>
+<ul>
+<li>求最小值: $\begin{array}{rr} &amp; \min \left( c^T x \right) \ &amp; \text { s.t. } A x=b \ &amp; x \geq 0\end{array}$</li>
+<li>最大化约束: $\begin{array}{rr} &amp; \max \left( c^T x \right) \ &amp; \text { s.t. } A x \leq b \ &amp; x \geq 0\end{array}$</li>
+<li>最小化约束: $\begin{array}{rr} &amp; \max \left( c^T x \right) \ &amp; \text { s.t. } A x \geq b \ &amp; x \geq 0\end{array}$</li>
+</ul>
+<p>我们可以很容易地从一个形式转换成另一个形式: </p>
+<ul>
+<li>小于等于变等于: $a-3 b+5 c \leq 12 \Rightarrow \begin{aligned} a-3 b+5 c+s &amp; =12 \ s &amp; \geq 0\end{aligned}$</li>
+<li>大于等于变等于: $a-3 b+5 c \geq 12 \Rightarrow \begin{aligned} a-3 b+5 c-s &amp; =12 \ s &amp; \geq 0\end{aligned}$</li>
+<li>最小值转最大值: $\min \left( a-3 b+5 c \right) \Rightarrow \max \left( -a+3 b-5 c \right)$</li>
+<li>等于转小于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \leq 12 \ -a+3 b-5 c \leq-12\end{gathered}$</li>
+<li>等于转大于等于: $a-3 b+5 c=12 \Rightarrow \begin{gathered}a-3 b+5 c \geq 12 \ -a+3 b-5 c \geq-12\end{gathered}$</li>
+<li>未限制转非负: $x$ unrestricted $\Rightarrow x=x^{+}-x^{-}, x^{+} \geq 0, x^{-} \geq 0$</li>
+</ul>
+<article class="message is-info"><div class="message-body">
+<p>只要是新加的变量都有非负的限制条件, 这是因为自变量$x_j$必须是非负的<br></div></article></p>
+<h2 id="Definition-1-Linear-Programming-Problem-LP"><a href="#Definition-1-Linear-Programming-Problem-LP" class="headerlink" title="Definition 1 (Linear Programming Problem (LP))"></a>Definition 1 (Linear Programming Problem (LP))</h2><p>已知 $A \in \mathbb{Q}^{m \times n}, b \in \mathbb{Q}^m, c \in \mathbb{Q}^n, \alpha \in \mathbb{Q}$, 问是否存在 $x \in \mathbb{Q}^n$ s.t. $A x=b, x \geq 0$, 使得 $ c^T x \geq \alpha$ ?</p>
+<h3 id="LP-in-NP-co-NP-P"><a href="#LP-in-NP-co-NP-P" class="headerlink" title="LP $\in$ NP / co-NP / P ?"></a>LP $\in$ NP / co-NP / P ?</h3><ul>
+<li>LP是NP问题吗？</li>
+<li>LP是co-NP问题吗？</li>
+<li>LP是P问题吗？</li>
+</ul>
+<h3 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h3><p>$n$是自变量的数量, $m$是约束条件的数量, $L$是编码输入需要的bit.</p>
+<h3 id="LP的几何意义"><a href="#LP的几何意义" class="headerlink" title="LP的几何意义"></a>LP的几何意义</h3><p><img src="img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230423_103344.png" alt=""></p>
+<p><img src="img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230423_103454.png" alt=""></p>
+<h3 id="一些额外的定义"><a href="#一些额外的定义" class="headerlink" title="一些额外的定义"></a>一些额外的定义</h3><p>对于一个满足条件的自变量的集合 $P={x \mid A x=b, x \geq 0}$: </p>
+<ul>
+<li>$P$ 被称作可行域(feasible region)</li>
+<li>$P$ 中的一个点$x \in P$被称作可行解(feasible point)</li>
+<li>如果 $P \neq \varnothing$ , 那这个LP就被称作可解的(feasible), 否则就是无解的(infeasible)</li>
+<li>LP是有界的(bounded)如果它是有解的并且</li>
+<li><ul>
+<li>所有可行解 $x \in P$ , $c^T x&lt;\infty$ </li>
+</ul>
+</li>
+<li><ul>
+<li>所有可行解 $x \in P$ , $c^T x&gt;-\infty$ </li>
+</ul>
+</li>
+</ul>
+<h2 id="Definition-2"><a href="#Definition-2" class="headerlink" title="Definition 2"></a>Definition 2</h2><p>给定向量或者点 $x_1, \ldots, x_k \in \mathbb{R}^n$ , $\sum \lambda_i x_i$:</p>
+<ul>
+<li>线性组合(linear combination), 如果 $\lambda_i \in \mathbb{R}$</li>
+<li>仿射组合(affine combination), 如果 $\lambda_i \in \mathbb{R}$ 并且 $\sum_i \lambda_i=1$</li>
+<li>凸组合(convex combination), 如果 $\lambda_i \in \mathbb{R}$, $\sum_i \lambda_i=1$ 并且 $\lambda_i \geq 0$</li>
+<li>锥组合(conic combination), 如果 $\lambda_i \in \mathbb{R}$ 并且 $\lambda_i \geq 0$</li>
+</ul>
+<article class="message is-warning"><div class="message-body">
+<p>组合中的向量或者点的个数必须是有限的!!!<br></div></article></p>
+<h2 id="Definition-3-amp-4"><a href="#Definition-3-amp-4" class="headerlink" title="Definition 3 &amp; 4"></a>Definition 3 &amp; 4</h2><p>集合$X \subseteq \mathbb{R}^n$是: </p>
+<ul>
+<li>$span(X)$ : 线性子空间(linear subspace), 如果它在线性组合下是个闭集(closed set)</li>
+<li>$aff(X)$ : 仿射子空间(affine subspace), 如果它在仿射组合下是个闭集</li>
+<li>$conv(X)$ : 凸包(convex), 如果它在凸组合下是个闭集</li>
+<li>$cone(X)$ : $凸锥(convex cone), 如果它在锥组合下是个闭集</li>
+</ul>
+<article class="message is-warning"><div class="message-body">
+<p>仿射子空间可能不是一个向量空间, 因为它有可能不过原点!!!<br></div></article></p>
+<div><div class="fold_hider"><div class="close hider_title">人话</div></div><div class="fold">
+<p>线性子空间和凸包是已经熟知的概念, 这里提一下对于仿射子空间和凸锥的通俗理解: </p>
+<h3 id="仿射子空间"><a href="#仿射子空间" class="headerlink" title="仿射子空间"></a>仿射子空间</h3><p>对于一个二维平面, 两个点的仿射子空间就是过这两个点的直线, 此时它是一个一维的概念. 但是如果加入了第三个不共线的点, 此时这三个点的仿射子空间就是整个二维平面了. </p>
+<p>由此我推断一个集合的仿射子空间是一个能过所有点的最低维度空间. </p>
+<h3 id="凸锥"><a href="#凸锥" class="headerlink" title="凸锥"></a>凸锥</h3><p>可以理解成从原点发射的所有能打中凸包的射线组成的集合体, 确实是一个锥的样子, 很形象</p>
+
+</div></div>
+<h2 id="Definition-5"><a href="#Definition-5" class="headerlink" title="Definition 5"></a>Definition 5</h2><p>函数 $f: \mathbb{R}^n \rightarrow \mathbb{R}$ 是(向下)凸(convex)的, 如果对于所有的 $x, y \in \mathbb{R}^n$ 和 $\lambda \in[0,1]$ , 满足如下:</p>
+<script type="math/tex; mode=display">
+f(\lambda x+(1-\lambda) y) \leq \lambda f(x)+(1-\lambda) f(y)</script><h2 id="Lemma-6"><a href="#Lemma-6" class="headerlink" title="Lemma 6"></a>Lemma 6</h2><p>如果 $P \subseteq \mathbb{R}^n$ , $f: \mathbb{R}^n \rightarrow \mathbb{R}$ 是凸的, 那么 $Q={x \in P \mid f(x) \leq t}$ 也是凸的</p>
+<article class="message is-danger"><div class="message-body">
+<p>?<br></div></article></p>
+<h2 id="Definition-7"><a href="#Definition-7" class="headerlink" title="Definition 7"></a>Definition 7</h2><p>仿射子空间 $A \subseteq \mathbb{R}^n$ 的维数 $dim(A)$ , 是在 $A$ 中任取一点 $a \in A$ 后, 向量空间 ${x-a \mid x \in A}$ 的维数.</p>
+<div><div class="fold_hider"><div class="close hider_title">人话</div></div><div class="fold">
+<p>把仿射子空间平移到原点之后的空间的维数.</p>
+
+</div></div>
+<h2 id="Definition-8"><a href="#Definition-8" class="headerlink" title="Definition 8"></a>Definition 8</h2><p>对于集合 $X \subseteq \mathbb{R}^n$ , $dim(X)$ 的维数和 $aff(X)$ 的维数相同.</p>
+<h2 id="Definition-9"><a href="#Definition-9" class="headerlink" title="Definition 9"></a>Definition 9</h2><p>集合 $H \subseteq \mathbb{R}^n$ 是一个超平面(hyperplane), 如果存在向量 $a \neq 0$ , $H={x \mid a^T x=b}$.</p>
+<div><div class="fold_hider"><div class="close hider_title">人话</div></div><div class="fold">
+<p>$a$ 是比当前空间低一维的维度的法向量的方向. 例如: 当前空间是二维平面, 那么 $a$ 就是直线的法向量 ; 当前空间是三维空间, 那么 $a$ 就是平面的法向量. $b$ 是比当前空间低一维的维度的截距, 这是一个有向距离.</p>
+
+</div></div>
+<h2 id="Definiation-10"><a href="#Definiation-10" class="headerlink" title="Definiation 10"></a>Definiation 10</h2><p>集合 $H^{\prime} \subseteq \mathbb{R}^n$ 是一个(闭)半空间, 如果存在向量 $a \neq 0$ , $H={x \mid a^T x \leq b}$</p>
+<div><div class="fold_hider"><div class="close hider_title">人话</div></div><div class="fold">
+<p>$a$ 的反方向, 以超平面为界的维度空间</p>
+
+</div></div>
+<h2 id="Definition-11"><a href="#Definition-11" class="headerlink" title="Definition 11"></a>Definition 11</h2><p>polytop是一个集合 $P \subseteq \mathbb{R}^n$ , 满足 $P=\operatorname{conv}(X)$ , $|X|=c$.</p>
+<h2 id="Definition-12"><a href="#Definition-12" class="headerlink" title="Definition 12"></a>Definition 12</h2><p>polyhedron是一个集合 $P \subseteq \mathbb{R}^n$ , 这个集合可以被表示成若干个半空间的交集 ${H\left(a_1, b_1\right), \ldots, H\left(a_m, b_m\right)}$, $H\left(a_i, b_i\right)={x \in \mathbb{R}^n \mid a_i x \leq b_i}$</p>
+<h2 id="Definition-13"><a href="#Definition-13" class="headerlink" title="Definition 13"></a>Definition 13</h2><p>polyhedron $P$ 是有界的(bounded), 如果所有 $x \in P$ , 存在 $B$ , 使得 $|x|_2 \leq B$</p>
+<h2 id="Theorem-14"><a href="#Theorem-14" class="headerlink" title="Theorem 14"></a>Theorem 14</h2><p>$P$ 是一个有界的polyhedron $\iff$ $P$ 是一个polytop</p>
+<h2 id="Definition-15"><a href="#Definition-15" class="headerlink" title="Definition 15"></a>Definition 15</h2><p>给定 $P \subseteq \mathbb{R}^n, a \in \mathbb{R}^n$ 和 $b \in \mathbb{R}$. 超平面 $H(a, b)={x \in \mathbb{R}^n \mid a^T x=b}$ 是一个 支撑超平面(supporting hyperplane), 如果 $\max {a^T x \mid x \in P}=b$</p>
+<div><div class="fold_hider"><div class="close hider_title">人话</div></div><div class="fold">
+<p>那些贴在凸包上的超平面</p>
+
+</div></div>
+<h2 id="Definition-16"><a href="#Definition-16" class="headerlink" title="Definition 16"></a>Definition 16</h2><p>给定 $P \subseteq \mathbb{R}^n$. $F$ 是一个 $P$ 的face, 如果 $F=P$ 或者对于一些支撑超平面 $H$ , $F=P \cap H$ .</p>
+<h2 id="Definition-17"><a href="#Definition-17" class="headerlink" title="Definition 17"></a>Definition 17</h2><p>给定 $P$ :</p>
+<ul>
+<li>$v$ 是 $P$ 的一个端点(vertex), 如果 ${ v }$ 是 $P$ 的face</li>
+<li>$e$ 是 $P$ 的一条边(edge), 如果 $e$ 是 $P$ 的face, 并且 $dim(e)=1$</li>
+<li>$F$ 是 $P$ 的一个面(facet), 如果 $F$ 是 $P$ 的face, 并且 $dim(F)=dim(P)-1$</li>
+</ul>
+<h2 id="Definition-18"><a href="#Definition-18" class="headerlink" title="Definition 18"></a>Definition 18</h2><p>另一种vertex的判断方法:</p>
+<p>给定一个polyhedron $P$. 一个点 $x \in P$ 是一个端点(vertex), 如果对于所有的 $y \in P, y \neq x$, $\exists c \in \mathbb{R}^n$ 满足 $c^T y&lt;c^T x$</p>
+<h2 id="Definition-19"><a href="#Definition-19" class="headerlink" title="Definition 19"></a>Definition 19</h2><p>给定一个polyhedron $P$. 一个点 $x \in P$ 是一个极值点(extreme point), 如果 $\nexists a, b \neq x, a, b \in P$, 满足 $\lambda a+(1-\lambda) b=x$ for $\lambda \in[0,1]$.</p>
+<div><div class="fold_hider"><div class="close hider_title">人话</div></div><div class="fold">
+<p>不存在与 $x$ 共线并且在 $x$ 两侧的点 $a$ 和 $b$</p>
+
+</div></div>
+<h2 id="Definition-20"><a href="#Definition-20" class="headerlink" title="Definition 20"></a>Definition 20</h2><p>端点是极值点</p>
+<h2 id="Observation"><a href="#Observation" class="headerlink" title="Observation"></a>Observation</h2><p>LP的可行域是一个ployhedron</p>
+<h2 id="Theorem-21"><a href="#Theorem-21" class="headerlink" title="Theorem 21"></a>Theorem 21</h2><p>如果标准形式的LP存在最优解, 那么一定存在一个是极值点的最优解</p>
+<div><div class="fold_hider"><div class="close hider_title">证明</div></div><div class="fold">
+<p>如果 $x$ 是一个非极值点的最优解</p>
+<p>假设有一个向量 $d \neq 0$ , $x \pm d \in P$</p>
+<p>$\Rightarrow A \cdot (x \pm d)=b \Rightarrow A \cdot d=0$</p>
+<p>在 $d$ 和 $-d$ 中取一个使 $c^T \cdot d’ &gt; 0 \quad (d’ = d \text{ or } -d)$ 的, 作为正方向 $d$. 这是一定可以取到的, 因为 $d \neq 0$ , 若 $c^T \cdot d &lt; 0$, 那么 就一定有 $c^T \cdot d &gt; 0$</p>
+<p>现在考虑从 $x$ 出发, 在射线 $x$ 到 $x+d$ 上的点 : $x+\lambda d, \lambda&gt;0$</p>
+<h3 id="Case-1-exists-j-s-t-d-j-lt-0"><a href="#Case-1-exists-j-s-t-d-j-lt-0" class="headerlink" title="Case 1: $\exists j$ s.t. $d_j&lt;0$"></a>Case 1: $\exists j$ s.t. $d_j&lt;0$</h3><article class="message is-danger"><div class="message-body">
+?
+</div></article>
+
+</div></div>
+<h2 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h2><p>$B \subseteq{1 \ldots n}$ 是列索引的集合, $A_B$是 $A$ 中索引在 $B$ 里的列的集合</p>
+<h2 id="Theorem-22"><a href="#Theorem-22" class="headerlink" title="Theorem 22"></a>Theorem 22</h2><p>给定集合 $P={x \mid A x=b, x \geq 0}$. 对于一个 $x \in P$, 定义 $B={j \mid x_j&gt;0}$. 那么 $x$ 是极值点当且仅当 $A_B$ 有线性无关的列.</p>
+<article class="message is-info"><div class="message-body">
+<p>对于向量 $v<em>1, v_2, … , v_n$ , 若是存在 $a_1, a_2, … , a_n$ , 使得 $\sum</em>{i=1}^n a_i \cdot v_i = 0$ , 则称向量 $v_1, v_2, … , v_n$ 线性相关, 否则向量 $v_1, v_2, … , v_n$ 线性无关<br></div></article></p>
+<div><div class="fold_hider"><div class="close hider_title">证明</div></div><div class="fold">
+<h3 id="Leftarrow"><a href="#Leftarrow" class="headerlink" title="$\Leftarrow$"></a>$\Leftarrow$</h3><p>假设 $x$ 不是极值点</p>
+<p>那就存在一个向量 $d \neq 0$ , 使得 $x \pm d \in P$</p>
+<p>$\Rightarrow A \cdot (x \pm d)=b \Rightarrow A \cdot d=0 \Rightarrow A\text{ 中的列是线性相关的}$</p>
+<p>定义 $B^{\prime}={j \mid d_j \neq 0}$</p>
+<p>根据矩阵乘法, $A \cdot d = \sum_i \text{A的第} i \text{列} \cdot d_i$ , 而如果 $d$ 的第 $i$ 个元素是 $0$, 那么他就不会对结果产生贡献.</p>
+<p>所以 $A \cdot d$ 的结果其实就是 $A_{B’}$ 中的列依次去乘 $d$ 中的非零元素 (这两者的数量应该是相等的), 乘出来的结果也是 $0$</p>
+<p>所以 $A_{B’}$ 的列也是线性相关的</p>
+<p>如果对于某个索引 $j$ , $x_j=0 \Rightarrow d_j=0$ , 这是因为有 $x_j \geq 0$ 这个条件. </p>
+<p>因此 $B^{\prime} \subseteq B$ , 所以 $A_B$ 的列也必然是线性相关的</p>
+<h3 id="Rightarrow"><a href="#Rightarrow" class="headerlink" title="$\Rightarrow$"></a>$\Rightarrow$</h3><p>假设 $x$ 是极值点的时候, $A_B$ 是线性相关的</p>
+<p>那么就必定存在 $d \neq 0$ , 使得 $A_B \cdot d=0$</p>
+<p>将 $d$ 扩展到 $\mathbb{R}^n$ (原本 $d$ 中是只含有 $B$ 中的位置的值的, 现在给其他位置填充 $0$ )</p>
+<p>那么 $A \cdot d = 0$</p>
+<p>所以对于足够小的 $\lambda$ 有 $x \pm \lambda d \in P$ , 因此 $x$ 不是一个极值点, 与假设矛盾</p>
+
+</div></div>
+<h2 id="Theorem-23"><a href="#Theorem-23" class="headerlink" title="Theorem 23"></a>Theorem 23</h2><p>给定 $P={x \mid A x=b, x \geq 0}$ , 对任意 $x \in P$ , 我们定义 $B={j \mid x_j&gt;0}$ . 如果 $A_B$ 的列是线性无关的, 则 $x$ 是 $P$ 的一个端点(vertex).</p>
+<article class="message is-info"><div class="message-body">
+<p>结合<strong>Theorem 22</strong>, 说明在 $A_B$ 行满秩的前提下, 端点和极值点其实是等价的</p>
+</div></article>
+<div><div class="fold_hider"><div class="close hider_title">证明</div></div><div class="fold">
+<p>定义 $c_j= \begin{cases}0 &amp; j \in B \ -1 &amp; j \notin B\end{cases}$ </p>
+<p>则 $c^T \cdot x=0$ , 对于其他点 $y \in P$ , $c^T \cdot y \le 0$ (因为 $c$ 是非正的)</p>
+<p>根据端点的定义(<strong>Definition 18</strong>), 如果 $x$ 是端点, 我们必须证明: $\forall y, c^T \cdot y = 0 \Rightarrow x=y$</p>
+<p>我们假设 $c^T y=0$ , 则如果 $j \notin B$ , $y_j=0$ 必须满足, 否则结果里面就会出现 $-1$</p>
+<p>因为 $y \in P$ , 所以有 $Ay=b$ , 对于 $y$ 中不属于 $B$ 的索引对应的元素, 不会对结果产生贡献, 因为他们是 $0$ , 所以有 $Ay=b=A_B \cdot y_B$ . 对于 $x$ 中不属于 $B$ 的索引对应的元素同理. 所以有 $Ay=b=A_B \cdot y_B = Ax=A_B \cdot x_B$</p>
+<p>移项之后能得出: $A_B\left(x_B-y_B\right)=0$</p>
+<p>因为 $A$ 的列是线性无关的, 所以 $x_B - y_B$ 一定得是 $0$ (线性无关的定义)</p>
+<p>于是就证出了 $\forall y, c^T \cdot y = 0 \Rightarrow x=y$</p>
+<p>所以在 $A_B$ 的列是线性无关的条件下, 对于我们构建的 $c$ , $\nexists y \neq x , c^T \cdot y \ge c^T \cdot x$ , 所以 $x$ 必定是端点.</p>
+
+</div></div>
+<h2 id="Observation-1"><a href="#Observation-1" class="headerlink" title="Observation"></a>Observation</h2><p>对于一个LP问题, 我们能够假设矩阵 $A$ 是行满秩的, 即 $\operatorname{rank}(A)=m$</p>
+<article class="message is-info"><div class="message-body">
+<p>从现在开始, 我们假设标准形式的LP问题的条件矩阵 $A$ 都是行满秩的</p>
+</div></article>
+<div><div class="fold_hider"><div class="close hider_title">说明</div></div><div class="fold">
+<p>假设 $\operatorname{rank}(A)&lt;m$</p>
+<p>不失一般性, 我们假设第一行 $A_1$ 能够表示成其他列 $A_2, \ldots, A_m$ 的线性组合: </p>
+<script type="math/tex; mode=display">
+A_1=\sum_{i=2}^m \lambda_i \cdot A_i</script><h3 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1"></a>Case 1</h3><p>如果 $b<em>1=\sum</em>{i=2}^m \lambda_i \cdot b_i$ , 则第一行就没意义了, 如果除了第一行的其他行能够成立, 那么第一行必定成立</p>
+<h3 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2"></a>Case 2</h3><p>如果 $b<em>1 \neq \sum</em>{i=2}^m \lambda_i \cdot b_i$ , 那么LP就是无解的, 因为: </p>
+<script type="math/tex; mode=display">
+A_1 x=\sum_{i=2}^m \lambda_i \cdot A_i x=\sum_{i=2}^m \lambda_i \cdot b_i \neq b_1</script><p>即如果第一行成立, 则其他行不成立; 如果其他行成立, 则第一行必不成立</p>
+
+</div></div>
+<h2 id="Theorem-24"><a href="#Theorem-24" class="headerlink" title="Theorem 24"></a>Theorem 24</h2><p>给定 $P={x \mid A x=b, x \geq 0}$ , $x$ 是极值点当且仅当存在 $B \subseteq{1, \ldots, n}$ , 满足 $|B|=m$ 并且: </p>
+<ul>
+<li>$A_B$ 是非奇异的</li>
+<li>$x_B=A_B^{-1} b \geq 0$</li>
+<li>$x_N=0$</li>
+</ul>
+<p>定义 $N={1, \ldots, n} \backslash B$</p>
+<div><div class="fold_hider"><div class="close hider_title">证明</div></div><div class="fold">
+<h3 id="Rightarrow"><a href="#Rightarrow" class="headerlink" title="$\Rightarrow$"></a>$\Rightarrow$</h3><p>根据<strong>Theorem 22</strong>, 如果 $x$ 是极值点, 则存在 $B={j \mid x_j&gt;0}$ , 使得 $A_B$ 的列是线性无关的. </p>
+<p>$max\left(|B|\right)=m$ , 因为 $A$ 是行满秩的, 即 $rank(A)=m$ , 并且行秩等于列秩, 所以列秩最大就是 $m$ , 即最多有 $m$ 个线性无关的列.</p>
+<p>如果 $|B|&lt;m$ , 我们就往里面加入线性无关的列即可.</p>
+<p>易得, 这样构造出的 $B$ 和 $A_B$ 是满足条件的</p>
+<h3 id="Leftarrow"><a href="#Leftarrow" class="headerlink" title="$\Leftarrow$"></a>$\Leftarrow$</h3><p>上述过程都是充要并且可逆的, 反过来写就好了</p>
+
+</div></div>
+<h2 id="Basic-Feasible-Solutions"><a href="#Basic-Feasible-Solutions" class="headerlink" title="Basic Feasible Solutions"></a>Basic Feasible Solutions</h2><p>如果 $x \in \mathbb{R}^n$ , $A x=b$ 并且定义 $J={j \mid x_j \neq 0}$ , $\operatorname{rank}\left(A_J\right)=|J|$ , 则 $x$ 被称作基本解 (basis solution).</p>
+<p>如果 $x$ 是一个基本解, 并且 $x \ge 0$ , 那么 $x$ 被称作基本可行解 (basic feasible solution)</p>
+<p>一个底 (basis) 是一个索引集 $B \subseteq{1, \ldots, n}$ , 满足 $\operatorname{rank}\left(A_B\right)=m$ 并且 $|B|=m$</p>
+<p>给定底 $B$ , 满足 $A_B x_B=b$ , 并且对于所有 $j \notin B$ , $x_j=0$ 的 $x \in \mathbb{R}^n$ 被称作关联底 $B$ 的基本解</p>
+<article class="message is-info"><div class="message-body">
+<p>根据<strong>Theorem 22</strong>, <strong>Theorem 23</strong>和<strong>Theorem 24</strong>, 我们知道任何关联底 $B$ 的基本都是一个极值点和端点.</p>
+</div></article>
+<h3 id="Facts"><a href="#Facts" class="headerlink" title="Facts"></a>Facts</h3><p>一个基本可行解满足了约束矩阵 $A$ 中的 $m$ 个等号约束</p>
+<p>除此之外, 索引不在底 $B$ 中的 $x$ 的元素 $x_j$ 的值是 $0$ , 因此 $x \ge 0$ 的 $n$ 个非负约束中的 $n-m$ 个被等号满足.</p>
+<p>也就是说, 一个基本可行解能等号满足至少 $n$ 个约束</p>
+<h2 id="Definition-25"><a href="#Definition-25" class="headerlink" title="Definition 25"></a>Definition 25</h2><p>基于上述Facts, 对于一个有 $n$ 个变量的通用LP ($\max {c^T x \mid A x \leq b}$) , $x$ 是一个基本可行解如果 $x$ 是可行的并且存在 $n$ 个 (线性无关的) 约束是被等号满足的 (tight)</p>
+<h2 id="Illustration"><a href="#Illustration" class="headerlink" title="Illustration"></a>Illustration</h2><p><img src="/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230501_113427.png" alt=""></p>
+<p>其中蓝色的是基本可行解, 红色的是基本解</p>
+<h2 id="Fundamental-Questions"><a href="#Fundamental-Questions" class="headerlink" title="Fundamental Questions"></a>Fundamental Questions</h2><p>Is LP in NP? yes!</p>
+<p>因为给定一个底 $B$ , 我们能在多项式时间内计算出他对应的基本解 $A_B^{-1} b$</p>
+<article class="message is-info"><div class="message-body">
+<p>NP is the set of decision problems for which the problem instances, where the answer is “yes”, have proofs verifiable in polynomial time by a deterministic Turing machine, or alternatively the set of problems that can be solved in polynomial time by a nondeterministic Turing machine.</p>
+</div></article>
+<h2 id="Observation-2"><a href="#Observation-2" class="headerlink" title="Observation"></a>Observation</h2><p>我们能在 $\mathcal{O}\left(\left(\begin{array}{c}n \ m\end{array}\right) \cdot \operatorname{poly}(n, m)\right)$ 的时间复杂度内计算出最优解</p>
+<div><div class="fold_hider"><div class="close hider_title">证明</div></div><div class="fold">
+<p>最多只有 $\left(\begin{array}{c}n \ m\end{array}\right)$ 个底, 便利一次计算出最优解即可</p>
+<p>如果LP不是有界的, 那么把要求(证)的那个 $c^Tx \leq \alpha$ 也加进去, 就能转换成有界的LP了</p>
+
+</div></div>
+<h2 id="Simplex-Algorithm"><a href="#Simplex-Algorithm" class="headerlink" title="Simplex Algorithm"></a><strong>Simplex Algorithm</strong></h2><h3 id="Idea"><a href="#Idea" class="headerlink" title="Idea"></a>Idea</h3><p>如果便利所有的基本可行解来求最优解太慢了</p>
+<p>我们只需要从一个基本可行解开始, 经过与他相邻 (adjacent) 的基本可行解, 保证目标函数 (objective function) 不减少</p>
+<p>两个基本可行解是相邻的, 如果他们对应的底只有一个变量不同</p>
+<h3 id="Pivoting-Step-Example"><a href="#Pivoting-Step-Example" class="headerlink" title="Pivoting Step (Example)"></a>Pivoting Step (Example)</h3><script type="math/tex; mode=display">
+\begin{array}{rcrcrcrcrcl}
+\max \quad 13 a & +&23 b \\
+\text { s.t. } \quad 5a & + & 15b & + & s_c & & & & & = & 480 \\
+4a & + & 4b & & &  + & s_h & & & = & 160 \\
+35a & + & 20b & & & & & + & s_m & = & 1190 \\
+a & , & b & , & s_c & , & s_h &, & s_m & \geq & 0
+\end{array}</script><p>先进行一次小小的变形, 我们要保证在底中的变量 ( ${s_c, s_h, s_m}$ ) 的系数必须是 $1$ , 否则进行一次高斯消元 </p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">约束矩阵</th>
+<th style="text-align:center">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\begin{array}{rcrcrcrcrcrcl} \max \quad Z \\ \text { s.t. } \quad 13 a &amp; + &amp;23 b &amp; &amp; &amp; &amp; &amp; &amp; &amp; - &amp; Z &amp; = &amp; 0 \\ 5a &amp; + &amp; 15b &amp; + &amp; s_c &amp; &amp; &amp; &amp; &amp; &amp; &amp; = &amp; 480 \\ 4a &amp; + &amp; 4b &amp; &amp; &amp;  + &amp; s_h &amp; &amp; &amp; &amp; &amp; = &amp; 160 \\ 35a &amp; + &amp; 20b &amp; &amp; &amp; &amp; &amp; + &amp; s_m &amp; &amp; &amp; = &amp; 1190 \\ a &amp; , &amp; b &amp; , &amp; s_c &amp; , &amp; s_h &amp;, &amp; s_m &amp; &amp; &amp; \geq &amp; 0 \end{array} $</td>
+<td style="text-align:center">$\begin{aligned} &amp; \text {basis}={s_c, s_h, s_m} \\ &amp; a=b=0 \\ &amp; Z=0 \\ &amp; s_c=480 \\ &amp; s_h=160 \\ &amp; s_m=1190\end{aligned}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>这样我们的目标函数就是约束矩阵的第一行了</p>
+<p>接下来我们从目标函数中取一个不在底中的并且系数是正的变量(必须是最大的那个, 否则会死循环), 这个例子中可供选择的有 ${a, b}$ , 但是 $b$ 的系数更大, 所以我们选 $b$ , 这变量叫做进入变量 (entering variable)</p>
+<p>接下来我们保持 $a=0$ 不变, 增大 $b$ , 因为要维护约束约束矩阵, 所以底中的变量会变小, 我们增大 $b$ 到 $\theta$ 使得有一个底中的变量减小到了 $0$ (不可能有两个, 因为约束矩阵 $A$ 是行满秩的, 如果有两个的话说明 $A$ 的行是线性相关的, 就不是行满秩的了)</p>
+<p>这里我们可以很容易的算出 $\theta=\min {480 / 15,160 / 4,1190 / 20}$ , 因为底中的变量的系数都是1</p>
+<p>第一个被减到 $0$ 的底中的变量是 $s_c$ , 这个变量叫做离开变量 (leaving variable)</p>
+<p>得到了进入变量和离开变量, 我们要对约束矩阵进行变换: </p>
+<ul>
+<li>在除了第一行 (目标函数) 的行中, 首先将进入变量的系数变为 $1$</li>
+<li>找到进入变量和离开变量都存在的那行, 消去除了这行的所有行中的进入变量 (这一步的目的是消去其他行不是底中的变量, 让底中的变量只出现一次)</li>
+<li>更改状态, 将离开变量从底中剔除, 加入进入变量, 根据求得的 $\theta$ 改变变量的值</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">约束矩阵</th>
+<th style="text-align:center">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\ \text { s.t. } \quad \frac {16}{3} a &amp; &amp; &amp; - &amp; \frac{23}{15} s_c &amp; &amp; &amp; &amp; &amp; - &amp; Z &amp; = &amp; -736 \\ \frac{1}{3}a &amp; + &amp; b &amp; + &amp; \frac{1}{15}s_c &amp; &amp; &amp; &amp; &amp; &amp; &amp; = &amp; 32 \\ \frac{8}{3} a &amp; &amp; &amp; - &amp; \frac{4}{15}s_c &amp;  + &amp; s_h &amp; &amp; &amp; &amp; &amp; = &amp; 32 \\ \frac{85}{3} a &amp; &amp; &amp; - &amp; \frac{4}{3}s_c &amp; &amp; &amp; + &amp; s_m &amp; &amp; &amp; = &amp; 550 \\ a &amp; , &amp; b &amp; , &amp; s_c &amp; , &amp; s_h &amp;, &amp; s_m &amp; &amp; &amp; \geq &amp; 0 \end{array} $</td>
+<td style="text-align:center">$\begin{aligned} &amp; \text {basis}={b, s_h, s_m} \\ &amp; a=s_c=0 \\ &amp; Z=736 \\ &amp; b=32 \\ &amp; s_h=32 \\ &amp; s_m=550\end{aligned}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>重复以上步骤知道目标函数中的系数都是负的. </p>
+<div><div class="fold_hider"><div class="close hider_title">剩下的步骤</div></div><div class="fold">
+<p>这里再走一步:</p>
+<p>目标函数中现在只有 $a$ 的系数是负的, 所以我们选择 $a$ 作为进入变量</p>
+<p>然后计算 $\theta = \min {3 \cdot 32,3 \cdot 32 / 8,3 \cdot 550 / 85}$ , 这里最小的是第三项, 所以我们选 $s_m$ 作为离开变量</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">约束矩阵</th>
+<th style="text-align:center">状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$ \begin{array}{rcrcrcrcrcrcl} \max \quad Z \\ \text { s.t. } \quad \&amp; &amp; &amp; - &amp; \frac{23}{15} s_c &amp; &amp; - &amp; 2s_h &amp; &amp; &amp; - &amp; Z &amp; = &amp; -800 \\ &amp; + &amp; b &amp; + &amp; \frac{1}{10}s_c &amp; - &amp; \frac{1}{8}s_h &amp; &amp; &amp; &amp; &amp; = &amp; 28 \\ a &amp; &amp; &amp; - &amp; \frac{1}{10}s_c &amp;  + &amp; \frac{3}{8}s_h &amp; &amp; &amp; &amp; &amp; = &amp; 12 \\ &amp; &amp; &amp; &amp; \frac{2}{3}s_c &amp; - &amp; \frac{85}{8}s_h &amp; + &amp; s_m &amp; &amp; &amp; = &amp; 210 \\ a &amp; , &amp; b &amp; , &amp; s_c &amp; , &amp; s_h &amp;, &amp; s_m &amp; &amp; &amp; \geq &amp; 0 \end{array} $</td>
+<td style="text-align:center">$\begin{aligned} &amp; \text {basis}={a, b, s_m} \\ &amp; s_c=s_h=0 \\ &amp; Z=800 \\ &amp; b=28 \\ &amp; a=12 \\ &amp; s_m=210\end{aligned}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>此时目标矩阵中的变量的系数全是负的了, 所以程序结束, 我们找到的最优解是 $800$</p>
+
+</div></div>
+<h3 id="Matrix-View"><a href="#Matrix-View" class="headerlink" title="Matrix View"></a>Matrix View</h3><script type="math/tex; mode=display">
+\begin{array}{rcrcl}
+c_B^T x_B & + & c_N^T x_N & = & Z \\
+A_B x_B & + & A_N x_N & = & b \\
+x_B & , & x_N & \geq & 0
+\end{array}</script><p>按照上面说的, 需要把底中的变量的系数变成 $1$ , 并且在约束矩阵中只能出现一次:</p>
+<script type="math/tex; mode=display">
+\begin{array}{rcrcl}
+& & \left(c_N^T-c_B^T A_B^{-1} A_N\right) x_N & = & Z-c_B^T A_B^{-1} b \\
+x_B & + & A_B^{-1} A_N x_N & = & A_B^{-1} b \\
+x_B & , & x_N & \geq & 0
+\end{array}</script><p>那么基本可行解就是由 $x_N=0, x_B=A_B^{-1} b$ 组成</p>
+<p>如果 $\left(c_N^T-c_B^T A_B^{-1} A_N\right) \leq 0$ , 我们就知道我们已经找到最优解了</p>
+<h3 id="Geometric-View-of-Pivoting"><a href="#Geometric-View-of-Pivoting" class="headerlink" title="Geometric View of Pivoting"></a>Geometric View of Pivoting</h3><p><img src="/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230501_134945.png" alt=""></p>
+<p>一开始的底在原点, 然后往上走了一步, 再往右走了一步到达最优解</p>
+<h3 id="Algebraic-Definition-of-Pivoting"><a href="#Algebraic-Definition-of-Pivoting" class="headerlink" title="Algebraic Definition of Pivoting"></a>Algebraic Definition of Pivoting</h3><p>给定底 $B$ 和他关联的基本可行解 $x^*$</p>
+<p>选一个索引 $j \notin B$ , 把 $x_j^*$ 从 $0$ 增大到 $\theta \ge 0$</p>
+<ul>
+<li>其他非底的变量应该不变, 为 $0$</li>
+<li>底中的变量应该自适应改动以维护约束成立</li>
+</ul>
+<p>也就是说从 $x^\ast$ 变成 $x^\ast + \theta \cdot d$</p>
+<h4 id="Requirements-for-d"><a href="#Requirements-for-d" class="headerlink" title="Requirements for $d$"></a>Requirements for $d$</h4><ul>
+<li>$d_j = 1$ (归一化)</li>
+<li>$d_{\ell}=0, \ell \notin B, \ell \neq j$</li>
+<li>$A\left(x^*+\theta d\right)=b$ 必须满足, 因为移动后也必须是可行解, 所以我们可以推出 $A d=0$</li>
+</ul>
+<h2 id="Definition-26-j-th-basis-direction"><a href="#Definition-26-j-th-basis-direction" class="headerlink" title="Definition 26 ( $j$ -th basis direction)"></a>Definition 26 ( $j$ -th basis direction)</h2><p>综上, $Ad = A<em>B d_B+A</em>{\ast j}=0$ , $A_{\ast j}$ 是约束矩阵 $A$ 的第 $j$ 列</p>
+<p>$A<em>B$ 的列是线性无关的, 所以 $A_B$ 是可逆的, 我们能直接推出 $d_B=-A_B^{-1} A</em>{* j}$</p>
+<p>$d_B$ 就是 $j$ -th basis direction</p>
+<h2 id="Definition-27-Reduced-Cost"><a href="#Definition-27-Reduced-Cost" class="headerlink" title="Definition 27 (Reduced Cost)"></a>Definition 27 (Reduced Cost)</h2><p>从 $x^\ast$ 移动到 $x^\ast+\theta \cdot d$ , 目标函数变化了 $\theta \cdot c^T d=\theta\left(c<em>j-c_B^T A_B^{-1} A</em>{\ast j}\right)$</p>
+<p>我们定义: $\tilde{c}<em>j=c_j-c_B^T A_B^{-1} A</em>{\ast j}$ 是 $x_j$ 的reduced cost.</p>
+<p>reduced cost是对每个 $j$ 都有定义的, 如果 $j \in B$ , 那么 $x_j$ 的reduced cost就是0, 因为我们不能选这个 $j$ 作为进入变量, 所以无法改变目标函数</p>
+<article class="message is-info"><div class="message-body">
+<p><strong>Matrix View</strong>中的 $c_N^T-c_B^T A_B^{-1} A_N$ 就是由 $j \in N$ 的reduced cost构成</p>
+</div></article>
+<h2 id="Min-Ratio-Test"><a href="#Min-Ratio-Test" class="headerlink" title="Min Ratio Test"></a>Min Ratio Test</h2><p>Q: What happens if the min ratio test fails to give us a value $θ$<br>by which we can safely increase the entering variable?</p>
+<p>我们知道 $\theta = \min \left( \max \left( b<em>i / A</em>{i e}, 0 \right) \right)$ , 这里的 $A_{i e}$ 是第 $i$ 行中的在底中的变量的值 (具体看上面的步骤) </p>
+<p>如果这些值中不是全是负的, 那么这个负值只会增大这个变量, 而不是减小, 所以是没有危险的</p>
+<p>如果全是负的, 那么就没有离开变量选择了, LP就不是有界的了</p>
+<h2 id="Termination"><a href="#Termination" class="headerlink" title="Termination"></a>Termination</h2><p>在Simplex方法的一次迭代中, 目标函数的值是不会下降的, 但是他会保证一直上升吗?</p>
+<p>答案是: <strong>并不</strong>!</p>
+<h3 id="Definition-28-退化-Degeneracy"><a href="#Definition-28-退化-Degeneracy" class="headerlink" title="Definition 28 (退化 Degeneracy)"></a>Definition 28 (退化 Degeneracy)</h3><p>一个基本可行解 $x^\ast$ 是退化的, 如果集合 $J=\left{j \mid x_j^*&gt;0\right}$ 满足 $|J|&lt;m$</p>
+<div><div class="fold_hider"><div class="close hider_title">人话</div></div><div class="fold">
+<p>若干个基本可行解重合了, 如图右下角有三个点重合了</p>
+<p><img src="/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230514_004656.png" alt=""></p>
+
+</div></div>
+<h2 id="总结-如何挑选每次迭代中加入到底中的那个下标"><a href="#总结-如何挑选每次迭代中加入到底中的那个下标" class="headerlink" title="总结: 如何挑选每次迭代中加入到底中的那个下标?"></a>总结: 如何挑选每次迭代中加入到底中的那个下标?</h2><ul>
+<li>我们可以选择一列 $e$ 作为进入变量, 如果 $\tilde{C}_e&gt;0$ ($\tilde{c}_e$ 是 $x_e$ 对应的reduced cost)</li>
+<li>标准选择是选 $\tilde{c}_e$ 最大的那个列 $e$</li>
+<li>如果对所有 $i \in{1, \ldots, m}$ 都有 $A_{i e} \leq 0$ , 那说明最大值是无界的</li>
+<li>否则, 选一个离开变量 $l$ 使得 $b<em>{\ell} / A</em>{\ell e}$ 在所有的 $A_{i e}&gt;0$ 是最小的</li>
+<li>如果有数个变量都同时是最小值, 那就到了一个退化的基本可行解</li>
+<li>取决于 $l$ 的选取, Simplex方法可能会陷入死循环</li>
+</ul>
+<article class="message is-info"><div class="message-body">
+<p>一些感悟: 约束矩阵 $A$ 中的每一行都能代表一个在底中的变量, 而 $A$ 中的每一列代表一个变量, 因为 $A$ 是行满秩的<br></div></article></p>
+<article class="message is-info"><div class="message-header">
+<p>What do we have so far?<br></div><div class="message-body"><br>Suppose we are given an initial feasible solution to an LP. If the LP<br>is non-degenerate then Simplex will terminate.<br>Note that we either terminate because the min-ratio test fails and<br>we can conclude that the LP is <strong>unbounded</strong>, or we terminate<br>because the vector of reduced cost is non-positive. In the latter<br>case we have an <strong>optimum solution</strong>.<br></div></article></p>
+<h2 id="Initial-Solution"><a href="#Initial-Solution" class="headerlink" title="Initial Solution"></a>Initial Solution</h2><article class="message is-danger"><div class="message-body">
+<p>TODO<br></div></article></p>
+<h2 id="Lemma-29-Optimality"><a href="#Lemma-29-Optimality" class="headerlink" title="Lemma 29 (Optimality)"></a>Lemma 29 (Optimality)</h2><p>有一个底 $B$ 和一个基于 $B$ 的基本可行解 $x^\ast$ , $\tilde{c} \leq 0$ 能够得出 $x^\ast$ 是LP的最优解</p>
+<h2 id="Definition-30-Duality"><a href="#Definition-30-Duality" class="headerlink" title="Definition 30 (Duality)"></a>Definition 30 (Duality)</h2><p>主要线性规划(primal LP) $z=\max \left{c^T x \mid A x \leq b, x \geq 0\right}$ 的对偶问题(dual problem) 是 $w=\min \left{b^T y \mid A^T y \geq c, y \geq 0\right}$</p>
+<h2 id="Lemma-31"><a href="#Lemma-31" class="headerlink" title="Lemma 31"></a>Lemma 31</h2><p>一个主要线性规划问题的对偶问题的对偶问题是他自己</p>
+<p>$\begin{aligned} &amp; w=\min \left{b^T y \mid A^T y \geq c, y \geq 0\right} \ &amp; w=-\max \left{-b^T y \mid-A^T y \leq-c, y \geq 0\right}\end{aligned}$</p>
+<p>$w$ 的对偶问题是:</p>
+<p>$\begin{aligned} &amp; z=-\min \left{-c^T x \mid-A x \geq-b, x \geq 0\right} \ &amp; z=\max \left{c^T x \mid A x \leq b, x \geq 0\right}\end{aligned}$</p>
+<h2 id="Theorem-32-Weak-Duality"><a href="#Theorem-32-Weak-Duality" class="headerlink" title="Theorem 32 (Weak Duality)"></a>Theorem 32 (Weak Duality)</h2><p>$z=\max \left{c^T x \mid A x \leq b, x \geq 0\right}$ 和 $w=\min \left{b^T y \mid A^T y \geq c, y \geq 0\right}$ 是一对对偶问题, $x$ 是主要可行(primal feasible), 当且仅当 $x \in{x \mid A x \leq b, x \geq 0}$ ,<br>$y$ 是对偶可行(dual feasible), 当且仅当 $y \in\left{y \mid A^T y \geq c, y \geq 0\right}$</p>
+<p>给定 $\hat{x}$ 是主要可行的, $\hat{y}$ 是对偶可行的:</p>
+<script type="math/tex; mode=display">
+c^T \hat{x} \leq z \leq w \leq b^T \hat{y}</script><div><div class="fold_hider"><div class="close hider_title">查看证明</div></div><div class="fold">
+<script type="math/tex; mode=display">
+A^T \hat{y} \geq c \Rightarrow \hat{x}^T A^T \hat{y} \geq \hat{x}^T c\quad (\hat{x} \geq 0)</script><script type="math/tex; mode=display">
+A \hat{x} \leq b \Rightarrow y^T A \hat{x} \leq \hat{y}^T b \quad (\hat{y} \geq 0)</script><p>通过这两个能推出:</p>
+<script type="math/tex; mode=display">
+c^T \hat{x} \leq \hat{y}^T A \hat{x} \leq b^T \hat{y}</script><p>又因为 $z$ 是主要可行的最大解, $w$ 是对偶可行的最小解, 就有: $z \leq w$</p>
+
+</div></div>
+<p>另外: 如果主要线性规划问题 $P$ 是无界的, 那么其对偶问题 $D$ 就是不可行的</p>
+<h2 id="Simplex-and-Duality"><a href="#Simplex-and-Duality" class="headerlink" title="Simplex and Duality"></a>Simplex and Duality</h2><p>$z =\max \left{c^T x \mid A x=b, x \geq 0\right} $</p>
+<p>$w =\min \left{b^T y \mid A^T y \geq c\right}$</p>
+<p>是一组对偶问题, 这也代表: 在解一个主要线性规划问题的对偶问题的时候, 我们没有变量非负的限制</p>
+<div><div class="fold_hider"><div class="close hider_title">查看证明</div></div><div class="fold">
+<p>对主要线性规划问题进行改写:</p>
+<p>$\begin{aligned} \max &amp; \left{c^T x \mid A x=b, x \geq 0\right} \\ &amp; =\max \left{c^T x \mid A x \leq b,-A x \leq-b, x \geq 0\right} \\ &amp; =\max \left{c^T x \mid\left[\begin{array}{c}A \\ -A\end{array}\right] x \leq\left[\begin{array}{c}b \\ -b\end{array}\right], x \geq 0\right}\end{aligned}$</p>
+<p>这里的最后一步就是把两个不等式写成矩阵形式</p>
+<p>改写后的对偶问题为: </p>
+<p>$\begin{aligned} \min &amp; \left{\left[b^T-b^T\right] y \mid\left[A^T-A^T\right] y \geq c, y \geq 0\right} \\ &amp; =\min \left{\left[b^T-b^T\right] \cdot\left[\begin{array}{c}y^{+} \\ y^{-}\end{array}\right] \mid\left[A^T-A^T\right] \cdot\left[\begin{array}{l}y^{+} \\ y^{-}\end{array}\right] \geq c, y^{-} \geq 0, y^{+} \geq 0\right} \\ &amp; =\min \left{b^T \cdot\left(y^{+}-y^{-}\right) \mid A^T \cdot\left(y^{+}-y^{-}\right) \geq c, y^{-} \geq 0, y^{+} \geq 0\right} \\ &amp; =\min \left{b^T y^{\prime} \mid A^T y^{\prime} \geq c\right}\end{aligned}$</p>
+
+</div></div>
+<h2 id="Proof-of-Optimality-Criterion-for-Simplex"><a href="#Proof-of-Optimality-Criterion-for-Simplex" class="headerlink" title="Proof of Optimality Criterion for Simplex"></a>Proof of Optimality Criterion for Simplex</h2><p>假设我们有一个基本可行解 $x^\ast$, 其reduced cost为:</p>
+<p>$\tilde{c}=c^T-c_B^T A_B^{-1} A \leq 0$</p>
+<p>这也代表 $x^ast$ 是最优解 (Lemma 29)</p>
+<p>我们对这个式子进行改写: $A^T\left(A_B^{-1}\right)^T c_B \geq c$</p>
+<p>令 $y^\ast=\left(A_B^{-1}\right)^T c_B$</p>
+<p>$\begin{aligned} b^T y^\ast &amp; =\left(A x^\ast\right)^T y^\ast=\left(A_B x_B^\ast\right)^T y^\ast \\ &amp; =\left(A_B x_B^\ast\right)^T\left(A_B^{-1}\right)^T c_B=\left(x_B^\ast\right)^T A_B^T\left(A_B^{-1}\right)^T c_B \\ &amp; =c^T x^\ast\end{aligned}$</p>
+<p>因为 $c^T \hat{x} \leq z \leq w \leq b^T \hat{y}$ 所以 $y^\ast$ 其实也是最优解</p>
+<article class="message is-info"><div class="message-body">
+<p>所以在 $x^\ast$ 和 $y^\ast$ 都是最优解的情况下, 对偶差距(Duality Gap)为 $0$</p>
+</div></article>
+<h2 id="Strong-Duality"><a href="#Strong-Duality" class="headerlink" title="Strong Duality"></a>Strong Duality</h2><p>$P=\max \left{c^T x \mid A x \leq b, x \geq 0\right}$</p>
+<p>$n_A$ : 变量的个数( $A$ 的列数), $m_A$ : 约束的个数 ( $A$ 的行数)</p>
+<p>我们也可以把变量非负这个约束加入约束矩阵 $A$ ( $ x \geq 0 \Rightarrow -x \leq 0$ )</p>
+<p>然后新的LP: $\bar{P}=\max \left{c^T x \mid \bar{A} x \leq \bar{b}\right}$</p>
+<p>$n<em>{\bar{A}}=n_A, m</em>{\bar{A}}=m_A+n_A$</p>
+<p>新LP的对偶问题: $D=\min \left{\bar{b}^T y \mid \bar{A}^T y=c, y \geq 0\right}$</p>
+<h2 id="Theorem-33-Strong-Duality"><a href="#Theorem-33-Strong-Duality" class="headerlink" title="Theorem 33 (Strong Duality)"></a>Theorem 33 (Strong Duality)</h2><p>给定 $P$ 和 $D$ 互为对偶问题对, $z^\ast$ 和 $w^\ast$ 是这对问题的最优解, 那么:</p>
+<script type="math/tex; mode=display">
+z^\ast = w^\ast</script><h2 id="Lemma-34-Weierstrass"><a href="#Lemma-34-Weierstrass" class="headerlink" title="Lemma 34 (Weierstrass)"></a>Lemma 34 (Weierstrass)</h2><p>给定 $X$ 是一个凸集, $f(x)$ 是在凸集 $X$ 上的一个连续的函数, 那么 $\min {f(x): x \in X}$ 存在</p>
+<h2 id="Lemma-35-Projection-Lemma"><a href="#Lemma-35-Projection-Lemma" class="headerlink" title="Lemma 35 (Projection Lemma)"></a>Lemma 35 (Projection Lemma)</h2><p>给定 $X \subseteq \mathbb{R}^m$ 是一个非空的凸集, 并且 $y \notin X$. 那就存在一个凸集上到 $y$ 的距离最近的点 $x^\ast$ . 并且, 对所有 $x \in X$ , 都有 $\left(y-x^\ast\right)^T\left(x-x^\ast\right) \leq 0$</p>
+<p><img src="/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_205348.png" alt=""></p>
+<div><div class="fold_hider"><div class="close hider_title">查看证明</div></div><div class="fold">
+<p>$f(x)=|y-x|$</p>
+<p>但是此时还不能用Lemma 34, 因为 $X$ 可能不是有界的</p>
+<p>解决方法: 因为 $X \neq \varnothing$ , 所以存在一个点 $x’ \in X$ , 定义 $X^{\prime}=\left{x \in X \mid|y-x| \leq\left|y-x^{\prime}\right|\right}$ , 此时这个 $X’$ 就是闭合的(closed)并且有界的(bounded)</p>
+<p>这样我们就可以通过Lemma 34证明: 最近点必定存在.</p>
+<p><img src="/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_212354.png" alt=""></p>
+<p>接下来证明 $\left(y-x^\ast\right)^T\left(x-x^\ast\right) \leq 0$</p>
+<p>假设 $x^\ast$ 是最近点. 所以 对所有的 $x \in X$ , $\left|y-x^\ast\right|^2 \leq|y-x|^2$ </p>
+<p>根据凸集的性质: $x \in X$ 那么 对于所有的 $0 \leq \epsilon \leq 1$ , $x^\ast+\epsilon\left(x-x^\ast\right) \in X$ ( $x$ 和 $x’$ 的连线上的点)</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\left\|y-x^\ast\right\|^2 & \leq\left\|y-x^\ast-\epsilon\left(x-x^\ast\right)\right\|^2 \\\\
+& =\left\|y-x^\ast\right\|^2+\epsilon^2\left\|x-x^\ast\right\|^2-2 \epsilon\left(y-x^\ast\right)^T\left(x-x^\ast\right)
+\end{aligned}</script><p>改写一下上面的式子: $\left(y-x^\ast\right)^T\left(x-x^\ast\right) \leq \frac{1}{2} \epsilon\left|x-x^\ast\right|^2$</p>
+<p>如果 $\epsilon \rightarrow 0$ 就得到了我们要证明的结论</p>
+
+</div></div>
+<h2 id="Theorem-36-Separating-Hyperplane"><a href="#Theorem-36-Separating-Hyperplane" class="headerlink" title="Theorem 36 (Separating Hyperplane)"></a>Theorem 36 (Separating Hyperplane)</h2><p>给定 $X \subseteq \mathbb{R}^m$ 是一个非空的凸集, 并且 $y \notin X$. 那么一定存在一个分割超平面 $\left{x \in \mathbb{R}: a^T x=\alpha, a \in \mathbb{R}^m, \alpha \in \mathbb{R} \right}$ 将 $X$ 和 $y$ 分割开 (对于所有的 $x \in X$, $a^T y&lt;\alpha ; a^T x \geq \alpha$)</p>
+<div><div class="fold_hider"><div class="close hider_title">查看证明</div></div><div class="fold">
+<p>$x^\ast \in X$ 是 $X$ 中距离 $y$ 的最近点</p>
+<p>根据上面的定理, 对于所有的 $x \in X$, $\left(y-x^\ast\right)^T\left(x-x^\ast\right) \leq 0$</p>
+<p>令: $a=\left(x^\ast-y\right)$ , $\alpha=a^T x^\ast$</p>
+<p>对于所有的 $x \in X: a^T\left(x-x^\ast\right) \geq 0$ , 所以有 $a^T x \geq \alpha$</p>
+<p>同时 $a^T y=a^T\left(x^\ast-a\right)=\alpha-|a|^2&lt;\alpha$</p>
+<p><img src="/img/article/Effiziente-Algorithmen-und-Datenstrukturen-II/Screenshot_20230515_213029.png" alt=""></p>
+
+</div></div>
+<h2 id="Lemma-37-Farkas-Lemma"><a href="#Lemma-37-Farkas-Lemma" class="headerlink" title="Lemma 37 (Farkas Lemma)"></a>Lemma 37 (Farkas Lemma)</h2><p>给定 $A$ 是一个 $m \times n$ 的矩阵, 那么下面两个陈述仅有一个是真的:</p>
+<ul>
+<li>$\exists x \in \mathbb{R}^n$ , $A x=b, x \geq 0$</li>
+<li>$\exists y \in \mathbb{R}^m$ , $A^T y \geq 0, b^T y&lt;0$</li>
+</ul>
+<div><div class="fold_hider"><div class="close hider_title">点击显/隐内容</div></div><div class="fold">
+<p>首先我们先证明上述两个陈述最多有一个是正确的</p>
+<p>假设 $\hat{x}$ 满足第一天陈述, $\hat{y}$ 满足第二条, 那么有</p>
+<script type="math/tex; mode=display">
+0>y^T b=y^T A x \geq 0</script><p>所以不能两条都同时满足</p>
+<p>现在假设第一条不满足</p>
+<p>$S={A x: x \geq 0}$ 是矩阵 $A$ 的列的锥组合, 所以 $S$ 是闭合的, 凸的. 因为第一条不满足, 所以 $Ax \neq b$ , 所以 $b \notin S$</p>
+<p>我们想要证明存在一个 $y$ , 满足 $A^T y \geq 0, b^T y&lt;0$</p>
+<p>让 $y$ 是分割 $b$ 和 $S$ 的半平面, 因此: $y^T b&lt;\alpha$ 并且对于所有的 $s \in S$ , $y^T s \geq \alpha$</p>
+<p>$0 \in S \Rightarrow y^T \cdot 0 \geq \alpha \Rightarrow \alpha \leq 0 \Rightarrow y^T b&lt;0$</p>
+<p>对于 $x \geq 0$ , $y^T A x \geq \alpha$ , 因此 $y^T A \geq 0$ (我们能随意指定 $x \geq 0$ )</p>
+<h2 id="Lemma-38-Farkas-Lemma-different-version"><a href="#Lemma-38-Farkas-Lemma-different-version" class="headerlink" title="Lemma 38 (Farkas Lemma; different version)"></a>Lemma 38 (Farkas Lemma; different version)</h2><p>将两个陈述重写一下: </p>
+<ul>
+<li>$\exists x \in \mathbb{R}^n$ , $[A \quad I] \cdot\left[\begin{array}{c}x \\ s\end{array}\right]=b, x \geq 0, s \geq 0$</li>
+<li>$\exists y \in \mathbb{R}^m$ , $\left[\begin{array}{c}A^T \ I\end{array}\right] y \geq 0, b^T y&lt;0$</li>
+</ul>
+
+</div></div>   
+<h2 id="Proof-of-Strong-Duality"><a href="#Proof-of-Strong-Duality" class="headerlink" title="Proof of Strong Duality"></a>Proof of Strong Duality</h2><p><del>讲了这么就的辅助定理, 正菜终于端上来了</del></p>
+<p>$P: z=\max \left{c^T x \mid A x \leq b, x \geq 0\right} $</p>
+<p>$D: w=\min \left{b^T y \mid A^T y \geq c, y \geq 0\right}$</p>
+<h3 id="Theorem-39-Strong-Duality-同Theorem-33"><a href="#Theorem-39-Strong-Duality-同Theorem-33" class="headerlink" title="Theorem 39 (Strong Duality) 同Theorem 33"></a>Theorem 39 (Strong Duality) 同Theorem 33</h3><p>$\boldsymbol{z} \leq \boldsymbol{w}$ : </p>
+<p>weak duality已经证明了</p>
+<p>$z \geq w$ : </p>
+<p>我们证明 $z&lt;\alpha$ 能够推出 $w&lt;\alpha$</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\begin{array}{rrcr} \exists x \in \mathbb{R}^n &amp; \\ \text { s.t. } &amp;  A x &amp; \leq &amp; b \\ &amp; -c^T x &amp; \leq &amp; -\alpha \\ &amp; x &amp; \geq &amp; 0 \end{array}$</td>
+<td style="text-align:center">$\begin{array}{rrcr} \exists y \in \mathbb{R}^m ; v \in \mathbb{R} &amp; \\ \text { s.t. } &amp; A^T y-c v &amp; \geq &amp; 0 \\ &amp; b^T y-\alpha v &amp; &lt; &amp; 0 \\ &amp; y, v &amp; \geq &amp; 0\end{array}$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>因为我们这里假设的 $z&lt;\alpha$ , 又因为 $z$ 是 $c^T x$ 的最大值, 所以 $c^T x$ 是不可能大于等于 $\alpha$ 的, 所以左边的不等式组是不可能被满足的, 根据Farkas Lemma, 那么右边的一定是可满足的</p>
+<p>如果解 $y, v$ 满足 $v=0$ , 那么我们就可以推出</p>
+<script type="math/tex; mode=display">
+\begin{array}{rrcr}\exists y \in \mathbb{R}^m & \\\\ \text { s.t. } & A^T y & \geq & 0 \\\\ & b^T y & < & 0 \\\\ & y & \geq & 0\end{array}</script><p>是可满足的</p>
+<p>这玩意儿的根据Farkars Lemma对应的那个不等式组其实就是原来的LP, 因此我们就推出原来的LP是不可能被满足的, 而我们假设LP应该是有解的, 所以 $v \neq 0$ 必须满足</p>
+<p>因此存在一个解 $y, v$ 满足 $v&gt;0$</p>
+<p>那么我们缩放整个不等式组 (同时缩放 $y$ 和 $v$), 让 $v=1$</p>
+<script type="math/tex; mode=display">
+\begin{array}{rrcr} \exists y \in \mathbb{R}^m ; v \in \mathbb{R} & \\\\ \text { s.t. } & A^T y & \geq & c \\\\ & b^T y & < & \alpha \\\\ & y & \geq & 0 \\\\ & v & = & 1\end{array}</script><p>因为这个不等式组是有解的, 因此存在 $y$ , $b^T y&lt;\alpha$ , 因为 $w$ 是 $b^T y$ 的最小值, 所以有 $w&lt;\alpha$ , 得证</p>
+<article class="message is-danger"><div class="message-body">
+<p>所以怎么推出 $z \geq w$ 来的 ?<br></div></article></p>
+<h2 id="Lemma-41-Complementary-Slackness"><a href="#Lemma-41-Complementary-Slackness" class="headerlink" title="Lemma 41 (Complementary Slackness)"></a>Lemma 41 (Complementary Slackness)</h2><p>假设LP $P=\max \left{c^T x \mid A x \leq b ; x \geq 0\right}$ 有解 $x^<em>$ , 他的对偶问题 $D=\min \left{b^T y \mid A^T y \geq c ; y \geq 0\right}$ 有解 $y^</em>$ , 那么:</p>
+<ol>
+<li>如果 $x_j^*&gt;0$ 那么 $D$ 中第 $j$ 个约束是等号满足的</li>
+<li>如果 $D$ 中第 $j$ 个约束不是等号满足的, 那么$x_j^*=0$</li>
+<li>如果 $y_i^*&gt;0$ 那么 $P$ 中第 $i$ 个约束是等号满足的</li>
+<li>如果 $P$ 中第 $i$ 个约束不是等号满足的, 那么$x_i^*=0$</li>
+</ol>
+<article class="message is-warning"><div class="message-body">
+<p>TODO: 写完这个</p>
+<p>TODO: Interpretation of Dual Variables</p>
+</div></article></div><div class="article-licensing box"><div class="licensing-title"><p>Effiziente Algorithmen und Datenstrukturen II</p><p><a href="http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/">http://example.com/2023/04/22/Effiziente-Algorithmen-und-Datenstrukturen-II/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Jiong Liu</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2023-04-22</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-11-04</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2023/11/04/Educational-Codeforces-Round-157-%E8%AE%B0%E5%BD%95/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">Educational Codeforces Round 157 记录</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2023/04/07/GAMES106%E7%AC%94%E8%AE%B0/"><span class="level-item">GAMES106笔记</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.jpeg" alt="Jiong Liu"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Jiong Liu</p><p class="is-size-6 is-block">Bachelor&#039;s Student at TUM | ICPCer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Munich, German</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">33</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">24</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ljiong201108"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Codeforces" href="https://codeforces.com/profile/LJIONG"><i class="fa-solid fa-c"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Atcoder" href="https://atcoder.jp/users/LJIONG"><i class="fa-solid fa-a"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Bilibili" href="https://space.bilibili.com/8159571"><i class="fa-brands fa-bilibili"></i></a></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.webp" alt="Jiong&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2023 Jiong Liu</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub" href="https://github.com/Ljiong201108"><i class="fab fa-github"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Codeforces" href="https://codeforces.com/profile/LJIONG"><i class="fa-solid fa-c"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Atcoder" href="https://atcoder.jp/users/LJIONG"><i class="fa-solid fa-a"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-right",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/mhchem.min.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/custom.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

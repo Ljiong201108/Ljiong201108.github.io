@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>Linux &amp; VirtualBox使用手册 - Jiong&#039;s Blog</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Jiong&#039;s Blog"><meta name="msapplication-TileImage" content="/img/favicon_io/favicon-32x32.png"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Jiong&#039;s Blog"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="Linux和VirtualBox中的常用但是容易忘记的命令和操作"><meta property="og:type" content="blog"><meta property="og:title" content="Linux &amp; VirtualBox使用手册"><meta property="og:url" content="http://example.com/2022/12/03/Linux-&amp;-VirtualBox%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"><meta property="og:site_name" content="Jiong&#039;s Blog"><meta property="og:description" content="Linux和VirtualBox中的常用但是容易忘记的命令和操作"><meta property="og:locale" content="en_US"><meta property="og:image" content="http://example.com/img/article/Linux-&amp;amp;-VirtualBox使用手册/image-20221203135233402.png"><meta property="article:published_time" content="2022-12-03T12:16:43.000Z"><meta property="article:modified_time" content="2023-11-04T20:33:40.466Z"><meta property="article:author" content="Jiong Liu"><meta property="article:tag" content="Linux"><meta property="article:tag" content="VirtualBox"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="http://example.com/img/article/Linux-&amp;amp;-VirtualBox使用手册/image-20221203135233402.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/12/03/Linux-&-VirtualBox%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"},"headline":"Linux & VirtualBox使用手册","image":["http://example.com/img/article/Linux-&amp;-VirtualBox使用手册/image-20221203135233402.png"],"datePublished":"2022-12-03T12:16:43.000Z","dateModified":"2023-11-04T20:33:40.466Z","author":{"@type":"Person","name":"Jiong Liu"},"publisher":{"@type":"Organization","name":"Jiong's Blog","logo":{"@type":"ImageObject","url":"http://example.com/img/logo.webp"}},"description":"Linux和VirtualBox中的常用但是容易忘记的命令和操作"}</script><link rel="canonical" href="http://example.com/2022/12/03/Linux-&amp;-VirtualBox%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/"><link rel="icon" href="/img/favicon_io/favicon-32x32.png"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" defer></script><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css"><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const $tabMenu = document.querySelector(`a[href="${location.hash}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(location.hash);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.webp" alt="Jiong&#039;s Blog" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a><a class="navbar-item" href="/friends">Friends</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="GitHub" href="https://github.com/Ljiong201108"><i class="fab fa-github"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Codeforces" href="https://codeforces.com/profile/LJIONG"><i class="fa-solid fa-c"></i></a><a class="navbar-item" target="_blank" rel="noopener" title="Atcoder" href="https://atcoder.jp/users/LJIONG"><i class="fa-solid fa-a"></i></a><a class="navbar-item search" title="Search" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item">Posted&nbsp;<time dateTime="2022-12-03T12:16:43.000Z" title="12/3/2022, 1:16:43 PM">2022-12-03</time></span><span class="level-item">Updated&nbsp;<time dateTime="2023-11-04T20:33:40.466Z" title="11/4/2023, 9:33:40 PM">2023-11-04</time></span><span class="level-item">3 minutes read (About 452 words)</span><span class="level-item" id="busuanzi_container_page_pv"><span id="busuanzi_value_page_pv">0</span>&nbsp;visits</span></div></div><h1 class="title is-3 is-size-4-mobile">Linux &amp; VirtualBox使用手册</h1><div class="content"><div class="post-summary">
+<p>Linux和VirtualBox中的常用但是容易忘记的命令和操作</p>
+</div>
+<span id="more"></span>
+<style type="text/css">
+.post-summary { display: none; }
+</style>
+
+<h1 id="在VirtualBox中挂载共享文件夹"><a href="#在VirtualBox中挂载共享文件夹" class="headerlink" title="在VirtualBox中挂载共享文件夹"></a>在VirtualBox中挂载共享文件夹</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t vboxsf Share share_dir</span><br></pre></td></tr></table></figure>
+<p><img src="/img/article/Linux-&amp;-VirtualBox使用手册/image-20221203135233402.png" alt=""></p>
+<p>在这个VirtualBox共享文件的设置下，命令应当是这个：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -t vboxsf shared_windows /home/liujio/shared</span><br></pre></td></tr></table></figure>
+<h1 id="Ubuntu中安装zsh和oh-my-zsh"><a href="#Ubuntu中安装zsh和oh-my-zsh" class="headerlink" title="Ubuntu中安装zsh和oh-my-zsh"></a>Ubuntu中安装zsh和oh-my-zsh</h1><h2 id="检查当前机器下的shcat-etc-shells"><a href="#检查当前机器下的shcat-etc-shells" class="headerlink" title="检查当前机器下的shcat /etc/shells"></a>检查当前机器下的shcat /etc/shells</h2><p>如果有zsh，就不需要额外安装了</p>
+<h2 id="安装zsh"><a href="#安装zsh" class="headerlink" title="安装zsh"></a>安装zsh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">apt install zsh <span class="comment">#安装zsh</span></span><br><span class="line"></span><br><span class="line">chsh -s /bin/zsh <span class="comment">#将zsh设置成默认shell（不设置的话启动zsh只有直接zsh命令即可）</span></span><br><span class="line"><span class="comment"># 或者sudo修改/etc/passwd</span></span><br></pre></td></tr></table></figure>
+<h2 id="安装oh-my-zsh"><a href="#安装oh-my-zsh" class="headerlink" title="安装oh-my-zsh"></a>安装oh-my-zsh</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh </span><br></pre></td></tr></table></figure>
+<h2 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#zsh-autosuggestions 命令行命令键入时的历史命令建议</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line"><span class="comment">#zsh-syntax-highlighting 命令行语法高亮插件</span></span><br><span class="line">git <span class="built_in">clone</span> https://gitee.com/Annihilater/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br></pre></td></tr></table></figure>
+<h2 id="配置文件-zshrc"><a href="#配置文件-zshrc" class="headerlink" title="配置文件~/.zshrc"></a>配置文件~/.zshrc</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 启动错误命令自动更正</span><br><span class="line">ENABLE_CORRECTION=&quot;true&quot;</span><br><span class="line"></span><br><span class="line"># 在命令执行的过程中，使用小红点进行提示</span><br><span class="line">COMPLETION_WAITING_DOTS=&quot;true&quot;</span><br><span class="line"></span><br><span class="line"># 配置要使用的插件</span><br><span class="line">plugins=(</span><br><span class="line">        git</span><br><span class="line">        extract</span><br><span class="line">        zsh-autosuggestions</span><br><span class="line">        zsh-syntax-highlighting</span><br><span class="line">)</span><br><span class="line">source $ZSH/oh-my-zsh.sh</span><br><span class="line">source $ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh</span><br></pre></td></tr></table></figure>
+<h2 id="安装powerlevel10k主题"><a href="#安装powerlevel10k主题" class="headerlink" title="安装powerlevel10k主题"></a>安装powerlevel10k主题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> --depth=1 https://github.com/romkatv/powerlevel10k.git <span class="variable">$&#123;ZSH_CUSTOM:-<span class="variable">$HOME</span>/.oh-my-zsh/custom&#125;</span>/themes/powerlevel10k</span><br></pre></td></tr></table></figure>
+<p>在 <code>zshrc</code>中设置<code>ZSH_THEME=&quot;powerlevel10k/powerlevel10k&quot;</code></p>
+<h1 id="Ubuntu下安装中文输入法"><a href="#Ubuntu下安装中文输入法" class="headerlink" title="Ubuntu下安装中文输入法"></a>Ubuntu下安装中文输入法</h1><p>首先先整题更新一下系统<code>sudo apt update</code></p>
+<p>然后必须事先先安装好中文语言包, 如果出错也可以用命令行安装<code>sudo apt install language-pack-zh-hans</code></p>
+<p>随后将Keyboard Input System设置成fcitx</p>
+<p>最后需要配置一下fcitx</p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>Linux &amp; VirtualBox使用手册</p><p><a href="http://example.com/2022/12/03/Linux-&amp;-VirtualBox使用手册/">http://example.com/2022/12/03/Linux-&amp;-VirtualBox使用手册/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>Author</h6><p>Jiong Liu</p></div></div><div class="level-item is-narrow"><div><h6>Posted on</h6><p>2022-12-03</p></div></div><div class="level-item is-narrow"><div><h6>Updated on</h6><p>2023-11-04</p></div></div><div class="level-item is-narrow"><div><h6>Licensed under</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="article-tags is-size-7 mb-4"><span class="mr-2">#</span><a class="link-muted mr-2" rel="tag" href="/tags/Linux/">Linux</a><a class="link-muted mr-2" rel="tag" href="/tags/VirtualBox/">VirtualBox</a></div><!--!--></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2022/12/05/CF1759F-All-Possible-Digits-%E9%A2%98%E8%A7%A3/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">CF1759F All Possible Digits 题解</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2022/12/03/%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/"><span class="level-item">主题使用技巧</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><!--!--></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1 is-sticky"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/img/avatar.jpeg" alt="Jiong Liu"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">Jiong Liu</p><p class="is-size-6 is-block">Bachelor&#039;s Student at TUM | ICPCer</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>Munich, German</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">Posts</p><a href="/archives"><p class="title">33</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Categories</p><a href="/categories"><p class="title">5</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">Tags</p><a href="/tags"><p class="title">24</p></a></div></div></nav><div class="level is-mobile is-multiline"><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Github" href="https://github.com/Ljiong201108"><i class="fab fa-github"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Codeforces" href="https://codeforces.com/profile/LJIONG"><i class="fa-solid fa-c"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Atcoder" href="https://atcoder.jp/users/LJIONG"><i class="fa-solid fa-a"></i></a><a class="level-item button is-transparent is-marginless" target="_blank" rel="noopener" title="Bilibili" href="https://space.bilibili.com/8159571"><i class="fa-brands fa-bilibili"></i></a></div></div></div><!--!--></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.webp" alt="Jiong&#039;s Blog" height="28"></a><p class="is-size-7"><span>&copy; 2023 Jiong Liu</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a><br><span id="busuanzi_container_site_uv">Visited by <span id="busuanzi_value_site_uv">0</span> users</span></p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="GitHub" href="https://github.com/Ljiong201108"><i class="fab fa-github"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Codeforces" href="https://codeforces.com/profile/LJIONG"><i class="fa-solid fa-c"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Atcoder" href="https://atcoder.jp/users/LJIONG"><i class="fa-solid fa-a"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("en");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="Back to top" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-right",
+        content: {
+          message: "This website uses cookies to improve your experience.",
+          dismiss: "Got it!",
+          allow: "Allow cookies",
+          deny: "Decline",
+          link: "Learn more",
+          policy: "Cookie Policy",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/mhchem.min.js" defer></script><script>window.addEventListener("load", function() {
+            document.querySelectorAll('[role="article"] > .content').forEach(function(element) {
+                renderMathInElement(element);
+            });
+        });</script><script type="text/x-mathjax-config">MathJax.Hub.Config({
+            'HTML-CSS': {
+                matchFontHeight: false
+            },
+            SVG: {
+                matchFontHeight: false
+            },
+            CommonHTML: {
+                matchFontHeight: false
+            },
+            tex2jax: {
+                inlineMath: [
+                    ['$','$'],
+                    ['\\(','\\)']
+                ]
+            }
+        });</script><script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script><div id="outdated"><h6>Your browser is out-of-date!</h6><p>Update your browser to view this website correctly.&amp;npsb;<a id="btnUpdateBrowser" target="_blank" rel="noopener" href="http://outdatedbrowser.com/">Update my browser now </a></p><p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">×</a></p></div><script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script><script>window.addEventListener("load", function () {
+            outdatedBrowser({
+                bgColor: '#f25648',
+                color: '#ffffff',
+                lowerThan: 'object-fit' // display on IE11 or below
+            });
+        });</script><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><script src="/js/custom.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="Type something..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"Type something...","untitled":"(Untitled)","posts":"Posts","pages":"Pages","categories":"Categories","tags":"Tags"});
+        });</script></body></html>

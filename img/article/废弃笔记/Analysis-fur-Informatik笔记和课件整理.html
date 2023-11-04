@@ -1,0 +1,674 @@
+<hr>
+<p>title: Analysis für Informatik笔记和课件整理<br>date: 2020-11-03 21:11:08<br>mathjax: true<br>tags:</p>
+<ul>
+<li>TUM<br>categories:</li>
+<li>课堂笔记</li>
+</ul>
+<hr>
+<p>Dozent: Noam Berger</p>
+<p>Kontakt: noam.berger@tum.de</p>
+<p>Übungsleiter: Stefan Possaner</p>
+<!--more-->
+<p>&nbsp;</p>
+<p><strong>03.11.2020</strong></p>
+<p>Vorlesung 1</p>
+<p>Thema: Mengenterminologie, reele Zahlen und Vektor</p>
+<p>&nbsp;</p>
+<h2 id="Mengenterminologie"><a href="#Mengenterminologie" class="headerlink" title="Mengenterminologie"></a>Mengenterminologie</h2><p>Eine Menge ist die Zusammenfassung von einzelnen Elementen. </p>
+<font color=#FF0000>Wir schreiben $x \in A$, falls $x$ in der Menge $A$ ist und $x \notin A$ sonst. </font>
+
+<p>&nbsp;</p>
+<h5 id="Schreibweise-fur-Mengen"><a href="#Schreibweise-fur-Mengen" class="headerlink" title="Schreibweise für Mengen"></a>Schreibweise für Mengen</h5><p>Es gibt mehrere Schreibweisen für Menge. Wir beschreiben hier drei davon:</p>
+<ul>
+<li><p>$A={1,2,3,4}$</p>
+</li>
+<li><p>$A={\text{Alle ganzen Zahlen zwischen 1 und 4}}$</p>
+</li>
+<li><p>$A={n \in \mathbb{Z}\ :\ 1\leqslant n \leqslant 4}$</p>
+</li>
+</ul>
+<font color=#0000CD>德语里里面分隔符不同于中国，用的是冒号“ : ”</font>
+
+<p>&nbsp;</p>
+<h5 id="wichtige-Mengen"><a href="#wichtige-Mengen" class="headerlink" title="wichtige Mengen"></a>wichtige Mengen</h5><p>$\emptyset={}\ :\ \forall_n\ x\notin \emptyset$</p>
+<p>$\mathbb{Z}={\text{alle ganzen Zahlen}}$</p>
+<p>$\mathbb{R}={\text{alle reellen Zahlen}}$</p>
+<p>$\mathbb{Q}={\text{alle rationalen Zahlen}}$</p>
+<p>$\mathbb{N}={x\in\mathbb{Z}\ :\ x\geqslant 0}$</p>
+<font color=#FF0000>Manchmal schreiben wir $\mathbb{N}_0$, $\mathbb{N}_{>0}=\{1,2,3,...\}=\{x\in\mathbb{Z}\ |\ x> 0\}$</font>
+
+<p>&nbsp;</p>
+<p><strong><font color=#FF0000>Definition 1.1: </font></strong></p>
+<p>$B$ heißt Teilmenge von $A$, $B \subseteq A$, falls $\forall_x\ x\in B\ \Rightarrow\ x \in A$</p>
+<p><strong>Beispiel</strong>: $\emptyset \subseteq \mathbb{N} \subseteq \mathbb{Z} \subseteq \mathbb{Q} \subseteq \mathbb{R}$</p>
+<font color=#0000CD>对于子集的定义</font>
+
+<p>&nbsp;</p>
+<h5 id="Mengenoperationen"><a href="#Mengenoperationen" class="headerlink" title="Mengenoperationen"></a>Mengenoperationen</h5><p>(1) Vereinigung: $A \cup B={n\ |\ n \in A\ \text{or}\ n \in B}$</p>
+<p>(2) Schnitt: $A\cap B={n\ |\ x \in A\ \text{und}\ x \in B}$</p>
+<p>(3) Differenz: $A\ \backslash\ B={x\ |\ x \in A\ \text{und}\ x \in B}$</p>
+<p>(4) kartesische Produkt: $A \times B={(x,y)\ |\ x\in A,y \in B}$</p>
+<p>(5) Protenzmenge: $P(A)={B\ |\ B\subseteq A}$</p>
+<p>Beispiel: $P({0,1})={\emptyset,{0},{1},{0,1}}$</p>
+<p>&nbsp;</p>
+<h5 id="Abblidung（映射）"><a href="#Abblidung（映射）" class="headerlink" title="Abblidung（映射）"></a>Abblidung（映射）</h5><font color=#FF0000>Eine **Abbildung** (oder **Funktion**) ist eine Beziehung zwieschen 2 Mengen, die jedem Element der einen Menge genau ein Element der anderen Menge zuordnet.</font>
+
+<p>Wir schreiben $f:A \rightarrow B$ für eine Funktion $f$ von $A$ in $B$.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#FF0000>Definition 1.2: </font></strong></p>
+<p>Eine Funktion $f:A \rightarrow B$ heißt</p>
+<ul>
+<li><p>injektiv(单射), falls $\forall_{x \neq y \in A}\ f(x) \neq f(y)$</p>
+</li>
+<li><p>surjektiv(满射), falls $\forall<em>{y \in B}\ \exists</em>{x\in A}\ f(x)=y$</p>
+</li>
+<li><p>bijektiv(双射), falls sie sowohl injektiv als auch surjektiv ist</p>
+</li>
+</ul>
+<font color=#0000CD>对于单设，满射和双射的定义。</font>
+
+<font color=#0000CD>如果$f:A \rightarrow B$是单射，那$A$中任意两个不同的元素在$B$中的映射也不同。即不存在$A$中的两个元素对应$B$中的一个元素。</font>
+
+<font color=#0000CD>如果$f:A \rightarrow B$是满射，那对于$B$中任意一个元素$y$都存在一个$A$中的元素$x$使得$f(x)=y$，即B中的所有元素都能在A中找到对应的映射。</font>
+
+<font color=#0000CD>如果$f:A \rightarrow B$是既是单射也是满射，也叫双射(一一映射)。</font>
+
+<font color=#0000CD>图解：</font><font color=#green>（待补充）</font>
+
+<p>&nbsp;</p>
+<h5 id="Kardinalitaten-容量"><a href="#Kardinalitaten-容量" class="headerlink" title="Kardinalitäten(容量)"></a>Kardinalitäten(容量)</h5><p>Wir sagen, dass die Mengen $A$ und $B$ <strong><font color=#FF0000>die selbe Kardinalität(auch Mächtigkeit)</font></strong> haben, falls <strong><font color=#ff0000>eine Bijektion zwischen $A$ und $B$ existiert</font></strong>.</p>
+<p>Wir schreiben das $\vert A\vert = \vert B \vert$.</p>
+<p>&nbsp;</p>
+<p>Wir sagen, dass die Kardinalitäte von $A$ <strong><font color=#FF0000>größer gleich</font></strong> ist die Kardinalität von $B$, falls <strong><font color=#FF0000>eine Surjektion von $A$ in $B$ existert</font></strong>.</p>
+<p>wir schreiben das $\vert A \vert \geq \vert B \vert$.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#FF0000>Axiom 1.3 (das Auswahl-Axiom):</font></strong></p>
+<p>Eine Surjektion von $A$ in $B$ existiert genau dann, wenn eine Injektion von $B$ in $A$ existiert.</p>
+<p>$\Rightarrow \vert A \vert \geq \vert B \vert$ genau dann, wenn es eine Injektion von $B$ in $A$ gibt.</p>
+<font color=#0000CD>单射和满射存在的条件</font>
+
+<p>&nbsp;</p>
+<p><strong><font color=#FF0000>Satz 1.4: </font></strong></p>
+<p>Fur jede $A$ und $B$ entweder $\vert A \vert \leq \vert B \vert$ oder $\vert A \vert \geq \vert B \vert$.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Satz 1.5 (Cantor-Berstein):</font></strong></p>
+<p>Falls $\vert A \vert \leq \vert B \vert$ und $\vert B \vert \leq \vert A \vert$, dann $\vert A \vert = \vert B$.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Definition 1.6: </font></strong></p>
+<p>Menge $A$ heißt abzählbar (countable), falls $\vert A \vert = \vert \mathbb{N} \vert$. In diesem Fall schreibt man $\vert A \vert = \aleph_0$.</p>
+<font color=#0000CD>Wikipedia里面还有一段对于可数集的定义：</font>
+
+<font color=#0000CD>In der Mengenlehre wird eine Menge $A$ als **abzählbar unendlich** bezeichnet, wenn sie die gleiche Mächtigkeit hat wie die Menge der natürlichen Zahlen $\mathbb{N}$. Dies bedeutet, dass es eine **Bijektion** zwischen $A$ und der Menge der natürlichen Zahlen gibt, die Elemente der Menge $A$ also „durchnummeriert“ werden können.</font>
+
+<p>Beispiele: $\vert \mathbb{N} \vert = \vert \mathbb{Z} \vert =\vert \mathbb{Z}^2 \vert =\vert \mathbb{Q} \vert = \aleph_0$ aber $\vert \mathbb{R} \vert &gt; \aleph_0$</p>
+<p>Beweis das $\vert \mathbb{R} \vert &gt; \aleph_0$ (cantor’s diagonal):</p>
+<p>Nehme an, dass $\mathbb{R}$ abzählbar wäre, dann gäbe es eine Surjektion $f:\mathbb{N} \rightarrow [0,1)$.</p>
+<p>Sei $d_1$ die erste Ziffer in der Dezimalentwicklung von $f(1)$, $d_2$ die zweite Ziffer in der Dezimalentwicklung von $f(2)$, … , $d_n$ die n-te Ziffer in der Dezimalentwicklung von $f(n)$.</p>
+<p>Für jeder n, sei</p>
+<script type="math/tex; mode=display">
+c_n=
+\begin{cases}
+2\ falls\ d_n \neq 2\\
+5\ falls\ d_n = 2
+\end{cases}</script><p>deshalb ist $c_n$ immer anders als $d_n$.</p>
+<p>$0.c_1\ c_2\ c_3… =: y$</p>
+<p>Für jeden $n$, die n-te Ziffer in der dezimalentwicklung von $y$ ist $c_n \neq d_n$, die n-te Ziffer in der Dezimalentwicklung von $f(n)$ .</p>
+<p>$\Rightarrow\forall_n y \neq f(n)$</p>
+<p>$\Rightarrow f$ ist nicht wurjektiv. Widerspruch</p>
+<p>$\Rightarrow$ Surjeketion $\mathbb{N} \rightarrow \mathbb{R}$ existiert nicht</p>
+<p>$\Rightarrow$ $\vert \mathbb{N} \vert &lt; \vert \mathbb{R} \vert$</p>
+<p>q.e.d</p>
+<font color=#0000CD>对角论证法，目的是为了证明$\mathbb{N}$到$[0,1)$的满射不成立。</font>
+
+<p>&nbsp;</p>
+<h2 id="Reelle-Zahlen-und-Vektoren"><a href="#Reelle-Zahlen-und-Vektoren" class="headerlink" title="Reelle Zahlen und Vektoren"></a>Reelle Zahlen und Vektoren</h2><p><strong><font color=#ff0000>Definition 2.1: </font></strong></p>
+<p>Ein Körper (F, +, ·) ist eine Menge F mit zweo Operationen +,· , sodass,</p>
+<p>(1) $\forall_{x,y,z \in F}\ (x+y)+z=x+(y+z)$</p>
+<p>(2) $\forall_{x,y}\ x+y=y+x$</p>
+<p>(3) $\exists_0 \forall_x\ x+0=0+x=x$</p>
+<p>(4) $\forall_x \exists_y\ x+y=y+x=0$</p>
+<p>(5) $\forall_{x,y,z}\ (x·y)·z=x·(y·z)$</p>
+<p>(6) $\forall_{x,y}\ x·y=y·x$</p>
+<p>(7) $\exists<em>{1 \in F} \forall</em>{x \neq 0}\ x·1=1·x=x$</p>
+<p>(8) $\forall_{x \neq 0} \exists_y\ x·y=y·x=1$</p>
+<p>(9) $\forall_{x,y,z}\ x·(y+z)=x·y+x·z$</p>
+<p>&nbsp;</p>
+<p>Ein Körper heißt <strong>angeordnet</strong>, falls es eine relation &lt; gibt, sodass:</p>
+<p>(1) für jeden $x$ gilt genau eins der folgenden: $x&gt;0$ oder $x&lt;0$ oder $x=0$</p>
+<p>(2) $\forall_{x,y \in F}\ x,y&gt;0 \Rightarrow x+y&gt;0;\ x·y&gt;0$</p>
+<p>(3) $\forall_{x,y \in F}\ x&gt;y\ \Leftrightarrow\ x-y&gt;0$</p>
+<p><strong>Beispiele:</strong> $\mathbb{N}$ und $\mathbb{Z}$ sind keine Körper, $\mathbb{Q}, \mathbb{R}\text{ und } \mathbb{C}$ sind Körper. $\mathbb{Q}$ und $\mathbb{R}$ sind angeordnet.</p>
+<p>&nbsp;</p>
+<p>Man schreibt:</p>
+<p>$[a,b]={x\ |\ a\leq x \leq b}$ (geschlossenes Intervall)</p>
+<p>$(a,b)={x\ |\ a&lt;x&lt;b}$ (offenes Intervall)</p>
+<p>analog bei halboffenen Intervallen ( $[a, b); (a, b]$ )</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Definition 2.2: (obere Schranke) </font></strong></p>
+<p>Eine Zahl $x$ heißt <strong>obere Schranke</strong> einer Teilmenge $A$ von $\mathbb{R}$, falls $\forall_{y \in A}\ x \geq y$.</p>
+<p>$A$  heißt <strong>nach oben beschränkt</strong>, falls $A$ eine obere Schranke hat.</p>
+<p>Analog definiert man untere Schranke.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Definition 2.3: </font></strong></p>
+<p>Eine Zahl $x$ heißt Maximum einer Teilmenge $A$ von $\mathbb{R}$, falls $x \in A$ und ist eine obere Schranke von $A$. </p>
+<p>Anolog definiert man das Minimum einer Teilmenge. </p>
+<p><strong><font color=#ff0000>Eine Menge kann nach oben beschränkt sein, aber kein Maximum haben. </font></strong></p>
+<p>Z.B.:<br>$M = (a, b) \text{ mit }a, b \in R, a &lt; b$</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Definition 2.4:(Supremum)  </font></strong></p>
+<p>Eine reelle Zahl $x$ heißt Supremum(上确界) einer Teilmenge $A$ von $\mathbb{R}$, falls $x=min{\text{obere Schranken von A}}$.</p>
+<p>Wir schreiben $sup(A)$.</p>
+<p>Konventionen:</p>
+<p>$sup(\emptyset)=-\infty$</p>
+<p>$sup(A)=\infty$, falls $A$ nicht nach oben beschränkt ist.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Definition 2.5:  </font></strong></p>
+<p>Ein angeordneter Körper heißt <strong>vollständig</strong>, falls jede nicht leere nach oben beschränkte Teilmenge ein Supremum besitzt.</p>
+<p>Beispiel: $\mathbb{Q}$ ist nicht vollständig. (Übung)(搞定)</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Axiom 2.6 (Vollständigkeit):  </font></strong></p>
+<p>$\mathbb{R}$ ist vollständig.</p>
+<p>&nbsp;</p>
+<p><strong>Analog zu oberer Schranke, Maximum und Supremum definieren wir untere Schranke, Minimum und Infimum.</strong> </p>
+<p>Man schreibt: $inf(M)$</p>
+<p>Konvention:</p>
+<p>$inf(\emptyset) = \infty$</p>
+<p>$inf(M) = −\infty$, falls $M$ nach unten unbeschränkt ist.</p>
+<p>&nbsp;</p>
+<p><strong>05.11.2000</strong></p>
+<p>Vorlesung 2</p>
+<p>Thema: Mengen in $\mathbb{R}$, Vektorräme über $\mathbb{R}$ und ein paar wichtige Ungleichungen</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Satz 2.7: (Eigenschaften des Supremums)</font></strong></p>
+<p>Seien A und B beschränkte nicht leere Teilmengen von $\mathbb{R}$,</p>
+<ul>
+<li>$sup(A + B) = sup(A) + sup(B)$ für $  A + B = {a + b : a \in A, b \in B}$</li>
+<li>Falls $\lambda \geq0$, dann $sup(\lambda \cdot A)=\lambda sup(A)$, wenn $\lambda \cdot A={\lambda \cdot x\ :\ x \in A}$</li>
+<li>Falls $A,B \subseteq [0,\infty)$, dann $sup(A\cdot B)=sup(A) \cdot sup(B)$, wenn $A \cdot B={a \cdot b\ :\ a \in A, b \in B}$</li>
+<li>Falls $A \subseteq B$, $sup(A) \leq sup(B)$</li>
+</ul>
+<p>&nbsp;</p>
+<p>Wir definieren</p>
+<p>$inf(A):=-sup(-A)$, wenn $A={x\ :\ x \in A}$</p>
+<p>die selben Regeln gelten auch für das Infimum außer dass:</p>
+<p>Falls $A \subseteq B$, $inf(A) \geq inf(B)$</p>
+<p>&nbsp;</p>
+<h3 id="Offene-und-abgeschlossene-Mengen-in-mathbb-R"><a href="#Offene-und-abgeschlossene-Mengen-in-mathbb-R" class="headerlink" title="Offene und abgeschlossene Mengen in $\mathbb{R}$:"></a>Offene und abgeschlossene Mengen in $\mathbb{R}$:</h3><p><strong><font color=#ff0000>Definition 2.8:</font></strong></p>
+<p>Sei $x \in \mathbb{R}$, dann ein offenes Interval $(a,b)$ heißt <strong>Umgebung</strong> von $x$, falls $x \in(a,b)$.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Definition 2.9:</font></strong></p>
+<p>$A \in \mathbb{R}$ heißt <strong>offen</strong>, falls $\forall<em>{x \in A}\ \exists</em>{I_x\ \text{(Umgebung von x)}}\ I_x \in A$.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Definition 2.10:</font></strong></p>
+<p>Eine Menge $A$ heisst <strong>abgeschlossen</strong>, falls $\mathbb{R}\ \backslash\ A$ offen ist.</p>
+<p>Beispiele:</p>
+<p>(1) $\mathbb{R}$ ist offen, dabei ist $\emptyset$ abgeschlossen.</p>
+<p>(2) $\emptyset$ ist offen, dabei ist $\mathbb{R}$ abgeschlossen.</p>
+<p>(3) Jedes offene Interval ist offen.</p>
+<p>(4) Eine Vereinigung offenen Mengen ist offen.</p>
+<p>(5) Jedes abgeschlossene Interval ist abgeschlossen.</p>
+<p>(6) Jede endliche Menge ist abgeschlossen.</p>
+<p>(7) Für $a &lt;b$, $\ [a,b)={x\ :\ a\leq x&lt;b}$ ist weder offen noch abgeschlossen.</p>
+<p>(8) $\mathbb{Q}$ ist weder offen noch abgeschlossen.</p>
+<p>Übung:</p>
+<p>(a) beweise diese Aussagen</p>
+<p>(b) beweise, dass $\mathbb{R}$ und $\emptyset$ die einzigen Mengen die gleichzeitig offen und abgeschlossen sind.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Der Vektorraum $\mathbb{R}^n$: </font></strong></p>
+<p>$\mathbb{R}^n:={(n_1,…,n_n)\ :\ n_1,…,n_n \in \mathbb{R}}$</p>
+<p>mit den Operationen:</p>
+<p>$(x_1,…,x_n)+(y_1,…,y_n)=(x_1+y_1,…,x_n+y_n)$</p>
+<p>für $\gamma \in \mathbb{R}$</p>
+<p>$\gamma \cdot (x_1,…,x_n)=(\gamma x_1,…,\gamma x_n)$</p>
+<p>und das Skalarprodukt</p>
+<p>$(x<em>1,…,x_n) \cdot (y_1,…,y_n):=\sum^n</em>{k=1}\ x_k \cdot y_k \in \mathbb{R}$</p>
+<p>das Skalarprodukt wird auch $\langle x,y \rangle$ geschrieben.</p>
+<p>&nbsp;</p>
+<p>Wir definieren <strong><font color=#ff0000>dasEuclidische Norm</font></strong>:</p>
+<p>$\Vert (x<em>1,…,x_n)\Vert :=\sqrt{(x_1,…,x_n) \cdot (x_1,…,x_n)}=\sqrt{ \sum^n</em>{k=1}\ x^2_k}$</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Eigenschaften des Skalarproduktes:</font></strong></p>
+<p>(1) $\forall_{\overline{x}, \overline{y} \in \mathbb{R}^n}\ \overline{x} \cdot \overline{y}=\overline{y} \cdot \overline{x}$</p>
+<p>(2) $(\alpha \overline{x} )\cdot \overline{y}=\overline{x}\cdot (\alpha \overline{y})=\alpha (\overline{x}\cdot \overline{y})$ für jede $\alpha \in \mathbb{R}$ und $\overline{x}, \overline{y} \in \mathbb{R}^n$</p>
+<p>(3) $\forall_{\overline{x}, \overline{y}, \overline{z}\in \mathbb{R}^n}\ (\overline{x}+\overline{y})\cdot \overline{z}=\overline{x} \cdot \overline{z} + \overline{y} \cdot \overline{z}$</p>
+<p>(4) $\forall_{\overline{x} \in \mathbb{R}^n}\ \overline{x} \cdot \overline{x} \geq 0$ und ist positiv, falls $\overline{x} \neq \overline{0}$</p>
+<p>Übung: Beweise diese Aussage</p>
+<p>&nbsp;</p>
+<h3 id="Ungleichungen"><a href="#Ungleichungen" class="headerlink" title="Ungleichungen:"></a>Ungleichungen:</h3><p>Hier beweisen wir einige wichtige Ungleichungen.</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Lemma 2.12: (Cauchy-Schwarz-Ungleichung)(柯西不等式)</font></strong></p>
+<p>$\vert \langle \overline{x}, \overline{y}\rangle\vert =\vert \overline{x} \cdot \overline{y} \vert \leq \Vert \overline{x} \Vert \cdot \Vert \overline{y} \Vert$</p>
+<p>Gleichheit gilt, genau dann wenn es $\alpha \in \mathbb{R}$ existiert, so dass $x=\alpha y$ oder $y=\alpha x$.</p>
+<font color=#0000cd>当且仅当, x和y平行的时候, 即存在$\alpha \in \mathbb{R}$, 满足$x=\alpha y$或者$y=\alpha x$</font>
+
+<p>&nbsp;</p>
+<p>Beweis:</p>
+<p>Nehmen an, dass beide $x$ und $y$ nicht null sind. Dann definieren wir </p>
+<script type="math/tex; mode=display">
+\overline{z}=\overline{x} \frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}} \text{ und } \overline{w}=\overline{y}-\overline{z} \text{.}</script><p>Dann $\overline{x} \cdot \overline{w} = \overline{x} \cdot \overline{y} - \overline{x} \cdot \overline{z}=\overline{x} \cdot \overline{y}-\overline{x} \cdot \overline{x} \frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}}=0$, und $\overline{z} \cdot \overline{w}=\frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}} \cdot \overline{x} \cdot \overline{w}=0$.</p>
+<p>Jetzt $\overline{x} \cdot \overline{z} =\overline{x} \cdot \overline{x} \frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}}=\overline{x} \cdot \overline{y}$ also $(\overline{x} \cdot \overline{y})^2=(\overline{x} \cdot \overline{z})^2$ und $\overline{y} \cdot \overline{y}=(\overline{z} + \overline{w}) \cdot (\overline{z} + \overline{w})=\overline{z} \cdot \overline{z}+\overline{w} \cdot \overline{w}+2\overline{z} \cdot \overline{w}=\overline{z} \cdot \overline{z}+\overline{w} \cdot \overline{w}$.</p>
+<p>und wir rechnen $(\overline{x} \cdot \overline{x})(\overline{y} \cdot \overline{y})=(\overline{x} \cdot \overline{x})(\overline{z} \cdot \overline{z}+\overline{w} \cdot \overline{w})=(\frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}})^2(\overline{x} \cdot \overline{x})^2+(\overline{x} \cdot \overline{x})(\overline{w} \cdot \overline{w})$.</p>
+<p>Weil $\overline{x} \cdot \overline{x} \geq 0$ und $\overline{w} \cdot \overline{w} \geq 0$ sind, ist $(\overline{x} \cdot \overline{x})(\overline{w} \cdot \overline{w}) \geq 0$.</p>
+<p>Deshalb gilt $\Vert x \Vert^2 \Vert y \Vert ^2=(\overline{x} \cdot \overline{x})(\overline{y} \cdot \overline{y}) \geq (\frac{\overline{x} \cdot \overline{y}}{\overline{x} \cdot \overline{x}})^2(\overline{x} \cdot \overline{x})^2=(\overline{x} \cdot \overline{y})^2$.</p>
+<p>Also $\vert \langle \overline{x},\overline{y} \rangle \vert \leq \Vert \overline{x} \Vert \cdot \Vert \overline{y} \Vert$, und Gleichheit gilt genau dann, wenn $\overline{w} = 0$, dass $\overline{y}=\text{(etwas)} \cdot \overline{x}$ ist.</p>
+<p>q.e.d</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Lemma 2.13: (Dreiecksungleichung)</font></strong></p>
+<p>$\forall_{\overline{x}, \overline{y} \in \mathbb{R}}, \Vert \overline{x}+ \overline{y} \Vert \leq \Vert \overline{x} \Vert + \Vert \overline{y} \Vert$.</p>
+<p>(图解)</p>
+<p>Beweis:</p>
+<p>$\Vert \overline{x}+ \overline{y} \Vert = (\overline{x}+ \overline{y}) \cdot (\overline{x} + \overline{y})=\overline{x} \cdot \overline{x} + \overline{y} \cdot \overline{y} + 2\overline{x} \cdot \overline{y} \leq \overline{x} \cdot \overline{x} + \overline{y} \cdot \overline{y} +2\Vert\overline{x} \Vert \Vert \overline{y}\Vert = \Vert \overline{x} \Vert^2 + \Vert \overline{y} \Vert^2+2\Vert\overline{x} \Vert \Vert\overline{y} \Vert $</p>
+<p>$= [\Vert\overline{x} \Vert + \Vert\overline{y} \Vert]^2 \Rightarrow \Vert\overline{x} + \overline{y}\Vert \leq \Vert\overline{x} \Vert + \Vert\overline{y} \Vert$.</p>
+<p>q.e.d</p>
+<p>Gleichheit gilt wenn $xy \geq 0$.</p>
+<p>Wenn $n=1$, bedeutet die Dreiecksgleichung, dass $\vert x+y \vert \leq \vert x \vert + \vert y \vert$ für jede $x,y \in \mathbb{R}$.</p>
+<p><strong>Übung</strong>: Umgekehrte Dreiecksungleichung: $|x − y| \geq \vert| x|−|y| \rvert $</p>
+<p>&nbsp;</p>
+<p><strong><font color=#ff0000>Lemma 2.14: (Ungleichung zwischen geometrischen und arithmetischem Mittel) (几何平均数小于等于算术平均数&amp;&amp;基本不等式)</font></strong></p>
+<p>Seien $x, y \geq 0 \in \mathbb{R}$, dann $\sqrt{x \cdot y} \leq \frac{x+y}{2}$.</p>
+<p>Beweis:</p>
+<p>Seien $\overline{z},\overline{w} \in \mathbb{R}$ so $\overline{z}=(\sqrt{x}, \sqrt{y}), w=(\sqrt{y}, \sqrt{x})$.</p>
+<p>$2\sqrt{x}\sqrt{y}=\overline{z} \cdot \overline{w} \leq \Vert \overline{z} \Vert \cdot \Vert \overline{w} \Vert = x+y \Rightarrow \sqrt{x \cdot y} \leq \frac{x+y}{2}$</p>
+<p>&nbsp;</p>
+<h2 id="Komplexe-Zahlen"><a href="#Komplexe-Zahlen" class="headerlink" title="Komplexe Zahlen"></a>Komplexe Zahlen</h2><p>Eine Komplexe Zahl $z$ kann definiert werden mit einem Paar $z=(x,y)\ \  x,y \in \mathbb{R},z=x+iy, \mathbb{C}={z=x+iy\ :\ x,y \in \mathbb{R}}, x=Re(z), y=Im(z)$.</p>
+<p>Dabei gilt: $i^2=-1$</p>
+<font color=#0000cd>虚数的定义</font>
+
+<p>&nbsp;</p>
+<p>Addition: </p>
+<p>$(x_1+iy_1)+(x_2+iy_2)=(x_1+x_2)+i(y_1+y_2)$.</p>
+<p>&nbsp;</p>
+<p>Multiplication:</p>
+<p>$(x_1+iy_1) \cdot (x_2+iy_2)=(x_1 \cdot x_2-y_1\cdot y_2)+i(x_1 \cdot y_2 + x_2 \cdot y_1)$</p>
+<p>&nbsp;</p>
+<p>$\mathbb{C}$ ist wie $\mathbb{R}$ ein Körper, aber nicht angeordnet. (Übung)</p>
+<p>&nbsp;</p>
+<p>Für $z \in \mathbb{C}$ definieren wir den Betrag $\vert z \vert = \sqrt{x^2+y^2}$.</p>
+<p>&nbsp;</p>
+<h2 id="Folgen"><a href="#Folgen" class="headerlink" title="Folgen"></a>Folgen</h2><p><strong>Definition 3.1:</strong></p>
+<p>Sei $M$ eine Menge (z.B. $M=\mathbb{R}$ oder $\mathbb{R}^n$). Eine Folge mit Werten in $M$ ist eine Abbildung $\mathbb{N}^{+} \rightarrow M$ (oder $\mathbb{N} \rightarrow M$). Wir schreiben $x<em>{1}, x</em>{2}, x<em>{3} \ldots$ oder $x</em>{0}, x<em>{1}, x</em>{2} \ldots$.</p>
+<p>Eine Folge kann explizit gegeben sein, z.B.: $x<em>{n}=2^{n}$ oder rekursiv z.B.: $x</em>{n+1}=2 x<em>{n}, x</em>{0}=1$.</p>
+<p><strong>Definition 3.2:</strong></p>
+<p>Eine Folge heißt monoton wachsend, falls $\forall n x<em>{n} \leq x</em>{n+1}$.</p>
+<p>Eine Folge heißt streng monoton wachsend, falls $\forall n x<em>{n}&lt;x</em>{n+1}$.</p>
+<p>Analog definiert man monoton fallende byw. streng monoton fallende Folgen.</p>
+<p><strong>Definition 3.3 (Grenzwert einer Folge):</strong></p>
+<p>Sei $\left(x<em>{n}\right)</em>{n \in \mathbb{N}}$ eine reelle Folge. Eine Zahl $x \in \mathbb{R}$ heißt <strong>Grenzwert (oder Limes)</strong> von $\left(x<em>{n}\right)</em>{n \in \mathbb{N}}$, falls er zu jedem $\varepsilon&gt;0$ ein $\mathbb{N}$ gibt, so dass $\left|x_{n}-x\right|&lt;\varepsilon$ für alle $n \geq \mathbb{N}$.</p>
+<p>Man sagt: $\left(x_{n}\right)$ konvengiert gegen $x$.</p>
+<p>Man schreibt:</p>
+<script type="math/tex; mode=display">
+x_{n} \underset{n \rightarrow \infty}{\rightarrow} x</script><p>oder $x=\lim <em>{n \rightarrow \infty} x</em>{n}$</p>
+<p><strong>Bsp.:</strong> Die Folge $x<em>{n}=\frac{1}{n}$ konvergiert gegen $x=0$. Wähle zu $\varepsilon&gt;0$ ein $N$, so dass $N&gt;\frac{1}{\varepsilon}$, dann gilt für $n \geq N:\left|x</em>{n}-0\right|=x_{n}=\frac{1}{n} \leq \frac{1}{N} \leq \varepsilon$ und $(3.3)$ erfüllt.</p>
+<p><strong>Bsp.:</strong> Die Folge $x_{n}=(-1)^{n}$hat keinen Grenywert. Gibt man $\varepsilon \leq 1$ so gilt für jedes $x \in \mathbb{R}$ entweder $|1-x| \geq \varepsilon$ oder $|(-1)-x| \geq \varepsilon$, d.h. $(3.3)$ kann nicht erfüllt werden.</p>
+<p><strong>Satz 3.4:</strong> </p>
+<p>Jede reelle Folge $(x_n)$ hat höchstens einen Grenzwert.</p>
+<p><strong>Beweis:</strong> Falls $x<em>{n} \rightarrow</em>{n \rightarrow \infty} x$ und $x<em>{n} \rightarrow</em>{n \rightarrow \infty} y$, so gibt es zu jedem $\varepsilon&gt;0$ ein $\mathbb{N}$ mit $|x-y| \leq\left|x-x<em>{n}\right|+\left|x</em>{n}-y\right| \leq 2 \varepsilon\ , \forall n \geq N \Rightarrow x=y$.</p>
+<p><strong>Bsp.:</strong> Sei $x \in[0,1]$ mit Dezimaldarstellung $x=0 . d<em>{1} d</em>{2} d<em>{3 \cdots}$ und $x</em>{n}=0 . d<em>{1} d</em>{2} \ldots d_{n}, n=1,2,3 \dots$</p>
+<p>Dann gilt $x<em>n \rightarrow</em>{n \rightarrow \infty} x$, da $\left|x_{n}-x\right| \leq 10^{-N}$ für $n \geq N$.</p>
+<p><strong>Lemma 3.5:</strong></p>
+<p>$(x_n)$ und $(y_n)$ seien Folgen mit $x_n \rightarrow x$ und $y_n \rightarrow y$. Falls $x_n \leq y_n \forall n$, so gilt $x \leq y$</p>
+<p>Beweis. Übung</p>
+<p>Bsp.: $x<em>{n}=\frac{1}{n^{2}}, y</em>{n}=\frac{1}{n}, n=1,2, \ldots$. Dann gilt $x=y=0$.</p>
+<p><strong>Bemerkung:</strong></p>
+<p>Die Folge, ob eine vorgegebene rekursiv definierte Folge $(x_n)$ konvergiert, kann schwierig sein.</p>
+<p><strong>Berühmtes Beispiel(Collatz-Problem): (Lothar Collatz 1937)</strong></p>
+<p>Definiere $(x_n)$ durch:</p>
+<script type="math/tex; mode=display">
+x_{n+1}=\left\{\begin{array}{l}
+\frac{x_{n}}{2}, \text { falls gerade } \\
+3 x_{n}+1, \text { falls ungerade und } x_{n} \neq 1 \\
+1, \text { falls } x_{n}=1
+\end{array}\right.</script><p>z.B. mit $\mathrm{x}=100: x<em>{2}=50, x</em>{3}=25, x<em>{4}=76, x</em>{5}=38, x<em>{6}=19, x</em>{7}=58, x<em>{8}= 29, x</em>{9}=88, x<em>{10}=44, x</em>{11}=22, x_{12}=11, $</p>
+<p>$x<em>{13}=34, x 14=17, x</em>{15}=52, x<em>{16}= 26, x</em>{17}=13, x<em>{18}=40 x</em>{19}=20, x<em>{20}=10, x</em>{21}=5, x<em>{22}=16, x</em>{23}=8, x_{24}=4,$</p>
+<p>$ x<em>{25}= 2, x</em>{26}=1$</p>
+<p>Collatz-Vermutung:</p>
+<p>Für jedes $x_{1} \in \mathbb{N}$ konvergiert $(x_n)$ gegen 1.</p>
+<p><strong>Satz 3.6 (Einschliessung):</strong></p>
+<p>Seien $(x<em>n)$ und $(y_n)$, Folgen mit $x</em>{n} \rightarrow x$ und $y<em>{n} \rightarrow x$ und $x</em>{n} \leq y_{n} \forall n$,</p>
+<p>Ist $(w<em>n)$ eine weitere Folge mit $x</em>{n} \leq w<em>{n} \leq y</em>{n} \forall n$ so gilt auch $w_n \rightarrow x$.</p>
+<p>Beweis. Übung</p>
+<p>Bsp.:</p>
+<p>$w_{n}=\frac{1}{n+n \log (n)+\frac{7}{13} n^{17}}$. Wissen $n \log n+\frac{7}{13} n^{17} \geq 0 \forall n$</p>
+<p>$0 \leq w<em>{n} \leq x</em>{n}=\frac{1}{n} \Rightarrow w_{n} n \stackrel{\rightarrow}{\rightarrow} \infty 0$</p>
+<p><strong>Definition 3.7:</strong></p>
+<p>Wir sagen, $(x<em>n)$ geht gegen $+ \infty$ falls es zu jedem $c &gt; 0$ ein $N \in \mathbb{N}$ mit $x</em>{n} \geq C \forall n \geq N(3.6)$</p>
+<p>$(x_n)$ geht gegen $- \infty$, falls $(-x_n)$ gegen $+ \infty$ geht.</p>
+<p>Bsp.: Die Folge $x_{n}=2^{n}, n \in \mathbb{N}$, geht gegen $+ \infty$</p>
+<p>Eine Folge heißt <strong>beschränkt</strong>, falls es $K&gt;0$ gibt, so dass $\left|x_{n}\right| \leq K \forall n$.</p>
+<p><strong>Satz 3.8:</strong></p>
+<p>Jede konvergierte Folge ist beschränkt. (Konvergierte Folge soll heißen: $x_{n} \rightarrow x$ für ein $x \in \mathbb{R}$, siehe Def 3.1)</p>
+<p><strong>Satz 3.9 (Rechnenreglen für Grenzwerte):</strong></p>
+<p>Seien $\left(x<em>{n}\right),\left(y</em>{n}\right)$ Folgen mit $x<em>{n} \rightarrow a$ und $y</em>{n} \rightarrow b$, so gilt $x<em>{n}+y</em>{n} \rightarrow a+b, x<em>{n}-y</em>{n} \rightarrow a-b, x<em>{n} \cdot y</em>{n} \rightarrow a \cdot b$ und $\frac{x<em>{n}}{y</em>{n}} \rightarrow \frac{a}{b}$, falls $b\neq 0$</p>
+<p>Beweis:</p>
+<p>(1) +: Sei $\epsilon&gt;0$ und sei $N$ so groß, dass für jeden $n&gt;N$, $\left|x<em>{n}-x\right|&lt;\epsilon / 2$ und $\left|y</em>{n}-y\right|&lt;\epsilon / 2$. Dann, für jeden $n&gt;N$, $\left|\left(x<em>{n}+y</em>{n}\right)-\right|(x_n-y_n) \mid&lt;\epsilon$.</p>
+<p>(2) ·: Sei $\epsilon&gt;0$, und nehme an, dass $\epsilon<1 / 3$. Sei $N$ so groß, dass für jeden $n>N$, folgendes gilt:</p>
+<p>​        (a) $\left|x<em>{n}-x\right|,\left|y</em>{n}-y\right|&lt;\epsilon$</p>
+<p>​        (b) $\left|x<em>{n}-x\right|&lt;\frac{\epsilon}{2(|y|+\epsilon)}$ und $\left|y</em>{n}-y\right|&lt;\frac{\epsilon}{2(|x|+\epsilon)}$</p>
+<p>​        Dann, für $n&gt;N$</p>
+<script type="math/tex; mode=display">
+\left|x_{n} \cdot y_{n}-x \cdot y\right|=\left|x_{n} \cdot y_{n}-x \cdot y_{n}+x \cdot y_{n}-x \cdot y\right|=\left|\left(x_{n}-x\right) \cdot y_{n}+x \cdot\left(y_{n}-y\right)\right|</script><script type="math/tex; mode=display">
+\leq\left|y_{n}\right| \cdot \frac{\epsilon}{2(|y|+\epsilon)}+|x| \cdot \frac{\epsilon}{2(|x|+\epsilon)} \leq \epsilon</script><p>(3) -:Ünung</p>
+<p>(4) /: Übung</p>
+<p>Bsp.:</p>
+<script type="math/tex; mode=display">
+x_{n}=\frac{n^{2}-\log n}{n^{2}+2 n+1}</script><script type="math/tex; mode=display">
+x_{n}=\frac{1-\frac{\log n}{n^{2}}}{1+\frac{2}{n}+\frac{1}{n^{2}}} n \stackrel{\rightarrow}{\rightarrow} 1</script><p>da <script type="math/tex">1-\frac{\log n}{n^{2}} n \rightarrow \infty 1,1+\frac{2}{n}+\frac{1}{n^{2}} n \stackrel{\rightarrow}{\rightarrow} \infty 1</script></p>
+<p><strong>Satz 3.10:</strong></p>
+<p>Jede monoton wachsende und beschränkte Folge ist konvergiert und es gilt $\lim <em>{n \rightarrow \infty} x</em>{n}=\sup <em>{n} x</em>{n}$ wobei $\sup <em>{n} x</em>{n}:=\sup (M)$ wobei $M=\left{x_{n}: n \in \mathbb{N}\right}$</p>
+<p>Beweis: Für jedes $\varepsilon&gt;0$ gibt es $N \in \mathbb{N}$ so dass $s-\varepsilon&lt;x<em>{N}$, andernfalls wäre $s-\varepsilon$ eine obere Schranke von $M$ und $s$ wäre die kleinste obere Schranke. Für $n \geq N$ gilt $s-\varepsilon&lt;x</em>{N} \leq x<em>{n} \leq s$, da die Folge monoton wachsend ist und $s$ eine obere Schranke ist. Damit gilt $x</em>{n} \rightarrow s$.</p>
+<font color=#0000cd>这里的$s$指的是$sup(x_n)$</font>
+
+<p>Analog gilt, dass jede beschränkte monoton fallende Folge gegen ihre Infinmum konvergiert.</p>
+<p>Bsp.: $x<em>{1}&gt;0, x</em>{n+1}=\sqrt{x<em>{n}}$ Falls $x \geq 1$ so ist $(x_n)$ monoton fallend, falls $x</em>{1}&lt;1$, so ist $(x<em>n)$ monoton wachsend. In beiden Fällen gilt $x</em>{n} \stackrel{n \rightarrow \infty}{\rightarrow} 1$</p>
+<p><strong>Beschränkte Folgen, Limes superior und Limes inferior</strong></p>
+<p>Sei $(x_n)$ eine <strong>beschränkte</strong> Folge reeller Zahlen.</p>
+<p>Betrachte $\overline{x<em>{n}}=\sup </em>{k \geq n} x<em>{k}, \underline{x</em>{n}}=\inf <em>{k \geq n} x</em>{k}$</p>
+<p>Dann ist $\left(\overline{x<em>{n}}\right)$ monoton fallend und $\left(x</em>{n}\right)$ monoton wachsend. Also existieren nach Satz 3.10 die beiden Grenzwerte. $\limsup <em>{n \rightarrow \infty} x</em>{n}:=\lim <em>{n \rightarrow \infty} \overline{x</em>{n}}$ und $\liminf <em>{n \rightarrow \infty} \underline{x</em>{n}}$ die wir als limes superior bzw. limes inferior von $(x_n)$ bezeichnen.</p>
+<p>Aus $\underline{x}<em>{n} \leq \bar{x}</em>{n}$ folgt:</p>
+<script type="math/tex; mode=display">
+\liminf _{n \rightarrow \infty} x_{n} \leq \limsup _{n \rightarrow \infty} x_{n}</script><p><strong>Definition 3.11 (Häufungspunkt)</strong>:</p>
+<p>Ist $\left(x<em>{n}\right)$ reellwertige Folge und $n</em>{1}&lt;n<em>{2}&lt;n</em>{3}&lt;$$n<em>{4} \ldots, n</em>{k} \in \mathbb{N}, \forall k$ so heißt $x<em>{n_k}$ Teilfolge von $(x_n)$. $x$ heißt Häufungspunkt von $(x_n)$, falls es eine Teilfolge $(x</em>{n<em>k})$ gibt mit $\lim </em>{k \rightarrow \infty} x<em>{n</em>{k}}=x$.</p>
+<p>Beispiel:</p>
+<script type="math/tex; mode=display">
+x_{n}=(-1)^{n}, n \in \mathbb{N}</script><p>Die Häufungspunkte von $(x_n)$ sind $+1$ und $-1$.</p>
+<p><strong>Satz 3.12 (Bolzano-Weierstrass):</strong></p>
+<p>Gegeben sei eine beschränkte reellewertige Folge $(x_n)$. <strong>Dann sind Limes superior und Limes inferior maximaler bzw. minimaler Häufungspunkt der Folge.</strong></p>
+<p>Weiter gilt:</p>
+<script type="math/tex; mode=display">
+x_{n} \stackrel{n \rightarrow \infty}{\longrightarrow} x \Leftrightarrow \liminf _{n \rightarrow \infty} x_{n}=\limsup _{n \rightarrow \infty} x_{n}=x\ \ \ \ \ \ (3.1)</script><font color=#0000cd>下面那个是推广, 上面那个也很重要.</font>
+
+
+
+<p><strong>Beweis:</strong> </p>
+<p>Müssen drei Dinge zeigen:</p>
+<p>(1) Limes superior und Limes inferior sind Häufungspunkte.</p>
+<p>(2) Jeder Häufungspunkt $x$ liegt in $\left[\liminf <em>{n \rightarrow \infty} x</em>{n}, \limsup <em>{n \rightarrow \infty} x</em>{n}\right]$</p>
+<p>(3) $(3.1)$ gilt</p>
+<p><strong>Zu (1):</strong> </p>
+<p>Definiere für $k=1,2,3 \ldots$ rekursiv $n<em>{1}=1&lt;n</em>{2}&lt;n_{3}&lt;\ldots$ so dass</p>
+<script type="math/tex; mode=display">
+\overline{x_{n_{k}+1}}=\sup _{n>n_{k}} x_{n}-\frac{1}{k} \leq x_{n_{k+1}} \leq \sup _{n>n_{k}} x_{n}=\overline{x_{n_{k}+1}}</script><script type="math/tex; mode=display">
+\bar{x}_{n_{k}+1}-\frac{1}{k}=\sup _{n>n_{k}} x_{n}-\frac{1}{k} \leq x_{n_{k+1}} \leq \sup _{n>n_{k}} x_{n}=\bar{x}_{n_{k}+1}</script><font color=#0000cd>下面的是另外一个Skript里面的, 我觉得这个其实才是对的</font>
+
+<p>Lassen wir $k \rightarrow \infty$ gehen. so erhalten wir(durch Einschließung):</p>
+<script type="math/tex; mode=display">
+\lim _{k \rightarrow \infty} x_{n_{k}}=\lim _{k \rightarrow \infty} \overline{x_{n_{k}+1}}=\limsup _{n \rightarrow \infty} x_{n}</script><p>d.h. die so konstruierte Teilfolge $(x_{n_k})$ konvergiert gegen den Limes superior von $(x_n)$. Dieser ist daher Häufungspunkt von $(x_n)$.</p>
+<p>Der Beweis, dass Limes inferior ein Häufungspunkt von $(x_n)$ ist, geht analog.</p>
+<p><strong>Zu (2):</strong></p>
+<p>Für jede Teilfolge $x_{n_k}$ gilt</p>
+<script type="math/tex; mode=display">
+\inf _{n \geq n_{k}} x_{n} \leq x_{n_{k}} \leq \sup _{n \geq n_{k}} x_{n}</script><p>Falls $x<em>{n</em>{k}} \rightarrow_{k \rightarrow \infty} x$, d.h. falls die Teilfolge gegen den Häufungspunkt $x$ konvergiert, so bekommt man mit $k \rightarrow \infty$</p>
+<script type="math/tex; mode=display">
+\liminf _{n \rightarrow \infty} x_{n} \leq x \leq \limsup _{n \rightarrow \infty} x_{n}</script><p><strong>Zu (3):</strong></p>
+<p>“$\Rightarrow$” in $(3.1)$ gilt, weil <strong>jede</strong> Teilfolge einer konvergierten Folge $(x<em>n)$ mit $x</em>{n} \rightarrow x$ gegen denselben Grenzwert $x$ konvergiert.</p>
+<p>Für “$\Leftarrow$” führen wir einen Widerspruchsbeweis:</p>
+<p>Wir nehmen an, dass </p>
+<script type="math/tex; mode=display">
+\limsup _{n \rightarrow \infty} x_{n}=\liminf _{n \rightarrow \infty} x_{n}=x</script><p>aber dass $(x_n)$ <strong>nicht</strong> gegen $x$ konvergiert.</p>
+<p>Dann gibt es für jedes $\varepsilon<em>{0}&gt;0$ eine Teilfolge $(x</em>{n<em>k})$, sodass $\left|x-x</em>{n<em>{k}}\right|&gt;\varepsilon</em>{0} \quad \forall k \in \mathbb{N}$.</p>
+<p>Die Teilfolge $(x<em>{n_k})$ ist wie $(x_n)$ beschränkt und hat daher selber einen Häufungspunkt $\tilde{x}$. Dieser erfüllt nach Konstruktion $|\widetilde{x}-x|&gt;\varepsilon</em>{0}&gt;0$, also $\widetilde{x} \neq x$.</p>
+<p>Also ist $\tilde{x}$ auch ein Häufungspunkt der ursprünglichen Folge $(x_n)$ und nach $(2)$ müsste</p>
+<script type="math/tex; mode=display">
+x=\liminf _{n \rightarrow \infty} x_{n} \leq \widetilde{x} \leq \limsup _{n \rightarrow \infty} x_{n}=x</script><p> gelten.</p>
+<p>so gilt Widerspruch.</p>
+<p>Bsp.:</p>
+<p>Betrachten die Folge $\left(x_{n}\right)=\left(0, \frac{1}{2}, 1,0, \frac{1}{4}, \frac{1}{2}, \frac{3}{4}, 1,0, \frac{1}{8}, \frac{1}{4}, \frac{3}{8}, \frac{1}{2}, \frac{5}{8}, \frac{3}{4}, \frac{7}{8}, 1,0, \frac{1}{16}, \ldots\right)$</p>
+<p>Die Menge der Häufungspunkte isr $[0,1]$.</p>
+<p>Es gilt: $\liminf <em>{n \rightarrow \infty} x</em>{n}=0, \limsup <em>{n \rightarrow \infty} x</em>{n}=1$</p>
+<p><strong>Folgerung:</strong></p>
+<p>Jeder beschränkte reellwertige Folge hat eine konvergente Teilfolge und damit auch einen Häufungspunkt.</p>
+<p><strong>Satz 3.13 (Cauchys Kriterium für Konvergenz):</strong></p>
+<p>Sei $(x_n)_n$ Folge. Dann konvergiert $(x_n)_n$ genau dann, wenn für jedes $\epsilon&gt;0$ ein $N$ existiert, so dass</p>
+<script type="math/tex; mode=display">
+\left|x_{n}-x_{m}\right|<\epsilon \quad \text { für alle } m, n>N</script><p>Beweis:</p>
+<p>$\Rightarrow$ : Sei $\epsilon&gt;0$. $(x<em>n)_n$ konvergiert gegen einen Grenzwert $x$, also existieren ein $N$, so dass $\left|x</em>{n}-x\right|&lt;\epsilon / 2$ für alle $n&gt;N$ gilt. Dann gilt für alle $m, n&gt;N$, dass $\left|x<em>{n}-x</em>{m}\right| \leq\left|x<em>{n}-x\right|+\left|x-x</em>{m}\right|&lt;\epsilon$.</p>
+<p>$\Leftarrow$ : Erst zeigen wir, dass  $(x<em>n)_n$ beschränkt ist. Sei $N$ so, dass $\left|x</em>{n}-x<em>{m}\right|<1$ für alle $m, n>N$. Dann ist $\max \left{x</em>{1}, \ldots, x<em>{N}, x</em>{N+1}+1\right}$$\max \left{x<em>{1}, \ldots, x</em>{N}, x<em>{N+1}+1\right}$ eine obere Schranke. Analog findet man eine untere Schranke. Da die Folge $(x_n)_n$ beschränkt ist, besitzt sie nach Satz 3.12 einen Häufungspunkt $x$. Sei nun $\epsilon&gt;0$ beliebig und $N$ so groß, dass $\left|x</em>{n}-x<em>{m}\right|&lt;\epsilon / 2$ für alle $m, n&gt;N$. Wähle num $m&gt;N$ so, dass $\left|x</em>{m}-x\right|&lt;\epsilon / 2$ gilt(ein solches $m$ existiert, weil $x$ Häufungspunkt von $\left(x<em>{n}\right)</em>{n}$ ist). Dann gilt für jedes $n&gt;N$,</p>
+<script type="math/tex; mode=display">
+$\left|x_{n}-x\right| \leq\left|x_{n}-x_{m}\right|+\left|x_{m}-x\right|<\epsilon$</script><p>Weil $\epsilon$ beliebig ist, konvergiert also $(x_n)_n$ konvergiert gegen $x$.</p>
+<p>q.e.d</p>
+<p><strong>Übung</strong></p>
+<p>$(x<em>n)_n$ ist konvergiert $\Leftrightarrow\left(x</em>{n}\right)<em>{n}$ hat genau einen Häufungspunkt $\Leftrightarrow \limsup </em>{n \rightarrow \infty} x<em>{n}=\liminf </em>{n \rightarrow \infty} x_{n}$</p>
+<h2 id="Reihen"><a href="#Reihen" class="headerlink" title="Reihen"></a>Reihen</h2><p><strong>Definition 4.1</strong>:</p>
+<p>Einer Folge $(a<em>n)$ komplexer Zahlen ordnen wir die Folge $s</em>{n}=a<em>{0}+\ldots+a</em>{n}=\sum<em>{k=0}^{n} a</em>{k}$ zu und bezeichnen sie als <strong>unendliche Reihe</strong>, kurze <strong>Reihe</strong> mit den <strong>Gliedern $a_n$</strong> und die <strong>Partialsummen</strong> $s_n$.</p>
+<p>Falls die Partialsummen $s<em>n$ konvergieren, d.h. $s</em>{n} \stackrel{n\rightarrow \infty}{\rightarrow}  s$, soheißt die Reihe konvergent und der Grenzwert $s$ heißt <strong>Summe</strong> oder <strong>Wert</strong> der Reihe. Wir schreiben $s=\lim <em>{n \rightarrow \infty} s</em>{n}:=\sum<em>{k=0}^{\infty} a</em>{k}$. Sind die Glieder reell und geht die Floge$(s<em>n)$ gegen $+\infty$(bzw. $-\infty$) os schreiben wir auch $\sum</em>{k=0}^{\infty} a<em>{k}=+\infty\left(b z w . \sum</em>{k=0}^{\infty} a_{k}=-\infty\right)$</p>
+<p><strong>Beispiele</strong>:</p>
+<p>(1) Die <strong>geometrische Reihe</strong>. </p>
+<p>Für $z \in \mathbb{C}$ betrachten wir $s<em>{n}=\sum</em>{k=0}^{n} z^{k}$ (Konvention: $z^0=1$)</p>
+<p>Es gilt $s_{n}=\frac{1-z^{n+1}}{1-z}$(等比数列求和公式)</p>
+<p>Für $|z|&lt;1$ gilt $\left|z^{n+1}\right| \stackrel{n\rightarrow \infty}{\rightarrow}  0$(da $\left|z^{n+1}\right|=|z|^{n+1}$) und damit $s_{n} \rightarrow s=\frac{1}{1-z}$</p>
+<p>Also: $\sum_{k=0}^{\infty} z^{k}=\frac{1}{1-z}$ falls $|z|&lt;1$</p>
+<p>Für $z \in \mathbb{R},|z| \geq 1$ gilt $\sum<em>{k=0}^{\infty} z^{k}=\infty$(denn$s</em>{n} \geq n+1$)</p>
+<p><strong>Bemerkung</strong>: Für die Frage , <strong>ob</strong> eine Reihe konvergiert, spielen die ersten $n<em>0$ Glieder keine Rolle: Für $m \geq n</em>{0}$, $m$ beliebig, gilt, dass $\sum<em>{k=n</em>{0}}^{n} a<em>{k}$ konvergiert gdw. $\sum</em>{k=m}^{n} a_{k}$ konvergiert.</p>
+<p>(2) Die <strong>harmonische Reihe</strong></p>
+<p>Sei $s<em>{n}=\sum</em>{k=1}^{n} \frac{1}{k}$.</p>
+<p>Behauptung: $\sum_{k=1}^{\infty} \frac{1}{n}=\infty$</p>
+<p><strong>Beweis</strong>: Für $N=2^{j}$ gilt $s_{N}=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\ldots+\frac{1}{8}+\ldots+\frac{1}{2^{j-1}+1}+\ldots+\frac{1}{2^{j}}$</p>
+<p>$\frac{1}{3}+\frac{1}{4} \geq \frac{1}{2}$</p>
+<p>$\frac{1}{5}+\ldots+\frac{1}{8} \geq \frac{1}{2}$</p>
+<p>$\frac{1}{2^{j-1}+1}+\ldots+\frac{1}{2^{j}} \geq \frac{1}{2}$</p>
+<p>also $s_{n} \geq 1+\frac{j}{2}$ für $N=2^{j}$</p>
+<p>Damit geht $(s_n)$ gegen $+\infty$</p>
+<p>Falls $\sum<em>{k=0}^{\infty} a</em>{k}=a$ und $\sum<em>{k=0}^{\infty} b</em>{k}=b$ so gilt $\sum<em>{k=0}^{\infty}\left(a</em>{k}+b_{k}\right)=a+b\ (3.11)$</p>
+<p>und $\sum<em>{k=0}^{\infty} c a</em>{k}=c \sum_{k=0}^{\infty} a_k=c \cdot a \forall c \in \mathbb{R}\ (3.12)$</p>
+<p>(3.11) und (3.12) ergeben sich aus den entsprechenden Aussagen für Grenzwerte von Folgen.</p>
+<p>Falls eine Reihe konvergent ist, d.h. $s<em>{n} \rightarrow s$ für ein $s \in \mathbb{C}$ so gilt für die Glieder $a</em>{n}=s<em>{n}-s</em>{n-1}=\left(s<em>{n}-s\right)+\left(s-s</em>{n-1}\right) \Rightarrow a_{n} \rightarrow 0$</p>
+<p><strong>Satz 4.2(Notwendige Bedingung für die Konvergenz)</strong>:</p>
+<p>Ist eine Reihe konvergent, so muss gelten:</p>
+<script type="math/tex; mode=display">
+\lim _{n \rightarrow \infty} a_{n}=0</script><p><strong>Beweis. Übung. Hinweis: Satz 3.13</strong></p>
+<p><strong>Satz 4.3</strong>:</p>
+<p>Ist $s<em>{n}=\sum</em>{k=0}^{n} a<em>{k}$ eine Reelle Reihe mit $a</em>{k} \geq 0 \forall k \in \mathbb{N}_{0}$, so ist $(s_n)$ konvergent gdw. $(s_n)$ beschränkt ist.</p>
+<p>Beweis. $(s_n)$ ist monoton wachsend.</p>
+<h3 id="Vergleichskriterien-fur-Konvergenz"><a href="#Vergleichskriterien-fur-Konvergenz" class="headerlink" title="Vergleichskriterien für Konvergenz"></a>Vergleichskriterien für Konvergenz</h3><p><strong>Definition 4.4(Majorante)</strong>:</p>
+<p>Sei $s<em>{n}=\sum</em>{k=0}^{n} a<em>{k}$ eine Reihe mit Werten in $\mathbb{C}$. Eine Reihe $\sum</em>{k=0}^{n} b<em>{k}$(mit $b</em>{k} \in \mathbb{R}, \forall k$) mit $\left|a<em>{k}\right| \leq b</em>{k}$$\left|a<em>{k}\right| \leq b</em>{k}$ heißt <strong>Majorante</strong> von $\sum<em>{k=0}^{n} a</em>{k}$</p>
+<p><strong>Satz 4.5(Majorantenkriterium)</strong>:</p>
+<p>Sei $s<em>{n}=\sum</em>{k=0}^{n} a<em>{k}$ eine Reihe mit Werten in $\mathbb{C}$, welche eine konvergente Majorante $\sum</em>{k=0}^{n} b_{k}$ besitzt. Dann ist $(s_n)$ konvergent und es gilt:</p>
+<script type="math/tex; mode=display">
+\left|\sum_{k=0}^{\infty} a_{k}\right| \leq \sum_{k=0}^{\infty}\left|a_{k}\right| \leq \sum_{k=0}^{\infty} b_{k}</script><p><strong>Beweis</strong>:</p>
+<p>Sei $\epsilon&gt;0$ und $N$ so groß, dass</p>
+<script type="math/tex; mode=display">
+\sum_{n=N}^{\infty} b_{k}<\epsilon</script><p>Dann gilt für $m&gt;n&gt;N$</p>
+<script type="math/tex; mode=display">
+\left|s_{n}-s_{m}\right|=\left|\sum_{k=n+1}^{m} a_{k}\right| \leq \sum_{k=n+1}^{m}\left|a_{k}\right| \leq \sum_{k=n+1}^{m} b_{k} \leq \sum_{k=N}^{\infty} b_{k}<\epsilon</script><p>und mit Satz 3.13 ist die Aussage bewiesen.</p>
+<p><strong>Definition 4.6</strong>:</p>
+<p>Eine Reihe die <strong>nicht</strong> konvergiert heißt divigent.</p>
+<p><strong>Beispiele</strong>:</p>
+<p>(1) $\sum_{k=1}^{\infty} \frac{1}{k^{2}} \leq 2$, denn</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{k=1}^{\infty} \frac{1}{k^{2}} &=1+\frac{1}{2^{2}}+\frac{1}{3^{2}}+\frac{1}{4^{2}} \ldots \\
+& \leq 1+\frac{1}{1\cdot 2}+\frac{1}{2 \cdot3}+\frac{1}{3\cdot4}+\ldots \\
+&=1+\sum_{k=1}^{\infty} \frac{1}{k(k+1)} \\
+&=2
+\end{aligned}</script><p>mit Satz 4.3</p>
+<p>(2) $\sum_{k=1}^{\infty} \frac{1}{\sqrt{k(k+1)}}=\infty$, denn</p>
+<script type="math/tex; mode=display">
+\frac{1}{\sqrt{k(k+1)}}>\frac{1}{2 k} \forall k \in \mathbb{N}</script><script type="math/tex; mode=display">
+\text{und wir wissen dass} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \</script><script type="math/tex; mode=display">
+\sum_{k=1}^{\infty} \frac{1}{k}=\infty</script><p>Das Argument des letzten Beispiels ist allgemein:</p>
+<p><strong>Folgerung Divergente Minorante</strong>:</p>
+<p>Seien $\sum<em>{k=0}^{\infty} a</em>{k}, \sum<em>{k=0}^{\infty} b</em>{k}$ Reihen mit $0 \leq a<em>{k} \leq b</em>{k} \forall k$. Falls $\sum<em>{k=0}^{\infty} a</em>{k}$ divergent ist, so ist auch $\sum<em>{k=0}^{\infty} b</em>{k}$ divergent. Die Reihe $\sum<em>{k=0}^{\infty} a</em>{k}$ heißt in diesem Fall <strong>divergente Minorante</strong> von $\sum<em>{k=1}^{\infty} b</em>{k}$</p>
+<p>Aus dem Vergleich mit der geometrischen Reihen erhalten wir das <strong>Quotientenkriterium</strong>.</p>
+<p><strong>Satz 4.7 (Quotientenkriterium):</strong></p>
+<p>Sei $\sum<em>{k=0}^{\infty} a</em>{k}$ eine Reihe mit Werten in $\mathbb{C}$. Die Reihe konvergiert falls es ein $q \in \mathbb{R}$ gibt mit $q&lt;1$ und $n<em>{0} \geq 0$ gibt, sodass$\forall</em>{k} \geq n<em>{0} \frac{\left|a</em>{k+1}\right|}{\left|a_{k}\right|} \leq q$.</p>
+<p><strong>Beweis</strong>:</p>
+<p>Das folgt aus dem Majorantenkriterium, da $\left|a<em>{k}\right| \leq\left|a</em>{n<em>{0}}\right| q^{k-n</em>{0}}$ für $k \geq n_{0}$.</p>
+<p>Die Reihe $\sum<em>{k=n</em>{0}}^{\infty}\left|a<em>{n</em>{0}}\right| q^{k-n<em>{0}}$ ist also eine konvergente Majorante von $\sum</em>{k=n<em>{0}}^{n} a</em>{k}$.</p>
+<p><strong>Beachte, dass es nicht genügt, dass $\frac{\left|a<em>{k+1}\right|}{\left|a</em>{k}\right|}&lt;1$ gilt.</strong></p>
+<p><strong>Beispiel</strong>: Für die harmonische Reihe mit $a_{k}=\frac{1}{k}$ gilt:</p>
+<script type="math/tex; mode=display">
+\frac{\left|a_{k+1}\right|}{\left|a_{k}\right|}=\frac{\frac{1}{k+1}}{\frac{1}{k}}=\frac{k}{k+1}<1</script><p>aber wir wissen, dass sie divergent ist.</p>
+<p><strong>Beispiel: Exponentialreihe</strong></p>
+<p>Sei $z \in \mathbb{C}$ und $a_{k}=\frac{z^{k}}{k !}$. Wegen</p>
+<script type="math/tex; mode=display">
+\frac{\left|a_{k+1}\right|}{\left|a_{k}\right|}=\frac{|z|^{k+1}}{(k+1) !} \frac{k !}{|z|^{k}}=\frac{|z|}{k+1} \text { gilt } \frac{\left|a_{k+1}\right|}{\left|a_{k}\right|} \leq \frac{1}{2} \forall k \geq 2|z|-1</script><p>also ist die Reihe konvergent, $\forall z \in \mathbb{C}$. Sie definiert die <strong>Exponentialfunktion</strong>:</p>
+<script type="math/tex; mode=display">
+\exp (z)=\sum_{k=0}^{\infty} \frac{z^{k}}{k !}\ (3.19)</script><p>und $\exp : \mathbb{C} \rightarrow \mathbb{C}$</p>
+<p>Falls $z \in \mathbb{R}$ gilt $\exp (z) \in \mathbb{R}$, wir können also exp auf $\mathbb{R}$ einschränken. Aus (3.19) folgt $\exp (0)=1$. Für $z=1$ bekommt man die Eulersche Zahl:</p>
+<p><strong>Behauptung</strong>: $e=\exp (1)$</p>
+<p>Beweis: Zu zeigen ist:</p>
+<script type="math/tex; mode=display">
+\lim _{n \rightarrow \infty}\left(1+\frac{1}{n}\right)^{n}=\sum_{k=0}^{\infty} \frac{1}{k !}(\text { sh. Übungen })</script><p>Wir werden sehen, dass $\exp (x)=e^{x} \forall x \in \mathbb{R}$.</p>
+<h3 id="Alternierende-Reihen"><a href="#Alternierende-Reihen" class="headerlink" title="Alternierende Reihen"></a>Alternierende Reihen</h3><p>Eine Reihen $\sum<em>{k=0}^{n} a</em>{k}$ heißt <strong>alternierend</strong>, wenn die Glieder abwechselnd positives und negatives Vorzeichen haben. Wir schreiben $a<em>{0}-a</em>{1}+a<em>{2}-a</em>{3}+a<em>{4} \ldots$ und nehmen an $a</em>{0} \geq 0$</p>
+<p><strong>Satz 4.8 (Leibnitzkriterium)</strong>:</p>
+<p>Sei $\left(a<em>{n}\right)</em>{n \geq 0}$ eine monoton fallende Folge in $\mathbb{R}$ mit $a<em>{n} \stackrel{n\rightarrow \infty}{\rightarrow} 0$. Dann konvergiert die Reihe $\sum</em>{k=0}^{n}(-1)^{k} a_{k}$ und es gilt für alle $n \in \mathbb{N}$:</p>
+<script type="math/tex; mode=display">
+\left|\sum_{k=0}^{\infty}(-1)^{k} a_{k}-s_{n}\right|=\left|\sum_{k=0}^{\infty}(-1)^{k} a_{k}-\sum_{k=0}^{\infty}(-1)^{k} a_{k}\right| \leq a_{n+1}</script><p><strong>Beweis</strong>:</p>
+<p>Für $k \geq 1$ ist $a<em>{2 k}-a</em>{2 k-1} \leq 0$ und $a<em>{2 k}-a</em>{2 k+1} \geq 0$, also</p>
+<script type="math/tex; mode=display">
+s_{2 k}=s_{2 k-2}-a_{2 k-1}+a_{2 k} \leq a_{2 k} \leq s_{2 k-2}</script><script type="math/tex; mode=display">
+s_{2 k+1}=s_{2 k-1}+a_{2 k}-a_{2 k+1} \geq s_{2 k-1}</script><p>also ist $\left(s<em>{2 k}\right)</em>{k \in \mathbb{N}}$ monoton fallend und $\left(s<em>{2 k-1}\right)</em>{k \in \mathbb{N}}$ monoton wachsend. Es gilt für all $k$:</p>
+<script type="math/tex; mode=display">
+s_{1} \leq s_{2 k-1}=s_{2 k}-a_{2 k} \leq s_{2 k} \leq s_{0}</script><p>und für $m \geq k$</p>
+<script type="math/tex; mode=display">
+s_{1} \leq s_{2 k-1} \leq s_{2 m-1} \leq s_{2 m} \leq s_{2 k} \leq s_{0}(3.24)</script><p>Also sind beide Teilfolge $\left(s<em>{2 k}\right)$ und $\left(s</em>{2 k-1}\right)$ beschränkt und damit konvergent, und für alle $k \in \mathbb{N}$ gilt:</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+s_{2 k-1} \leq \lim _{m \rightarrow \infty} s_{2 m-1} \leq s_{2 k} \\
+s_{2 k-1} \leq \lim _{m \rightarrow \infty} s_{2 m} \leq s_{2 k}
+\end{array}</script><p>Aus (3.24) folgt</p>
+<script type="math/tex; mode=display">
+0 \leq\left|\lim _{m \rightarrow \infty} s_{2 m}-\lim _{m \rightarrow \infty} s_{2 m-1}\right| \leq a_{2k} \forall k</script><p>also</p>
+<script type="math/tex; mode=display">
+\lim _{m \rightarrow \infty} s_{2 m}=\lim _{m \rightarrow \infty} s_{2 m-1}</script><p>da $a_{2 k} \rightarrow 0$</p>
+<p>Sei $b:=\lim <em>{m \rightarrow \infty} s</em>{2 m-1}$ . Das für alle $n \in \mathbb{N}$ entweder $s<em>{n} \leq b \leq s</em>{n+1}$ oder $s<em>{n} \geq b \geq s</em>{n+1}$ folgt $0 \leq\left|b-s<em>{n}\right| \leq\left|s</em>{n}-s<em>{n+1}\right|=a</em>{n+1} \stackrel{n \rightarrow \infty}{\rightarrow}  0$, also $s_{n} \stackrel{n \rightarrow \infty}{\rightarrow}  b$.</p>
+<p><strong>Beispiel</strong>:</p>
+<p>Die alternierende harmonische Reihe.</p>
+<p>$\sum<em>{k=1}^{\infty}(-1)^{k} \frac{1}{k}$ ist nach dem Leibniz-Kriterium konvergiert: $\sum</em>{k=1}^{\infty}(-1)^{k} \frac{1}{k} \neq \infty$</p>
+<p>Die Reihe $\sum<em>{k=1}^{\infty} \frac{1}{2 k}$ ist divergent, die Reihe $\sum</em>{k=1}^{\infty} \frac{1}{2 k-1}$ ebenfalls ($\sum_{k=1}^{\infty} \frac{1}{2 k}$ ist divergente Minorante).</p>
+<p>Geben wir eine beliebige Zahl $a \in \mathbb{R}$ vor, so können wir durch Umordnen erreichen, dass die ungeordnete Reihe gegen $a$ konvvergiert.</p>
+<p>z.B. für $a=1$:</p>
+<script type="math/tex; mode=display">
+1-\frac{1}{2}+\frac{1}{3}+\frac{1}{5}-\frac{1}{4}+\frac{1}{7} \ldots</script><p>wobei wir negativen Glieder summieren bis die Partialsumme $\leq 1$ ist, dann positive Glieder bis die Partialsumme $\geq 1$ ist.</p>
+<p><strong>Definition 4.9(Absolute Konvergenz):</strong></p>
+<p>Eine Reihe $\sum<em>{k=0}^{n} a</em>{k}$ mit $a<em>{k} \in \mathbb{C}$ heißt <strong>absolut konvergent</strong>, falls $\sum</em>{k=0}^{n}\left|a_{k}\right|$ konvergent ist.</p>
+<p>Eine bijektive Abbildung $\sigma: \mathbb{N} \rightarrow \mathbb{N}$ heißt <strong>Permutation</strong> von $\mathbb{N}$.</p>
+<p><strong>Satz 4.10(Umordnungssatz)</strong>:</p>
+<p>Eine Reihe $\sum<em>{k=1}^{n} a</em>{k}$ konvergiert genau dann absolut, wenn für jede Permutation $\sigma$ von  $\mathbb{N}$ die umgeordnete Reihe gegen denselben Wert konvergiert:</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^{\infty} a_{\sigma(k)}=\sum_{k=1}^{\infty} a_{k}</script><p><strong>Satz 4.11 (Doppelreihensatz)</strong>:</p>
+<p>Falls $\sum<em>{k=1}^{\infty} \sum</em>{j=1}^{\infty}\left|a_{k, j}\right|&lt;\infty$(absolut konvergiert), so gilt:</p>
+<script type="math/tex; mode=display">
+\sum_{k=1}^{\infty} \sum_{j=1}^{\infty} a_{k, j}=\sum_{j=1}^{\infty} \sum_{k=1}^{\infty} a_{k, j}</script><p>Können wir das Produkt zweier konvergenter Reihen $\sum<em>{k=0}^{\infty} a</em>{k}, \sum<em>{k=0}^{\infty} b</em>{k}$ wieder als Reihen schrreiben?</p>
+<p>Wollen also $(c_m)$ finden, so dass</p>
+<script type="math/tex; mode=display">
+\sum_{k=0}^{\infty} a_{k} \cdot \sum_{j=0}^{\infty} b_{j}=\sum_{m=0}^{\infty} c_{m}</script><p>wir rechenen:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sum_{k=0}^{\infty} a_{k} \sum_{j=0}^{\infty} b_{j} & \\
+&=\sum_{k=0}^{\infty} \sum_{j=0}^{\infty} a_{k} b_{j} \\
+&=\sum_{m=0}^{\infty} \sum_{k, j, k+j=m}^{\infty} \\
+&=\sum_{m=0}^{\infty} c_{m}
+\end{aligned}</script><script type="math/tex; mode=display">
+\text{mit dem Cauchy-Produkt: } c_{m}=\sum_{k=0}^{m} a_{k} b_{m-k}</script><p>Dies gilt nur unter Vorraussetzungen…</p>
+<p><strong>Beispiel 4.12</strong></p>
+<script type="math/tex; mode=display">
+\exp (z)=\sum_{k=0}^{\infty} \frac{z^{k}}{k !}</script><p>ist für jedes $z \in \mathbb{C}$ nach dem Quotientenkriteriumabsolut konvergent, denn $\frac{\frac{z^{k+1}}{(k+1) !}}{\left|\frac{z^{k}}{k !}\right|}=\frac{|z|}{k+1}  \stackrel{k\rightarrow\infty}{\rightarrow}  0$. Also dürfen wir das Cauchy-Produkt bilden und erhalten für alle $z, w \in \mathbb{C}$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\exp (z) \exp (w) &=\sum_{k=0}^{\infty} \sum_{j=0}^{k} \frac{z^{j} w^{k-j}}{j !(k-j) !)} \\
+=& \sum_{k=0}^{\infty} \frac{1}{k !} \sum_{j=0}^{\infty}\left(\begin{array}{c}
+k \\
+j
+\end{array}\right) z^{j} w^{k-j} \\
+&=\exp (z+w)(4.1)
+\end{aligned}</script><p>Die Exponentialfunktion hat folgende Eigenschaften:</p>
+<p><strong>Satz 4.13</strong>:</p>
+<p>(1) $\exp (-z)=\frac{1}{\exp (z)} \forall z \in \mathbb{C}$</p>
+<p>(2) $\exp (z) \neq 0 \forall z \in \mathbb{C}(0$ steht für (0,0)$\in \mathbb{C}$</p>
+<p>(3) $\exp (x)&gt;0 \forall x \in \mathbb{R}\left(\exp (x)=e^{x} \forall x \in \mathbb{R}\right)$</p>
+<p>(4) $\exp (n)=e^{n} \forall n \in \mathbb{N}$</p>
+<p>(5) $\overline{\exp (z)}=\exp \bar{z} \forall z \in \mathbb{C}$</p>
+<p>(6) Die reelle Exponentialfunktion $\exp : \mathbb{R} \rightarrow \mathbb{R}$ ist monoton wachsend, und für die komplexe Funktion gilt $|\exp (z)| \leq \exp (|z|) \forall z \in \mathbb{C}$</p>
+<p><strong>Beweis</strong>:</p>
+<p>Aus $1=\exp (0)=\exp (z-z) \stackrel{(4.1)}{=} \exp (z) \exp (-z)$ folgen (1) und (2).</p>
+<p>Aus der Definition der Exponentialfunktion folgt $\exp (x) \geq 1&gt;0, \forall x \in \mathbb{R}, x \geq 0$.</p>
+<p>Also folgt auch $\exp (-x)&gt;0 \forall x&lt;0$ wegen (1).</p>
+<p>Eigenschaft (4) folgt wegen</p>
+<script type="math/tex; mode=display">
+\exp (n)=\exp \left(\sum_{k=1}^{\infty} 1\right) \stackrel{(4.1)}{=} \prod_{k=1}^{n} \exp (1)</script><p>Eigenschaft (5) folgt aus</p>
+<script type="math/tex; mode=display">
+\exp (\bar{z})=\lim _{n \rightarrow \infty} \sum_{k=0}^{n} \frac{(\bar{z})^{k}}{k !}=\lim _{n \rightarrow n} \sum_{k=0}^{n} \frac{z^{k}}{k !}=\exp (z)</script><p>(denn es gilt: $\lim <em>{n \rightarrow \infty} z</em>{n}$ falls $\left(z_{n}\right)$ konvergiert.)</p>
+<p>Um Eigenschaft (6) zu zeigen, stellen wir fest, dass für $0 \leq x \leq y \in \mathbb{R}$ gilt: Ist $x \leq y \leq 0$ so ist $0 \leq-y \leq-x$ und wir haben</p>
+<script type="math/tex; mode=display">
+\frac{1}{\exp (y)}=\exp (-y) \leq \exp (-x)=\frac{1}{\exp (x)}</script><p>also $\exp (x) \leq \exp (y)$. Schließlich gilt</p>
+<script type="math/tex; mode=display">
+|\exp (z)|=\left|\sum_{k=0}^{\infty} \frac{z^{k}}{k !}\right| \leq \sum_{k=0}^{\infty} \frac{|z|^{k}}{k !}=\exp (z)</script><h2 id="Grenzwert-von-Funktionen-und-stetigkeit"><a href="#Grenzwert-von-Funktionen-und-stetigkeit" class="headerlink" title="Grenzwert von Funktionen und stetigkeit"></a>Grenzwert von Funktionen und stetigkeit</h2><p><strong>Definition 5.1 (Isolierter Punkt)</strong>:</p>
+<p>Sei $D \subseteq \mathbb{R}$. Sei $x<em>{0} \in D$. $x_0$ heißt <strong>isoliert</strong> in $D$, falls es keine Folge $(a_n)$ gibt, so dass $\lim a</em>{n}=x<em>{0}$ ind für jeden $n$, $a</em>{n} \in D \backslash\left{x_{0}\right}$.</p>
+<p><strong>Definition 5.2(Grenzwert einer Funktion)</strong>:</p>
+<p>Sei $f$ reellwertige Funktion $f$ mit Definitionsbereich $D \subseteq \mathbb{R}$ (kurz: $f: D \rightarrow \mathbb{R}$). Sei $x<em>{0} \in D$. $a$ heißt der Grenzwert von $f$ in $x_0$. Schreibweise $a=\lim </em>{x \rightarrow x<em>{0}} f(x)$, falls $x_0$ nicht isoliert, und jede gegen $x_0$ konvergierende Folge $(a_n)$ in $D \backslash\left{x</em>{0}\right}$ erfült $\lim <em>{n \rightarrow \infty} f\left(a</em>{n}\right)=x_{0}$.</p>
+<p><strong>Definition 5.3 (Stetige Funktionen)</strong>:</p>
+<p>Eine Reellwertige Funktion $f: D \rightarrow \mathbb{R}$ heißt <strong>stetig</strong> in einem Punkt $x<em>{0} \in D$, falls $\lim </em>{x \rightarrow x<em>{0}} f(x)=f\left(x</em>{0}\right)$, oder  $x_0$ ist isoliert. $f$ heißt stetig in $D$, falls $f$ stetig ist in $x$, $\forall x \in D$.</p>
+<p><strong>Lemma 5.4 (Alternative Grenzwert definition)</strong>:</p>
+<p>Sei $D \subseteq \mathbb{R}$, sei $f: D \rightarrow \mathbb{R}$ und sei $x<em>{0} \in D$ nicht isoliert. $\lim </em>{x \rightarrow x<em>0} f(x)=a$ genau dann, wenn für jeden $\epsilon&gt;0$ existiert $\delta&gt;0$, so dass für jeden $x \in\left(x</em>{0}-\delta, x<em>{0}+\delta\right) \cap\left(D \backslash\left{x</em>{0}\right}\right)$, wir haben $|f(x)-a|&lt;\epsilon$.</p>
+<p><strong>Beweis</strong>:</p>
+<p>$\Rightarrow:$ Falls es einen $\epsilon$ gibt, so dass für jeden $\delta&gt;0$ existiert $x<em>{\delta} \in\left(x</em>{0}-\delta, x<em>{0}+\right.\delta) \cap\left(D \backslash\left{x</em>{0}\right}\right)$ so dass $\left|f\left(x<em>{\delta}\right)-a\right| \geq \epsilon$, dann ist die Folge $\left(x</em>{1 / n}\right)$ ein Zeuge, dass $a$ nicht der Grenzwert ist.</p>
+<p>$\Leftarrow :$ Sei $(a<em>n)$ gegen $x_0$ konvergierende Folge, und sei $\epsilon&gt;0$. Sei $\delta&gt;0$ so dass für jeden $x \in\left(x</em>{0}-\delta, x<em>{0}+\delta\right) \cap\left(D \backslash\left{x</em>{0}\right}\right)$, wir haben $|f(x)-a|&lt;\epsilon$. Sei $N$ so groß, dass für jeden $n&gt;N,\left|a<em>{n}-x</em>{0}\right|&lt;\delta$. Dann für jeden $n&gt;N$ haben wir $\left|f\left(a<em>{n}\right)-a\right|&lt;\epsilon$ und deshalb $\lim </em>{n \rightarrow \infty} f\left(a_{n}\right)=a$.</p>
+<p><strong>Beispiel</strong>:</p>
+<script type="math/tex; mode=display">
+f(x)=\left\{\begin{array}{l}
+x, x \leq 0 \\
+x+1, x>0
+\end{array}\right.</script><p>$f$ ist stetig in $x$, falls $x \neq 0$</p>
+<p>$f$ ist nicht stetig in $x=0$</p>
+<p>Wählt man $D=(-\infty, 0]$, so ist $f$ stetig in $D$</p>
+<p>Wählt man $D=[0, \infty)$, so ist $f$ nach wir vor unstetig in $x=0$</p>
+<script type="math/tex; mode=display">
+f(x)=\frac{1}{x}, x>0</script><p>$f$ ist stetig in $(0,\infty)$, kann jedoch incht zu einer stetigen Funktion auf $[0, \infty)$ fortgesetzt werden.  (Da $f(x<em>n)$ gegen $\infty$ geht, falls $x</em>{n} \rightarrow 0$)</p>
+<p><strong>Satz 5.5</strong>:</p>
+<p>Seien $f, g$ reellertige Funktionen mit Definitionsbereich $D$. Sind $f$ und $g$ stetig in $x$, für ein $x \in D$ so sind auch $f+g, f-g, f \cdot g$ stetig in $x$ und $\frac{f}{g}$ ist stetig in $x$ falls $g(x) \neq 0$.</p>
+<p><strong>Beweis</strong>:</p>
+<p>后续补充</p>
+<p><strong>Satz 5.6 (Die Exponentialfunktion ist stetig auf $\mathbb{C}$)</strong>:</p>
+<p>Das heißt, für jede Folge $\left(z<em>{n}\right)$ mit Werten in $\mathbb{C}$ und $\left|z</em>{n}-z\right| \stackrel{n \rightarrow \infty}{\rightarrow} 0$ so gilt:</p>
+<script type="math/tex; mode=display">
+\left|\exp z_{n}-\exp z\right| \stackrel{n\rightarrow \infty}{\rightarrow} 0</script><p><strong>Beweis</strong>:</p>
+<p>后续补充 Skript上有</p>
+<p><strong>Satz 5.7(Komposition stetiger Funktionen)</strong>:</p>
+<p>Seien $f: D<em>{f} \rightarrow R$ und $g: D</em>{g} \rightarrow \mathbb{R}$ mit $f\left(D<em>{f}\right) \subseteq D</em>{g}(f(A)={f(x): x \in A})$. Ist $f$ stetig in $x$ und $g$ stetig in $f(x)$, so ist $g \circ f: D_{f} \rightarrow \mathbb{R}$ stetig in $x$. Wir schreiben $g \circ f$ für die Funktion $(g \circ f)(x)=g(f(x))$.</p>
+<p><strong>Beweis</strong>: Übung</p>
+<p><strong>Definition 5.8</strong>:</p>
+<p>Sei $f: D \rightarrow \mathbb{R}$. $f$ hat im Punkt $a \in D$ den linksseitigen Grenzwert $c$, d.h. $\lim _{x \rightarrow a^{-}} f(x)=c$</p>
+<p>Falls $f\left(x<em>{n}\right) \rightarrow c$ für jede Folge $\left(x</em>{n}\right) \subseteq D$ mit $x<em>{n} \rightarrow a$ und $x</em>{n}&lt;a, \forall n \in \mathbb{N}$</p>
+<p>$f$ heißt linksseitig stetig in $a$, falls $\lim <em>{x \rightarrow a^{-}} f(x)=c$ falls $f\left(x</em>{n}\right) \rightarrow c$ für jede Folge $\left(x<em>{n}\right) \subseteq D$ mit $x</em>{n} \rightarrow a$ und $x_{n}&lt;a, \forall n \in \mathbb{N}$</p>
+<p>$f$ heißt linksseitig in $a$, falls $\lim _{x \rightarrow a^{-}} f(x)=f(a)$</p>
+<p>Analog wird der rechsseitige Grenzwert definiert: $\lim _{x \rightarrow a^{+}} f(x)$</p>
+<p>Für die Funktion</p>
+<script type="math/tex; mode=display">
+f(x)=\left\{\begin{array}{ll}
+x, & x \leq 0 \\
+x+1, & x>0
+\end{array}\right.</script><p>gilt:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\lim _{x \rightarrow 0^{-}} & f(x)=0 \\
+\lim _{x \rightarrow 0^{+}} & f(x) =1
+\end{aligned}</script><p>Da $f(0)=0$ ist $f$ int 0 linksseitig stetig, aber nicht rechsseitig.</p>
+<p><strong>Fixpunktiteration</strong></p>
+<p>Wir wollen, für ein gegebenes $f$, $x=f(x)$ lösen.</p>
+<p>Eine Lösung von $x=f(x)$ heißt <strong>Fixpunkt</strong> von $f$. Wir setzen die Iteration $x<em>{n+1}=f\left(x</em>{n}\right)$, $x_0$ gegeben an und hoffen, dass (x_n) gegen eine Lösung von $x=f(x)$ konvergiert.</p>
+<p><strong>Beispel</strong>:</p>
+<p>后续补充</p>
+<h2 id="Komplexe-Zahlen-und-Trigonometrische-Funktionen"><a href="#Komplexe-Zahlen-und-Trigonometrische-Funktionen" class="headerlink" title="Komplexe Zahlen und Trigonometrische Funktionen"></a>Komplexe Zahlen und Trigonometrische Funktionen</h2><p>Wir betrachten den Einheits ${z:|z|=1}$ in $\mathbb{C}$ und identifizieren ihn it der Menge der Winkel ${x: 0 \leq x&lt;2 \pi}$. Dabei messen wir den Winkel im <strong>Bogenmaß</strong>.</p>
+<p>rechter Winkel: $\frac{\pi}{2}$</p>
+<p>Hablbreis: $\pi$</p>
+<p>Vollkreis: $2\pi$</p>
+<p><strong>Definition 6.1</strong></p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+\sin x:=\frac{\exp (i x)-\exp (-i x)}{2 i}=\sum_{n=0}^{\infty} \frac{(-1)^{n} x^{2 n+1}}{(2 n+1) !} \\
+\cos x:=\frac{\exp (i x)+\exp (-i x)}{2}=\sum_{n=0}^{\infty} \frac{(-1)^{n} x^{2 n}}{(2 n) !}
+\end{array}</script><p>Dann gilt $\sin 0=0, \cos 0=1$</p>
+<p><strong>Satz 6.2 (Beweis kommt später im Semester)</strong></p>
+<p>sin und cos sind periodisch, d.h. es existiert eine reelle Zahl $\pi$ so dass für $z \in \mathbb{C}$ gilt $\sin z+2 \pi=\sin z$, $\cos z+2 \pi=\cos z$</p>
+<p>Im Satz 6.2 haben wir die Zahl $\pi$ definiert. $\pi$ ist irrational, und ist ungefähr 3.14.</p>
+<p>Außerdem gilt:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\sin -x =-\sin x \\
+\cos -x =\cos x \\
+\sin x+\frac{\pi}{2} =\cos x \\
+\cos x+\frac{\pi}{2} =-\sin x
+\end{aligned}</script><p>Aus dem Satz von Pzthagoras folgt:</p>
+<script type="math/tex; mode=display">
+\sin ^{2} x+\cos ^{2} x=1</script>
